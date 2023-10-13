@@ -95,6 +95,7 @@ page 50102 "JCA Member Card"
                 Caption = 'Training Groups';
                 ApplicationArea = all;
                 SubPageLink = "Member License ID" = field("License ID");
+                UpdatePropagation = Both;
             }
         }
     }

@@ -41,4 +41,10 @@ table 50107 "JCA Training Group Member"
             Editable = false;
         }
     }
+
+    keys
+    {
+        key(PK; "Training Group Code", "Member License ID")
+        { }
+    }
 }

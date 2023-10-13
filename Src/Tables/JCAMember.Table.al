@@ -128,6 +128,12 @@ table 50101 "JCA Member"
         { }
     }
 
+    fieldgroups
+    {
+        fieldgroup(DropDown;"License ID","Full Name")
+        {}
+    }
+
     local procedure RemoveFromTrainingGroups()
     var
         JCATrainingGroupMember: record "JCA Training Group Member";
