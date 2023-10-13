@@ -46,7 +46,7 @@ table 50102 "JCA Cue"
         {
             Caption = 'Training Sessions Today';
             FieldClass = FlowField;
-            CalcFormula = count("JCA Training Session" where(Status = const(Closed), Date = field("Training Date Filter")));
+            CalcFormula = count("JCA Training Session" where(Status = const(Open), Date = field("Training Date Filter")));
             Editable = false;
         }
         field(8; "Training Date Filter"; Date)
