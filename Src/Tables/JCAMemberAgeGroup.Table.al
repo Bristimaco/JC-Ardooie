@@ -33,6 +33,7 @@ Table 50109 "JCA Member Age Group"
             Caption = 'Age Group Code';
             DataClassification = SystemMetadata;
             TableRelation = "JCA Age Group".Code where(Gender = field(Gender), "Country Code" = field("Country Code"));
+            ValidateTableRelation = false;
             Editable = false;
 
             trigger OnValidate()
@@ -53,5 +54,5 @@ Table 50109 "JCA Member Age Group"
     {
         key(PK; "Member License ID", "Country Code")
         { }
-    }    
+    }
 }

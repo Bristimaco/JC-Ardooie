@@ -54,6 +54,27 @@ table 50102 "JCA Cue"
             Caption = 'Trainging Date Filter';
             FieldClass = FlowFilter;
         }
+        field(9; "New Tournaments"; Integer)
+        {
+            Caption = 'New Tournaments';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event" where(Type = const(Tournament), Status = const(New)));
+            Editable = false;
+        }
+        field(10; "New Stages"; Integer)
+        {
+            Caption = 'New Stages';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event" where(Type = const(Stage), Status = const(New)));
+            Editable = false;
+        }
+        field(11; "New Chiai"; Integer)
+        {
+            Caption = 'New Chiai';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event" where(Type = const(Chiai), Status = const(New)));
+            Editable = false;
+        }
     }
 
     keys

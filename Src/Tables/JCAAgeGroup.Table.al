@@ -39,4 +39,19 @@ table 50104 "JCA Age Group"
         key(AgeGroupUpdate; "Country Code", Gender, "Max Age")
         { }
     }
+
+    fieldgroups
+    {
+        fieldgroup(DropDown; code, Description)
+        { }
+    }
+
+    procedure GetAgeGroupMembers(var JCAMemberAgeGroup: Record "JCA Member Age Group"): Boolean
+    begin
+        JCAMemberAgeGroup.Reset();
+        JCAMemberAgeGroup.setrange("Country Code", "Country Code");
+        JCAMemberAgeGroup.setrange("Age Group Code", Code);
+        JCAMemberAgeGroup.setrange(Gender, Gender);
+        exit(JCAMemberAgeGroup.findset());
+    end;
 }

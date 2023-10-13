@@ -1,53 +1,62 @@
-page 50110 "JCA Training Sessions"
+page 50116 "JCA Events"
 {
-    Caption = 'Training Sessions';
+    Caption = 'Events';
+    SourceTable = "JCA Event";
+    PageType = List;
     UsageCategory = Lists;
     ApplicationArea = all;
-    SourceTable = "JCA Training Session";
     Editable = false;
-    PageType = List;
 
     layout
     {
         area(Content)
         {
-            repeater(TrainingSessions)
+            repeater(Events)
             {
-                field(ID; Rec.ID)
+                field(Type; Rec.Type)
                 {
                     ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
-                    Visible = false;
+                    ToolTip = ' ', locked = true;
+                }
+                field(Description; Rec.Description)
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', locked = true;
                 }
                 field(Date; Rec.Date)
                 {
                     ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
+                    ToolTip = ' ', locked = true;
                 }
-                field("Training Group Code"; Rec."Training Group Code")
+                field("Country Code"; Rec."Country Code")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
-                field("Training Group Description"; Rec."Training Group Description")
+                field("Registration Deadline"; Rec."Registration Deadline")
                 {
                     ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
+                    ToolTip = ' ', locked = true;
                 }
                 field(Status; Rec.Status)
                 {
                     ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
+                    ToolTip = ' ', locked = true;
                 }
-                field("Potential Participants"; Rec."Potential Participants")
+                field("Potential Participants";Rec."Potential Participants")
                 {
                     ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
+                    ToolTip = ' ', locked = true;
                 }
-                field("Actual Participants"; Rec."Actual Participants")
+                field("Invited Participants";Rec."Invited Participants")
                 {
                     ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
+                    ToolTip = ' ', locked = true;
+                }
+                field("Registered Participants";Rec."Registered Participants")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', locked = true;
                 }
             }
         }
@@ -87,10 +96,10 @@ page 50110 "JCA Training Sessions"
 
                 trigger OnAction()
                 var
-                    JCATrainingManagement: Codeunit "JCA Training Management";
+                    JCAEventManagement: Codeunit "JCA Event Management";
                 begin
-                    clear(JCATrainingManagement);
-                    JCATrainingManagement.CreateNewTrainingSession(true);
+                    clear(JCAEventManagement);
+                    JCAEventManagement.CreateNewEvent(true);
                 end;
             }
         }

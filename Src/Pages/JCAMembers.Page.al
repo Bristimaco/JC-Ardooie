@@ -6,7 +6,6 @@ page 50101 "JCA Members"
     UsageCategory = Lists;
     PageType = List;
     CardPageId = "JCA Member Card";
-    Editable = false;
 
     layout
     {

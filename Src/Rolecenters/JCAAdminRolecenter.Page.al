@@ -17,6 +17,11 @@ page 50103 "JCA Admin Rolecenter"
                 Caption = 'Training Sessions';
                 ApplicationArea = all;
             }
+            part(Events; "JCA Event Cues")
+            {
+                Caption = 'Events';
+                ApplicationArea = all;
+            }
         }
     }
 
@@ -62,6 +67,14 @@ page 50103 "JCA Admin Rolecenter"
                 ApplicationArea = all;
                 ToolTip = ' ', Locked = true;
                 RunObject = page "JCA Training Sessions";
+                Image = History;
+            }
+            action(EventList)
+            {
+                Caption = 'Events';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                RunObject = page "JCA Events";
                 Image = History;
             }
         }

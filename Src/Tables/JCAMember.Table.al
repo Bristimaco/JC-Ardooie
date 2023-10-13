@@ -179,6 +179,7 @@ table 50101 "JCA Member"
                         JCAMemberAgeGroup.init();
                         JCAMemberAgeGroup.validate("Member License ID", "License ID");
                         JCAMemberAgeGroup.Validate("Country Code", CountryRegion.code);
+                        JCAMemberAgeGroup.calcfields(Gender);
                         JCAMemberAgeGroup.validate("Age Group Code", JCAAgeGroup.Code);
                         JCAMemberAgeGroup.Insert(True);
                     end;
