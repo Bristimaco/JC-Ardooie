@@ -3,7 +3,7 @@ page 50111 "JCA Training Session Cues"
     Caption = 'Training Sessions';
     SourceTable = "JCA Cue";
     PageType = CardPart;
-    RefreshOnActivate = true;    
+    RefreshOnActivate = true;
 
     layout
     {
@@ -13,12 +13,17 @@ page 50111 "JCA Training Session Cues"
             {
                 ShowCaption = false;
 
-                field("Open Training Sessions";Rec."Open Training Sessions")
+                field("Training Sessions Today";Rec."Training Sessions Today")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
-                field("Closed Training Sessions";Rec."Closed Training Sessions")
+                field("Open Training Sessions"; Rec."Open Training Sessions")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("Closed Training Sessions"; Rec."Closed Training Sessions")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
@@ -27,12 +32,13 @@ page 50111 "JCA Training Session Cues"
         }
     }
 
-    trigger OnOpenPage()    
+    trigger OnOpenPage()
     begin
         if Rec.IsEmpty() then begin
             Rec.init();
             Rec.insert();
         end;
         Rec.SetFilter("Date Filter", '=%1&<%2', 0D, Today());
+        Rec.SetRange("Training Date Filter", Today());
     end;
 }
