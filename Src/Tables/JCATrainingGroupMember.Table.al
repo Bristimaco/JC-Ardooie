@@ -12,7 +12,7 @@ table 50107 "JCA Training Group Member"
 
             trigger OnValidate()
             begin
-                CalcFields("Traing Group Description");
+                CalcFields("Training Group Description");
             end;
         }
         field(2; "Member License ID"; Code[20])
@@ -26,7 +26,7 @@ table 50107 "JCA Training Group Member"
                 CalcFields("Member Full Name");
             end;
         }
-        field(3; "Traing Group Description"; Text[50])
+        field(3; "Training Group Description"; Text[50])
         {
             Caption = 'Training Group Description';
             FieldClass = FlowField;

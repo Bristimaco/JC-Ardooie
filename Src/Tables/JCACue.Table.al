@@ -28,6 +28,20 @@ table 50102 "JCA Cue"
             CalcFormula = count("JCA Member" where("Active Member" = const(false), "Date Filter" = field("Date Filter")));
             Editable = false;
         }
+        field(5;"Open Training Sessions";Integer)
+        {
+            Caption = 'Open Training Sessions';
+            FieldClass =FlowField;
+            CalcFormula =count("JCA Training Session" where(Status = const(Open)));
+            Editable =false;
+        }
+        field(6;"Closed Training Sessions";Integer)
+        {
+            Caption = 'Open Training Sessions';
+            FieldClass =FlowField;
+            CalcFormula =count("JCA Training Session" where(Status = const(Closed)));
+            Editable =false;
+        }
     }
 
     keys

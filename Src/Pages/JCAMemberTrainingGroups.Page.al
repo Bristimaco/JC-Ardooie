@@ -17,7 +17,7 @@ page 50109 "JCA Member Training Groups"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
-                field("Traing Group Description"; Rec."Traing Group Description")
+                field("Training Group Description"; Rec."Training Group Description")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
