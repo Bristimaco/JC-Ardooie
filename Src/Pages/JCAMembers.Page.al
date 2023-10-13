@@ -24,17 +24,10 @@ page 50101 "JCA Members"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
-                field("Date of Birth"; Rec."Date of Birth")
+                field("E-Mail"; Rec."E-Mail")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
-                }
-                field("Active Member"; Rec."Active Member")
-                {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
-                    DrillDown = false;
-                    Lookup = false;
                 }
                 field("Member Type"; Rec."Member Type")
                 {
@@ -42,11 +35,6 @@ page 50101 "JCA Members"
                     ToolTip = ' ', Locked = true;
                 }
                 field(Age; Rec.Age)
-                {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
-                }
-                field("Age Group Description"; Rec."Age Group Description")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;

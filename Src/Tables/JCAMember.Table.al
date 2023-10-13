@@ -44,7 +44,7 @@ table 50101 "JCA Member"
 
             trigger OnValidate()
             begin
-                UpdateAgeGroup();
+                UpdateAgeGroups();
             end;
         }
         field(6; "Member Since"; Date)
@@ -88,7 +88,7 @@ table 50101 "JCA Member"
 
             trigger OnValidate()
             begin
-                UpdateAgeGroup();
+                UpdateAgeGroups();
             end;
         }
         field(11; Age; Integer)
@@ -97,28 +97,19 @@ table 50101 "JCA Member"
             DataClassification = SystemMetadata;
             Editable = false;
         }
-        field(12; "Age Group Code"; Code[10])
-        {
-            Caption = 'Age Group Code';
-            DataClassification = SystemMetadata;
-            TableRelation = "JCA Age Group".Code where(Gender = field(Gender));
-            Editable = false;
-
-            trigger OnValidate()
-            begin
-                CalcFields("Age Group Description");
-            end;
-        }
-        field(13; "Age Group Description"; text[30])
-        {
-            Caption = 'Age Group Description';
-            FieldClass = FlowField;
-            CalcFormula = lookup("JCA Age Group".Description where(Gender = field(Gender), Code = field("Age Group Code")));
-            Editable = false;
-        }
         field(14; "Member Type"; Enum "JCA Member Type")
         {
             Caption = 'Member Type';
+            DataClassification = SystemMetadata;
+        }
+        field(15; "E-Mail"; text[100])
+        {
+            Caption = 'E-Mail';
+            DataClassification = SystemMetadata;
+        }
+        field(16; "Phone No."; Text[30])
+        {
+            Caption = 'Phone No.';
             DataClassification = SystemMetadata;
         }
     }
@@ -129,8 +120,6 @@ table 50101 "JCA Member"
         { }
         key(AgeGroup1; "Date of Birth")
         { }
-        key(AgeGoup2; "Age Group Code")
-        { }
     }
 
     fieldgroups
@@ -138,6 +127,20 @@ table 50101 "JCA Member"
         fieldgroup(DropDown; "License ID", "Full Name")
         { }
     }
+
+    trigger OnDelete()
+    var
+        JCATrainingGroupMember: record "JCA Training Group Member";
+        JCAMemberAgeGroup: record "JCA Member Age Group";
+    begin
+        JCATrainingGroupMember.Reset();
+        JCATrainingGroupMember.setrange("Member License ID", "License ID");
+        JCATrainingGroupMember.deleteall(true);
+
+        JCAMemberAgeGroup.Reset();
+        JCAMemberAgeGroup.setrange("Member License ID", "License ID");
+        JCAMemberAgeGroup.deleteall(true);
+    end;
 
     local procedure RemoveFromTrainingGroups()
     var
@@ -155,19 +158,31 @@ table 50101 "JCA Member"
             validate("Full Name", "First Name" + ' ' + "Last Name");
     end;
 
-    local procedure UpdateAgeGroup()
+    procedure UpdateAgeGroups()
     var
         JCAAgeGroup: record "JCA Age Group";
+        CountryRegion: record "Country/Region";
+        JCAMemberAgeGroup: record "JCA Member Age Group";
         CurrentAge: Integer;
     begin
-        GetCurrentAgeGroup(JCAAgeGroup, CurrentAge, '');
-        if CurrentAge <> 0 then begin
-            validate(Age, CurrentAge);
-            validate("Age Group Code", JCAAgeGroup.Code);
-        end else begin
-            validate(Age, 0);
-            validate("Age Group Code", '');
-        end;
+        JCAMemberAgeGroup.Reset();
+        JCAMemberAgeGroup.setrange("Member License ID", "License ID");
+        JCAMemberAgeGroup.DeleteAll(true);
+
+        CountryRegion.Reset();
+        if CountryRegion.Findset() then
+            repeat
+                if GetCurrentAgeGroup(JCAAgeGroup, CurrentAge, CountryRegion.Code) then
+                    if CurrentAge <> 0 then begin
+                        validate(Age, CurrentAge);
+                        JCAMemberAgeGroup.Reset();
+                        JCAMemberAgeGroup.init();
+                        JCAMemberAgeGroup.validate("Member License ID", "License ID");
+                        JCAMemberAgeGroup.Validate("Country Code", CountryRegion.code);
+                        JCAMemberAgeGroup.validate("Age Group Code", JCAAgeGroup.Code);
+                        JCAMemberAgeGroup.Insert(True);
+                    end;
+            until CountryRegion.Next() = 0;
     end;
 
     procedure GetCurrentAgeGroup(var JCAAgeGroup: record "JCA Age Group"; var CurrentAge: Integer; CountryCode: code[10]): Boolean
@@ -203,6 +218,7 @@ table 50101 "JCA Member"
         JCAAgeGroup.Reset();
         JCAAgeGroup.SetCurrentKey("Country Code", Gender, "Max Age");
         JCAAgeGroup.setrange(Gender, Gender);
+        JCAAgeGroup.setrange("Country Code", CountryCode);
         JCAAgeGroup.SetFilter("Max Age", '>%1', CurrentAge - 1);
         exit(JCAAgeGroup.FindFirst());
     end;

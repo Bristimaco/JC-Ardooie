@@ -63,6 +63,36 @@ table 50105 "JCA Training Session"
         { }
     }
 
+    trigger OnDelete()
+    var
+        JCATrSessionParticipant: record "JCA Tr. Session Participant";
+    begin
+        JCATrSessionParticipant.Reset();
+        JCATrSessionParticipant.setrange("Training Session ID", ID);
+        JCATrSessionParticipant.deleteall(true);
+    end;
+
+    procedure OpenCard()
+    var
+        JCATrainingSession: record "JCA Training Session";
+        JCATrainingSessionCard: page "JCA Training Session Card";
+    begin
+        JCATrainingSession.Reset();
+        JCATrainingSession.setrange(ID, ID);
+        JCATrainingSession.findfirst();
+        clear(JCATrainingSessionCard);
+        JCATrainingSessionCard.SetRecord(JCATrainingSession);
+        JCATrainingSessionCard.Run();
+    end;
+
+    procedure CloseTrainingSession()
+    var
+        JCATrainingManagement: codeunit "JCA Training Management";
+    begin
+        Clear(JCATrainingManagement);
+        JCATrainingManagement.CloseTrainingSession(Rec);
+    end;
+
     procedure FetchParticipants()
     var
         JCATrainingGroupMember: record "JCA Training Group Member";

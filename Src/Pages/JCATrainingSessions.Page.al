@@ -4,7 +4,7 @@ page 50110 "JCA Training Sessions"
     UsageCategory = Lists;
     ApplicationArea = all;
     SourceTable = "JCA Training Session";
-    DelayedInsert = true;
+    Editable = false;
     PageType = List;
     CardPageId = "JCA Training Session Card";
 
@@ -33,22 +33,65 @@ page 50110 "JCA Training Sessions"
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
-                }      
-                field(Status;Rec.Status)
-                {
-                    ApplicationArea =all;
-                    ToolTip = ' ',Locked = true;
-                }      
-                field("Potential Participants";Rec."Potential Participants")
-                {
-                    ApplicationArea =all;
-                    ToolTip = ' ',Locked = true;
                 }
-                field("Actual Participants";Rec."Actual Participants")
+                field(Status; Rec.Status)
                 {
-                    ApplicationArea =all;
-                    ToolTip = ' ',Locked = true;
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
                 }
+                field("Potential Participants"; Rec."Potential Participants")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("Actual Participants"; Rec."Actual Participants")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+            }
+        }
+    }
+
+    actions
+    {
+        area(Processing)
+        {
+            action(Card)
+            {
+                Caption = 'Card';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                Image = Card;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+
+                trigger OnAction()
+                begin
+                    rec.OpenCard();
+                end;
+            }
+
+            action(New)
+            {
+                Caption = 'New';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                Image = New;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+
+                trigger OnAction()
+                var
+                    JCATrainingManagement: Codeunit "JCA Training Management";
+                begin
+                    clear(JCATrainingManagement);
+                    JCATrainingManagement.CreateNewTrainingSession(true);
+                end;
             }
         }
     }

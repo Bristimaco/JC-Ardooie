@@ -9,12 +9,12 @@ page 50103 "JCA Admin Rolecenter"
         {
             part(Members; "JCA Member Cues")
             {
-                Caption ='Members';
+                Caption = 'Members';
                 ApplicationArea = all;
             }
-            part(TrainingSessions;"JCA Training Session Cues")
+            part(TrainingSessions; "JCA Training Session Cues")
             {
-                Caption= 'Training Sessions';
+                Caption = 'Training Sessions';
                 ApplicationArea = all;
             }
         }
@@ -35,8 +35,8 @@ page 50103 "JCA Admin Rolecenter"
             action(TrainingGroups)
             {
                 Caption = 'Training Groups';
-                ApplicationArea= all;
-                ToolTip = ' ', Locked =true;
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
                 RunObject = page "JCA Training Groups";
                 Image = Group;
             }
@@ -55,7 +55,15 @@ page 50103 "JCA Admin Rolecenter"
                 ToolTip = ' ', Locked = true;
                 RunObject = page "JCA Weight Groups";
                 Image = Group;
-            }            
+            }
+            action(TrainingSessionList)
+            {
+                Caption = 'Training Sessions';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                RunObject = page "JCA Training Sessions";
+                Image = History;
+            }
         }
     }
 }

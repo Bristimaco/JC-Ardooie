@@ -20,7 +20,7 @@ table 50106 "JCA Training Group"
         {
             Caption = 'Members';
             FieldClass = FlowField;
-            CalcFormula = count("JCA Training Group Member" where ("Training Group Code" = field(Code)));
+            CalcFormula = count("JCA Training Group Member" where("Training Group Code" = field(Code)));
             Editable = false;
         }
     }
@@ -30,4 +30,13 @@ table 50106 "JCA Training Group"
         key(PK; Code)
         { }
     }
+
+    trigger OnDelete()
+    var
+        JCATrainingGroupMember: record "JCA Training Group Member";
+    begin
+        JCATrainingGroupMember.reset();
+        JCATrainingGroupMember.setrange("Training Group Code", Code);
+        JCATrainingGroupMember.deleteall(true);
+    end;
 }

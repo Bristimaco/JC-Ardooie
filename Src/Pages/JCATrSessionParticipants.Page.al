@@ -26,6 +26,11 @@ page 50112 "JCA Tr. Session Participants"
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
+
+                    trigger OnValidate()
+                    begin
+                        CurrPage.Update(true);
+                    end;
                 }
             }
         }

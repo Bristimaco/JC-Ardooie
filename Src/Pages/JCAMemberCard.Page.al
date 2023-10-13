@@ -34,15 +34,21 @@ page 50102 "JCA Member Card"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
-                field("Date of Birth"; Rec."Date of Birth")
+
+                group(ContactInformation)
                 {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
-                }
-                field(Gender; Rec.Gender)
-                {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
+                    Caption = 'Contact Information';
+
+                    field("E-Mail"; Rec."E-Mail")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                    field("Phone No."; Rec."Phone No.")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
                 }
             }
 
@@ -50,21 +56,28 @@ page 50102 "JCA Member Card"
             {
                 Caption = 'Characteristics';
 
+                field(Gender; Rec.Gender)
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("Date of Birth"; Rec."Date of Birth")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
                 field(Age; Rec.Age)
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
-                field("Age Group"; Rec."Age Group Code")
-                {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
-                }
-                field("Age Group Description"; Rec."Age Group Description")
-                {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
-                }
+            }
+
+            part(AgeGroups; "JCA Member Age Groups")
+            {
+                Caption = 'Age Groups';
+                ApplicationArea = all;
+                SubPageLink = "Member License ID" = field("License ID");
             }
 
             group(Membership)

@@ -40,4 +40,30 @@ page 50106 "JCA Age Groups"
             }
         }
     }
+
+    actions
+    {
+        area(Processing)
+        {
+            action(UpdateMemberAgeGroups)
+            {
+                Caption = 'Update Member Age Groups';
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+
+                trigger OnAction()
+                var
+                    JCADailyUpdates: Codeunit "JCA Daily Updates";
+                begin
+                    Clear(JCADailyUpdates);
+                    JCADailyUpdates.UpdateAgeGroupsOnMembers();
+                    Message('Member Age Groups have been Updated.')
+                end;
+            }
+        }
+    }
 }
