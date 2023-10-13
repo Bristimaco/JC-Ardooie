@@ -88,6 +88,11 @@ page 50102 "JCA Member Card"
                     DrillDown = false;
                     Lookup = false;
                 }
+                field("Member Type"; Rec."Member Type")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
             }
 
             part(TrainingGroups; "JCA Member Training Groups")

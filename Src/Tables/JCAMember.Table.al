@@ -63,7 +63,7 @@ table 50101 "JCA Member"
             DataClassification = SystemMetadata;
 
             trigger OnValidate()
-            begin                
+            begin
                 CalcFields("Active Member");
                 if not "Active Member" then
                     RemoveFromTrainingGroups();
@@ -115,7 +115,12 @@ table 50101 "JCA Member"
             FieldClass = FlowField;
             CalcFormula = lookup("JCA Age Group".Description where(Gender = field(Gender), Code = field("Age Group Code")));
             Editable = false;
-        }        
+        }
+        field(14; "Member Type"; Enum "JCA Member Type")
+        {
+            Caption = 'Member Type';
+            DataClassification = SystemMetadata;
+        }
     }
 
     keys
@@ -130,8 +135,8 @@ table 50101 "JCA Member"
 
     fieldgroups
     {
-        fieldgroup(DropDown;"License ID","Full Name")
-        {}
+        fieldgroup(DropDown; "License ID", "Full Name")
+        { }
     }
 
     local procedure RemoveFromTrainingGroups()
@@ -139,7 +144,7 @@ table 50101 "JCA Member"
         JCATrainingGroupMember: record "JCA Training Group Member";
     begin
         JCATrainingGroupMember.Reset();
-        JCATrainingGroupMember.setrange("Member License ID","License ID");
+        JCATrainingGroupMember.setrange("Member License ID", "License ID");
         JCATrainingGroupMember.DeleteAll(true);
     end;
 

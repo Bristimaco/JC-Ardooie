@@ -1,3 +1,4 @@
 .vscode/rad.json
 *.app
 .DS_Store
+.vscode/.alcache/*.json

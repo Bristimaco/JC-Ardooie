@@ -19,7 +19,8 @@ table 50107 "JCA Training Group Member"
         {
             Caption = 'Member License ID';
             DataClassification = SystemMetadata;
-            TableRelation = "JCA Member"."License ID" where("Active Member" = const(true));
+            TableRelation = "JCA Member"."License ID" where("Active Member" = const(true), "Member Type" = filter(Judoka | Both));
+            ValidateTableRelation = false;
 
             trigger OnValidate()
             begin
@@ -45,6 +46,12 @@ table 50107 "JCA Training Group Member"
     keys
     {
         key(PK; "Training Group Code", "Member License ID")
+        { }
+    }
+
+    fieldgroups
+    {
+        fieldgroup(DropDown; "Member License ID", "Member Full Name")
         { }
     }
 }

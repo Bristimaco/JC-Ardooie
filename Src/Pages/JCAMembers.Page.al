@@ -36,16 +36,21 @@ page 50101 "JCA Members"
                     DrillDown = false;
                     Lookup = false;
                 }
+                field("Member Type"; Rec."Member Type")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
                 field(Age; Rec.Age)
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
-                }                
+                }
                 field("Age Group Description"; Rec."Age Group Description")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
-                }                
+                }
             }
         }
     }

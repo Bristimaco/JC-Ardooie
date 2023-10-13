@@ -6,6 +6,7 @@ page 50110 "JCA Training Sessions"
     SourceTable = "JCA Training Session";
     DelayedInsert = true;
     PageType = List;
+    CardPageId = "JCA Training Session Card";
 
     layout
     {
@@ -38,6 +39,16 @@ page 50110 "JCA Training Sessions"
                     ApplicationArea =all;
                     ToolTip = ' ',Locked = true;
                 }      
+                field("Potential Participants";Rec."Potential Participants")
+                {
+                    ApplicationArea =all;
+                    ToolTip = ' ',Locked = true;
+                }
+                field("Actual Participants";Rec."Actual Participants")
+                {
+                    ApplicationArea =all;
+                    ToolTip = ' ',Locked = true;
+                }
             }
         }
     }
