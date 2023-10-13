@@ -114,6 +114,24 @@ table 50101 "JCA Member"
             CalcFormula = lookup("JCA Age Group".Description where(Gender = field(Gender), Code = field("Age Group Code")));
             Editable = false;
         }
+        field(14;"Training Group Code";Code[20])
+        {
+            Caption ='Training Group Code';
+            DataClassification = SystemMetadata;
+            TableRelation = "JCA Training Group";
+
+            trigger OnValidate()
+            begin
+                CalcFields("Traing Group Description");
+            end;
+        }
+        field(15;"Traing Group Description";Text[50])
+        {
+            Caption = 'Training Group Description';
+            FieldClass =FlowField;
+            CalcFormula = lookup("JCA Training Group".Description where(Code = field("Training Group Code")));
+            Editable =false;
+        }
     }
 
     keys

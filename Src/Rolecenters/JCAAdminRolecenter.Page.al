@@ -26,6 +26,14 @@ page 50103 "JCA Admin Rolecenter"
                 RunObject = page "Countries/Regions";
                 Image = CountryRegion;
             }
+            action(TrainingGroups)
+            {
+                Caption = 'Training Groups';
+                ApplicationArea= all;
+                ToolTip = ' ', Locked =true;
+                RunObject = page "JCA Training Groups";
+                Image = Group;
+            }
             action(AgeGroups)
             {
                 Caption = 'Age Groups';
@@ -41,7 +49,7 @@ page 50103 "JCA Admin Rolecenter"
                 ToolTip = ' ', Locked = true;
                 RunObject = page "JCA Weight Groups";
                 Image = Group;
-            }
+            }            
         }
     }
 }

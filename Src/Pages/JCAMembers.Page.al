@@ -40,15 +40,15 @@ page 50101 "JCA Members"
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
-                }
-                field("Age Group"; Rec."Age Group Code")
+                }                
+                field("Age Group Description"; Rec."Age Group Description")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
-                field("Age Group Description"; Rec."Age Group Description")
+                field("Traing Group Description";Rec."Traing Group Description")
                 {
-                    ApplicationArea = all;
+                    ApplicationArea =all;
                     ToolTip = ' ', Locked = true;
                 }
             }
