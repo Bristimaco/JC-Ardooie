@@ -45,12 +45,7 @@ page 50101 "JCA Members"
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
-                }
-                field("Traing Group Description";Rec."Traing Group Description")
-                {
-                    ApplicationArea =all;
-                    ToolTip = ' ', Locked = true;
-                }
+                }                
             }
         }
     }

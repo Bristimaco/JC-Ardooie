@@ -26,7 +26,14 @@ page 50107 "JCA Training Groups"
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
-                }
+                }                
+            }
+
+            part(TrainingGroupMembers;"JCA Training Group Members")
+            {
+                Caption = 'Members';
+                ApplicationArea =all;
+                SubPageLink = "Training Group Code" = field(Code);
             }
         }
     }

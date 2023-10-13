@@ -20,7 +20,7 @@ table 50106 "JCA Training Group"
         {
             Caption = 'Members';
             FieldClass = FlowField;
-            CalcFormula = count("JCA Member" where("Active Member" = const(true), "Training Group Code" = field(Code)));
+            CalcFormula = count("JCA Training Group Member" where ("Training Group Code" = field(Code)));
             Editable = false;
         }
     }
