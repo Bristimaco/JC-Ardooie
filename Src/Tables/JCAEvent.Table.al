@@ -66,7 +66,7 @@ table 50110 "JCA Event"
         }
         field(11; "Registered Participants"; Integer)
         {
-            Caption = 'Registerd Participants';
+            Caption = 'Registered Participants';
             FieldClass = FlowField;
             CalcFormula = count("JCA Event Participant" where("Event ID" = field(ID), Registered = const(true)));
             Editable = false;

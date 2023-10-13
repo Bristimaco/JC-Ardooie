@@ -155,7 +155,7 @@ table 50101 "JCA Member"
     begin
         "Full Name" := '';
         if ("First Name" <> '') and ("Last Name" <> '') then
-            validate("Full Name", "First Name" + ' ' + "Last Name");
+            validate("Full Name", "Last Name" + ' ' + "First Name");
     end;
 
     procedure UpdateAgeGroups()
