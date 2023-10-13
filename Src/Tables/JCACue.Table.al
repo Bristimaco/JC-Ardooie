@@ -37,7 +37,7 @@ table 50102 "JCA Cue"
         }
         field(6; "Closed Training Sessions"; Integer)
         {
-            Caption = 'Open Training Sessions';
+            Caption = 'Closed Training Sessions';
             FieldClass = FlowField;
             CalcFormula = count("JCA Training Session" where(Status = const(Closed)));
             Editable = false;

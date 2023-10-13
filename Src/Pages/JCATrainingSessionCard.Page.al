@@ -20,6 +20,11 @@ page 50113 "JCA Training Session Card"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field(Date; Rec.Date)
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
                 field("Training Group Code"; Rec."Training Group Code")
                 {
                     ApplicationArea = all;
