@@ -5,7 +5,7 @@ page 50113 "JCA Training Session Card"
     SourceTable = "JCA Training Session";
     InsertAllowed = false;
     DeleteAllowed = false;
-    DataCaptionFields = Date, "Training Group Description";
+    DataCaptionExpression = format(Rec.Date) + ' - ' + Rec."Training Group Description";
 
     layout
     {
@@ -19,6 +19,7 @@ page 50113 "JCA Training Session Card"
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
+                    Visible = false;
                 }
                 field(Date; Rec.Date)
                 {

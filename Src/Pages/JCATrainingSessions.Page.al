@@ -18,6 +18,7 @@ page 50110 "JCA Training Sessions"
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
+                    Visible = false;
                 }
                 field(Date; Rec.Date)
                 {
