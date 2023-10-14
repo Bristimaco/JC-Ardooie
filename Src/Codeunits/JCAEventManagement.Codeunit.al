@@ -48,6 +48,7 @@ codeunit 50102 "JCA Event Management"
     begin
         InviteEventSupervisors(JCAEvent);
         InvitePotentialParticipants(JCAEvent);
+        Message('All Invitations have been sent, please check if everyone has been invited');
     end;
 
     local procedure InviteEventSupervisors(JCAEvent: record "JCA Event")
@@ -58,7 +59,10 @@ codeunit 50102 "JCA Event Management"
         JCAEventSupervisor.setrange("Event ID", JCAEvent.ID);
         if JCAEventSupervisor.findset() then
             repeat
-                SendEventInvitationMail(JCAEventSupervisor."Member License ID", JCAEvent);
+                if SendEventInvitationMail(JCAEventSupervisor."Member License ID", JCAEvent) then begin
+                    JCAEventSupervisor.validate(Invited, true);
+                    JCAEventSupervisor.Modify(true);
+                end;
             until JCAEventSupervisor.Next() = 0;
     end;
 
@@ -70,15 +74,18 @@ codeunit 50102 "JCA Event Management"
         JCAEventParticipant.setrange("Event ID", JCAEvent.ID);
         if JCAEventParticipant.findset() then
             repeat
-                SendEventInvitationMail(JCAEventParticipant."Member License ID", JCAEvent);
+                if SendEventInvitationMail(JCAEventParticipant."Member License ID", JCAEvent) then begin
+                    JCAEventParticipant.validate(Invited, true);
+                    JCAEventParticipant.modify();
+                end;
             until JCAEventParticipant.Next() = 0;
     end;
 
-    local procedure SendEventInvitationMail(MemberLicenseID: code[20]; JCAEvent: record "JCA Event")
+    local procedure SendEventInvitationMail(MemberLicenseID: code[20]; JCAEvent: record "JCA Event"): Boolean
     var
         JCAMailManagement: Codeunit "JCA Mail Management";
     begin
         Clear(JCAMailManagement);
-        JCAMailManagement.SendEventInvitationMail(MemberLicenseID, JCAEvent);
+        exit(JCAMailManagement.SendEventInvitationMail(MemberLicenseID, JCAEvent));
     end;
 }

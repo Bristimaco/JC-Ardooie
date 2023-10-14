@@ -12,10 +12,20 @@ page 50100 "JCA Setup"
     {
         area(Content)
         {
-            group(General)
+            group(MailSystem)
             {
-                Caption = 'General';
-                            
+                Caption = 'Mail System';
+
+                field("Send Test Mails"; Rec."Send Test Mails")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("Test E-Mail Address"; Rec."Test E-Mail Address")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
             }
         }
     }

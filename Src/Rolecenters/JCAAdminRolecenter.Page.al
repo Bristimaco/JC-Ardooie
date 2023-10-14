@@ -29,6 +29,14 @@ page 50103 "JCA Admin Rolecenter"
     {
         area(Embedding)
         {
+            action(Setup)
+            {
+                Caption = 'Setup';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                RunObject = page "JCA Setup";
+                Image = Setup;
+            }
             action(Countries)
             {
                 Caption = 'Countries';
