@@ -32,7 +32,12 @@ page 50106 "JCA Age Groups"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
-                field("Max Age"; Rec."Max Age")
+                field("Minimum Age"; Rec."Minimum Age")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("Maximum Age"; Rec."Maximum Age")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;

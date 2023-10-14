@@ -67,8 +67,10 @@ page 50117 "JCA Event Card"
                 }
             }
 
-            group(EventContent)
+            group(EventSpecifics)
             {
+                Caption = 'Specifics';
+
                 part(AgeGroups; "JCA Event Age Groups")
                 {
                     Caption = 'Event Age Groups';

@@ -5,6 +5,7 @@ page 50102 "JCA Member Card"
     SourceTable = "JCA Member";
     PageType = Card;
     DelayedInsert = true;
+    DataCaptionExpression = Rec."License ID" + ' - ' + rec."Full Name";
 
     layout
     {
@@ -111,6 +112,13 @@ page 50102 "JCA Member Card"
             part(TrainingGroups; "JCA Member Training Groups")
             {
                 Caption = 'Training Groups';
+                ApplicationArea = all;
+                SubPageLink = "Member License ID" = field("License ID");
+                UpdatePropagation = Both;
+            }
+            part(Contacts; "JCA Member Contacts")
+            {
+                Caption = 'Contacts';
                 ApplicationArea = all;
                 SubPageLink = "Member License ID" = field("License ID");
                 UpdatePropagation = Both;

@@ -25,9 +25,14 @@ table 50104 "JCA Age Group"
             Caption = 'Description';
             DataClassification = SystemMetadata;
         }
-        field(5; "Max Age"; Integer)
+        field(5; "Maximum Age"; Integer)
         {
             Caption = 'Max. Age';
+            DataClassification = SystemMetadata;
+        }
+        field(6; "Minimum Age"; Integer)
+        {
+            Caption = 'Min. Age';
             DataClassification = SystemMetadata;
         }
     }
@@ -36,7 +41,7 @@ table 50104 "JCA Age Group"
     {
         key(PK; Code, "Country Code", Gender)
         { }
-        key(AgeGroupUpdate; "Country Code", Gender, "Max Age")
+        key(AgeGroupUpdate; "Country Code", Gender, "Maximum Age")
         { }
     }
 

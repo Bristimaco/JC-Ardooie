@@ -47,4 +47,18 @@ table 50113 "JCA Event Supervisor"
         key(PK; "Event ID", "Member License ID")
         { }
     }
+
+    procedure SendInvitationMail()
+    var
+        JCAEvent: Record "JCA Event";
+        JCAMailManagement: codeunit "JCA Mail Management";
+    begin
+        JCAEvent.Reset();
+        JCAEvent.Get(Rec."Event ID");
+        clear(JCAMailManagement);
+        if JCAMailManagement.SendEventInvitationMail(Rec."Member License ID", JCAEvent) then begin
+            Rec.Validate(Invited, true);
+            rec.Modify(true);
+        end;
+    end;
 }

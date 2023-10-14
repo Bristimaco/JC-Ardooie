@@ -34,4 +34,23 @@ page 50120 "JCA Event Supervisors"
             }
         }
     }
+
+    actions
+    {
+        area(Processing)
+        {
+            action(SendInvitation)
+            {
+                Caption = 'Send Invitation';
+                Image = SendMail;
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+
+                trigger OnAction()
+                begin
+                    Rec.SendInvitationMail();
+                end;                
+            }
+        }
+    }
 }

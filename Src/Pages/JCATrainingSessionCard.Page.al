@@ -4,7 +4,7 @@ page 50113 "JCA Training Session Card"
     PageType = Card;
     SourceTable = "JCA Training Session";
     InsertAllowed = false;
-    DeleteAllowed = false;
+    DeleteAllowed = true;
     DataCaptionExpression = format(Rec.Date) + ' - ' + Rec."Training Group Description";
 
     layout

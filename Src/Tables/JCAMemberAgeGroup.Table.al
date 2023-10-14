@@ -52,7 +52,7 @@ Table 50109 "JCA Member Age Group"
 
     keys
     {
-        key(PK; "Member License ID", "Country Code")
+        key(PK; "Member License ID", "Country Code", "Age Group Code")
         { }
     }
 }

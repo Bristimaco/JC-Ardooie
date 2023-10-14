@@ -180,6 +180,13 @@ table 50102 "JCA Cue"
             CalcFormula = count("JCA Event" where(Type = const(Chiai), Status = const(Archived)));
             Editable = false;
         }
+        field(27; "Contacts"; Integer)
+        {
+            Caption = 'Contacts';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Contact");
+            Editable = false;
+        }
     }
 
     keys

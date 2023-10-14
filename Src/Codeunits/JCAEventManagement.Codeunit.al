@@ -19,9 +19,8 @@ codeunit 50102 "JCA Event Management"
         JCAAgeGroup: record "JCA Age Group";
         JCAEventParticipant: record "JCA Event Participant";
     begin
-        //TODO: Debug the fetching mechanism
-
         JCAEventAgeGroup.Reset();
+        JCAEventAgeGroup.setrange("Event ID", JCAEvent.ID);
         if JCAEventAgeGroup.Findset() then
             repeat
                 JCAAgeGroup.Reset();

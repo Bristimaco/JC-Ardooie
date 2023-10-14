@@ -20,13 +20,17 @@ codeunit 50103 "JCA Member Management"
                 if GetCurrentAgeGroup(JCAMember, JCAAgeGroup, CurrentAge, CountryRegion.Code) then
                     if CurrentAge <> 0 then begin
                         JCAMember.validate(Age, CurrentAge);
-                        JCAMemberAgeGroup.Reset();
-                        JCAMemberAgeGroup.init();
-                        JCAMemberAgeGroup.validate("Member License ID", JCAMember."License ID");
-                        JCAMemberAgeGroup.Validate("Country Code", CountryRegion.code);
-                        JCAMemberAgeGroup.calcfields(Gender);
-                        JCAMemberAgeGroup.validate("Age Group Code", JCAAgeGroup.Code);
-                        JCAMemberAgeGroup.Insert(True);
+                        JCAMember.Modify(true);
+                        if JCAAgeGroup.Findset() then
+                            repeat
+                                JCAMemberAgeGroup.Reset();
+                                JCAMemberAgeGroup.init();
+                                JCAMemberAgeGroup.validate("Member License ID", JCAMember."License ID");
+                                JCAMemberAgeGroup.Validate("Country Code", CountryRegion.code);
+                                JCAMemberAgeGroup.calcfields(Gender);
+                                JCAMemberAgeGroup.validate("Age Group Code", JCAAgeGroup.Code);
+                                JCAMemberAgeGroup.Insert(True);
+                            until JCAAgeGroup.Next() = 0;
                     end;
             until CountryRegion.Next() = 0;
     end;
@@ -62,10 +66,11 @@ codeunit 50103 "JCA Member Management"
         CurrentAge := Currentyear - Birthyear;
 
         JCAAgeGroup.Reset();
-        JCAAgeGroup.SetCurrentKey("Country Code", Gender, "Max Age");
+        JCAAgeGroup.SetCurrentKey("Country Code", Gender, "Maximum Age");
         JCAAgeGroup.setrange(Gender, JCAMember.Gender);
         JCAAgeGroup.setrange("Country Code", CountryCode);
-        JCAAgeGroup.SetFilter("Max Age", '>%1', CurrentAge - 1);
-        exit(JCAAgeGroup.FindFirst());
+        JCAAgeGroup.SetFilter("Maximum Age", '>%1', CurrentAge - 1);
+        JCAAgeGroup.setfilter("Minimum Age", '<=%1', CurrentAge);
+        exit(JCAAgeGroup.Findset());
     end;
 }

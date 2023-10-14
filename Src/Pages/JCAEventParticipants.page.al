@@ -49,4 +49,23 @@ page 50119 "JCA Event Participants"
             }
         }
     }
+
+    actions
+    {
+        area(Processing)
+        {
+            action(SendInvitation)
+            {
+                Caption = 'Send Invitation';
+                Image = SendMail;
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+
+                trigger OnAction()
+                begin
+                    Rec.SendInvitationMail();
+                end;
+            }
+        }
+    }
 }

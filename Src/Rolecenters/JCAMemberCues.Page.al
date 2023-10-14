@@ -3,7 +3,7 @@ page 50104 "JCA Member Cues"
     Caption = 'Members';
     SourceTable = "JCA Cue";
     PageType = CardPart;
-    RefreshOnActivate = true;    
+    RefreshOnActivate = true;
 
     layout
     {
@@ -23,11 +23,16 @@ page 50104 "JCA Member Cues"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field(Contacts; Rec.Contacts)
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
             }
         }
     }
 
-    trigger OnOpenPage()    
+    trigger OnOpenPage()
     begin
         if Rec.IsEmpty() then begin
             Rec.init();
