@@ -99,4 +99,12 @@ table 50110 "JCA Event"
         clear(JCAEventManagement);
         JCAEventManagement.FetchEventParticipants(Rec);
     end;
+
+    procedure SendInvitations()
+    var
+        JCAEventManagement: codeunit "JCA Event Management";
+    begin
+        clear(JCAEventManagement);
+        JCAEventManagement.SendEventInvitations(Rec);
+    end;
 }

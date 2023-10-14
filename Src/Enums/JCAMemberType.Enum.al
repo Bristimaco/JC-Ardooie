@@ -10,6 +10,10 @@ enum 50102 "JCA Member Type"
     }
     value(2; Both)
     {
-        Caption ='Both';
+        Caption = 'Both';
+    }
+    value(3; Passive)
+    {
+        Caption = 'Passive';
     }
 }

@@ -43,4 +43,42 @@ codeunit 50102 "JCA Event Management"
                         until JCAMemberAgeGroup.Next() = 0;
             until JCAEventAgeGroup.Next() = 0;
     end;
+
+    procedure SendEventInvitations(JCAEvent: Record "JCA Event")
+    begin
+        InviteEventSupervisors(JCAEvent);
+        InvitePotentialParticipants(JCAEvent);
+    end;
+
+    local procedure InviteEventSupervisors(JCAEvent: record "JCA Event")
+    var
+        JCAEventSupervisor: record "JCA Event Supervisor";
+    begin
+        JCAEventSupervisor.Reset();
+        JCAEventSupervisor.setrange("Event ID", JCAEvent.ID);
+        if JCAEventSupervisor.findset() then
+            repeat
+                SendEventInvitationMail(JCAEventSupervisor."Member License ID", JCAEvent);
+            until JCAEventSupervisor.Next() = 0;
+    end;
+
+    local procedure InvitePotentialParticipants(JCAEvent: record "JCA Event")
+    var
+        JCAEventParticipant: record "JCA Event Participant";
+    begin
+        JCAEventParticipant.Reset();
+        JCAEventParticipant.setrange("Event ID", JCAEvent.ID);
+        if JCAEventParticipant.findset() then
+            repeat
+                SendEventInvitationMail(JCAEventParticipant."Member License ID", JCAEvent);
+            until JCAEventParticipant.Next() = 0;
+    end;
+
+    local procedure SendEventInvitationMail(MemberLicenseID: code[20]; JCAEvent: record "JCA Event")
+    var
+        JCAMailManagement: Codeunit "JCA Mail Management";
+    begin
+        Clear(JCAMailManagement);
+        JCAMailManagement.SendEventInvitationMail(MemberLicenseID, JCAEvent);
+    end;
 }

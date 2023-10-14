@@ -101,6 +101,11 @@ table 50101 "JCA Member"
         {
             Caption = 'Member Type';
             DataClassification = SystemMetadata;
+
+            trigger OnValidate()
+            begin
+                UpdateAgeGroups();
+            end;
         }
         field(15; "E-Mail"; text[100])
         {
@@ -160,67 +165,9 @@ table 50101 "JCA Member"
 
     procedure UpdateAgeGroups()
     var
-        JCAAgeGroup: record "JCA Age Group";
-        CountryRegion: record "Country/Region";
-        JCAMemberAgeGroup: record "JCA Member Age Group";
-        CurrentAge: Integer;
+        JCAMemberManagement: Codeunit "JCA Member Management";
     begin
-        JCAMemberAgeGroup.Reset();
-        JCAMemberAgeGroup.setrange("Member License ID", "License ID");
-        JCAMemberAgeGroup.DeleteAll(true);
-
-        CountryRegion.Reset();
-        if CountryRegion.Findset() then
-            repeat
-                if GetCurrentAgeGroup(JCAAgeGroup, CurrentAge, CountryRegion.Code) then
-                    if CurrentAge <> 0 then begin
-                        validate(Age, CurrentAge);
-                        JCAMemberAgeGroup.Reset();
-                        JCAMemberAgeGroup.init();
-                        JCAMemberAgeGroup.validate("Member License ID", "License ID");
-                        JCAMemberAgeGroup.Validate("Country Code", CountryRegion.code);
-                        JCAMemberAgeGroup.calcfields(Gender);
-                        JCAMemberAgeGroup.validate("Age Group Code", JCAAgeGroup.Code);
-                        JCAMemberAgeGroup.Insert(True);
-                    end;
-            until CountryRegion.Next() = 0;
-    end;
-
-    procedure GetCurrentAgeGroup(var JCAAgeGroup: record "JCA Age Group"; var CurrentAge: Integer; CountryCode: code[10]): Boolean
-    var
-        CountryRegion: record "Country/Region";
-        AgeGroupSwitchDate: Date;
-        AgeSwitchMonth: Integer;
-        PastAgeLimitSwitchDate: Boolean;
-        Birthyear: integer;
-        Currentyear: Integer;
-    begin
-        CurrentAge := 0;
-        if "Date of Birth" = 0D then
-            exit(false);
-
-        if CountryCode = '' then
-            AgeSwitchMonth := 1
-        else begin
-            CountryRegion.Reset();
-            CountryRegion.get(CountryCode);
-            AgeSwitchMonth := CountryRegion."JCA Age Group Switch Month";
-        end;
-        AgeGroupSwitchDate := DMY2Date(1, AgeSwitchMonth, Date2DMY(Today(), 3));
-
-        PastAgeLimitSwitchDate := false;
-        if AgeGroupSwitchDate >= Rec."Date of Birth" then
-            PastAgeLimitSwitchDate := true;
-
-        Birthyear := Date2DMY(Rec."Date of Birth", 3);
-        Currentyear := Date2DMY(Today(), 3);
-        CurrentAge := Currentyear - Birthyear;
-
-        JCAAgeGroup.Reset();
-        JCAAgeGroup.SetCurrentKey("Country Code", Gender, "Max Age");
-        JCAAgeGroup.setrange(Gender, Gender);
-        JCAAgeGroup.setrange("Country Code", CountryCode);
-        JCAAgeGroup.SetFilter("Max Age", '>%1', CurrentAge - 1);
-        exit(JCAAgeGroup.FindFirst());
+        clear(JCAMemberManagement);
+        JCAMemberManagement.UpdateAgeGroups(Rec);
     end;
 }

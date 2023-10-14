@@ -95,26 +95,9 @@ table 50105 "JCA Training Session"
 
     procedure FetchParticipants()
     var
-        JCATrainingGroupMember: record "JCA Training Group Member";
-        JCATrSessionParticipant: record "JCA Tr. Session Participant";
+        JCATrainingManagement: codeunit "JCA Training Management";
     begin
-        TestField(Status, Status::Open);
-        TestField("Training Group Code");
-
-        JCATrainingGroupMember.Reset();
-        JCATrainingGroupMember.setrange("Training Group Code", "Training Group Code");
-        if JCATrainingGroupMember.findset() then
-            repeat
-                JCATrSessionParticipant.reset();
-                JCATrSessionParticipant.setrange("Training Session ID", ID);
-                JCATrSessionParticipant.SetRange("Member License ID", JCATrainingGroupMember."Member License ID");
-                if JCATrSessionParticipant.IsEmpty() then begin
-                    JCATrSessionParticipant.Reset();
-                    JCATrSessionParticipant.init();
-                    JCATrSessionParticipant.validate("Training Session ID", ID);
-                    JCATrSessionParticipant.validate("Member License ID", JCATrainingGroupMember."Member License ID");
-                    JCATrSessionParticipant.insert(true);
-                end;
-            until JCATrainingGroupMember.Next() = 0;
+        clear(JCATrainingManagement);
+        JCATrainingManagement.FectchTrainingSessionParticipants(Rec);
     end;
 }

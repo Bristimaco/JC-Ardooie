@@ -56,23 +56,128 @@ table 50102 "JCA Cue"
         }
         field(9; "New Tournaments"; Integer)
         {
-            Caption = 'New Tournaments';
+            Caption = 'New';
             FieldClass = FlowField;
             CalcFormula = count("JCA Event" where(Type = const(Tournament), Status = const(New)));
             Editable = false;
         }
         field(10; "New Stages"; Integer)
         {
-            Caption = 'New Stages';
+            Caption = 'New';
             FieldClass = FlowField;
             CalcFormula = count("JCA Event" where(Type = const(Stage), Status = const(New)));
             Editable = false;
         }
         field(11; "New Chiai"; Integer)
         {
-            Caption = 'New Chiai';
+            Caption = 'New';
             FieldClass = FlowField;
             CalcFormula = count("JCA Event" where(Type = const(Chiai), Status = const(New)));
+            Editable = false;
+        }
+        field(12; "Tournaments (Inv. Sent)"; Integer)
+        {
+            Caption = 'Invitation Sent';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event" where(Type = const(Tournament), Status = const("Invitations Sent")));
+            Editable = false;
+        }
+        field(13; "Stages (Inv. Sent)"; Integer)
+        {
+            Caption = 'Invitation Sent';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event" where(Type = const(Stage), Status = const("Invitations Sent")));
+            Editable = false;
+        }
+        field(14; "Chiai (Inv. Sent)"; Integer)
+        {
+            Caption = 'Invitation Sent';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event" where(Type = const(Chiai), Status = const("Invitations Sent")));
+            Editable = false;
+        }
+        field(15; "Tournaments (Reg)"; Integer)
+        {
+            Caption = 'Invitation Sent';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event" where(Type = const(Tournament), Status = const("Open for Registrations")));
+            Editable = false;
+        }
+        field(16; "Stages (Reg))"; Integer)
+        {
+            Caption = 'Invitation Sent';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event" where(Type = const(Stage), Status = const("Open for Registrations")));
+            Editable = false;
+        }
+        field(17; "Chiai (Reg)"; Integer)
+        {
+            Caption = 'Invitation Sent';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event" where(Type = const(Chiai), Status = const("Open for Registrations")));
+            Editable = false;
+        }
+        field(18; "Tournaments (RegClosed)"; Integer)
+        {
+            Caption = 'Registrations Closed';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event" where(Type = const(Tournament), Status = const("Registrations Closed")));
+            Editable = false;
+        }
+        field(19; "Stages (RegClosed))"; Integer)
+        {
+            Caption = 'Registrations Closed';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event" where(Type = const(Stage), Status = const("Registrations Closed")));
+            Editable = false;
+        }
+        field(20; "Chiai (RegClosed)"; Integer)
+        {
+            Caption = 'Registrations Closed';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event" where(Type = const(Chiai), Status = const("Registrations Closed")));
+            Editable = false;
+        }
+        field(21; "Tournaments (RegProc)"; Integer)
+        {
+            Caption = 'Registrations Processed';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event" where(Type = const(Tournament), Status = const("Registrations Processed")));
+            Editable = false;
+        }
+        field(22; "Stages (RegProc))"; Integer)
+        {
+            Caption = 'Registrations Processed';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event" where(Type = const(Stage), Status = const("Registrations Processed")));
+            Editable = false;
+        }
+        field(23; "Chiai (RecProc)"; Integer)
+        {
+            Caption = 'Registrations Processed';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event" where(Type = const(Chiai), Status = const("Registrations Processed")));
+            Editable = false;
+        }
+        field(24; "Tournaments (Archived)"; Integer)
+        {
+            Caption = 'Archived';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event" where(Type = const(Tournament), Status = const(Archived)));
+            Editable = false;
+        }
+        field(25; "Stages (Archived))"; Integer)
+        {
+            Caption = 'Archived';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event" where(Type = const(Stage), Status = const(Archived)));
+            Editable = false;
+        }
+        field(26; "Chiai (Archived)"; Integer)
+        {
+            Caption = 'Archived';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event" where(Type = const(Chiai), Status = const(Archived)));
             Editable = false;
         }
     }

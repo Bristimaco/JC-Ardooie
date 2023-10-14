@@ -67,12 +67,22 @@ page 50117 "JCA Event Card"
                 }
             }
 
-            part(AgeGroups; "JCA Event Age Groups")
+            group(EventContent)
             {
-                Caption = 'Event Age Groups';
-                SubPageLink = "Event ID" = field(ID);
-                ApplicationArea = all;
-                UpdatePropagation = both;
+                part(AgeGroups; "JCA Event Age Groups")
+                {
+                    Caption = 'Event Age Groups';
+                    SubPageLink = "Event ID" = field(ID);
+                    ApplicationArea = all;
+                    UpdatePropagation = Both;
+                }
+                part(EventSupervisors; "JCA Event Supervisors")
+                {
+                    Caption = 'Event Supervisors';
+                    SubPageLink = "Event ID" = field(ID);
+                    ApplicationArea = all;
+                    UpdatePropagation = Both;
+                }
             }
 
             Part(Participants; "JCA Event Participants")
@@ -98,10 +108,28 @@ page 50117 "JCA Event Card"
                 PromotedCategory = Process;
                 PromotedIsBig = true;
                 PromotedOnly = true;
+                Image = GetEntries;
 
                 trigger OnAction()
                 begin
                     Rec.FetchParticipants();
+                    CurrPage.Update();
+                end;
+            }
+            action(SendInvitations)
+            {
+                Caption = 'Send Invitations';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                Image = SendMail;
+
+                trigger OnAction()
+                begin
+                    Rec.SendInvitations();
                     CurrPage.Update();
                 end;
             }
