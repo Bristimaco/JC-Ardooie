@@ -98,21 +98,21 @@ table 50102 "JCA Cue"
         }
         field(15; "Tournaments (Reg)"; Integer)
         {
-            Caption = 'Invitation Sent';
+            Caption = 'Open for Registrations';
             FieldClass = FlowField;
             CalcFormula = count("JCA Event" where(Type = const(Tournament), Status = const("Open for Registrations")));
             Editable = false;
         }
         field(16; "Stages (Reg))"; Integer)
         {
-            Caption = 'Invitation Sent';
+            Caption = 'Open for Registrations';
             FieldClass = FlowField;
             CalcFormula = count("JCA Event" where(Type = const(Stage), Status = const("Open for Registrations")));
             Editable = false;
         }
         field(17; "Chiai (Reg)"; Integer)
         {
-            Caption = 'Invitation Sent';
+            Caption = 'Open for Registrations';
             FieldClass = FlowField;
             CalcFormula = count("JCA Event" where(Type = const(Chiai), Status = const("Open for Registrations")));
             Editable = false;

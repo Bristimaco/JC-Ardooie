@@ -106,5 +106,7 @@ table 50110 "JCA Event"
     begin
         clear(JCAEventManagement);
         JCAEventManagement.SendEventInvitations(Rec);
+        Rec.validate(Status, status::"Invitations Sent");
+        Rec.modify(true);
     end;
 }
