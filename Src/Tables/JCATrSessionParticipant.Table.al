@@ -4,18 +4,18 @@ table 50108 "JCA Tr. Session Participant"
 
     fields
     {
-        field(1; "Training Session ID"; Integer)
+        field(1; "Training Session No."; Code[20])
         {
-            Caption = 'Training Session ID';
+            Caption = 'Training Session No.';
             DataClassification = SystemMetadata;
-            TableRelation = "JCA Training Session".ID;
+            TableRelation = "JCA Training Session"."No.";
 
             trigger OnValidate()
             var
                 JCATrainingSession: record "JCA Training Session";
             begin
                 JCATrainingSession.Reset();
-                if JCATrainingSession.get(JCATrainingSession.ID) then
+                if JCATrainingSession.get(JCATrainingSession."No.") then
                     Validate("Training Group Code", JCATrainingSession."Training Group Code");
             end;
         }
@@ -34,7 +34,7 @@ table 50108 "JCA Tr. Session Participant"
         {
             Caption = 'Training Group Code';
             FieldClass = FlowField;
-            CalcFormula = lookup("JCA Training Session"."Training Group Code" where(ID = field("Training Session ID")));
+            CalcFormula = lookup("JCA Training Session"."Training Group Code" where("No." = field("Training Session No.")));
             Editable = false;
         }
         field(4; "Member Full Name"; Text[150])
@@ -53,7 +53,7 @@ table 50108 "JCA Tr. Session Participant"
 
     keys
     {
-        key(PK; "Training Session ID", "Member License ID")
+        key(PK; "Training Session No.", "Member License ID")
         { }
     }
 }

@@ -15,7 +15,7 @@ page 50113 "JCA Training Session Card"
             {
                 Caption = 'General';
 
-                field(ID; Rec.ID)
+                field(ID; Rec."No.")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
@@ -52,7 +52,7 @@ page 50113 "JCA Training Session Card"
             {
                 Caption = 'Participants';
                 ApplicationArea = all;
-                SubPageLink = "Training Session ID" = field(ID);
+                SubPageLink = "Training Session No." = field("No.");
                 UpdatePropagation = Both;
             }
         }

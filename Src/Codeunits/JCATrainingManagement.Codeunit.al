@@ -5,7 +5,7 @@ codeunit 50101 "JCA Training Management"
         JCATrainingSession: Record "JCA Training Session";
     begin
         JCATrainingSession.Reset();
-        JCATrainingSession.ID := 0;
+        JCATrainingSession."No." := '';
         JCATrainingSession.insert(true);
         if OpenTrainingSessionCard then begin
             JCATrainingSession.OpenCard();
@@ -31,12 +31,12 @@ codeunit 50101 "JCA Training Management"
         if JCATrainingGroupMember.findset() then
             repeat
                 JCATrSessionParticipant.reset();
-                JCATrSessionParticipant.setrange("Training Session ID", JCATrainingSession.ID);
+                JCATrSessionParticipant.setrange("Training Session No.", JCATrainingSession."No.");
                 JCATrSessionParticipant.SetRange("Member License ID", JCATrainingGroupMember."Member License ID");
                 if JCATrSessionParticipant.IsEmpty() then begin
                     JCATrSessionParticipant.Reset();
                     JCATrSessionParticipant.init();
-                    JCATrSessionParticipant.validate("Training Session ID", JCATrainingSession.ID);
+                    JCATrSessionParticipant.validate("Training Session No.", JCATrainingSession."No.");
                     JCATrSessionParticipant.validate("Member License ID", JCATrainingGroupMember."Member License ID");
                     JCATrSessionParticipant.insert(true);
                 end;

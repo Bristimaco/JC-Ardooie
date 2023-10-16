@@ -12,6 +12,17 @@ page 50100 "JCA Setup"
     {
         area(Content)
         {
+            group(NoSeries)
+            {
+                Caption = 'Number Series';
+
+                field("Training Session Nos."; Rec."Training Session Nos.")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+            }
+
             group(MailSystem)
             {
                 Caption = 'Mail System';

@@ -13,7 +13,7 @@ page 50110 "JCA Training Sessions"
         {
             repeater(TrainingSessions)
             {
-                field(ID; Rec.ID)
+                field(ID; Rec."No.")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;

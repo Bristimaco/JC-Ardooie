@@ -6,11 +6,10 @@ table 50105 "JCA Training Session"
 
     fields
     {
-        field(1; ID; Integer)
+        field(1; "No."; Code[20])
         {
-            Caption = 'ID';
+            Caption = 'No.';
             DataClassification = SystemMetadata;
-            AutoIncrement = true;
         }
         field(2; Date; Date)
         {
@@ -45,30 +44,41 @@ table 50105 "JCA Training Session"
         {
             Caption = 'Potential Participants';
             FieldClass = FlowField;
-            CalcFormula = count("JCA Tr. Session Participant" where("Training Session ID" = field(ID)));
+            CalcFormula = count("JCA Tr. Session Participant" where("Training Session No." = field("No.")));
             Editable = false;
         }
         field(7; "Actual Participants"; Integer)
         {
             Caption = 'Actual Participants';
             FieldClass = FlowField;
-            CalcFormula = count("JCA Tr. Session Participant" where("Training Session ID" = field(ID), Participation = const(true)));
+            CalcFormula = count("JCA Tr. Session Participant" where("Training Session No." = field("No."), Participation = const(true)));
             Editable = false;
         }
     }
 
     keys
     {
-        key(PK; ID)
+        key(PK; "No.")
         { }
     }
+
+    trigger OnInsert()
+    var
+        JCASetup: Record "JCA Setup";
+        NoSeriesManagement: codeunit NoSeriesManagement;
+    begin
+        JCASetup.Reset();
+        JCASetup.get();
+        JCASetup.testfield("Training Session Nos.");
+        Validate("No.", NoSeriesManagement.GetNextNo(JCASetup."Training Session Nos.", Today(), true));
+    end;
 
     trigger OnDelete()
     var
         JCATrSessionParticipant: record "JCA Tr. Session Participant";
     begin
         JCATrSessionParticipant.Reset();
-        JCATrSessionParticipant.setrange("Training Session ID", ID);
+        JCATrSessionParticipant.setrange("Training Session No.", "No.");
         JCATrSessionParticipant.deleteall(true);
     end;
 
@@ -78,7 +88,7 @@ table 50105 "JCA Training Session"
         JCATrainingSessionCard: page "JCA Training Session Card";
     begin
         JCATrainingSession.Reset();
-        JCATrainingSession.setrange(ID, ID);
+        JCATrainingSession.setrange("No.", "No.");
         JCATrainingSession.findfirst();
         clear(JCATrainingSessionCard);
         JCATrainingSessionCard.SetRecord(JCATrainingSession);

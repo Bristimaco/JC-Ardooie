@@ -19,6 +19,12 @@ table 50100 "JCA Setup"
             Caption = 'Test E-Mail Address';
             DataClassification = SystemMetadata;
         }
+        field(4; "Training Session Nos."; code[20])
+        {
+            Caption = 'Training Session Nos.';
+            DataClassification = SystemMetadata;
+            TableRelation = "No. Series".Code;
+        }
     }
 
     keys
