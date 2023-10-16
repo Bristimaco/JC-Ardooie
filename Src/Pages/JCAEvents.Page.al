@@ -43,17 +43,17 @@ page 50116 "JCA Events"
                     ApplicationArea = all;
                     ToolTip = ' ', locked = true;
                 }
-                field("Potential Participants";Rec."Potential Participants")
+                field("Potential Participants"; Rec."Potential Participants")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', locked = true;
                 }
-                field("Invited Participants";Rec."Invited Participants")
+                field("Invited Participants"; Rec."Invited Participants")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', locked = true;
                 }
-                field("Registered Participants";Rec."Registered Participants")
+                field("Registered Participants"; Rec."Registered Participants")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', locked = true;

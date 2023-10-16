@@ -78,13 +78,21 @@ page 50117 "JCA Event Card"
                     ApplicationArea = all;
                     UpdatePropagation = Both;
                 }
-                part(EventSupervisors; "JCA Event Supervisors")
+
+                part(EventDocuments; "JCA Event Documents")
                 {
-                    Caption = 'Event Supervisors';
-                    SubPageLink = "Event No." = field("No.");
+                    Caption = 'Documents';
                     ApplicationArea = all;
-                    UpdatePropagation = Both;
+                    SubPageLink = "Event No." = field("No.");
                 }
+            }
+
+            part(EventSupervisors; "JCA Event Supervisors")
+            {
+                Caption = 'Event Supervisors';
+                SubPageLink = "Event No." = field("No.");
+                ApplicationArea = all;
+                UpdatePropagation = Both;
             }
 
             Part(Participants; "JCA Event Participants")

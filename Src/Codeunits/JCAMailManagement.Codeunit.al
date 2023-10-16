@@ -3,11 +3,17 @@ codeunit 50104 "JCA Mail Management"
     procedure SendEventInvitationMail(MemberLicenseID: code[20]; JCAEvent: record "JCA Event"): Boolean
     var
         JCAMember: Record "JCA Member";
+        JCAEventDocument: record "JCA Event Document";
         MailManagement: codeunit "Mail Management";
+        EmailMessage: codeunit "Email Message";
+        Email: codeunit Email;
+        InStream: InStream;
         SendToMail: text[100];
         SendToCCList: list of [Text[100]];
         MailBody: TextBuilder;
         MailSubject: Text;
+        AttachmentName: Text[250];
+        CCEMail: text[100];
     begin
         JCAMember.Reset();
         JCAMember.get(MemberLicenseID);
@@ -23,9 +29,24 @@ codeunit 50104 "JCA Mail Management"
 
         CollectCCMAilAddresses(JCAMember, SendToCCList);
 
-        CreateEventInvitationMailContent(JCAMember, JCAEvent, MailSubject, MailBody);
+        CreateEventInvitationMailContent(JCAMember, JCAEvent, MailSubject, MailBody, JCAEventDocument);
 
-        exit(SendMail(SendToMail, SendToCCList, MailSubject, MailBody));
+        clear(EmailMessage);
+        EmailMessage.Create(SendToMail, MailSubject, MailBody.ToText());
+        foreach CCEmail in SendToCCList do
+            EmailMessage.AddRecipient(enum::"Email Recipient Type"::Cc, CCEMail);
+
+        if JCAEventDocument.findset() then
+            repeat
+                AttachmentName := JCAEventDocument."Event No." + '-' + format(JCAEventDocument."Document No.") + '.' + JCAEventDocument.Extension;
+                JCAEventDocument.CalcFields("Document Content");
+                JCAEventDocument."Document Content".CreateInStream(InStream);
+                EMailMessage.AddAttachment(AttachmentName, JCAEventDocument.Extension, InStream);
+            until JCAEventDocument.Next() = 0;
+
+
+        clear(Email);
+        exit(Email.Send(EmailMessage, enum::"Email Scenario"::Default));
     end;
 
     local procedure CheckForMailSystemTest(var SendToMail: text[100])
@@ -62,22 +83,7 @@ codeunit 50104 "JCA Mail Management"
             until JCAMemberContact.Next() = 0;
     end;
 
-    local procedure SendMail(SendToMail: text[100]; SendToCCMail: list of [Text[100]]; MailSubject: text; MailBody: TextBuilder): Boolean
-    var
-        EmailMessage: codeunit "Email Message";
-        Email: codeunit Email;
-        CCEMail: text[100];
-    begin
-        clear(EmailMessage);
-        EmailMessage.Create(SendToMail, MailSubject, MailBody.ToText());
-        foreach CCEmail in SendToCCMail do
-            EmailMessage.AddRecipient(enum::"Email Recipient Type"::Cc, CCEMail);
-
-        clear(Email);
-        exit(Email.Send(EmailMessage, enum::"Email Scenario"::Default));
-    end;
-
-    local procedure CreateEventInvitationMailContent(JCAMember: record "JCA Member"; JCAEvent: record "JCA Event"; var MailSubject: Text; var MailBody: TextBuilder)
+    local procedure CreateEventInvitationMailContent(JCAMember: record "JCA Member"; JCAEvent: record "JCA Event"; var MailSubject: Text; var MailBody: TextBuilder; var JCAEventDocument: record "JCA Event Document")
     var
         InvitationSubjectLbl: label 'Invitation for %1 - %2';
     begin
@@ -95,5 +101,14 @@ codeunit 50104 "JCA Mail Management"
         MailBody.AppendLine('Met vriendelijke groeten,');
         MailBody.AppendLine();
         MailBody.AppendLine('Judo Ardooie');
+
+        CollectEventAttachments(JCAEvent, JCAEventDocument);
+    end;
+
+    local procedure CollectEventAttachments(JCAEvent: record "JCA Event"; var JCAEventDocument: record "JCA Event Document")
+    begin
+        JCAEventDocument.Reset();
+        JCAEventDocument.setrange("Event No.", JCAEvent."No.");
+        JCAEventDocument.setrange("Add in Mails", true);
     end;
 }
