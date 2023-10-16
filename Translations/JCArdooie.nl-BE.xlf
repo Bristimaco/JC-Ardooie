@@ -345,6 +345,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3860414336 - Method 2464189421 - NamedType 3742742375" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to set the Event to status In Progress?</source>
+          <target>Wilt u het Evenement in de status Bezig zetten?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event - Method OpenSupervisorSheet - NamedType SetToInProgressQst</note>
+        </trans-unit>
         <trans-unit id="Table 3860414336 - Field 809954577 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Age Groups</source>
           <target>Leeftijdsgroepen</target>
@@ -1471,6 +1477,18 @@
           <target>Geslacht</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Supervisor Sheet - Control Gender - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4077158621 - Action 1528185918 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Archive Event</source>
+          <target>Evenement Archiveren</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Supervisor Sheet - Action Archive - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4077158621 - Action 1528185918 - Method 1377591017 - NamedType 1333961654" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Are you sure?</source>
+          <target>Weet u het zeker?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Supervisor Sheet - Action Archive - Method OnAction - NamedType AreYouSureQst</note>
         </trans-unit>
         <trans-unit id="Page 3586166625 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Supervisors</source>

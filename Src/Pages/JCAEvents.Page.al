@@ -94,7 +94,7 @@ page 50116 "JCA Events"
                 PromotedOnly = true;
 
                 trigger OnAction()
-                begin
+                begin                    
                     rec.OpenSupervisorSheet();
                 end;
             }

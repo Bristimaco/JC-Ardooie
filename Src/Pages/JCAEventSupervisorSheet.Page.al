@@ -85,6 +85,37 @@ page 50127 "JCA Event Supervisor Sheet"
         }
     }
 
+    actions
+    {
+        area(Processing)
+        {
+            action(Archive)
+            {
+                Caption = 'Archive Event';
+                Image = Archive;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+
+                trigger OnAction()
+                var
+                    JCAEvent: record "JCA Event";
+                    AreYouSureQst: label 'Are you sure?';
+                begin
+                    if not Confirm(AreYouSureQst) then
+                        exit;
+                    JCAEvent.reset();
+                    JCAEvent.get(rec."Event No.");
+                    JCAEvent.Validate(Status, JCAEvent.status::Archived);
+                    JCAEvent.modify(true);
+                end;
+            }
+        }
+    }
+
     var
         AgeGroup: Code[20];
         Gender: text;

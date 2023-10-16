@@ -136,8 +136,20 @@ table 50110 "JCA Event"
     var
         JCAEventParticipant: record "JCA Event Participant";
         JCAEventSupervisorSheet: page "JCA Event Supervisor Sheet";
+        SetToInProgressQst: Label 'Do you want to set the Event to status In Progress?';
     begin
-        TestField(status, status::"In Progress");
+        if not (rec.status in [rec.status::"Registrations Processed", rec.status::"In Progress"]) then
+            exit;
+
+        if Rec.Status <> rec.Status::"In Progress" then
+            if not Confirm(SetToInProgressQst) then
+                exit;
+        if rec.Status <> rec.status::"In Progress" then begin
+            rec.Validate(Status, rec.status::"In Progress");
+            rec.modify(true);
+        end;
+
+        Rec.TestField(status, rec.status::"In Progress");
 
         JCAEventParticipant.Reset();
         JCAEventParticipant.setrange("Event No.", "No.");
