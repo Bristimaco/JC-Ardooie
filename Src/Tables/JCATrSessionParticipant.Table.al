@@ -107,4 +107,12 @@ table 50108 "JCA Tr. Session Participant"
         key(PK; "Training Session No.", "Member License ID")
         { }
     }
+
+    procedure ProcessTrainingAttendeeScan(AttendeeLicenseID: code[20])
+    var
+        JCATrainingManagement: Codeunit "JCA Training Management";
+    begin
+        Clear(JCATrainingManagement);
+        JCATrainingManagement.ProcessTrainingAttendeeScan(Rec."Training Session No.", AttendeeLicenseID);
+    end;
 }

@@ -1183,6 +1183,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method SendUnRegistrationConfirmationMail - NamedType UnRegistrationConfirmationMailFailedLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3789116197 - Method 3164111310 - NamedType 765894559" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You are not registered as a participant for this training, please contact a supervisor.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Training Management - Method ProcessTrainingAttendeeScan - NamedType NotAbleToParticipateErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3789116197 - Method 3164111310 - NamedType 93130392" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You are already registered for this training session, do you want to unregister?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Training Management - Method ProcessTrainingAttendeeScan - NamedType UnRegisterFromTrainingSessionQst</note>
+        </trans-unit>
         <trans-unit id="Page 3286662435 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Action Logs</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1653,6 +1663,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Training Attendance - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2524842465 - Control 1740395108 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>License ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Training Attendance - Control AttendeeLicenseID - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1731574288 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Training Group Members</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1687,6 +1702,11 @@
           <source>Fetch Participants</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Training Session Card - Action FetchPatricipants - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 138286606 - Action 206124936 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attendance Sheet</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Training Session Card - Action OpenAttendanceSheet - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2032356226 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Training Sessions</source>

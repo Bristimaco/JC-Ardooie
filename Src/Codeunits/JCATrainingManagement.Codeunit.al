@@ -84,4 +84,26 @@ codeunit 50101 "JCA Training Management"
                 end;
             until JCAGuestMemberTrGroup.Next() = 0;
     end;
+
+    procedure ProcessTrainingAttendeeScan(TrainingSessionNo: code[20]; AttendeeLicenseID: code[20])
+    var
+        JCATrSessionParticipant: record "JCA Tr. Session Participant";
+        NotAbleToParticipateErr: label 'You are not registered as a participant for this training, please contact a supervisor.';
+        UnRegisterFromTrainingSessionQst: label 'You are already registered for this training session, do you want to unregister?';
+    begin
+        JCATrSessionParticipant.Reset();
+        JCATrSessionParticipant.SetRange("Training Session No.", TrainingSessionNo);
+        JCATrSessionParticipant.Setrange("Member License ID", AttendeeLicenseID);
+        if not JCATrSessionParticipant.findfirst() then begin
+            Message(NotAbleToParticipateErr);
+            exit;
+        end;
+
+        if JCATrSessionParticipant.Participation then
+            if not confirm(UnRegisterFromTrainingSessionQst) then
+                exit;
+
+        JCATrSessionParticipant.Participation := not JCATrSessionParticipant.Participation;
+        JCATrSessionParticipant.modify(true);
+    end;
 }

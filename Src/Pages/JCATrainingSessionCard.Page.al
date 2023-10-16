@@ -76,11 +76,25 @@ page 50113 "JCA Training Session Card"
                 PromotedCategory = Process;
                 PromotedIsBig = true;
                 PromotedOnly = true;
+                Image = GetLines;
 
                 trigger OnAction()
                 begin
                     Rec.FetchParticipants();
                 end;
+            }
+            action(OpenAttendanceSheet)
+            {
+                Caption = 'Attendance Sheet';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                Image = EmployeeAgreement;
+                RunObject = page "JCA Training Attendance";
+                RunPageLink = "Training Session No." = field("No.");
             }
         }
     }
