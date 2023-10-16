@@ -51,7 +51,7 @@ table 50102 "JCA Cue"
         }
         field(8; "Training Date Filter"; Date)
         {
-            Caption = 'Trainging Date Filter';
+            Caption = 'Training Date Filter';
             FieldClass = FlowFilter;
         }
         field(9; "New Tournaments"; Integer)

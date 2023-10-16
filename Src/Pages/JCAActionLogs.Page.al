@@ -41,4 +41,28 @@ page 50125 "JCA Action Logs"
             }
         }
     }
+
+    actions
+    {
+        area(Processing)
+        {
+            action(OpenRelatedInformation)
+            {
+                Caption = 'Open Related Information';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                Ellipsis = true;
+                Image = OpenWorksheet;
+
+                trigger OnAction()
+                begin
+                    rec.OpenRelatedObjects();
+                end;
+            }
+        }
+    }
 }

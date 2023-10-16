@@ -32,9 +32,15 @@ table 50116 "JCA Action Log"
             DataClassification = SystemMetadata;
             Editable = false;
         }
-        field(6; "Related to id"; RecordId)
+        field(6; "Related to Id"; RecordId)
         {
             Caption = 'Related to id';
+            DataClassification = SystemMetadata;
+            Editable = false;
+        }
+        field(7; "Related to Id 2"; RecordId)
+        {
+            Caption = 'Related to Id 2';
             DataClassification = SystemMetadata;
             Editable = false;
         }
@@ -52,4 +58,40 @@ table 50116 "JCA Action Log"
         Validate("Logged on", CurrentDateTime());
     end;
 
+    procedure OpenRelatedObjects()
+    var
+        RecordRef: RecordRef;
+    begin
+        if RecordRef.get("Related to id") then
+            OpenRelatedObject(RecordRef);
+        if RecordRef.get("Related to id 2") then
+            OpenRelatedObject(RecordRef);
+    end;
+
+    local procedure OpenRelatedObject(var RecordRef: RecordRef)
+    var
+        JCAEvent: record "JCA Event";
+        JCAMember: record "JCA Member";
+        JCAEventCard: Page "JCA Event Card";
+        JCAMemberCard: page "JCA Member Card";
+    begin
+        case RecordRef.Number of
+            database::"JCA Event":
+                begin
+                    RecordRef.SetTable(JCAEvent);
+                    JCAEvent.SetRecFilter();
+                    clear(JCAEventCard);
+                    JCAEventCard.SetTableView(JCAEvent);
+                    JCAEventCard.Run();
+                end;
+            Database::"JCA Member":
+                begin
+                    RecordRef.SetTable(JCAMember);
+                    JCAMember.SetRecFilter();
+                    clear(JCAMemberCard);
+                    JCAMemberCard.SetTableView(JCAMember);
+                    JCAMemberCard.Run();
+                end;
+        end;
+    end;
 }

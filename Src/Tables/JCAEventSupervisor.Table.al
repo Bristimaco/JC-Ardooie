@@ -57,6 +57,7 @@ table 50113 "JCA Event Supervisor"
     var
         JCAEvent: Record "JCA Event";
         JCAMailManagement: codeunit "JCA Mail Management";
+        InvitationSentLbl: Label 'Invitation has been sent';
     begin
         JCAEvent.Reset();
         JCAEvent.Get(Rec."Event No.");
@@ -64,6 +65,7 @@ table 50113 "JCA Event Supervisor"
         if JCAMailManagement.SendEventInvitationMail(Rec."Member License ID", JCAEvent) then begin
             Rec.Validate(Invited, true);
             rec.Modify(true);
+            Message(InvitationSentLbl);
         end;
     end;
 }
