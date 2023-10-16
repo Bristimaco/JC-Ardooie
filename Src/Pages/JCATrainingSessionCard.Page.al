@@ -53,6 +53,20 @@ page 50113 "JCA Training Session Card"
                 }
             }
 
+            group(Invoicing)
+            {
+                field("Invoice To Customer No."; Rec."Invoice To Customer No.")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("Invoice To Customer Name"; Rec."Invoice To Customer Name")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+            }
+
             part(TrainingSessionParticipants; "JCA Tr. Session Participants")
             {
                 Caption = 'Participants';

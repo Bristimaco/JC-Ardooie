@@ -1239,6 +1239,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Training Session - Field Date - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2150954954 - Field 247707843 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice To Customer Name</source>
+          <target>Factureren aan Klant Naam</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Training Session - Field Invoice To Customer Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2150954954 - Field 1103037539 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice To Customer No.</source>
+          <target>Factureren aan Klant Nr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Training Session - Field Invoice To Customer No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2150954954 - Field 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>No.</source>
           <target>Nr.</target>

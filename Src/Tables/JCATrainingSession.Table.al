@@ -64,6 +64,24 @@ table 50105 "JCA Training Session"
             Caption = 'Open for Other Clubs';
             DataClassification = SystemMetadata;
         }
+        field(9; "Invoice To Customer No."; Code[20])
+        {
+            Caption = 'Invoice To Customer No.';
+            DataClassification = SystemMetadata;
+            TableRelation = Customer."No.";
+
+            trigger OnValidate()
+            begin
+                CalcFields("Invoice To Customer Name");
+            end;
+        }
+        Field(10; "Invoice To Customer Name"; Text[100])
+        {
+            Caption = 'Invoice To Customer Name';
+            FieldClass = FlowField;
+            CalcFormula = lookup(Customer.Name where("No." = field("Invoice To Customer No.")));
+            Editable = false;
+        }
     }
 
     keys
