@@ -199,6 +199,27 @@ table 50102 "JCA Cue"
             Caption = 'Event Date Filter';
             FieldClass = FlowFilter;
         }
+        field(30; "Tournaments (In Progress)"; Integer)
+        {
+            Caption = 'In Progress';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event" where(Type = const(Tournament), Status = const("In Progress")));
+            Editable = false;
+        }
+        field(31; "Stages (In Progress))"; Integer)
+        {
+            Caption = 'In Progress';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event" where(Type = const(Stage), Status = const("In Progress")));
+            Editable = false;
+        }
+        field(32; "Chiai (In Progress)"; Integer)
+        {
+            Caption = 'In Progress';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event" where(Type = const(Chiai), Status = const("In Progress")));
+            Editable = false;
+        }
     }
 
     keys

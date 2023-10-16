@@ -128,6 +128,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Chiai (Archived) - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1630571357 - Field 1561494859 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>In Progress</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Chiai (In Progress) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1630571357 - Field 4114428636 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invitation Sent</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -208,6 +213,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Stages (Archived)) - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1630571357 - Field 527573735 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>In Progress</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Stages (In Progress)) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1630571357 - Field 4118673103 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invitation Sent</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -232,6 +242,11 @@
           <source>Archived</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Tournaments (Archived) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1630571357 - Field 3944172739 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>In Progress</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Tournaments (In Progress) - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1630571357 - Field 2552070372 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invitation Sent</source>

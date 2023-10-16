@@ -42,6 +42,11 @@ page 50115 "JCA Event Cues"
                         ApplicationArea = all;
                         ToolTip = ' ', Locked = true;
                     }
+                    field("Tournaments (In Progress)"; Rec."Tournaments (In Progress)")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
                     field("Tournaments (Archived)"; Rec."Tournaments (Archived)")
                     {
                         ApplicationArea = all;
@@ -78,6 +83,11 @@ page 50115 "JCA Event Cues"
                             ToolTip = ' ', Locked = true;
                         }
                         field("Stages (RegProc))"; Rec."Stages (RegProc))")
+                        {
+                            ApplicationArea = all;
+                            ToolTip = ' ', Locked = true;
+                        }
+                        field("Stages (In Progress))"; Rec."Stages (In Progress))")
                         {
                             ApplicationArea = all;
                             ToolTip = ' ', Locked = true;
@@ -119,6 +129,11 @@ page 50115 "JCA Event Cues"
                             ToolTip = ' ', Locked = true;
                         }
                         field("Chiai (RecProc)"; Rec."Chiai (RecProc)")
+                        {
+                            ApplicationArea = all;
+                            ToolTip = ' ', Locked = true;
+                        }
+                        field("Chiai (In Progress)"; Rec."Chiai (In Progress)")
                         {
                             ApplicationArea = all;
                             ToolTip = ' ', Locked = true;
