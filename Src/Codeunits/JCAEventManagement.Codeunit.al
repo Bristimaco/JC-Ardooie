@@ -5,7 +5,7 @@ codeunit 50102 "JCA Event Management"
         JCAEvent: Record "JCA Event";
     begin
         JCAEvent.Reset();
-        JCAEvent.ID := 0;
+        JCAEvent."No." := '';
         JCAEvent.insert(true);
         if OpenEventCard then begin
             JCAEvent.OpenCard();
@@ -20,7 +20,7 @@ codeunit 50102 "JCA Event Management"
         JCAEventParticipant: record "JCA Event Participant";
     begin
         JCAEventAgeGroup.Reset();
-        JCAEventAgeGroup.setrange("Event ID", JCAEvent.ID);
+        JCAEventAgeGroup.setrange("Event No.", JCAEvent."No.");
         if JCAEventAgeGroup.Findset() then
             repeat
                 JCAAgeGroup.Reset();
@@ -31,12 +31,12 @@ codeunit 50102 "JCA Event Management"
                     if JCAAgeGroup.GetAgeGroupMembers(tempJCAMemberAgeGroup, JCAEvent.Date) then
                         repeat
                             JCAEventParticipant.Reset();
-                            JCAEventParticipant.setrange("Event ID", JCAEvent.ID);
+                            JCAEventParticipant.setrange("Event No.", JCAEvent."No.");
                             JCAEventParticipant.setrange("Member License ID", tempJCAMemberAgeGroup."Member License ID");
                             if JCAEventParticipant.IsEmpty() then begin
                                 JCAEventParticipant.Reset();
                                 JCAEventParticipant.init();
-                                JCAEventParticipant.Validate("Event ID", JCAEvent.ID);
+                                JCAEventParticipant.Validate("Event No.", JCAEvent."No.");
                                 JCAEventParticipant.validate("Member License ID", tempJCAMemberAgeGroup."Member License ID");
                                 JCAEventParticipant.Validate("Age Group Code", tempJCAMemberAgeGroup."Age Group Code");
                                 JCAEventParticipant.insert(true);
@@ -57,7 +57,7 @@ codeunit 50102 "JCA Event Management"
         JCAEventSupervisor: record "JCA Event Supervisor";
     begin
         JCAEventSupervisor.Reset();
-        JCAEventSupervisor.setrange("Event ID", JCAEvent.ID);
+        JCAEventSupervisor.setrange("Event No.", JCAEvent."No.");
         if JCAEventSupervisor.findset() then
             repeat
                 if SendEventInvitationMail(JCAEventSupervisor."Member License ID", JCAEvent) then begin
@@ -72,7 +72,7 @@ codeunit 50102 "JCA Event Management"
         JCAEventParticipant: record "JCA Event Participant";
     begin
         JCAEventParticipant.Reset();
-        JCAEventParticipant.setrange("Event ID", JCAEvent.ID);
+        JCAEventParticipant.setrange("Event No.", JCAEvent."No.");
         if JCAEventParticipant.findset() then
             repeat
                 if SendEventInvitationMail(JCAEventParticipant."Member License ID", JCAEvent) then begin

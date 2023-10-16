@@ -4,17 +4,17 @@ table 50111 "JCA Event Age Group"
 
     fields
     {
-        field(1; "Event ID"; Integer)
+        field(1; "Event No."; Code[20])
         {
-            Caption = 'Event ID';
+            Caption = 'Event No.';
             DataClassification = SystemMetadata;
-            TableRelation = "JCA Event".ID;
+            TableRelation = "JCA Event"."No.";
 
             trigger OnValidate()
             var
                 JCAEvent: Record "JCA Event";
             begin
-                If JCAEvent.Get("Event ID") then
+                If JCAEvent.Get("Event No.") then
                     validate("Country Code", JCAEvent."Country Code");
             end;
         }
@@ -22,7 +22,7 @@ table 50111 "JCA Event Age Group"
         {
             Caption = 'Country Code';
             DataClassification = SystemMetadata;
-            TableRelation = "JCA Event"."Country Code" where(ID = field("Event ID"));
+            TableRelation = "JCA Event"."Country Code" where("No." = field("Event No."));
             Editable = false;
         }
         field(3; Gender; enum "JCA Gender")
@@ -57,7 +57,7 @@ table 50111 "JCA Event Age Group"
 
     keys
     {
-        key(PK; "Event ID", "Country Code", gender, "Age Group Code")
+        key(PK; "Event No.", "Country Code", gender, "Age Group Code")
         { }
     }
 }

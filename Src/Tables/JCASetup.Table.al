@@ -25,6 +25,12 @@ table 50100 "JCA Setup"
             DataClassification = SystemMetadata;
             TableRelation = "No. Series".Code;
         }
+        field(5; "Event Nos."; code[20])
+        {
+            Caption = 'Event Nos.';
+            DataClassification = SystemMetadata;
+            TableRelation = "No. Series".Code;
+        }
     }
 
     keys

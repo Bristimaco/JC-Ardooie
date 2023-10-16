@@ -4,11 +4,11 @@ table 50113 "JCA Event Supervisor"
 
     fields
     {
-        field(1; "Event ID"; Integer)
+        field(1; "Event No."; Code[20])
         {
-            Caption = 'Event ID';
+            Caption = 'Event No.';
             DataClassification = SystemMetadata;
-            TableRelation = "JCA Event".ID;
+            TableRelation = "JCA Event"."No.";
         }
         field(2; "Member License ID"; Code[20])
         {
@@ -44,7 +44,7 @@ table 50113 "JCA Event Supervisor"
 
     keys
     {
-        key(PK; "Event ID", "Member License ID")
+        key(PK; "Event No.", "Member License ID")
         { }
     }
 
@@ -54,7 +54,7 @@ table 50113 "JCA Event Supervisor"
         JCAMailManagement: codeunit "JCA Mail Management";
     begin
         JCAEvent.Reset();
-        JCAEvent.Get(Rec."Event ID");
+        JCAEvent.Get(Rec."Event No.");
         clear(JCAMailManagement);
         if JCAMailManagement.SendEventInvitationMail(Rec."Member License ID", JCAEvent) then begin
             Rec.Validate(Invited, true);

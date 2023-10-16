@@ -4,18 +4,18 @@ table 50112 "JCA Event Participant"
 
     fields
     {
-        field(1; "Event ID"; Integer)
+        field(1; "Event No."; Code[20])
         {
-            Caption = 'Event ID';
+            Caption = 'Event No.';
             DataClassification = SystemMetadata;
-            TableRelation = "JCA Event".ID;
+            TableRelation = "JCA Event"."No.";
 
             trigger OnValidate()
             var
                 JCAEvent: record "JCA Event";
             begin
                 JCAEvent.Reset();
-                if JCAEvent.get("Event ID") then begin
+                if JCAEvent.get("Event No.") then begin
                     validate("Country Code", JCAEvent."Country Code");
                 end;
             end;
@@ -54,7 +54,7 @@ table 50112 "JCA Event Participant"
             Caption = 'Member Full Name';
             FieldClass = FlowField;
             CalcFormula = lookup("JCA Member"."Full Name" where("License ID" = field("Member License ID")));
-            Editable = false;            
+            Editable = false;
         }
         field(6; Invited; Boolean)
         {
@@ -91,7 +91,7 @@ table 50112 "JCA Event Participant"
 
     keys
     {
-        key(PK; "Event ID", "Member License ID")
+        key(PK; "Event No.", "Member License ID")
         { }
     }
 
@@ -101,7 +101,7 @@ table 50112 "JCA Event Participant"
         JCAMailManagement: codeunit "JCA Mail Management";
     begin
         JCAEvent.Reset();
-        JCAEvent.Get(Rec."Event ID");
+        JCAEvent.Get(Rec."Event No.");
         clear(JCAMailManagement);
         if JCAMailManagement.SendEventInvitationMail(Rec."Member License ID", JCAEvent) then begin
             Rec.Validate(Invited, true);

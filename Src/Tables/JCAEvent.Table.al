@@ -6,11 +6,10 @@ table 50110 "JCA Event"
 
     fields
     {
-        field(1; ID; Integer)
+        field(1; "No."; Code[20])
         {
             Caption = 'ID';
             DataClassification = SystemMetadata;
-            AutoIncrement = true;
         }
         field(2; Description; Text[100])
         {
@@ -47,37 +46,48 @@ table 50110 "JCA Event"
         {
             Caption = 'Age Groups';
             FieldClass = FlowField;
-            CalcFormula = count("JCA Event Age Group" where("Event ID" = field(ID)));
+            CalcFormula = count("JCA Event Age Group" where("Event No." = field("No.")));
             Editable = false;
         }
         field(9; "Potential Participants"; Integer)
         {
             Caption = 'Potential Participants';
             FieldClass = FlowField;
-            CalcFormula = count("JCA Event Participant" where("Event ID" = field(ID)));
+            CalcFormula = count("JCA Event Participant" where("Event No." = field("No.")));
             Editable = false;
         }
         field(10; "Invited Participants"; Integer)
         {
             Caption = 'Invited Participants';
             FieldClass = FlowField;
-            CalcFormula = count("JCA Event Participant" where("Event ID" = field(ID), Invited = const(true)));
+            CalcFormula = count("JCA Event Participant" where("Event No." = field("No."), Invited = const(true)));
             Editable = false;
         }
         field(11; "Registered Participants"; Integer)
         {
             Caption = 'Registered Participants';
             FieldClass = FlowField;
-            CalcFormula = count("JCA Event Participant" where("Event ID" = field(ID), Registered = const(true)));
+            CalcFormula = count("JCA Event Participant" where("Event No." = field("No."), Registered = const(true)));
             Editable = false;
         }
     }
 
     keys
     {
-        key(PK; ID)
+        key(PK; "No.")
         { }
     }
+
+    trigger OnInsert()
+    var
+        JCASetup: Record "JCA Setup";
+        NoSeriesManagement: codeunit NoSeriesManagement;
+    begin
+        JCASetup.Reset();
+        JCASetup.get();
+        JCASetup.testfield("Event Nos.");
+        Validate("No.", NoSeriesManagement.GetNextNo(JCASetup."Event Nos.", Today(), true));
+    end;
 
     trigger OnDelete()
     var
@@ -86,15 +96,15 @@ table 50110 "JCA Event"
         JCAEventParticipant: record "JCA Event Participant";
     begin
         JCAEventAgeGroup.Reset();
-        JCAEventAgeGroup.setrange("Event ID", ID);
+        JCAEventAgeGroup.setrange("Event No.", "No.");
         JCAEventAgeGroup.deleteall(true);
 
         JCAEventSupervisor.Reset();
-        JCAEventSupervisor.setrange("Event ID", ID);
+        JCAEventSupervisor.setrange("Event No.", "No.");
         JCAEventSupervisor.deleteall(true);
 
         JCAEventParticipant.Reset();
-        JCAEventParticipant.setrange("Event ID", ID);
+        JCAEventParticipant.setrange("Event No.", "No.");
         JCAEventParticipant.DeleteAll(true);
     end;
 
@@ -104,7 +114,7 @@ table 50110 "JCA Event"
         JCAEventCard: page "JCA Event Card";
     begin
         JCAEvent.Reset();
-        JCAEvent.setrange(ID, ID);
+        JCAEvent.setrange("No.", "No.");
         JCAEvent.findfirst();
         clear(JCAEventCard);
         JCAEventCard.SetRecord(JCAEvent);

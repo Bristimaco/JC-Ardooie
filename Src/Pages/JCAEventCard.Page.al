@@ -74,14 +74,14 @@ page 50117 "JCA Event Card"
                 part(AgeGroups; "JCA Event Age Groups")
                 {
                     Caption = 'Event Age Groups';
-                    SubPageLink = "Event ID" = field(ID), "Country Code" = field("Country Code");
+                    SubPageLink = "Event No." = field("No."), "Country Code" = field("Country Code");
                     ApplicationArea = all;
                     UpdatePropagation = Both;
                 }
                 part(EventSupervisors; "JCA Event Supervisors")
                 {
                     Caption = 'Event Supervisors';
-                    SubPageLink = "Event ID" = field(ID);
+                    SubPageLink = "Event No." = field("No.");
                     ApplicationArea = all;
                     UpdatePropagation = Both;
                 }
@@ -90,7 +90,7 @@ page 50117 "JCA Event Card"
             Part(Participants; "JCA Event Participants")
             {
                 Caption = 'Event Participants';
-                SubPageLink = "Event ID" = field(ID);
+                SubPageLink = "Event No." = field("No.");
                 ApplicationArea = all;
                 UpdatePropagation = Both;
             }
