@@ -46,10 +46,12 @@ codeunit 50102 "JCA Event Management"
     end;
 
     procedure SendEventInvitations(JCAEvent: Record "JCA Event")
+    var
+        AllInvitationsHaveBeenSentMsg: label 'All invitations have been sent.';
     begin
         InviteEventSupervisors(JCAEvent);
         InvitePotentialParticipants(JCAEvent);
-        Message('All Invitations have been sent, please check if everyone has been invited');
+        Message(AllInvitationsHaveBeenSentMsg);
     end;
 
     local procedure InviteEventSupervisors(JCAEvent: record "JCA Event")
@@ -88,5 +90,98 @@ codeunit 50102 "JCA Event Management"
     begin
         Clear(JCAMailManagement);
         exit(JCAMailManagement.SendEventInvitationMail(MemberLicenseID, JCAEvent));
+    end;
+
+    procedure CheckParticipantsAndSupervistors(var JCAEvent: record "JCA Event")
+    begin
+        case JCAEvent.Status of
+            enum::"JCA Event Status"::"Invitations Sent", enum::"JCA Event Status"::"Open for Registrations":
+                CheckAllInvitationsSent(JCAEvent);
+            enum::"JCA Event Status"::"Registrations Closed":
+                CheckParticipantAndSupervisorRegistrationApplications(JCAEvent);
+            enum::"JCA Event Status"::"Registrations Processed":
+                CheckParticipantAndSupervisorRegistrations(JCAEvent);
+        end;
+    end;
+
+    local procedure CheckAllInvitationsSent(var JCAEvent: record "JCA Event")
+    var
+        JCAEventParticipant: record "JCA Event Participant";
+        JCAEventSupervisor: record "JCA Event Supervisor";
+        NoParticipantsInEventErr: label 'There are no participants in the Event';
+        NoSupervisorsInEventErr: label 'There are no supervisors in the Event';
+        ProceedWithUninvitedParticipantsQst: label 'There are participants in the event that have not been invited, do you want to continue?';
+        ProceedWithUninvitedSupervisorsQst: label 'There are supervisors in the event that have not been invited, do you want to continue?';
+    begin
+        if JCAEvent.GetParticipants(JCAEventParticipant) then begin
+            JCAEventParticipant.setrange(Invited, false);
+            if not JCAEventParticipant.IsEmpty() then
+                if not confirm(ProceedWithUninvitedParticipantsQst) then
+                    error('')
+                else
+                    JCAEventParticipant.Deleteall(true);
+        end else
+            error(NoParticipantsInEventErr);
+
+        if not JCAEvent.GetSupervisors(JCAEventSupervisor) then
+            error(NoSupervisorsInEventErr);
+        JCAEventSupervisor.setrange(Invited, false);
+        if not JCAEventSupervisor.IsEmpty() then
+            if not confirm(ProceedWithUninvitedSupervisorsQst) then
+                error('')
+            else
+                JCAEventSupervisor.DeleteAll(true);
+    end;
+
+    local procedure CheckParticipantAndSupervisorRegistrationApplications(var JCAEvent: record "JCA Event")
+    var
+        JCAEventParticipant: record "JCA Event Participant";
+        JCAEventSupervisor: record "JCA Event Supervisor";
+        ProceedWithUnAppliedParticipantsQst: label 'There are participants in the event that have not applied for registration, do you want to continue?';
+        ProceedWithUnAppliedSupervisorsQst: label 'There are supervisors in the event that have not applied for registration, do you want to continue?';
+    begin
+        if JCAEvent.GetParticipants(JCAEventParticipant) then begin
+            JCAEventParticipant.setrange("Applied for Registration", false);
+            if not JCAEventParticipant.IsEmpty() then
+                if not Confirm(ProceedWithUnAppliedParticipantsQst) then
+                    error('')
+                else
+                    JCAEventParticipant.deleteall(true);
+        end;
+
+        if JCAEvent.GetSupervisors(JCAEventSupervisor) then begin
+            JCAEventSupervisor.setrange("Applied for Registration", false);
+            if not JCAEventSupervisor.IsEmpty() then
+                if not confirm(ProceedWithUnAppliedSupervisorsQst) then
+                    error('')
+                else
+                    JCAEventSupervisor.DeleteAll(true);
+        end;
+    end;
+
+    local procedure CheckParticipantAndSupervisorRegistrations(var JCAEvent: record "JCA Event")
+    var
+        JCAEventParticipant: record "JCA Event Participant";
+        JCAEventSupervisor: record "JCA Event Supervisor";
+        ProceedWithUnregisteredParticipantsQst: label 'There are participants in the event that are not registered, do you want to continue?';
+        ProceedWithUregisteredSupervisorsQst: label 'There are supervisors in the event that are not registered, do you want to continue?';
+    begin
+        if JCAEvent.GetParticipants(JCAEventParticipant) then begin
+            JCAEventParticipant.setrange(Registered, false);
+            if not JCAEventParticipant.IsEmpty() then
+                if not Confirm(ProceedWithUnregisteredParticipantsQst) then
+                    error('')
+                else
+                    JCAEventParticipant.deleteall(true);
+        end;
+
+        if JCAEvent.GetSupervisors(JCAEventSupervisor) then begin
+            JCAEventSupervisor.setrange(registered, false);
+            if not JCAEventSupervisor.IsEmpty() then
+                if not confirm(ProceedWithUregisteredSupervisorsQst) then
+                    error('')
+                else
+                    JCAEventSupervisor.DeleteAll(true);
+        end;
     end;
 }

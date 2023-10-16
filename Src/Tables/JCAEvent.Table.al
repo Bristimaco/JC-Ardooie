@@ -35,6 +35,11 @@ table 50110 "JCA Event"
         {
             Caption = 'Status';
             DataClassification = SystemMetadata;
+
+            trigger OnValidate()
+            begin
+                CheckParticipantsAndSupervisorStatus();
+            end;
         }
         field(7; "Country Code"; Code[10])
         {
@@ -137,5 +142,27 @@ table 50110 "JCA Event"
         JCAEventManagement.SendEventInvitations(Rec);
         Rec.validate(Status, status::"Invitations Sent");
         Rec.modify(true);
+    end;
+
+    local procedure CheckParticipantsAndSupervisorStatus()
+    var
+        JCAEvenManagement: Codeunit "JCA Event Management";
+    begin
+        Clear(JCAEvenManagement);
+        JCAEvenManagement.CheckParticipantsAndSupervistors(Rec);
+    end;
+
+    procedure GetParticipants(var JCAEventParticipant: record "JCA Event Participant"): Boolean
+    begin
+        JCAEventParticipant.Reset();
+        JCAEventParticipant.setrange("Event No.", Rec."No.");
+        exit(JCAEventParticipant.findset());
+    end;
+
+    procedure GetSupervisors(var JCAEventSupervisor: record "JCA Event Supervisor"): Boolean
+    begin
+        JCAEventSupervisor.Reset();
+        JCAEventSupervisor.setrange("Event No.", Rec."No.");
+        exit(JCAEventSupervisor.findset());
     end;
 }
