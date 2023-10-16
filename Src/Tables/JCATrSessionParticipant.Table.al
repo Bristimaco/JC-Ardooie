@@ -19,35 +19,58 @@ table 50108 "JCA Tr. Session Participant"
                     Validate("Training Group Code", JCATrainingSession."Training Group Code");
             end;
         }
-        field(2; "Member License ID"; Code[20])
+        field(2; "Club Member"; Boolean)
+        {
+            Caption = 'Club Member';
+            DataClassification = SystemMetadata;
+        }
+        field(3; "Member License ID"; Code[20])
         {
             Caption = 'Member License ID';
             DataClassification = SystemMetadata;
-            TableRelation = "JCA Training Group Member"."Member License ID" where("Training Group Code" = field("Training Group Code"));
+            TableRelation = if ("Club Member" = const(true)) "JCA Training Group Member"."Member License ID" where("Training Group Code" = field("Training Group Code"));
 
             trigger OnValidate()
             begin
                 CalcFields("Member Full Name");
             end;
         }
-        field(3; "Training Group Code"; Code[20])
+        field(4; "Training Group Code"; Code[20])
         {
             Caption = 'Training Group Code';
             FieldClass = FlowField;
             CalcFormula = lookup("JCA Training Session"."Training Group Code" where("No." = field("Training Session No.")));
             Editable = false;
         }
-        field(4; "Member Full Name"; Text[150])
+        field(5; "Member Full Name"; Text[150])
         {
             Caption = 'Member Full Name';
             FieldClass = FlowField;
             CalcFormula = lookup("JCA Member"."Full Name" where("License ID" = field("Member License ID")));
             Editable = false;
         }
-        field(5; Participation; Boolean)
+        field(6; Participation; Boolean)
         {
             Caption = 'Participation';
             DataClassification = SystemMetadata;
+        }
+        field(7; "Club No."; code[20])
+        {
+            Caption = 'Club No.';
+            DataClassification = SystemMetadata;
+            TableRelation = "JCA Club"."No.";
+
+            trigger OnValidate()
+            begin
+                CalcFields("Club Name");
+            end;
+        }
+        field(8; "Club Name"; Text[100])
+        {
+            Caption = 'Club Name';
+            FieldClass = FlowField;
+            CalcFormula = lookup("JCA Club".Name where("No." = field("Club No.")));
+            Editable = false;
         }
     }
 

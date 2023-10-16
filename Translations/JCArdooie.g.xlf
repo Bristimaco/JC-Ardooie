@@ -78,6 +78,41 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Age Group - Field Minimum Age - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3550954988 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Club</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Club - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3550954988 - Field 243748095 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact Person</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Club - Field Contact Person - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3550954988 - Field 1541011875 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>E-Mail</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Club - Field E-Mail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3550954988 - Field 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Club - Field Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3550954988 - Field 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Club - Field No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3550954988 - Field 706201276 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Our Club</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Club - Field Our Club - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3550954988 - Field 3986423421 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Phone No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Club - Field Phone No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 26730572 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contact</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -783,6 +818,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Tr. Session Participant - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2880623267 - Field 2685416316 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Club Member</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Tr. Session Participant - Field Club Member - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2880623267 - Field 2491379233 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Club Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Tr. Session Participant - Field Club Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2880623267 - Field 3782545521 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Club No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Tr. Session Participant - Field Club No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2880623267 - Field 2454368232 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Member Full Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1058,6 +1108,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Admin Rolecenter - Action AgeGroups - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1832677796 - Action 4220157469 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clubs</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Admin Rolecenter - Action Clubs - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1832677796 - Action 3074242626 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Countries</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1097,6 +1152,11 @@
           <source>Update Member Age Groups</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Age Groups - Action UpdateMemberAgeGroups - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2248464845 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Clubs</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Clubs - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4238640493 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contacts</source>
@@ -1447,6 +1507,11 @@
           <source>Training Session Participants</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Tr. Session Participants - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2524842465 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Training Attendance</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Training Attendance - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1731574288 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Training Group Members</source>

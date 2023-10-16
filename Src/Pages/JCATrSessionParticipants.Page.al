@@ -12,6 +12,16 @@ page 50112 "JCA Tr. Session Participants"
         {
             repeater(TrainingSessionParticipants)
             {
+                field(Participation; Rec.Participation)
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+
+                    trigger OnValidate()
+                    begin
+                        CurrPage.Update(true);
+                    end;
+                }
                 field("Member License ID"; Rec."Member License ID")
                 {
                     ApplicationArea = all;
@@ -22,15 +32,10 @@ page 50112 "JCA Tr. Session Participants"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
-                field(Participation; Rec.Participation)
+                Field("Club Name"; Rec."Club Name")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
-
-                    trigger OnValidate()
-                    begin
-                        CurrPage.Update(true);
-                    end;
                 }
             }
         }

@@ -50,6 +50,14 @@ page 50103 "JCA Admin Rolecenter"
                 RunObject = page "Countries/Regions";
                 Image = CountryRegion;
             }
+            action(Clubs)
+            {
+                Caption = 'Clubs';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                RunObject = page "JCA Clubs";
+                Image = Group;
+            }
             action(TrainingGroups)
             {
                 Caption = 'Training Groups';

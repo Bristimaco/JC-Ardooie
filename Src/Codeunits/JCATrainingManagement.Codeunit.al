@@ -22,9 +22,14 @@ codeunit 50101 "JCA Training Management"
     var
         JCATrainingGroupMember: record "JCA Training Group Member";
         JCATrSessionParticipant: record "JCA Tr. Session Participant";
+        JCAClub: record "JCA Club";
     begin
         JCATrainingSession.TestField(Status, JCATrainingSession.Status::Open);
         JCATrainingSession.TestField("Training Group Code");
+
+        JCAClub.Reset();
+        JCAClub.setrange("Our Club", true);
+        JCAClub.findfirst();
 
         JCATrainingGroupMember.Reset();
         JCATrainingGroupMember.setrange("Training Group Code", JCATrainingSession."Training Group Code");
@@ -38,6 +43,7 @@ codeunit 50101 "JCA Training Management"
                     JCATrSessionParticipant.init();
                     JCATrSessionParticipant.validate("Training Session No.", JCATrainingSession."No.");
                     JCATrSessionParticipant.validate("Member License ID", JCATrainingGroupMember."Member License ID");
+                    JCATrSessionParticipant.validate("Club No.", JCAClub."No.");
                     JCATrSessionParticipant.insert(true);
                 end;
             until JCATrainingGroupMember.Next() = 0;
