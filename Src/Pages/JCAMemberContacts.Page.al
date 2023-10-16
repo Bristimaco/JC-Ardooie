@@ -21,16 +21,22 @@ page 50122 "JCA Member Contacts"
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
+                    DrillDown = false;
+                    Lookup = false;
                 }
                 field("Contact E-Mail"; Rec."Contact E-Mail")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
+                    DrillDown = false;
+                    Lookup = false;
                 }
                 field("Contact Phone No."; Rec."Contact Phone No.")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
+                    DrillDown = false;
+                    Lookup = false;
                 }
                 field(Remark; Rec.Remark)
                 {

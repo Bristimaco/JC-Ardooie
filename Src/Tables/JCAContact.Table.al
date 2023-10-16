@@ -10,6 +10,7 @@ table 50114 "JCA Contact"
         {
             Caption = 'No.';
             DataClassification = SystemMetadata;
+            Editable = false;
         }
         field(2; "First Name"; Text[50])
         {
