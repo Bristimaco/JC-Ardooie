@@ -44,7 +44,7 @@ table 50101 "JCA Member"
 
             trigger OnValidate()
             begin
-                UpdateAgeGroups(today(), true,tempJCAMemberAgeGroup);
+                UpdateAgeGroups(today(), true, tempJCAMemberAgeGroup);
             end;
         }
         field(6; "Member Since"; Date)
@@ -88,7 +88,7 @@ table 50101 "JCA Member"
 
             trigger OnValidate()
             begin
-                UpdateAgeGroups(Today(), true,tempJCAMemberAgeGroup);
+                UpdateAgeGroups(Today(), true, tempJCAMemberAgeGroup);
             end;
         }
         field(11; Age; Integer)
@@ -104,7 +104,7 @@ table 50101 "JCA Member"
 
             trigger OnValidate()
             begin
-                UpdateAgeGroups(Today(), true,tempJCAMemberAgeGroup);
+                UpdateAgeGroups(Today(), true, tempJCAMemberAgeGroup);
             end;
         }
         field(15; "E-Mail"; text[100])
@@ -115,6 +115,16 @@ table 50101 "JCA Member"
         field(16; "Phone No."; Text[30])
         {
             Caption = 'Phone No.';
+            DataClassification = SystemMetadata;
+        }
+        field(17; Belt; enum "JCA Belt")
+        {
+            caption = 'Belt';
+            DataClassification = SystemMetadata;
+        }
+        field(18; Dan; Integer)
+        {
+            Caption = 'Dan';
             DataClassification = SystemMetadata;
         }
     }

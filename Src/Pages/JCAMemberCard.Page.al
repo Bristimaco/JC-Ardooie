@@ -72,6 +72,24 @@ page 50102 "JCA Member Card"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field(Belt; Rec.Belt)
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+
+                    trigger OnValidate()
+                    begin
+                        if Rec.Belt <> Rec.Belt::Black then
+                            Rec.Dan := 0;
+                        CalculateDanFieldVisibility();
+                    end;
+                }
+                field(Dan; Rec.Dan)
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                    Editable = DanFieldVisible;
+                }
             }
 
             part(AgeGroups; "JCA Member Age Groups")
@@ -130,4 +148,22 @@ page 50102 "JCA Member Card"
     begin
         Rec.SetFilter("Date Filter", '=%1&<%2', 0D, Today());
     end;
+
+    trigger OnAfterGetCurrRecord()
+    begin
+        CalculateDanFieldVisibility();
+    end;
+
+    trigger OnAfterGetRecord()
+    begin
+        CalculateDanFieldVisibility();
+    end;
+
+    local procedure CalculateDanFieldVisibility()
+    begin
+        DanFieldVisible := Rec.Belt = Rec.Belt::Black;
+    end;
+
+    var
+        DanFieldVisible: Boolean;
 }
