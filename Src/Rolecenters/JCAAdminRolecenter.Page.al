@@ -58,6 +58,14 @@ page 50103 "JCA Admin Rolecenter"
                 RunObject = page "JCA Clubs";
                 Image = Group;
             }
+            action(OurMembers)
+            {
+                Caption = 'Members';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                RunObject = page "JCA Members";
+                Image = Group;
+            }
             action(GuestMembers)
             {
                 Caption = 'Guest Members';

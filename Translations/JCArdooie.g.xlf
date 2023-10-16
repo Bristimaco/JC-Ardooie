@@ -1258,6 +1258,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Admin Rolecenter - Action GuestMembers - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1832677796 - Action 653006261 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Members</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Admin Rolecenter - Action OurMembers - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1832677796 - Action 1514883969 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Setup</source>
           <note from="Developer" annotates="general" priority="2"></note>
