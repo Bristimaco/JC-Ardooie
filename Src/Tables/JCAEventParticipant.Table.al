@@ -130,6 +130,11 @@ table 50112 "JCA Event Participant"
             Caption = 'Result Mails Sent';
             DataClassification = SystemMetadata;
         }
+        field(15; "Supervisor Comment"; text[250])
+        {
+            Caption = 'Supervisor Comment';
+            DataClassification = SystemMetadata;
+        }
     }
 
     keys

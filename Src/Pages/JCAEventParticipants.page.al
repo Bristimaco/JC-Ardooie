@@ -70,6 +70,11 @@ page 50119 "JCA Event Participants"
                     ToolTip = ' ', Locked = true;
                     Editable = false;
                 }
+                field("Supervisor Comment";Rec."Supervisor Comment")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
             }
         }
     }

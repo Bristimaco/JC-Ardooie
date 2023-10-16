@@ -81,6 +81,11 @@ page 50127 "JCA Event Supervisor Sheet"
                             Rec.SendEventResultMail();
                     end;
                 }
+                field("Supervisor Comment"; Rec."Supervisor Comment")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
             }
         }
     }

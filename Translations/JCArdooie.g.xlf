@@ -513,6 +513,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Participant - Field Result Mails Sent - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3511736373 - Field 2690693973 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Supervisor Comment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Participant - Field Supervisor Comment - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1642976352 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Supervisor</source>
           <note from="Developer" annotates="general" priority="2"></note>
