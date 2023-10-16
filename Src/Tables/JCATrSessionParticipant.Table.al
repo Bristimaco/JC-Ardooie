@@ -28,11 +28,34 @@ table 50108 "JCA Tr. Session Participant"
         {
             Caption = 'Member License ID';
             DataClassification = SystemMetadata;
-            TableRelation = if ("Club Member" = const(true)) "JCA Training Group Member"."Member License ID" where("Training Group Code" = field("Training Group Code"));
+            TableRelation = if ("Club Member" = const(true)) "JCA Training Group Member"."Member License ID" where("Training Group Code" = field("Training Group Code")) else
+            if ("Club Member" = const(false)) "JCA Guest Member Tr. Group"."Guest Member License ID" where("Training Group Code" = field("Training Group Code"));
 
             trigger OnValidate()
+            var
+                JCAGuestMember: record "JCA Guest Member";
+                JCAMember: record "JCA Member";
+                JCAClub: record "JCA Club";
             begin
-                CalcFields("Member Full Name");
+                if "Club Member" then begin
+                    JCAClub.Reset();
+                    JCAClub.setrange("Our Club", true);
+                    JCAClub.findfirst();
+
+                    JCAMember.reset();
+                    if JCAMember.get("Member License ID") then begin
+                        validate("Member Full Name", JCAMember."Full Name");
+                        validate("Club No.", JCAClub."No.");
+                        validate(Belt, JCAMember.Belt);
+                    end;
+                end else begin
+                    JCAGuestMember.reset();
+                    if JCAGuestMember.get("Member License ID") then begin
+                        validate("Member Full Name", JCAGuestMember."Full Name");
+                        validate("Club No.", JCAGuestMember."Club No.");
+                        Validate(Belt, JCAGuestMember.Belt);
+                    end;
+                end;
             end;
         }
         field(4; "Training Group Code"; Code[20])
@@ -45,8 +68,7 @@ table 50108 "JCA Tr. Session Participant"
         field(5; "Member Full Name"; Text[150])
         {
             Caption = 'Member Full Name';
-            FieldClass = FlowField;
-            CalcFormula = lookup("JCA Member"."Full Name" where("License ID" = field("Member License ID")));
+            DataClassification = SystemMetadata;
             Editable = false;
         }
         field(6; Participation; Boolean)
@@ -70,6 +92,12 @@ table 50108 "JCA Tr. Session Participant"
             Caption = 'Club Name';
             FieldClass = FlowField;
             CalcFormula = lookup("JCA Club".Name where("No." = field("Club No.")));
+            Editable = false;
+        }
+        field(9; Belt; Enum "JCA Belt")
+        {
+            Caption = 'Belt';
+            DataClassification = SystemMetadata;
             Editable = false;
         }
     }

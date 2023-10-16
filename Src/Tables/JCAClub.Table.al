@@ -35,6 +35,13 @@ table 50118 "JCA Club"
             Caption = 'Our Club';
             DataClassification = SystemMetadata;
         }
+        field(7; Members; Integer)
+        {
+            Caption = 'Members';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Guest Member" where("Club No." = field("No.")));
+            Editable = false;
+        }
     }
 
     keys

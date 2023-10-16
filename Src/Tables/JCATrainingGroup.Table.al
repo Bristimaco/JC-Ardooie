@@ -23,6 +23,11 @@ table 50106 "JCA Training Group"
             CalcFormula = count("JCA Training Group Member" where("Training Group Code" = field(Code)));
             Editable = false;
         }
+        field(4; "Open for Other Clubs"; Boolean)
+        {
+            Caption = 'Open for Other Clubs';
+            DataClassification = SystemMetadata;
+        }
     }
 
     keys

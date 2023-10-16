@@ -23,8 +23,13 @@ table 50105 "JCA Training Session"
             TableRelation = "JCA Training Group".Code;
 
             trigger OnValidate()
+            var
+                JCATrainingGroup: record "JCA Training Group";
             begin
                 CalcFields("Training Group Description");
+                JCATrainingGroup.reset();
+                if JCATrainingGroup.get("Training Group Code") then
+                    validate("Open for Other Clubs", JCATrainingGroup."Open for Other Clubs");
             end;
         }
         field(4; "Training Group Description"; Text[50])
@@ -53,6 +58,11 @@ table 50105 "JCA Training Session"
             FieldClass = FlowField;
             CalcFormula = count("JCA Tr. Session Participant" where("Training Session No." = field("No."), Participation = const(true)));
             Editable = false;
+        }
+        field(8; "Open for Other Clubs"; Boolean)
+        {
+            Caption = 'Open for Other Clubs';
+            DataClassification = SystemMetadata;
         }
     }
 
@@ -109,5 +119,7 @@ table 50105 "JCA Training Session"
     begin
         clear(JCATrainingManagement);
         JCATrainingManagement.FectchTrainingSessionParticipants(Rec);
+        if "Open for Other Clubs" then
+            JCATrainingManagement.FetchTrainingSessionParticipantsFromOtherClubs(Rec);
     end;
 }

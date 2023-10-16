@@ -27,6 +27,11 @@ page 50107 "JCA Training Groups"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field("Open for Other Clubs"; Rec."Open for Other Clubs")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
             }
 
             part(TrainingGroupMembers; "JCA Training Group Members")

@@ -36,6 +36,11 @@ page 50113 "JCA Training Session Card"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field("Open for Other Clubs"; Rec."Open for Other Clubs")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
                 field("Potential Participants"; Rec."Potential Participants")
                 {
                     ApplicationArea = all;

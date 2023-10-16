@@ -36,6 +36,13 @@ page 50112 "JCA Tr. Session Participants"
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
+                    DrillDown = false;
+                    Lookup = false;
+                }
+                field(Belt; Rec.Belt)
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
                 }
             }
         }

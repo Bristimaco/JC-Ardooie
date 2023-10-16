@@ -21,6 +21,7 @@ codeunit 50101 "JCA Training Management"
     procedure FectchTrainingSessionParticipants(var JCATrainingSession: record "JCA Training Session")
     var
         JCATrainingGroupMember: record "JCA Training Group Member";
+        JCAGuestMember: record "JCA Member";
         JCATrSessionParticipant: record "JCA Tr. Session Participant";
         JCAClub: record "JCA Club";
     begin
@@ -41,11 +42,46 @@ codeunit 50101 "JCA Training Management"
                 if JCATrSessionParticipant.IsEmpty() then begin
                     JCATrSessionParticipant.Reset();
                     JCATrSessionParticipant.init();
+                    JCATrSessionParticipant.validate("Club Member", true);
                     JCATrSessionParticipant.validate("Training Session No.", JCATrainingSession."No.");
                     JCATrSessionParticipant.validate("Member License ID", JCATrainingGroupMember."Member License ID");
                     JCATrSessionParticipant.validate("Club No.", JCAClub."No.");
                     JCATrSessionParticipant.insert(true);
                 end;
             until JCATrainingGroupMember.Next() = 0;
+    end;
+
+    procedure FetchTrainingSessionParticipantsFromOtherClubs(var JCATrainingSession: Record "JCA Training Session")
+    var
+        JCAGuestMemberTrGroup: record "JCA Guest Member Tr. Group";
+        JCAGuestMember: record "JCA Guest Member";
+        JCATrSessionParticipant: record "JCA Tr. Session Participant";
+        JCAClub: record "JCA Club";
+    begin
+        JCATrainingSession.TestField(Status, JCATrainingSession.Status::Open);
+        JCATrainingSession.TestField("Training Group Code");
+
+        JCAGuestMemberTrGroup.Reset();
+        JCAGuestMemberTrGroup.setrange("Training Group Code", JCATrainingSession."Training Group Code");
+        JCAGuestMemberTrGroup.setrange(Active, true);
+        if JCAGuestMemberTrGroup.findset() then
+            repeat
+                JCAGuestMember.Reset();
+                JCAGuestMember.Get(JCAGuestMemberTrGroup."Guest Member License ID");
+                if JCAGuestMember.Active then begin
+                    JCATrSessionParticipant.reset();
+                    JCATrSessionParticipant.setrange("Training Session No.", JCATrainingSession."No.");
+                    JCATrSessionParticipant.SetRange("Member License ID", JCAGuestMemberTrGroup."Guest Member License ID");
+                    if JCATrSessionParticipant.IsEmpty() then begin
+                        JCATrSessionParticipant.Reset();
+                        JCATrSessionParticipant.init();
+                        JCATrSessionParticipant.validate("Club Member", false);
+                        JCATrSessionParticipant.validate("Training Session No.", JCATrainingSession."No.");
+                        JCATrSessionParticipant.validate("Member License ID", JCAGuestMemberTrGroup."Guest Member License ID");
+                        JCATrSessionParticipant.validate("Club No.", JCAGuestMember."Club No.");
+                        JCATrSessionParticipant.insert(true);
+                    end;
+                end;
+            until JCAGuestMemberTrGroup.Next() = 0;
     end;
 }

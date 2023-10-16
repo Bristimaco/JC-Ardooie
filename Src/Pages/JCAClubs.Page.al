@@ -43,6 +43,11 @@ page 50130 "JCA Clubs"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field(Members; Rec.Members)
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
             }
         }
     }
