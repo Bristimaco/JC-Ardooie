@@ -132,6 +132,11 @@ table 50101 "JCA Member"
             Caption = 'Picture';
             DataClassification = SystemMetadata;
         }
+        field(20; "Send Result Mails"; Boolean)
+        {
+            Caption = 'Send Result Mails';
+            DataClassification = SystemMetadata;
+        }
     }
 
     keys

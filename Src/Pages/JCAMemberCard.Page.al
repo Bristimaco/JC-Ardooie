@@ -50,6 +50,11 @@ page 50102 "JCA Member Card"
                         ApplicationArea = all;
                         ToolTip = ' ', Locked = true;
                     }
+                    field("Send Result Mails"; Rec."Send Result Mails")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
                 }
             }
 

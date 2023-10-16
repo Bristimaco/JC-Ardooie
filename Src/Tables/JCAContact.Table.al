@@ -48,6 +48,11 @@ table 50114 "JCA Contact"
             Caption = 'Phone No.';
             DataClassification = SystemMetadata;
         }
+        field(7; "Send Result Mails"; Boolean)
+        {
+            Caption = 'Send Result Mails';
+            DataClassification = SystemMetadata;
+        }
     }
 
     keys

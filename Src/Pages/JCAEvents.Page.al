@@ -82,6 +82,22 @@ page 50116 "JCA Events"
                     rec.OpenCard();
                 end;
             }
+            action(SupervisorSheet)
+            {
+                Caption = 'Supervisor Sheet';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                Image = Card;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+
+                trigger OnAction()
+                begin
+                    rec.OpenSupervisorSheet();
+                end;
+            }
 
             action(New)
             {

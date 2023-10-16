@@ -39,6 +39,11 @@ page 50117 "JCA Event Card"
                     ApplicationArea = all;
                     ToolTip = ' ', locked = true;
                 }
+                field("Send Result Mails"; Rec."Send Result Mails")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', locked = true;
+                }
                 field(Status; Rec.Status)
                 {
                     ApplicationArea = all;

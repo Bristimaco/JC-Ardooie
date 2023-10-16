@@ -135,6 +135,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Contact - Field Phone No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 26730572 - Field 3877114753 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send Result Mails</source>
+          <target>Stuur Resultaat Mails</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Contact - Field Send Result Mails - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1630571357 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>JCA Cue</source>
           <target>JCA Tegel</target>
@@ -393,6 +399,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event - Field Registration Deadline - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3860414336 - Field 3877114753 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send Result Mails</source>
+          <target>Stuur Resultaat Mails</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event - Field Send Result Mails - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3860414336 - Field 513339096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Status</source>
           <target>Status</target>
@@ -567,6 +579,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Participant - Field Member License ID - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3511736373 - Field 3864010881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No-Show</source>
+          <target>Afwezig</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Participant - Field No-Show - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3511736373 - Field 856236780 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Registered</source>
           <target>Geregistreerd</target>
@@ -578,6 +596,12 @@
           <target>Inschrijving Bevestiging</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Participant - Field Registration Confirmed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3511736373 - Field 472338107 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Result</source>
+          <target>Resultaat</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Participant - Field Result - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1642976352 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Supervisor</source>
@@ -740,6 +764,12 @@
           <target>Afbeelding</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Member - Field Picture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3645402444 - Field 3877114753 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send Result Mails</source>
+          <target>Stuur Resultaat Mails</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Member - Field Send Result Mails - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 81067200 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Member Age Group</source>
@@ -1100,6 +1130,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method CreateEventRegistrationConfirmationMailContent - NamedType RegistrationConfirmationSubjectLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 122294278 - Method 2772705083 - NamedType 2953683660" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Results for %1 - %2: %3</source>
+          <target>Resultaat voor %1 - %2: %3</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method CreateEventResultMailContent - NamedType ResultsLbl</note>
+        </trans-unit>
         <trans-unit id="Codeunit 122294278 - Method 347613895 - NamedType 1220805257" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unregistration Confirmation for %1 - %2</source>
           <target>Bevestiging Uitschrijving voor %1 - %2</target>
@@ -1388,6 +1424,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Participants - Action SendInvitation - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4077158621 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Event Supervisor Sheet</source>
+          <target>Evenement Begeleider Werkblad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Supervisor Sheet - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3586166625 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Supervisors</source>
           <target>Evenement Begeleiders</target>
@@ -1429,6 +1471,12 @@
           <target>Nieuw</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Events - Action New - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3568864833 - Action 2133385225 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Supervisor Sheet</source>
+          <target>Begeleider Werkblad</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Events - Action SupervisorSheet - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3777788161 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Member Age Groups</source>
@@ -1741,6 +1789,60 @@
           <target>Geel (Kyu 5)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Belt - EnumValue Yellow - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 83572431 - EnumValue 3285013543 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>-</source>
+          <target>-</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Event Result - EnumValue - - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 83572431 - EnumValue 744776610 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bronze</source>
+          <target>Brons</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Event Result - EnumValue Bronze - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 83572431 - EnumValue 4143188279 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fifth</source>
+          <target>Vijfde</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Event Result - EnumValue Fifth - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 83572431 - EnumValue 580429820 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gold</source>
+          <target>Goud</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Event Result - EnumValue Gold - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 83572431 - EnumValue 721567124 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Second</source>
+          <target>Tweede</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Event Result - EnumValue Second - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 83572431 - EnumValue 2323292817 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Seventh</source>
+          <target>Zevende</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Event Result - EnumValue Seventh - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 83572431 - EnumValue 2665451865 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Silver</source>
+          <target>Zilver</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Event Result - EnumValue Silver - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 83572431 - EnumValue 1550647365 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Third</source>
+          <target>Derde</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Event Result - EnumValue Third - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 83572431 - EnumValue 94590195 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Winner</source>
+          <target>Winnaar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Event Result - EnumValue Winner - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 693061124 - EnumValue 57370450 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Archived</source>

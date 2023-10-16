@@ -42,6 +42,11 @@ page 50121 "JCA Contacts"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field("Send Result Mails"; Rec."Send Result Mails")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
             }
         }
     }

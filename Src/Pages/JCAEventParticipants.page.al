@@ -58,6 +58,18 @@ page 50119 "JCA Event Participants"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field("No-Show"; Rec."No-Show")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                    Editable = false;
+                }
+                Field(Result; Rec.Result)
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                    Editable = false;
+                }
             }
         }
     }

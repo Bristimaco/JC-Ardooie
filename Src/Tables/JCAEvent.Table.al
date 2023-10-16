@@ -75,6 +75,12 @@ table 50110 "JCA Event"
             CalcFormula = count("JCA Event Participant" where("Event No." = field("No."), Registered = const(true)));
             Editable = false;
         }
+        Field(12; "Send Result Mails"; Boolean)
+        {
+            Caption = 'Send Result Mails';
+            DataClassification = SystemMetadata;
+            InitValue = true;
+        }
     }
 
     keys
@@ -124,6 +130,20 @@ table 50110 "JCA Event"
         clear(JCAEventCard);
         JCAEventCard.SetRecord(JCAEvent);
         JCAEventCard.Run();
+    end;
+
+    procedure OpenSupervisorSheet()
+    var
+        JCAEventParticipant: record "JCA Event Participant";
+        JCAEventSupervisorSheet: page "JCA Event Supervisor Sheet";
+    begin
+        TestField(status, status::"In Progress");
+
+        JCAEventParticipant.Reset();
+        JCAEventParticipant.setrange("Event No.", "No.");
+        clear(JCAEventSupervisorSheet);
+        JCAEventSupervisorSheet.SetTableView(JCAEventParticipant);
+        JCAEventSupervisorSheet.run();
     end;
 
     procedure FetchParticipants()

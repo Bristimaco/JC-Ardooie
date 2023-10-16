@@ -115,6 +115,21 @@ table 50112 "JCA Event Participant"
             CalcFormula = lookup("JCA Age Group".Description where("Country Code" = field("Country Code"), Gender = field(Gender), Code = field("Age Group Code")));
             Editable = false;
         }
+        field(12; "No-Show"; Boolean)
+        {
+            Caption = 'No-Show';
+            DataClassification = SystemMetadata;
+        }
+        field(13; Result; enum "JCA Event Result")
+        {
+            Caption = 'Result';
+            DataClassification = SystemMetadata;
+        }
+        field(14; "Result Mails Sent"; Boolean)
+        {
+            Caption = 'Result Mails Sent';
+            DataClassification = SystemMetadata;
+        }
     }
 
     keys
@@ -177,5 +192,21 @@ table 50112 "JCA Event Participant"
     begin
         TestField(Registered, true);
         validate(Registered, false);
+    end;
+
+    procedure SendEventResultMail()
+    var
+        JCAEvent: record "JCA Event";
+        JCAMailManagement: Codeunit "JCA Mail Management";
+    begin
+        JCAEvent.Reset();
+        JCAEvent.get(Rec."Event No.");
+        if not JCAEvent."Send Result Mails" then
+            exit;
+
+        clear(JCAMailManagement);
+        JCAMailManagement.SendEventResultMail(Rec);
+        Validate("Result Mails Sent", true);
+        Modify(true);
     end;
 }

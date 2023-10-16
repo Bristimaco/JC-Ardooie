@@ -1,5 +1,57 @@
 codeunit 50104 "JCA Mail Management"
 {
+    procedure SendEventResultMail(JCAEventParticipant: record "JCA Event Participant")
+    var
+        JCAEvent: record "JCA Event";
+        JCAMember: record "JCA Member";
+        JCAContact: record "JCA Contact";
+        MailManagement: codeunit "Mail Management";
+        EmailMessage: codeunit "Email Message";
+        Email: codeunit Email;
+        MailingList: list of [Text[100]];
+        MailAddress: text[100];
+        MailSubject: text;
+        MailBody: TextBuilder;
+    begin
+        JCAEvent.reset();
+        JCAEvent.get(JCAEventParticipant."Event No.");
+        if not JCAEvent."Send Result Mails" then
+            exit;
+
+        clear(MailingList);
+
+        JCAMember.Reset();
+        JCAMember.setrange("Send Result Mails", true);
+        if JCAMember.Findset() then
+            repeat
+                if not MailingList.Contains(JCAMember."E-Mail") then
+                    MailingList.Add(JCAMember."E-Mail");
+            until JCAMember.Next() = 0;
+
+        JCAContact.reset();
+        JCAContact.setrange("Send Result Mails", true);
+        if JCAContact.findset() then
+            repeat
+                if not MailingList.Contains(JCAContact."E-Mail") then
+                    MailingList.Add(JCAContact."E-Mail");
+            until JCAContact.Next() = 0;
+
+        if MailingList.Count() = 0 then
+            exit;
+
+        foreach MailAddress in MailingList do begin
+            CheckForMailSystemTest(MailAddress);
+            clear(MailManagement);
+            if MailManagement.CheckValidEmailAddress(MailAddress) then begin
+                CreateEventResultMailContent(JCAEventParticipant, JCAEvent, MailSubject, MailBody);
+                clear(EmailMessage);
+                EmailMessage.Create(MailAddress, MailSubject, MailBody.ToText());
+                clear(Email);
+                Email.Send(EmailMessage, enum::"Email Scenario"::Default);
+            end;
+        end;
+    end;
+
     procedure SendEventInvitationMail(MemberLicenseID: code[20]; JCAEvent: record "JCA Event"): Boolean
     var
         JCAMember: Record "JCA Member";
@@ -276,6 +328,24 @@ codeunit 50104 "JCA Mail Management"
         MailBody.AppendLine('Beste ' + JCAMember."First Name" + ',');
         MailBody.AppendLine();
         MailBody.AppendLine('Hierbij bevestiging dat u niet langer bent ingeschreven voor het volgende evenement: ' + format(JCAEvent.Type) + ' - ' + JCAEvent.Description);
+        MailBody.AppendLine();
+        MailBody.AppendLine('Met vriendelijke groeten,');
+        MailBody.AppendLine();
+        MailBody.AppendLine('Judo Ardooie');
+    end;
+
+    local procedure CreateEventResultMailContent(JCAEventParticipant: record "JCA Event Participant"; JCAEvent: record "JCA Event"; var MailSubject: Text; var MailBody: TextBuilder)
+    var
+        ResultsLbl: label 'Results for %1 - %2: %3';
+    begin
+        MailSubject := StrSubstNo(ResultsLbl, JCAEvent.Type, JCAEvent.Description, JCAEventParticipant."Member Full Name");
+
+        Clear(MailBody);
+        MailBody.AppendLine('Beste suporter,');
+        MailBody.AppendLine();
+        MailBody.AppendLine('Tijdens het ' + format(JCAEvent.Type) + ' - ' + JCAEvent.Description + ' behaalde ' + JCAEventParticipant."Member Full Name" + ' het volgende resulaat:');
+        MailBody.AppendLine();
+        MailBody.AppendLine(UpperCase(format(JCAEventParticipant.Result)));
         MailBody.AppendLine();
         MailBody.AppendLine('Met vriendelijke groeten,');
         MailBody.AppendLine();
