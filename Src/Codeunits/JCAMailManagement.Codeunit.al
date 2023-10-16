@@ -6,6 +6,7 @@ codeunit 50104 "JCA Mail Management"
         JCAEventDocument: record "JCA Event Document";
         MailManagement: codeunit "Mail Management";
         EmailMessage: codeunit "Email Message";
+        JCAActionLogManagement: codeunit "JCA Action Log Management";
         Email: codeunit Email;
         InStream: InStream;
         SendToMail: text[100];
@@ -14,39 +15,60 @@ codeunit 50104 "JCA Mail Management"
         MailSubject: Text;
         AttachmentName: Text[250];
         CCEMail: text[100];
+        MailSent: Boolean;
+        HasError: Boolean;
+        LogDescription: text;
+        InvitationMailSentLbl: Label 'An invitation for Event %1 - %2 has been sent to %3 - %4';
+        InvitationMailFailedLbl: Label 'Failed to send an invitation for Event %1 - %2 has been sent to %3 - %4';
     begin
+        HasError := false;
+        MailSent := false;
+
         JCAMember.Reset();
         JCAMember.get(MemberLicenseID);
         if JCAMember."E-Mail" = '' then
-            exit(false);
+            HasError := true;
 
-        SendToMail := JCAMember."E-Mail";
-        CheckForMailSystemTest(SendToMail);
+        if not HasError then begin
+            SendToMail := JCAMember."E-Mail";
+            CheckForMailSystemTest(SendToMail);
 
-        clear(MailManagement);
-        if not MailManagement.CheckValidEmailAddress(SendToMail) then
-            exit;
+            clear(MailManagement);
+            if not MailManagement.CheckValidEmailAddress(SendToMail) then
+                HasError := true;
 
-        CollectCCMAilAddresses(JCAMember, SendToCCList);
+            if not HasError then begin
+                CollectCCMAilAddresses(JCAMember, SendToCCList);
 
-        CreateEventInvitationMailContent(JCAMember, JCAEvent, MailSubject, MailBody, JCAEventDocument);
+                CreateEventInvitationMailContent(JCAMember, JCAEvent, MailSubject, MailBody, JCAEventDocument);
 
-        clear(EmailMessage);
-        EmailMessage.Create(SendToMail, MailSubject, MailBody.ToText());
-        foreach CCEmail in SendToCCList do
-            EmailMessage.AddRecipient(enum::"Email Recipient Type"::Cc, CCEMail);
+                clear(EmailMessage);
+                EmailMessage.Create(SendToMail, MailSubject, MailBody.ToText());
+                foreach CCEmail in SendToCCList do
+                    EmailMessage.AddRecipient(enum::"Email Recipient Type"::Cc, CCEMail);
 
-        if JCAEventDocument.findset() then
-            repeat
-                AttachmentName := JCAEventDocument."Event No." + '-' + format(JCAEventDocument."Document No.") + '.' + JCAEventDocument.Extension;
-                JCAEventDocument.CalcFields("Document Content");
-                JCAEventDocument."Document Content".CreateInStream(InStream);
-                EMailMessage.AddAttachment(AttachmentName, JCAEventDocument.Extension, InStream);
-            until JCAEventDocument.Next() = 0;
+                if JCAEventDocument.findset() then
+                    repeat
+                        AttachmentName := JCAEventDocument."Event No." + '-' + format(JCAEventDocument."Document No.") + '.' + JCAEventDocument.Extension;
+                        JCAEventDocument.CalcFields("Document Content");
+                        JCAEventDocument."Document Content".CreateInStream(InStream);
+                        EMailMessage.AddAttachment(AttachmentName, JCAEventDocument.Extension, InStream);
+                    until JCAEventDocument.Next() = 0;
 
 
-        clear(Email);
-        exit(Email.Send(EmailMessage, enum::"Email Scenario"::Default));
+                clear(Email);
+                MailSent := Email.Send(EmailMessage, enum::"Email Scenario"::Default);
+            end;
+        end;
+
+        clear(JCAActionLogManagement);
+        if MailSent then
+            LogDescription := StrSubstNo(InvitationMailSentLbl, JCAEvent."No.", JCAEvent.Description, JCAMember."License ID", JCAMember."Full Name")
+        else
+            LogDescription := StrSubstNo(InvitationMailFailedLbl, JCAEvent."No.", JCAEvent.Description, JCAMember."License ID", JCAMember."Full Name");
+        JCAActionLogManagement.LogApplicatonAction(enum::"JCA Application Action"::"Event Invitation Mail", LogDescription, JCAMember);
+
+        exit(MailSent);
     end;
 
     local procedure CheckForMailSystemTest(var SendToMail: text[100])

@@ -62,13 +62,28 @@ table 50112 "JCA Event Participant"
             DataClassification = SystemMetadata;
             Editable = false;
         }
-        field(7; Registered; Boolean)
+        field(7; "Applied for Registration"; Boolean)
+        {
+            Caption = 'Applied for Registration';
+            DataClassification = SystemMetadata;
+
+            trigger OnValidate()
+            begin
+                testfield(Invited);
+            end;
+        }
+        field(8; Registered; Boolean)
         {
             Caption = 'Registered';
             DataClassification = SystemMetadata;
             Editable = false;
+
+            trigger OnValidate()
+            begin
+                testfield("Applied for Registration");
+            end;
         }
-        field(8; "Age Group Code"; Code[10])
+        field(9; "Age Group Code"; Code[10])
         {
             Caption = 'Age Group Code';
             DataClassification = SystemMetadata;
@@ -80,7 +95,7 @@ table 50112 "JCA Event Participant"
             end;
 
         }
-        field(9; "Age Group Description"; text[50])
+        field(10; "Age Group Description"; text[50])
         {
             Caption = 'Age Group Description';
             FieldClass = FlowField;

@@ -40,6 +40,11 @@ table 50113 "JCA Event Supervisor"
             DataClassification = SystemMetadata;
             Editable = false;
         }
+        field(6; "Applied for Registration"; Boolean)
+        {
+            Caption = 'Applied for Registration';
+            DataClassification = SystemMetadata;
+        }
     }
 
     keys

@@ -43,6 +43,11 @@ page 50119 "JCA Event Participants"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field("Applied for Registration"; Rec."Applied for Registration")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
                 field(Registered; Rec.Registered)
                 {
                     ApplicationArea = all;

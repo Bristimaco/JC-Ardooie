@@ -85,6 +85,14 @@ page 50103 "JCA Admin Rolecenter"
                 RunObject = page "JCA Events";
                 Image = History;
             }
+            action(ActionLogs)
+            {
+                Caption = 'Logs';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                RunObject = page "JCA Action Logs";
+                Image = Log;
+            }
         }
     }
 }

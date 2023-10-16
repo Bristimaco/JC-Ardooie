@@ -28,11 +28,16 @@ page 50120 "JCA Event Supervisors"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
-                field(Registered; Rec.Registered)
+                field("Applied for Registration"; Rec."Applied for Registration")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field(Registered; Rec.Registered)
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }                
             }
         }
     }
