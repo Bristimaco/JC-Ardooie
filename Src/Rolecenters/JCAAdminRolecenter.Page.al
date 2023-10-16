@@ -7,15 +7,10 @@ page 50103 "JCA Admin Rolecenter"
     {
         area(RoleCenter)
         {
-            part(Members; "JCA Member Cues")
-            {
-                Caption = 'Members';
-                ApplicationArea = all;
-            }
-            part(Today;"JCA Today Cues")
+            part(Today; "JCA Today Cues")
             {
                 Caption = 'Today';
-                ApplicationArea =all;
+                ApplicationArea = all;
             }
             part(TrainingSessions; "JCA Training Session Cues")
             {
@@ -25,6 +20,11 @@ page 50103 "JCA Admin Rolecenter"
             part(Events; "JCA Event Cues")
             {
                 Caption = 'Events';
+                ApplicationArea = all;
+            }
+            part(Members; "JCA Member Cues")
+            {
+                Caption = 'Members';
                 ApplicationArea = all;
             }
         }
