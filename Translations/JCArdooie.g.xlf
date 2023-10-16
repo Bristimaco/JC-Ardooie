@@ -1498,6 +1498,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Guest Member Card - Control Characteristics - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3706241272 - Control 2117868828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Club</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Guest Member Card - Control Club - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3706241272 - Control 3050372732 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Communication</source>
           <note from="Developer" annotates="general" priority="2"></note>

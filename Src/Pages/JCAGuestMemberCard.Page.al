@@ -51,6 +51,11 @@ page 50133 "JCA Guest Member Card"
                         ToolTip = ' ', Locked = true;
                     }
                 }
+                field(Active; Rec.Active)
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
             }
 
             group(Characteristics)
@@ -67,20 +72,20 @@ page 50133 "JCA Guest Member Card"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
-                field("Club No."; Rec."Club No.")
+                group(Club)
                 {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
-                }
-                field("Club Name"; Rec."Club Name")
-                {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
-                }
-                field(Active; Rec.Active)
-                {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
+                    Caption = 'Club';
+
+                    field("Club No."; Rec."Club No.")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                    field("Club Name"; Rec."Club Name")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
                 }
             }
 
