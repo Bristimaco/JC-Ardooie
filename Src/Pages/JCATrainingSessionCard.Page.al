@@ -55,6 +55,8 @@ page 50113 "JCA Training Session Card"
 
             group(Invoicing)
             {
+                Caption = 'Invoicing';
+                
                 field("Invoice To Customer No."; Rec."Invoice To Customer No.")
                 {
                     ApplicationArea = all;

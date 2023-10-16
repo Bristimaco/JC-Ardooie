@@ -2078,6 +2078,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Training Session Card - Control General - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 138286606 - Control 1450094168 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoicing</source>
+          <target>Facturering</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Training Session Card - Control Invoicing - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 138286606 - Control 3285306070 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Participants</source>
           <target>Deelnemers</target>
