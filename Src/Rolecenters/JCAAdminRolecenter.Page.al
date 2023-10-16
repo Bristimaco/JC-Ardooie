@@ -12,6 +12,11 @@ page 50103 "JCA Admin Rolecenter"
                 Caption = 'Members';
                 ApplicationArea = all;
             }
+            part(Today;"JCA Today Cues")
+            {
+                Caption = 'Today';
+                ApplicationArea =all;
+            }
             part(TrainingSessions; "JCA Training Session Cues")
             {
                 Caption = 'Training Sessions';

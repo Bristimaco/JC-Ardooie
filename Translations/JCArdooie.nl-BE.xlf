@@ -201,6 +201,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Date Filter - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1630571357 - Field 1374668108 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Event Date Filter</source>
+          <target>Evenement Datum Filter</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Event Date Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1630571357 - Field 3458764908 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Events Today</source>
+          <target>Evenementen Vandaag</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Events Today - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1630571357 - Field 4116191348 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Inactive Members</source>
           <target>Inactieve Leden</target>
@@ -1142,6 +1154,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Admin Rolecenter - Control Members - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1832677796 - Control 4155090369 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Today</source>
+          <target>Vandaag</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Admin Rolecenter - Control Today - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1832677796 - Control 3053641455 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Training Sessions</source>
           <target>Trainingen</target>
@@ -1550,6 +1568,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup - Control NoSeries - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2423871649 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Today</source>
+          <target>Vandaag</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Today Cues - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 880865326 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Training Session Participants</source>
           <target>Training Deelnemers</target>
@@ -1705,6 +1729,12 @@
           <target>Gearchiveerd</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Event Status - EnumValue Archived - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 693061124 - EnumValue 1090713286 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>In Progress</source>
+          <target>Wordt uitgevoerd</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Event Status - EnumValue In Progress - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 693061124 - EnumValue 192851146 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invitations Sent</source>

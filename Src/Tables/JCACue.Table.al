@@ -187,6 +187,18 @@ table 50102 "JCA Cue"
             CalcFormula = count("JCA Contact");
             Editable = false;
         }
+        field(28; "Events Today"; Integer)
+        {
+            Caption = 'Events Today';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event" where(Date = field("Event Date Filter")));
+            Editable = false;
+        }
+        field(29; "Event Date Filter"; Date)
+        {
+            Caption = 'Event Date Filter';
+            FieldClass = FlowFilter;
+        }
     }
 
     keys

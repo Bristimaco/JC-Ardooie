@@ -20,7 +20,11 @@ enum 50104 "JCA Event Status"
     {
         Caption = 'Registrations Processed';
     }
-    value(5; Archived)
+    value(5; "In Progress")
+    {
+        Caption = 'In Progress';
+    }
+    value(6; Archived)
     {
         Caption = 'Archived';
     }
