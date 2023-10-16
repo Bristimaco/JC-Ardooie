@@ -11,9 +11,56 @@ page 50127 "JCA Event Supervisor Sheet"
     {
         area(Content)
         {
+            field(AgeGroup; AgeGroup)
+            {
+                Caption = 'Age Group Filter';
+                ApplicationArea = all;
+
+                trigger OnAssistEdit()
+                var
+                    JCAEventAgeGroup: record "JCA Event Age Group";
+                    JCAEventAgeGroupLookup: page "JCA Event Age Group Lookup";
+                begin
+                    JCAEventAgeGroup.Reset();
+                    JCAEventAgeGroup.setrange("Event No.", Rec."Event No.");
+                    clear(JCAEventAgeGroupLookup);
+                    JCAEventAgeGroupLookup.SetTableView(JCAEventAgeGroup);
+                    JCAEventAgeGroupLookup.LookupMode := true;
+                    if JCAEventAgeGroupLookup.RunModal() = action::LookupOK then begin
+                        JCAEventAgeGroupLookup.GetRecord(JCAEventAgeGroup);
+                        Rec.SetRange(Gender, JCAEventAgeGroup.Gender);
+                        Rec.SetRange("Age Group Code", JCAEventAgeGroup."Age Group Code");
+                        AgeGroup := JCAEventAgeGroup."Age Group Code";
+                        Gender := format(JCAEventAgeGroup.Gender);
+                        CurrPage.update(false);
+                    end;
+                end;
+
+                trigger OnValidate()
+                begin
+                    Rec.Setrange(Gender);
+                    Rec.setrange("Age Group Code");
+
+                    AgeGroup := '';
+                    Gender := '';
+
+                    CurrPage.Update(false);
+                end;
+            }
+            field(Gender; Gender)
+            {
+                ApplicationArea = all;
+                Caption = 'Gender';
+                Editable = false;
+            }
             repeater(EventParticipants)
             {
                 field("No-Show"; Rec."No-Show")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("Age Group Code"; Rec."Age Group Code")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
@@ -37,4 +84,8 @@ page 50127 "JCA Event Supervisor Sheet"
             }
         }
     }
+
+    var
+        AgeGroup: Code[20];
+        Gender: text;
 }

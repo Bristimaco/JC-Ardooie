@@ -603,6 +603,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Participant - Field Result - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3511736373 - Field 2094933913 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Result Mails Sent</source>
+          <target>Resultaat Mails Verstuurd</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Participant - Field Result Mails Sent - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1642976352 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Supervisor</source>
           <target>Evenement Begeleider</target>
@@ -1286,6 +1292,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Contacts - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3691377526 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Event Age Group Lookup</source>
+          <target>Evenement Leeftijdsgroepen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Age Group Lookup - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3202159021 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Age Groups</source>
           <target>Evenement Leeftijdsgroepen</target>
@@ -1429,6 +1441,18 @@
           <target>Evenement Begeleider Werkblad</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Supervisor Sheet - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4077158621 - Control 1518494080 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Age Group Filter</source>
+          <target>Leeftijdsgroep Filter</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Supervisor Sheet - Control AgeGroup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4077158621 - Control 2303302321 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gender</source>
+          <target>Geslacht</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Supervisor Sheet - Control Gender - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3586166625 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Supervisors</source>

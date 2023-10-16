@@ -1078,6 +1078,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Contacts - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3691377526 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Event Age Group Lookup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Age Group Lookup - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3202159021 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Age Groups</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1197,6 +1202,16 @@
           <source>Event Supervisor Sheet</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Supervisor Sheet - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4077158621 - Control 1518494080 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Age Group Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Supervisor Sheet - Control AgeGroup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4077158621 - Control 2303302321 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gender</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Supervisor Sheet - Control Gender - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3586166625 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Supervisors</source>
