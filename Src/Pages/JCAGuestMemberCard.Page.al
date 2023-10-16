@@ -67,6 +67,11 @@ page 50133 "JCA Guest Member Card"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field(Belt; Rec.Belt)
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
                 field(Dan; Rec.Dan)
                 {
                     ApplicationArea = all;
