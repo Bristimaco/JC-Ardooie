@@ -93,6 +93,19 @@ page 50110 "JCA Training Sessions"
                     JCATrainingManagement.CreateNewTrainingSession(true);
                 end;
             }
+            action(OpenAttendanceSheet)
+            {
+                Caption = 'Attendance Sheet';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                Image = EmployeeAgreement;
+                RunObject = page "JCA Training Attendance";
+                RunPageLink = "Training Session No." = field("No.");
+            }
         }
     }
 }

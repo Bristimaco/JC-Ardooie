@@ -2072,6 +2072,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Training Sessions - Action New - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 322390647 - Action 206124936 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Attendance Sheet</source>
+          <target>Aanwezigheidslijst</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Training Sessions - Action OpenAttendanceSheet - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1598018048 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Weight Groups</source>
           <target>Gewichtscategorieën</target>
