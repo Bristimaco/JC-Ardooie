@@ -127,6 +127,11 @@ table 50101 "JCA Member"
             Caption = 'Dan';
             DataClassification = SystemMetadata;
         }
+        field(19; Picture; MediaSet)
+        {
+            Caption = 'Picture';
+            DataClassification = SystemMetadata;
+        }
     }
 
     keys
@@ -183,4 +188,5 @@ table 50101 "JCA Member"
 
     var
         tempJCAMemberAgeGroup: record "JCA Member Age Group" temporary;
+        ItemCard: page "Item Picture";
 }

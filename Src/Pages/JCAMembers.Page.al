@@ -40,6 +40,17 @@ page 50101 "JCA Members"
                 }
             }
         }
+
+        area(FactBoxes)
+        {
+            part(MemberInformation; "JCA Member Factbox")
+            {
+                Caption = 'Member Information';
+                ApplicationArea = all;
+                SubPageLink = "License ID" = field("License ID");
+                UpdatePropagation = both;
+            }
+        }
     }
 
     trigger OnOpenPage()

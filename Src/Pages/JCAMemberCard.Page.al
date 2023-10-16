@@ -142,6 +142,17 @@ page 50102 "JCA Member Card"
                 UpdatePropagation = Both;
             }
         }
+
+        area(FactBoxes)
+        {
+            part(MemberInformation; "JCA Member Factbox")
+            {
+                Caption = 'Member Information';
+                ApplicationArea = all;
+                SubPageLink = "License ID" = field("License ID");
+                UpdatePropagation = both;
+            }
+        }
     }
 
     trigger OnOpenPage()

@@ -42,6 +42,9 @@ table 50100 "JCA Setup"
     keys
     {
         key(PK; Code)
-        { }
+        { }     
     }
+
+    var
+        Item: record Item;
 }
