@@ -341,7 +341,7 @@ codeunit 50104 "JCA Mail Management"
         MailSubject := StrSubstNo(ResultsLbl, JCAEvent.Type, JCAEvent.Description, JCAEventParticipant."Member Full Name");
 
         Clear(MailBody);
-        MailBody.AppendLine('Beste suporter,');
+        MailBody.AppendLine('Beste Supporter,');
         MailBody.AppendLine();
         MailBody.AppendLine('Tijdens het ' + format(JCAEvent.Type) + ' - ' + JCAEvent.Description + ' behaalde ' + JCAEventParticipant."Member Full Name" + ' het volgende resulaat:');
         MailBody.AppendLine();

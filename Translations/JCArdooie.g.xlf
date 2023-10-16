@@ -573,6 +573,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Member - Field Belt - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3645402444 - Field 39781296 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bronze Medals</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Member - Field Bronze Medals - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3645402444 - Field 2341044757 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Dan</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -607,6 +612,11 @@
           <source>Gender</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Member - Field Gender - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3645402444 - Field 16915742 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gold Medals</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Member - Field Gold Medals - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3645402444 - Field 4068742839 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Last Name</source>
@@ -647,6 +657,11 @@
           <source>Send Result Mails</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Member - Field Send Result Mails - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3645402444 - Field 445463295 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Silver Medals</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Member - Field Silver Medals - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 81067200 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Member Age Group</source>
@@ -1338,6 +1353,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Factbox - NamedType SelectPictureTxt</note>
         </trans-unit>
+        <trans-unit id="Page 234838847 - Control 2553286014 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Medals</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Factbox - Control Medals - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 234838847 - Control 39781296 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bronze</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Factbox - Control Bronze Medals - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 234838847 - Control 16915742 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gold</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Factbox - Control Gold Medals - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 234838847 - Control 445463295 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Silver</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Factbox - Control Silver Medals - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 234838847 - Action 3119204463 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delete the record.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1527,6 +1562,11 @@
           <source>Fifth</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Event Result - EnumValue Fifth - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 83572431 - EnumValue 2266624814 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fourth</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Event Result - EnumValue Fourth - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 83572431 - EnumValue 580429820 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Gold</source>

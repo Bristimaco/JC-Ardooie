@@ -16,23 +16,27 @@ enum 50107 "JCA Event Result"
     {
         Caption = 'Third';
     }
-    Value(4; Fifth)
+    value(4; Fourth)
+    {
+        Caption = 'Fourth';
+    }
+    Value(5; Fifth)
     {
         Caption = 'Fifth';
     }
-    value(5; Seventh)
+    value(6; Seventh)
     {
         Caption = 'Seventh';
     }
-    value(6; Gold)
+    value(7; Gold)
     {
         Caption = 'Gold';
     }
-    value(7; Silver)
+    value(8; Silver)
     {
         Caption = 'Silver';
     }
-    value(8; Bronze)
+    value(9; Bronze)
     {
         Caption = 'Bronze';
     }

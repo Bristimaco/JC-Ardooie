@@ -137,6 +137,27 @@ table 50101 "JCA Member"
             Caption = 'Send Result Mails';
             DataClassification = SystemMetadata;
         }
+        field(21; "Gold Medals"; Integer)
+        {
+            Caption = 'Gold Medals';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event Participant" where("Member License ID" = field("License ID"), Result = const(Gold)));
+            Editable = false;
+        }
+        field(22; "Silver Medals"; Integer)
+        {
+            Caption = 'Silver Medals';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event Participant" where("Member License ID" = field("License ID"), Result = const(Silver)));
+            Editable = false;
+        }
+        field(23; "Bronze Medals"; Integer)
+        {
+            Caption = 'Bronze Medals';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Event Participant" where("Member License ID" = field("License ID"), Result = const(Bronze)));
+            Editable = false;
+        }
     }
 
     keys

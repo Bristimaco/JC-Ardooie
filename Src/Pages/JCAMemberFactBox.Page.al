@@ -6,6 +6,7 @@ page 50123 "JCA Member Factbox"
     LinksAllowed = false;
     PageType = CardPart;
     SourceTable = "JCA Member";
+    RefreshOnActivate = true;
 
     layout
     {
@@ -16,6 +17,30 @@ page 50123 "JCA Member Factbox"
                 ApplicationArea = Invoicing, Basic, Suite;
                 ShowCaption = false;
                 ToolTip = ' ', Locked = true;
+            }
+
+            group(Medals)
+            {
+                Caption = 'Medals';
+
+                field("Gold Medals"; Rec."Gold Medals")
+                {
+                    Caption = 'Gold';
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("Silver Medals"; Rec."Silver Medals")
+                {
+                    Caption = 'Silver';
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("Bronze Medals"; Rec."Bronze Medals")
+                {
+                    Caption = 'Bronze';
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
             }
         }
     }
