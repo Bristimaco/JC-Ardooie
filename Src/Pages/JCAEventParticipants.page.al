@@ -53,6 +53,11 @@ page 50119 "JCA Event Participants"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field("Registration Confirmed"; Rec."Registration Confirmed")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
             }
         }
     }
@@ -71,6 +76,30 @@ page 50119 "JCA Event Participants"
                 trigger OnAction()
                 begin
                     Rec.SendInvitationMail();
+                end;
+            }
+            action(ConfirmRegistration)
+            {
+                Caption = 'Confirm Registration';
+                Image = SendMail;
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+
+                trigger OnAction()
+                begin
+                    Rec.ConfirmRegistration();
+                end;
+            }
+            action(ConfirmUnRegistration)
+            {
+                Caption = 'Confirm Unregistration';
+                Image = SendMail;
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+
+                trigger OnAction()
+                begin
+                    Rec.ConfirmUnRegistration();
                 end;
             }
         }

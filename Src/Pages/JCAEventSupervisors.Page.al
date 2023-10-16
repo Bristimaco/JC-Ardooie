@@ -37,7 +37,12 @@ page 50120 "JCA Event Supervisors"
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
-                }                
+                }
+                field("Registration Confirmed"; Rec."Registration Confirmed")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
             }
         }
     }
@@ -56,6 +61,30 @@ page 50120 "JCA Event Supervisors"
                 trigger OnAction()
                 begin
                     Rec.SendInvitationMail();
+                end;
+            }
+            action(ConfirmRegistration)
+            {
+                Caption = 'Confirm Registration';
+                Image = SendMail;
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+
+                trigger OnAction()
+                begin
+                    Rec.ConfirmRegistration();
+                end;
+            }
+            action(ConfirmUnRegistration)
+            {
+                Caption = 'Confirm Unregistration';
+                Image = SendMail;
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+
+                trigger OnAction()
+                begin
+                    Rec.ConfirmUnRegistration();
                 end;
             }
         }

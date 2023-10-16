@@ -81,9 +81,20 @@ table 50112 "JCA Event Participant"
             trigger OnValidate()
             begin
                 testfield("Applied for Registration");
+                if xRec.Registered <> rec.Registered then
+                    if rec.Registered then
+                        SendRegistrationConfirmationMail()
+                    else
+                        SendUnRegistrationConfirmationMail();
             end;
         }
-        field(9; "Age Group Code"; Code[10])
+        field(9; "Registration Confirmed"; Boolean)
+        {
+            Caption = 'Registration Confirmed';
+            DataClassification = SystemMetadata;
+            Editable = false;
+        }
+        field(10; "Age Group Code"; Code[10])
         {
             Caption = 'Age Group Code';
             DataClassification = SystemMetadata;
@@ -95,7 +106,7 @@ table 50112 "JCA Event Participant"
             end;
 
         }
-        field(10; "Age Group Description"; text[50])
+        field(11; "Age Group Description"; text[50])
         {
             Caption = 'Age Group Description';
             FieldClass = FlowField;
@@ -124,5 +135,45 @@ table 50112 "JCA Event Participant"
             rec.Modify(true);
             Message(InvitationSentLbl);
         end;
+    end;
+
+    procedure SendRegistrationConfirmationMail()
+    var
+        JCAEvent: record "JCA Event";
+        JCAMailManagement: codeunit "JCA Mail Management";
+    begin
+        JCAEvent.Reset();
+        JCAEvent.get(rec."Event No.");
+        clear(JCAMailManagement);
+        if JCAMailManagement.SendRegistrationConfirmationMail(rec."Member License ID", JCAEvent) then begin
+            rec.validate("Registration Confirmed", true);
+            rec.Modify(true);
+        end;
+    end;
+
+    procedure SendUnRegistrationConfirmationMail()
+    var
+        JCAEvent: record "JCA Event";
+        JCAMailManagement: codeunit "JCA Mail Management";
+    begin
+        JCAEvent.Reset();
+        JCAEvent.get(rec."Event No.");
+        clear(JCAMailManagement);
+        if JCAMailManagement.SendUnRegistrationConfirmationMail(rec."Member License ID", JCAEvent) then begin
+            rec.validate("Registration Confirmed", false);
+            rec.Modify(true);
+        end;
+    end;
+
+    procedure ConfirmRegistration()
+    begin
+        TestField(Registered, false);
+        validate(Registered, true);
+    end;
+
+    procedure ConfirmUnRegistration()
+    begin
+        TestField(Registered, true);
+        validate(Registered, false);
     end;
 }

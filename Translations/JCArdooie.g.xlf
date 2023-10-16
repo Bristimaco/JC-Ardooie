@@ -453,6 +453,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Participant - Field Registered - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3511736373 - Field 2643274558 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registration Confirmed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Participant - Field Registration Confirmed - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1642976352 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Supervisor</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -492,6 +497,11 @@
           <source>Registered</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Supervisor - Field Registered - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1642976352 - Field 2643274558 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registration Confirmed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Supervisor - Field Registration Confirmed - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3645402444 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Member</source>
@@ -833,15 +843,45 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method CreateEventInvitationMailContent - NamedType InvitationSubjectLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 122294278 - Method 1286253434 - NamedType 3529353084" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registration Confirmation for %1 - %2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method CreateEventRegistrationConfirmationMailContent - NamedType RegistrationConfirmationSubjectLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 122294278 - Method 347613895 - NamedType 1220805257" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unregistration Confirmation for %1 - %2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method CreateEventUnregistrationConfirmationMailContent - NamedType UnregistrationConfirmationLbl</note>
+        </trans-unit>
         <trans-unit id="Codeunit 122294278 - Method 3818887580 - NamedType 3369615330" size-unit="char" translate="yes" xml:space="preserve">
           <source>An invitation for Event %1 - %2 has been sent to %3 - %4</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method SendEventInvitationMail - NamedType InvitationMailSentLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 122294278 - Method 3818887580 - NamedType 1808820227" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Failed to send an invitation for Event %1 - %2 has been sent to %3 - %4</source>
+          <source>Failed to send an invitation for Event %1 - %2 to %3 - %4</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method SendEventInvitationMail - NamedType InvitationMailFailedLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 122294278 - Method 4023370869 - NamedType 2468462947" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A Registration Confirmation for Event %1 - %2 has been sent to %3 - %4</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method SendRegistrationConfirmationMail - NamedType RegistrationConfirmationMailSentLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 122294278 - Method 4023370869 - NamedType 1313436962" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to send a Registration Confirmation for Event %1 - %2 to %3 - %4</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method SendRegistrationConfirmationMail - NamedType RegistrationConfirmationMailFailedLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 122294278 - Method 1903300204 - NamedType 3098798950" size-unit="char" translate="yes" xml:space="preserve">
+          <source>An Unregistration Confirmation for Event %1 - %2 has been sent to %3 - %4</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method SendUnRegistrationConfirmationMail - NamedType UnRegistrationConfirmationMailSentLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 122294278 - Method 1903300204 - NamedType 480681023" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to send an Unregistration Confirmation for Event %1 - %2 to %3 - %4</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method SendUnRegistrationConfirmationMail - NamedType UnRegistrationConfirmationMailFailedLbl</note>
         </trans-unit>
         <trans-unit id="Page 3286662435 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Action Logs</source>
@@ -1028,6 +1068,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Participants - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1338218060 - Action 645870245 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Confirm Registration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Participants - Action ConfirmRegistration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1338218060 - Action 4246148284 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Confirm Unregistration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Participants - Action ConfirmUnRegistration - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1338218060 - Action 3408380135 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Send Invitation</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1037,6 +1087,16 @@
           <source>Event Supervisors</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Supervisors - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3586166625 - Action 645870245 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Confirm Registration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Supervisors - Action ConfirmRegistration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3586166625 - Action 4246148284 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Confirm Unregistration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Supervisors - Action ConfirmUnRegistration - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3586166625 - Action 3408380135 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Send Invitation</source>
@@ -1267,6 +1327,16 @@
           <source>Event Invitation Mail</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Application Action - EnumValue Event Invitation Mail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2648201168 - EnumValue 3523631893 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Event Registration Confirmation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Application Action - EnumValue Event Registration Confirmation Mail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2648201168 - EnumValue 3747132748 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Event Unregistration Confirmation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Application Action - EnumValue Event Unregistration Confirmation Mail - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2693553665 - EnumValue 2095919705 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Black</source>
