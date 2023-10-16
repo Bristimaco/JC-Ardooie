@@ -38,6 +38,14 @@ table 50113 "JCA Event Supervisor"
         {
             Caption = 'Applied for Registration';
             DataClassification = SystemMetadata;
+
+            trigger OnValidate()
+            begin
+                testfield(Invited);
+                if not "Applied for Registration" then
+                    testfield(Registered, false);
+            end;
+
         }
         field(8; Registered; Boolean)
         {

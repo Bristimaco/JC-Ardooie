@@ -70,6 +70,8 @@ table 50112 "JCA Event Participant"
             trigger OnValidate()
             begin
                 testfield(Invited);
+                if not "Applied for Registration" then
+                    testfield(Registered, false);
             end;
         }
         field(8; Registered; Boolean)
