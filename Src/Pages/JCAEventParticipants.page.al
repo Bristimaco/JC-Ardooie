@@ -20,6 +20,8 @@ page 50119 "JCA Event Participants"
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
+                    DrillDown = false;
+                    Lookup = false;
                 }
                 field(Gender; Rec.Gender)
                 {

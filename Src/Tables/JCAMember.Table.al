@@ -44,7 +44,7 @@ table 50101 "JCA Member"
 
             trigger OnValidate()
             begin
-                UpdateAgeGroups();
+                UpdateAgeGroups(today(), true,tempJCAMemberAgeGroup);
             end;
         }
         field(6; "Member Since"; Date)
@@ -88,7 +88,7 @@ table 50101 "JCA Member"
 
             trigger OnValidate()
             begin
-                UpdateAgeGroups();
+                UpdateAgeGroups(Today(), true,tempJCAMemberAgeGroup);
             end;
         }
         field(11; Age; Integer)
@@ -104,7 +104,7 @@ table 50101 "JCA Member"
 
             trigger OnValidate()
             begin
-                UpdateAgeGroups();
+                UpdateAgeGroups(Today(), true,tempJCAMemberAgeGroup);
             end;
         }
         field(15; "E-Mail"; text[100])
@@ -163,11 +163,14 @@ table 50101 "JCA Member"
             validate("Full Name", "Last Name" + ' ' + "First Name");
     end;
 
-    procedure UpdateAgeGroups()
+    procedure UpdateAgeGroups(CalculationDate: Date; SaveData: Boolean; var tempJCAMemberAgeGroup: record "JCA Member Age Group" temporary)
     var
         JCAMemberManagement: Codeunit "JCA Member Management";
     begin
         clear(JCAMemberManagement);
-        JCAMemberManagement.UpdateAgeGroups(Rec);
+        JCAMemberManagement.UpdateAgeGroups(Rec, CalculationDate, SaveData, tempJCAMemberAgeGroup);
     end;
+
+    var
+        tempJCAMemberAgeGroup: record "JCA Member Age Group" temporary;
 }

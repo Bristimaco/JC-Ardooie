@@ -22,7 +22,8 @@ table 50111 "JCA Event Age Group"
         {
             Caption = 'Country Code';
             DataClassification = SystemMetadata;
-            TableRelation = "Country/Region".Code;
+            TableRelation = "JCA Event"."Country Code" where(ID = field("Event ID"));
+            Editable = false;
         }
         field(3; Gender; enum "JCA Gender")
         {

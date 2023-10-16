@@ -54,7 +54,7 @@ table 50112 "JCA Event Participant"
             Caption = 'Member Full Name';
             FieldClass = FlowField;
             CalcFormula = lookup("JCA Member"."Full Name" where("License ID" = field("Member License ID")));
-            Editable = false;
+            Editable = false;            
         }
         field(6; Invited; Boolean)
         {

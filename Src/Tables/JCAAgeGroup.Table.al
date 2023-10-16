@@ -51,12 +51,36 @@ table 50104 "JCA Age Group"
         { }
     }
 
-    procedure GetAgeGroupMembers(var JCAMemberAgeGroup: Record "JCA Member Age Group"): Boolean
+    procedure GetAgeGroupMembers(var tempJCAMemberAgeGroup: Record "JCA Member Age Group" temporary; CalculateAtDate: Date): Boolean
+    var
+        JCAMember: record "JCA Member";
+        tempMemberJCAMemberAgeGroup: record "JCA Member Age Group" temporary;
     begin
-        JCAMemberAgeGroup.Reset();
-        JCAMemberAgeGroup.setrange("Country Code", "Country Code");
-        JCAMemberAgeGroup.setrange("Age Group Code", Code);
-        JCAMemberAgeGroup.setrange(Gender, Gender);
-        exit(JCAMemberAgeGroup.findset());
+        if CalculateAtDate = 0D then
+            exit;
+
+        tempJCAMemberAgeGroup.Reset();
+        tempJCAMemberAgeGroup.DeleteAll();
+
+        JCAMember.Reset();
+        if JCAMember.FindSet() then
+            repeat
+                tempMemberJCAMemberAgeGroup.reset();
+                tempMemberJCAMemberAgeGroup.deleteall();
+                JCAMember.UpdateAgeGroups(CalculateAtDate, false, tempMemberJCAMemberAgeGroup);
+
+                tempMemberJCAMemberAgeGroup.setrange("Age Group Code", rec.Code);
+                tempMemberJCAMemberAgeGroup.setrange("Country Code", rec."Country Code");
+                tempMemberJCAMemberAgeGroup.setrange(Gender, Rec.Gender);
+                if tempMemberJCAMemberAgeGroup.findset() then
+                    repeat
+                        tempJCAMemberAgeGroup.reset();
+                        tempJCAMemberAgeGroup.init();
+                        tempJCAMemberAgeGroup.TransferFields(tempMemberJCAMemberAgeGroup);
+                        tempJCAMemberAgeGroup.insert();
+                    until tempMemberJCAMemberAgeGroup.Next() = 0;
+            until JCAMember.Next() = 0;
+
+        exit(tempJCAMemberAgeGroup.findset());
     end;
 }

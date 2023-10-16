@@ -4,6 +4,7 @@ page 50118 "JCA Event Age Groups"
     PageType = ListPart;
     UsageCategory = None;
     SourceTable = "JCA Event Age Group";
+    DelayedInsert = true;
 
     layout
     {
@@ -34,13 +35,4 @@ page 50118 "JCA Event Age Groups"
             }
         }
     }
-
-    trigger OnNewRecord(BelowxRec: Boolean)
-    var
-        JCAEVent: Record "JCA Event";
-    begin
-        JCAEVent.Reset();
-        if JCAEVent.Get(Rec."Event ID") then
-            rec.Validate("Country Code", JCAEVent."Country Code");
-    end;
 }

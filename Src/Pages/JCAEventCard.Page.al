@@ -74,7 +74,7 @@ page 50117 "JCA Event Card"
                 part(AgeGroups; "JCA Event Age Groups")
                 {
                     Caption = 'Event Age Groups';
-                    SubPageLink = "Event ID" = field(ID);
+                    SubPageLink = "Event ID" = field(ID), "Country Code" = field("Country Code");
                     ApplicationArea = all;
                     UpdatePropagation = Both;
                 }

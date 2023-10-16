@@ -20,6 +20,8 @@ page 50120 "JCA Event Supervisors"
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
+                    DrillDown = false;
+                    Lookup = false;
                 }
                 field(Invited; Rec.Invited)
                 {
@@ -49,7 +51,7 @@ page 50120 "JCA Event Supervisors"
                 trigger OnAction()
                 begin
                     Rec.SendInvitationMail();
-                end;                
+                end;
             }
         }
     }

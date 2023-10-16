@@ -79,6 +79,25 @@ table 50110 "JCA Event"
         { }
     }
 
+    trigger OnDelete()
+    var
+        JCAEventAgeGroup: record "JCA Event Age Group";
+        JCAEventSupervisor: record "JCA Event Supervisor";
+        JCAEventParticipant: record "JCA Event Participant";
+    begin
+        JCAEventAgeGroup.Reset();
+        JCAEventAgeGroup.setrange("Event ID", ID);
+        JCAEventAgeGroup.deleteall(true);
+
+        JCAEventSupervisor.Reset();
+        JCAEventSupervisor.setrange("Event ID", ID);
+        JCAEventSupervisor.deleteall(true);
+
+        JCAEventParticipant.Reset();
+        JCAEventParticipant.setrange("Event ID", ID);
+        JCAEventParticipant.DeleteAll(true);
+    end;
+
     procedure OpenCard()
     var
         JCAEvent: record "JCA Event";
