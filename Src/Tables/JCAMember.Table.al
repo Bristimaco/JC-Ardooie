@@ -212,6 +212,26 @@ table 50101 "JCA Member"
         JCAMemberManagement.UpdateAgeGroups(Rec, CalculationDate, SaveData, tempJCAMemberAgeGroup);
     end;
 
+    procedure OpenEventsWithMedal(JCAEventResult: enum "JCA Event Result")
+    var
+        JCAEventParticipant: record "JCA Event Participant";
+        JCAEvent: Record "JCA Event";
+        JCAEvents: page "JCA Events";
+    begin
+        JCAEventParticipant.Reset();
+        JCAEventParticipant.setrange("Member License ID", "License ID");
+        JCAEventParticipant.setrange(Result, JCAEventResult);
+        if JCAEventParticipant.findset() then
+            repeat
+                if JCAEvent.Get(JCAEventParticipant."Event No.") then
+                    JCAEvent.Mark(true);
+            until JCAEventParticipant.Next() = 0;
+        JCAEvent.MarkedOnly(true);
+        clear(JCAEvents);
+        JCAEvents.SetTableView(JCAEvent);
+        JCAEvents.run();
+    end;
+
     var
         tempJCAMemberAgeGroup: record "JCA Member Age Group" temporary;
         ItemCard: page "Item Picture";

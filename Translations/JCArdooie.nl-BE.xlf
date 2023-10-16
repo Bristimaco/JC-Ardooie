@@ -1632,21 +1632,18 @@
           <source>Bronze</source>
           <target>Brons</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Factbox - Control Bronze Medals - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 234838847 - Control 16915742 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Gold</source>
           <target>Goud</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Factbox - Control Gold Medals - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 234838847 - Control 445463295 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Silver</source>
           <target>Zilver</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Factbox - Control Silver Medals - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 234838847 - Action 3119204463 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">

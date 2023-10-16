@@ -28,18 +28,33 @@ page 50123 "JCA Member Factbox"
                     Caption = 'Gold';
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
+
+                    trigger OnDrillDown()
+                    begin
+                        Rec.OpenEventsWithMedal(enum::"JCA Event Result"::Gold);
+                    end;
                 }
                 field("Silver Medals"; Rec."Silver Medals")
                 {
                     Caption = 'Silver';
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
+
+                    trigger OnDrillDown()
+                    begin
+                        Rec.OpenEventsWithMedal(enum::"JCA Event Result"::Silver);
+                    end;
                 }
                 field("Bronze Medals"; Rec."Bronze Medals")
                 {
                     Caption = 'Bronze';
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
+
+                    trigger OnDrillDown()
+                    begin
+                        Rec.OpenEventsWithMedal(enum::"JCA Event Result"::Bronze);
+                    end;
                 }
             }
         }
