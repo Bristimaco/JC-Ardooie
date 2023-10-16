@@ -12,7 +12,7 @@ page 50121 "JCA Contacts"
         {
             repeater(Contacts)
             {
-                field(ID; Rec.ID)
+                field(ID; Rec."No.")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;

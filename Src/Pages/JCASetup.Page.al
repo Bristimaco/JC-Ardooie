@@ -26,6 +26,11 @@ page 50100 "JCA Setup"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field("Contact Nos."; Rec."Contact Nos.")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
             }
 
             group(MailSystem)

@@ -6,11 +6,10 @@ table 50114 "JCA Contact"
 
     fields
     {
-        field(1; ID; Integer)
+        field(1; "No."; Code[20])
         {
-            Caption = 'ID';
+            Caption = 'No.';
             DataClassification = SystemMetadata;
-            AutoIncrement = true;
         }
         field(2; "First Name"; Text[50])
         {
@@ -52,15 +51,26 @@ table 50114 "JCA Contact"
 
     keys
     {
-        key(PK; ID)
+        key(PK; "No.")
         { }
     }
 
     fieldgroups
     {
-        fieldgroup(DropDown; ID, "Full Name")
+        fieldgroup(DropDown; "No.", "Full Name")
         { }
     }
+
+    trigger OnInsert()
+    var
+        JCASetup: Record "JCA Setup";
+        NoSeriesManagement: codeunit NoSeriesManagement;
+    begin
+        JCASetup.Reset();
+        JCASetup.get();
+        JCASetup.testfield("Contact Nos.");
+        Validate("No.", NoSeriesManagement.GetNextNo(JCASetup."Contact Nos.", Today(), true));
+    end;
 
     local procedure ManageFullName()
     begin

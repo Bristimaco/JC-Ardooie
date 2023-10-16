@@ -15,10 +15,10 @@ table 50115 "JCA Member Contact"
                 CalcFields("Member Full Name");
             end;
         }
-        field(2; "Contact ID"; Integer)
+        field(2; "Contact No."; Code[20])
         {
-            Caption = 'Contact ID';
-            TableRelation = "JCA Contact".ID;
+            Caption = 'Contact No.';
+            TableRelation = "JCA Contact"."No.";
 
             trigger OnValidate()
             begin
@@ -36,21 +36,21 @@ table 50115 "JCA Member Contact"
         {
             Caption = 'Contact Full Name';
             FieldClass = FlowField;
-            CalcFormula = lookup("JCA Contact"."Full Name" where(ID = field("Contact ID")));
+            CalcFormula = lookup("JCA Contact"."Full Name" where("No." = field("Contact No.")));
             Editable = false;
         }
         field(5; "Contact E-Mail"; Text[100])
         {
             Caption = 'Contact E-Mail';
             FieldClass = FlowField;
-            CalcFormula = lookup("JCA Contact"."E-Mail" where(ID = field("Contact ID")));
+            CalcFormula = lookup("JCA Contact"."E-Mail" where("No." = field("Contact No.")));
             Editable = false;
         }
         field(6; "Contact Phone No."; Text[30])
         {
             Caption = 'Contact Phone No.';
             FieldClass = FlowField;
-            CalcFormula = lookup("JCA Contact"."Phone No." where(ID = field("Contact ID")));
+            CalcFormula = lookup("JCA Contact"."Phone No." where("No." = field("Contact No.")));
             Editable = false;
         }
         field(7; Remark; Text[250])
@@ -62,7 +62,7 @@ table 50115 "JCA Member Contact"
 
     keys
     {
-        key(PK; "Member License ID", "Contact ID")
+        key(PK; "Member License ID", "Contact No.")
         { }
     }
 }
