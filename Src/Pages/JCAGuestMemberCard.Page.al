@@ -1,20 +1,26 @@
-page 50131 "JCA Guest Members"
+page 50133 "JCA Guest Member Card"
 {
-    Caption = 'Guest Members';
+    Caption = 'Guest Member Card';
     SourceTable = "JCA Guest Member";
-    ApplicationArea = all;
-    UsageCategory = Lists;
-    DelayedInsert = true;
-    PageType = List;
-    CardPageId = "JCA Guest Member Card";
+    PageType = Card;
 
     layout
     {
         area(Content)
         {
-            repeater(GuestMembers)
+            group(General)
             {
                 field("License ID"; Rec."License ID")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("First Name"; Rec."First Name")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("Last Name"; Rec."Last Name")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
@@ -29,17 +35,44 @@ page 50131 "JCA Guest Members"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
-                field("E-Mail"; Rec."E-Mail")
+
+                group(Communication)
+                {
+                    Caption = 'Communication';
+
+                    field("E-Mail"; Rec."E-Mail")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                    field("Phone No."; Rec."Phone No.")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                }
+            }
+
+            group(Characteristics)
+            {
+                Caption = 'Characteristics';
+
+                field("Date of Birth"; Rec."Date of Birth")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
-                field("Phone No."; Rec."Phone No.")
+                field(Dan; Rec.Dan)
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
-                field(Belt; Rec.Belt)
+                field("Club No."; Rec."Club No.")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("Club Name"; Rec."Club Name")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;

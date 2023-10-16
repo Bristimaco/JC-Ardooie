@@ -1512,7 +1512,6 @@
           <source>Members</source>
           <target>Leden</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Admin Rolecenter - Action OurMembers - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1832677796 - Action 1514883969 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -1784,6 +1783,30 @@
           <target>Begeleider Werkblad</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Events - Action SupervisorSheet - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3706241272 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Guest Member Card</source>
+          <target>Gastlid Kaart</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Guest Member Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3706241272 - Control 4018716658 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Characteristics</source>
+          <target>Eigenschappen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Guest Member Card - Control Characteristics - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3706241272 - Control 3050372732 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Communication</source>
+          <target>Communicatie</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Guest Member Card - Control Communication - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3706241272 - Control 1678643360 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Training Groups</source>
+          <target>Training Groepen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Guest Member Card - Control TrainingGroups - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3233354768 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Guest Member Training Groups</source>

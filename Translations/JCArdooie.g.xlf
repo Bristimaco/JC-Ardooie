@@ -1488,6 +1488,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Events - Action SupervisorSheet - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3706241272 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Guest Member Card</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Guest Member Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3706241272 - Control 4018716658 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Characteristics</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Guest Member Card - Control Characteristics - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3706241272 - Control 3050372732 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Communication</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Guest Member Card - Control Communication - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3706241272 - Control 1678643360 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Training Groups</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Guest Member Card - Control TrainingGroups - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3233354768 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Guest Member Training Groups</source>
           <note from="Developer" annotates="general" priority="2"></note>
