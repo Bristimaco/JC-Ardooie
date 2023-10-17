@@ -3,6 +3,7 @@ report 50100 "JCA Event Report"
     Caption = 'Event Report';
     DefaultLayout = RDLC;
     RDLCLayout = 'Src/Reports/RDLC/JCAEventReport.rdl';
+    UsageCategory = None;
 
     dataset
     {

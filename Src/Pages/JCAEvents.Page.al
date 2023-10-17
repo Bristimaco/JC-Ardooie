@@ -94,7 +94,7 @@ page 50116 "JCA Events"
                 PromotedOnly = true;
 
                 trigger OnAction()
-                begin                    
+                begin
                     rec.OpenSupervisorSheet();
                 end;
             }
@@ -116,6 +116,33 @@ page 50116 "JCA Events"
                 begin
                     clear(JCAEventManagement);
                     JCAEventManagement.CreateNewEvent(true);
+                end;
+            }
+        }
+        area(Reporting)
+        {
+            action(EventReport)
+            {
+                Caption = 'Event Report';
+                Image = Print;
+                Promoted = true;
+                PromotedCategory = Report;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                Ellipsis = true;
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+
+                trigger OnAction()
+                var
+                    JCAEvent: record "JCA Event";
+                    JCAEventReport: report "JCA Event Report";
+                begin
+                    JCAEvent.reset();
+                    JCAEvent.setrange("No.", rec."No.");
+                    clear(JCAEventReport);
+                    JCAEventReport.SetTableView(JCAEvent);
+                    JCAEventReport.run();
                 end;
             }
         }
