@@ -58,4 +58,7 @@ report 50100 "JCA Event Report"
             }
         }
     }
+
+    var
+        ReportTitleLbl: label 'Event Report';
 }
