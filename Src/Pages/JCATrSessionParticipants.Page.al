@@ -32,6 +32,11 @@ page 50112 "JCA Tr. Session Participants"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field("Participant Type"; Rec."Participant Type")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
                 Field("Club Name"; Rec."Club Name")
                 {
                     ApplicationArea = all;
@@ -43,7 +48,7 @@ page 50112 "JCA Tr. Session Participants"
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
-                }
+                }                
             }
         }
     }

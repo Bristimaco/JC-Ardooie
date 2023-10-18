@@ -33,6 +33,32 @@ page 50100 "JCA Setup"
                 }
             }
 
+            group(Invoicing)
+            {
+                Caption = 'Invoicing';
+
+                field("Training G/L Account No."; Rec."Training G/L Account No.")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("Training G/L Acc. Description"; Rec."Training G/L Acc. Description")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("Participant Unit Price"; Rec."Participant Unit Price")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', locked = true;
+                }
+                field("Trainer Unit Price"; Rec."Trainer Unit Price")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+            }
+
             group(MailSystem)
             {
                 Caption = 'Mail System';

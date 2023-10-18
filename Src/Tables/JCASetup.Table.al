@@ -37,12 +37,40 @@ table 50100 "JCA Setup"
             DataClassification = SystemMetadata;
             TableRelation = "No. Series".Code;
         }
+        field(7; "Training G/L Account No."; Code[20])
+        {
+            Caption = 'Training G/L Account No.';
+            DataClassification = SystemMetadata;
+            TableRelation = "G/L Account"."No.";
+
+            trigger OnValidate()
+            begin
+                CalcFields("Training G/L Acc. Description");
+            end;
+        }
+        field(8; "Training G/L Acc. Description"; text[100])
+        {
+            Caption = 'Training G/L Account Description';
+            FieldClass = FlowField;
+            CalcFormula = lookup("G/L Account".Name where("No." = field("Training G/L Account No.")));
+            Editable = false;
+        }
+        field(9; "Participant Unit Price"; Decimal)
+        {
+            Caption = 'Participant Unit Price';
+            DataClassification = SystemMetadata;
+        }
+        field(10; "Trainer Unit Price"; Decimal)
+        {
+            Caption = 'Trainer Unit Price';
+            DataClassification = SystemMetadata;
+        }
     }
 
     keys
     {
         key(PK; Code)
-        { }     
+        { }
     }
 
     var

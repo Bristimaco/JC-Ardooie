@@ -220,6 +220,20 @@ table 50102 "JCA Cue"
             CalcFormula = count("JCA Event" where(Type = const(Chiai), Status = const("In Progress")));
             Editable = false;
         }
+        field(33; "Training Sessions to Invoice"; Integer)
+        {
+            Caption = 'To Invoice';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Training Session" where(Status = const(Closed), "Invoice To Customer No." = filter(<> ''), Invoiced = const(false)));
+            Editable = false;
+        }
+        field(34; "Training Sessions Invoiced"; Integer)
+        {
+            Caption = 'Invoiced';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Training Session" where(Status = const(Closed), Invoiced = const(true)));
+            Editable = false;
+        }
     }
 
     keys

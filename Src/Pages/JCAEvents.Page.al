@@ -82,23 +82,6 @@ page 50116 "JCA Events"
                     rec.OpenCard();
                 end;
             }
-            action(SupervisorSheet)
-            {
-                Caption = 'Supervisor Sheet';
-                ApplicationArea = all;
-                ToolTip = ' ', Locked = true;
-                Image = Card;
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
-                PromotedOnly = true;
-
-                trigger OnAction()
-                begin
-                    rec.OpenSupervisorSheet();
-                end;
-            }
-
             action(New)
             {
                 Caption = 'New';
@@ -118,7 +101,23 @@ page 50116 "JCA Events"
                     JCAEventManagement.CreateNewEvent(true);
                 end;
             }
-        }
+            action(SupervisorSheet)
+            {
+                Caption = 'Supervisor Sheet';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                Image = Card;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+
+                trigger OnAction()
+                begin
+                    rec.OpenSupervisorSheet();
+                end;
+            }
+        }                
         area(Reporting)
         {
             action(EventReport)
@@ -144,7 +143,7 @@ page 50116 "JCA Events"
                     JCAEventReport.SetTableView(JCAEvent);
                     JCAEventReport.run();
                 end;
-            }
+            }            
         }
     }
 }

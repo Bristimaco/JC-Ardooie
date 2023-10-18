@@ -28,8 +28,9 @@ table 50108 "JCA Tr. Session Participant"
         {
             Caption = 'Member License ID';
             DataClassification = SystemMetadata;
-            TableRelation = if ("Club Member" = const(true)) "JCA Training Group Member"."Member License ID" where("Training Group Code" = field("Training Group Code")) else
-            if ("Club Member" = const(false)) "JCA Guest Member Tr. Group"."Guest Member License ID" where("Training Group Code" = field("Training Group Code"));
+            TableRelation = if ("Participant Type" = const(judoka), "Club Member" = const(true)) "JCA Training Group Member"."Member License ID" where("Training Group Code" = field("Training Group Code")) else
+            if ("Participant Type" = const(judoka), "Club Member" = const(false)) "JCA Guest Member Tr. Group"."Guest Member License ID" where("Training Group Code" = field("Training Group Code")) else
+            if ("Participant Type" = const(Trainer)) "JCA Member"."License ID" where("Member Type" = filter(Trainer | both));
 
             trigger OnValidate()
             var
@@ -100,6 +101,12 @@ table 50108 "JCA Tr. Session Participant"
             DataClassification = SystemMetadata;
             Editable = false;
         }
+        field(10; "Participant Type"; enum "JCA Member Type")
+        {
+            Caption = 'Participant Type';
+            DataClassification = SystemMetadata;
+            Editable = false;
+        }
     }
 
     keys
@@ -114,5 +121,15 @@ table 50108 "JCA Tr. Session Participant"
     begin
         Clear(JCATrainingManagement);
         JCATrainingManagement.ProcessTrainingAttendeeScan(Rec."Training Session No.", AttendeeLicenseID);
+    end;
+
+    procedure ReturnTrainingInvoiceDescription(): Text[100]
+    var
+        ReturnValue: Text[100];
+        LineDescriptionBluePrintLbl: Label '%1 - %2', Locked = true;
+    begin
+        ReturnValue := '';
+        ReturnValue := copystr(StrSubstNo(LineDescriptionBluePrintLbl, Rec."Member License ID", Rec."Member Full Name"), 1, MaxStrLen(ReturnValue));
+        exit(ReturnValue);
     end;
 }

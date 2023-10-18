@@ -103,51 +103,52 @@ page 50115 "JCA Event Cues"
                 group(Chiai)
                 {
                     Caption = 'Chiai';
+                    Visible = false;
 
                     cuegroup(ChiaiCueGroup)
                     {
                         ShowCaption = false;
 
-                        field("New Chiai"; Rec."New Chiai")
-                        {
-                            ApplicationArea = all;
-                            ToolTip = ' ', Locked = true;
-                        }
-                        field("Chiai (Inv. Sent)"; Rec."Chiai (Inv. Sent)")
-                        {
-                            ApplicationArea = all;
-                            ToolTip = ' ', Locked = true;
-                        }
-                        field("Chiai (Reg)"; Rec."Chiai (Reg)")
-                        {
-                            ApplicationArea = all;
-                            ToolTip = ' ', Locked = true;
-                        }
-                        field("Chiai (RegClosed)"; Rec."Chiai (RegClosed)")
-                        {
-                            ApplicationArea = all;
-                            ToolTip = ' ', Locked = true;
-                        }
-                        field("Chiai (RecProc)"; Rec."Chiai (RecProc)")
-                        {
-                            ApplicationArea = all;
-                            ToolTip = ' ', Locked = true;
-                        }
-                        field("Chiai (In Progress)"; Rec."Chiai (In Progress)")
-                        {
-                            ApplicationArea = all;
-                            ToolTip = ' ', Locked = true;
-                        }
-                        field("Chiai (Archived)"; Rec."Chiai (Archived)")
-                        {
-                            ApplicationArea = all;
-                            ToolTip = ' ', Locked = true;
-                        }
+                    field("New Chiai"; Rec."New Chiai")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                    field("Chiai (Inv. Sent)"; Rec."Chiai (Inv. Sent)")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                    field("Chiai (Reg)"; Rec."Chiai (Reg)")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                    field("Chiai (RegClosed)"; Rec."Chiai (RegClosed)")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                    field("Chiai (RecProc)"; Rec."Chiai (RecProc)")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                    field("Chiai (In Progress)"; Rec."Chiai (In Progress)")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                    field("Chiai (Archived)"; Rec."Chiai (Archived)")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
                     }
                 }
             }
         }
     }
+}
 
     trigger OnOpenPage()
     begin

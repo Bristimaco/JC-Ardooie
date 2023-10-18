@@ -381,6 +381,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Training Date Filter - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1630571357 - Field 4009284524 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoiced</source>
+          <target>Gefactureerd</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Training Sessions Invoiced - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1630571357 - Field 3163403889 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>To Invoice</source>
+          <target>Te Factureren</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Training Sessions to Invoice - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1630571357 - Field 634509478 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Training Sessions Today</source>
           <target>Trainingen Vandaag</target>
@@ -1083,6 +1095,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field Event Nos. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3008872625 - Field 637745824 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Participant Unit Price</source>
+          <target>Deelnemer Eenheidsprijs</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field Participant Unit Price - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3008872625 - Field 951077956 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Send Test Mails</source>
           <target>Test Mails versturen</target>
@@ -1094,6 +1112,24 @@
           <target>Test E-Mail Adres</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field Test E-Mail Address - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3008872625 - Field 1851432792 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trainer Unit Price</source>
+          <target>Trainer Eenheidsprijs</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field Trainer Unit Price - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3008872625 - Field 1846173687 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Training G/L Account Description</source>
+          <target>Training Rekening Omschrijving</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field Training G/L Acc. Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3008872625 - Field 3819607558 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Training G/L Account No.</source>
+          <target>Training Rekening</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field Training G/L Account No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3008872625 - Field 4187656470 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Training Session Nos.</source>
@@ -1142,6 +1178,12 @@
           <target>Lid Licentie ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Tr. Session Participant - Field Member License ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2880623267 - Field 780478721 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Participant Type</source>
+          <target>Deelnemer Soort</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Tr. Session Participant - Field Participant Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2880623267 - Field 2560725459 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Participation</source>
@@ -1239,6 +1281,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Training Session - Field Date - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2150954954 - Field 166038250 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice No.</source>
+          <target>Factuurnr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Training Session - Field Invoice No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2150954954 - Field 247707843 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoice To Customer Name</source>
           <target>Factureren aan Klant Naam</target>
@@ -1251,6 +1299,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Training Session - Field Invoice To Customer No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2150954954 - Field 3015270207 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoiced</source>
+          <target>Gefactureerd</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Training Session - Field Invoiced - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2150954954 - Field 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>No.</source>
           <target>Nr.</target>
@@ -1262,6 +1316,12 @@
           <target>Open voor Andere Clubs</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Training Session - Field Open for Other Clubs - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2150954954 - Field 2068751393 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Invoice No.</source>
+          <target>Geboekte Factuur Nr.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Training Session - Field Posted Invoice No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2150954954 - Field 3719257816 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Potential Participants</source>
@@ -1429,6 +1489,30 @@
           <target>Het verzenden van een Bevestiging Uitschrijving voor Evenement %1 - %2 aan %3 - %4 is mislukt</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method SendUnRegistrationConfirmationMail - NamedType UnRegistrationConfirmationMailFailedLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3789116197 - Method 944787481 - NamedType 3952755926" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No participants to Invoice.</source>
+          <target>Geen deelnemerste factureren.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Training Management - Method InvoiceTrainingSession - NamedType NoParticipantsToInvoiceErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3789116197 - Method 944787481 - NamedType 3976737310" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No trainers to Invoice</source>
+          <target>Geen trainers te factureren</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Training Management - Method InvoiceTrainingSession - NamedType NoTrainersToInvoiceErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3789116197 - Method 944787481 - NamedType 1501958674" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trainers:</source>
+          <target>Trainer(s):</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Training Management - Method InvoiceTrainingSession - NamedType TrainersLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3789116197 - Method 944787481 - NamedType 357363050" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Participants:</source>
+          <target>Deelnemer(s):</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Training Management - Method InvoiceTrainingSession - NamedType ParticipantsLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 3789116197 - Method 3164111310 - NamedType 765894559" size-unit="char" translate="yes" xml:space="preserve">
           <source>You are not registered as a participant for this training, please contact a supervisor.</source>
@@ -1796,6 +1880,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Events - Action SupervisorSheet - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3568864833 - Action 823777790 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Event Report</source>
+          <target>Evemenent Verslag</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Events - Action EventReport - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3706241272 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Guest Member Card</source>
           <target>Gastlid Kaart</target>
@@ -2012,6 +2102,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3008872625 - Control 1450094168 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoicing</source>
+          <target>Facturering</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup - Control Invoicing - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3008872625 - Control 2162500208 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Mail System</source>
           <target>Mail Systeem</target>
@@ -2090,17 +2186,47 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Training Session Card - Control TrainingSessionParticipants - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 138286606 - Action 2674503554 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Close Session</source>
+          <target>Sessie Afsluiten</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Training Session Card - Action Close - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 138286606 - Action 3699952196 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fetch Participants</source>
           <target>Deelnemers Ophalen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Training Session Card - Action FetchPatricipants - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 138286606 - Action 1190519033 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fetch Supervisors</source>
+          <target>Begeleiders Ophalen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Training Session Card - Action FetchSupervisors - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 138286606 - Action 206124936 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attendance Sheet</source>
           <target>Aanwezigheidslijst</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Training Session Card - Action OpenAttendanceSheet - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 138286606 - Action 1516253997 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reopen Session</source>
+          <target>Sessie Heropenen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Training Session Card - Action ReOpen - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 138286606 - Action 944787481 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Invoice</source>
+          <target>Factuur maken</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Training Session Card - Action InvoiceTrainingSession - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 138286606 - Action 2784920383 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open Invoice</source>
+          <target>Factuur Openen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Training Session Card - Action OpenInvoice - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2032356226 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Training Sessions</source>
@@ -2132,11 +2258,35 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Training Sessions - Action OpenAttendanceSheet - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 322390647 - Action 944787481 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Invoice</source>
+          <target>Factuur maken</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Training Sessions - Action InvoiceTrainingSession - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 322390647 - Action 2784920383 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open Invoice</source>
+          <target>Factuur Openen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Training Sessions - Action OpenInvoice - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1598018048 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Weight Groups</source>
           <target>Gewichtscategorieën</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Weight Groups - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3806793414 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Event Report</source>
+          <target>Ò</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report JCA Event Report - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3806793414 - NamedType 3040577680" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Event Report</source>
+          <target>Evemenent Verslag</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report JCA Event Report - NamedType ReportTitleLbl</note>
         </trans-unit>
         <trans-unit id="TableExtension 1816701897 - Field 3410071898 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4148176377">
           <source>Age Group Switch Month</source>
@@ -2365,6 +2515,12 @@
           <target>Open</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Training Session Status - EnumValue Open - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3806793414 - ReportColumn 3192175264 - ReportColumn 3763938026 - ReportColumn 4133990171 - ReportColumn 2981235050 - NamedType 3040577680" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Event Report</source>
+          <target>Evemenent Verslag</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report JCA Event Report - ReportColumn Date - ReportColumn Supervisor_License_ID - ReportColumn Weigh_In_Start_Time - ReportColumn Member_License_ID - NamedType ReportTitleLbl</note>
         </trans-unit>
       </group>
     </body>

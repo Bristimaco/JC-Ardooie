@@ -73,7 +73,6 @@ page 50110 "JCA Training Sessions"
                     rec.OpenCard();
                 end;
             }
-
             action(New)
             {
                 Caption = 'New';
@@ -105,6 +104,44 @@ page 50110 "JCA Training Sessions"
                 Image = EmployeeAgreement;
                 RunObject = page "JCA Training Attendance";
                 RunPageLink = "Training Session No." = field("No.");
+            }            
+        }
+
+        area(Reporting)
+        {
+            action(InvoiceTrainingSession)
+            {
+                Caption = 'Create Invoice';
+                Image = Document;
+                Promoted = true;
+                PromotedCategory = Report;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                Ellipsis = true;
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+
+                trigger OnAction()
+                begin
+                    Rec.InvoiceTrainingSession();
+                end;
+            }
+            action(OpenInvoice)
+            {
+                Caption = 'Open Invoice';
+                Image = Document;
+                Promoted = true;
+                PromotedCategory = Report;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                Ellipsis = true;
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+
+                trigger OnAction()
+                begin
+                    Rec.OpenInvoice();
+                end;
             }
         }
     }

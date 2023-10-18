@@ -48,6 +48,11 @@ page 50129 "JCA Training Attendance"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field("Participant Type"; Rec."Participant Type")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
             }
         }
     }
