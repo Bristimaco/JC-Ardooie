@@ -260,7 +260,7 @@ codeunit 50101 "JCA Training Management"
                 SalesLine.validate("No.", JCASetup."Training G/L Account No.");
                 SalesLine.validate(Description, TrainerJCATrSessionParticipant.ReturnTrainingInvoiceDescription());
                 SalesLine.validate(Quantity, 1);
-                SalesLine.Validate("Unit Price", JCASetup."Participant Unit Price");
+                SalesLine.Validate("Unit Price", JCASetup.""Trainer Unit Price");
                 SalesLine.modify();
             until TrainerJCATrSessionParticipant.Next() = 0;
 

@@ -1823,6 +1823,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Training Session Card - Control TrainingSessionParticipants - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 138286606 - Control 2079339774 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trainers</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Training Session Card - Control TrainingSessionTrainers - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 138286606 - Action 2674503554 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Close Session</source>
           <note from="Developer" annotates="general" priority="2"></note>

@@ -56,39 +56,36 @@ page 50113 "JCA Training Session Card"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+
+                group(Invoicing)
+                {
+                    Caption = 'Invoicing';
+
+                    field("Invoice To Customer No."; Rec."Invoice To Customer No.")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                    field("Invoice To Customer Name"; Rec."Invoice To Customer Name")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                }
             }
 
-            group(Invoicing)
+            part(TrainingSessionTrainers; "JCA Tr. Session Participants")
             {
-                Caption = 'Invoicing';
-
-                field("Invoice To Customer No."; Rec."Invoice To Customer No.")
-                {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
-                }
-                field("Invoice To Customer Name"; Rec."Invoice To Customer Name")
-                {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
-                }
-                field("Invoice No."; Rec."Invoice No.")
-                {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
-                }
-                field(Invoiced; Rec.Invoiced)
-                {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
-                }
+                Caption = 'Trainers';
+                ApplicationArea = all;
+                SubPageLink = "Training Session No." = field("No."), "Participant Type" = const(Trainer);
+                UpdatePropagation = Both;
             }
-
             part(TrainingSessionParticipants; "JCA Tr. Session Participants")
             {
                 Caption = 'Participants';
                 ApplicationArea = all;
-                SubPageLink = "Training Session No." = field("No.");
+                SubPageLink = "Training Session No." = field("No."), "Participant Type" = const(Judoka);
                 UpdatePropagation = Both;
             }
         }
@@ -214,4 +211,23 @@ page 50113 "JCA Training Session Card"
             }
         }
     }
+
+    trigger OnAfterGetCurrRecord()
+    begin
+        CheckEditable();
+    end;
+
+    trigger OnAfterGetRecord()
+    begin
+        CheckEditable();
+    end;
+
+    local procedure CheckEditable();
+    begin
+        TrainingSessionEditable := rec.status = rec.status::Open;
+        CurrPage.Editable := TrainingSessionEditable;
+    end;
+
+    var
+        TrainingSessionEditable: Boolean;
 }
