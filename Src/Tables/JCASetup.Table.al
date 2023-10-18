@@ -64,7 +64,7 @@ table 50100 "JCA Setup"
         {
             Caption = 'Trainer Unit Price';
             DataClassification = SystemMetadata;
-        }       
+        }
     }
 
     keys
@@ -72,7 +72,4 @@ table 50100 "JCA Setup"
         key(PK; Code)
         { }
     }
-
-    var
-        Item: record Item;
 }
