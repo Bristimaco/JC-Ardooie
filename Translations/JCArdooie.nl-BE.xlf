@@ -1616,6 +1616,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Admin Rolecenter - Action Setup - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1832677796 - Action 3968617433 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sponsors</source>
+          <target>Sponsors</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Admin Rolecenter - Action sponsors - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1832677796 - Action 1678643360 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Training Groups</source>
           <target>Training Groepen</target>
@@ -2299,6 +2305,12 @@
           <target>Leeftijdsgroepen Aanpassen in maand</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension JCA Country/Region - Field JCA Age Group Switch Month - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2966221904 - Field 3931502600 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>Sponsor</source>
+          <target>Sponsor</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension JCA Customer - Field JCA Sponsor - Property Caption</note>
         </trans-unit>
         <trans-unit id="Profile 144900817 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>JCA Admin</source>

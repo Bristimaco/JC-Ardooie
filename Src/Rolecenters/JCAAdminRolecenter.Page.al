@@ -50,6 +50,15 @@ page 50103 "JCA Admin Rolecenter"
                 RunObject = page "Countries/Regions";
                 Image = CountryRegion;
             }
+            action(sponsors)
+            {
+                Caption = 'Sponsors';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                RunObject = page "Customer List";
+                RunPageView = where("JCA Sponsor" = const(true));
+                Image = Vendor;
+            }
             action(Clubs)
             {
                 Caption = 'Clubs';
