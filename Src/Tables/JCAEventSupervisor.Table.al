@@ -89,7 +89,7 @@ table 50113 "JCA Event Supervisor"
     keys
     {
         key(PK; "Event No.", "Member License ID")
-        { }
+        { }        
     }
 
     procedure SendInvitationMail()

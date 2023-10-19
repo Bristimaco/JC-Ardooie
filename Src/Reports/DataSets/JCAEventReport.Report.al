@@ -9,6 +9,8 @@ report 50100 "JCA Event Report"
     {
         dataitem("JCA Event"; "JCA Event")
         {
+            RequestFilterFields = "No.", Date;
+
             column(No_; "No.")
             { }
             column(Description; Description)
@@ -23,6 +25,7 @@ report 50100 "JCA Event Report"
             dataitem("JCA Event Supervisor"; "JCA Event Supervisor")
             {
                 DataItemLink = "Event No." = field("No.");
+                DataItemTableView = sorting("Event No.", "Member License ID");
 
                 column(Supervisor_License_ID; "Member License ID")
                 { }
@@ -33,6 +36,7 @@ report 50100 "JCA Event Report"
             dataitem("JCA Event Age Group"; "JCA Event Age Group")
             {
                 DataItemLink = "Event No." = field("No."), "Country Code" = field("Country Code");
+                DataItemTableView = sorting("Event No.", "Country Code", Gender, "Age Group Code");
 
                 column(Gender; Gender)
                 { }
@@ -44,6 +48,7 @@ report 50100 "JCA Event Report"
                 dataitem("JCA Event Participant"; "JCA Event Participant")
                 {
                     DataItemLink = "Event No." = Field("Event No."), Gender = field(Gender), "Age Group Code" = field("Age Group Code");
+                    DataItemTableView = sorting("Event No.", "Member License ID");
 
                     column(Member_License_ID; "Member License ID")
                     { }
