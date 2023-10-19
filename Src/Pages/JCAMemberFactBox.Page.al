@@ -77,6 +77,18 @@ page 50123 "JCA Member Factbox"
                     TakeNewPicture();
                 end;
             }
+            action(UploadPicture)
+            {
+                ApplicationArea = All;
+                Caption = 'Upload';
+                Image = Import;
+                ToolTip = ' ', Locked = true;
+
+                trigger OnAction()
+                begin
+                    UploadNewPicture();
+                end;
+            }
             action(DeletePicture)
             {
                 ApplicationArea = All;
@@ -112,6 +124,15 @@ page 50123 "JCA Member Factbox"
         DoTakeNewPicture()
     end;
 
+    local procedure UploadNewPicture()
+    var
+        InStream: InStream;
+    begin
+        UploadIntoStream('Afbeeldingsbestanden (*.bmp, *.jpg)|*.bmp;*.jpg|Alle bestanden (*.*)|*.*', InStream);
+        Rec.Picture.ImportStream(InStream, format(Rec."Full Name"), MimeTypeTok);
+        Rec.Modify(true);
+    end;
+
     local procedure DoTakeNewPicture(): Boolean
     var
         PictureInstream: InStream;
@@ -121,7 +142,7 @@ page 50123 "JCA Member Factbox"
             if not Confirm(OverrideImageQst) then
                 exit(false);
 
-        if Camera.GetPicture(PictureInstream, PictureDescription) then begin
+        if Camera.GetPicture(10, PictureInstream, PictureDescription) then begin
             Clear(Rec.Picture);
             Rec.Picture.ImportStream(PictureInstream, PictureDescription, MimeTypeTok);
             Rec.Modify(true);
@@ -162,10 +183,8 @@ page 50123 "JCA Member Factbox"
         CameraAvailable: Boolean;
         OverrideImageQst: Label 'The existing picture will be replaced. Do you want to continue?';
         DeleteImageQst: Label 'Are you sure you want to delete the picture?';
-        SelectPictureTxt: Label 'Select a picture to upload';
         DeleteExportEnabled: Boolean;
         HideActions: Boolean;
-        MustSpecifyDescriptionErr: Label 'You must add a description to the item before you can import a picture.';
         MimeTypeTok: Label 'image/jpeg', Locked = true;
 }
 

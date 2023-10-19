@@ -1018,6 +1018,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Membership Period - Field Payment Requested On - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2778352562 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Result Image</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Result Image - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2778352562 - Field 472338107 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Result</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Result Image - Field Result - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2778352562 - Field 3911334850 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Result Image</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Result Image - Field Result Image - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3008872625 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Setup</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1335,52 +1350,52 @@
         </trans-unit>
         <trans-unit id="Codeunit 122294278 - Method 3235044619 - NamedType 327091729" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invitation for %1 - %2</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method CreateEventInvitationMailContent - NamedType InvitationSubjectLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 122294278 - Method 1286253434 - NamedType 3529353084" size-unit="char" translate="yes" xml:space="preserve">
           <source>Registration Confirmation for %1 - %2</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method CreateEventRegistrationConfirmationMailContent - NamedType RegistrationConfirmationSubjectLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 122294278 - Method 2772705083 - NamedType 2953683660" size-unit="char" translate="yes" xml:space="preserve">
           <source>Results for %1 - %2: %3</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = Member Name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method CreateEventResultMailContent - NamedType ResultsLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 122294278 - Method 347613895 - NamedType 1220805257" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unregistration Confirmation for %1 - %2</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method CreateEventUnregistrationConfirmationMailContent - NamedType UnregistrationConfirmationLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 122294278 - Method 3818887580 - NamedType 3369615330" size-unit="char" translate="yes" xml:space="preserve">
           <source>An invitation for Event %1 - %2 has been sent to %3 - %4</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method SendEventInvitationMail - NamedType InvitationMailSentLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 122294278 - Method 3818887580 - NamedType 1808820227" size-unit="char" translate="yes" xml:space="preserve">
           <source>Failed to send an invitation for Event %1 - %2 to %3 - %4</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method SendEventInvitationMail - NamedType InvitationMailFailedLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 122294278 - Method 4023370869 - NamedType 2468462947" size-unit="char" translate="yes" xml:space="preserve">
           <source>A Registration Confirmation for Event %1 - %2 has been sent to %3 - %4</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method SendRegistrationConfirmationMail - NamedType RegistrationConfirmationMailSentLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 122294278 - Method 4023370869 - NamedType 1313436962" size-unit="char" translate="yes" xml:space="preserve">
           <source>Failed to send a Registration Confirmation for Event %1 - %2 to %3 - %4</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method SendRegistrationConfirmationMail - NamedType RegistrationConfirmationMailFailedLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 122294278 - Method 1903300204 - NamedType 3098798950" size-unit="char" translate="yes" xml:space="preserve">
           <source>An Unregistration Confirmation for Event %1 - %2 has been sent to %3 - %4</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method SendUnRegistrationConfirmationMail - NamedType UnRegistrationConfirmationMailSentLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 122294278 - Method 1903300204 - NamedType 480681023" size-unit="char" translate="yes" xml:space="preserve">
           <source>Failed to send an Unregistration Confirmation for Event %1 - %2 to %3 - %4</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method SendUnRegistrationConfirmationMail - NamedType UnRegistrationConfirmationMailFailedLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 3789116197 - Method 944787481 - NamedType 3952755926" size-unit="char" translate="yes" xml:space="preserve">
@@ -1803,20 +1818,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Factbox - NamedType DeleteImageQst</note>
         </trans-unit>
-        <trans-unit id="Page 234838847 - NamedType 992573177" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You must add a description to the item before you can import a picture.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Factbox - NamedType MustSpecifyDescriptionErr</note>
-        </trans-unit>
         <trans-unit id="Page 234838847 - NamedType 1398852855" size-unit="char" translate="yes" xml:space="preserve">
           <source>The existing picture will be replaced. Do you want to continue?</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Factbox - NamedType OverrideImageQst</note>
-        </trans-unit>
-        <trans-unit id="Page 234838847 - NamedType 464428880" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Select a picture to upload</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Factbox - NamedType SelectPictureTxt</note>
         </trans-unit>
         <trans-unit id="Page 234838847 - Control 2553286014 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Medals</source>
@@ -1853,6 +1858,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Factbox - Action TakePicture - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 234838847 - Action 3400438121 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Upload</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Factbox - Action UploadPicture - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2751172392 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Training Group Members</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1882,6 +1892,36 @@
           <source>Memberships</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Memberships - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 60502701 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Result Image Factbox</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Result Image Factbox - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 60502701 - NamedType 2865259996" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Are you sure you want to delete the picture?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Result Image Factbox - NamedType DeleteImageQst</note>
+        </trans-unit>
+        <trans-unit id="Page 60502701 - Action 3119204463 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete the record.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Result Image Factbox - Action DeletePicture - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 60502701 - Action 3119204463 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Result Image Factbox - Action DeletePicture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 60502701 - Action 3400438121 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Upload</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Result Image Factbox - Action UploadPicture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2346881471 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Result Images</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Result Images - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3008872625 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Setup</source>
@@ -1927,6 +1967,11 @@
           <source>Memberships</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup - Action Memberships - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3008872625 - Action 4094086127 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Result Images</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup - Action ResultImages - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3008872625 - Action 1678643360 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Training Groups</source>

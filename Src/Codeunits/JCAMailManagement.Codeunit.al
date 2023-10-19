@@ -5,12 +5,18 @@ codeunit 50104 "JCA Mail Management"
         JCAEvent: record "JCA Event";
         JCAMember: record "JCA Member";
         JCAContact: record "JCA Contact";
+        TenantMedia: record "Tenant Media";
+        JCAResultImage: Record "JCA Result Image";
         MailManagement: codeunit "Mail Management";
         EmailMessage: codeunit "Email Message";
+        Base64Convert: Codeunit "Base64 Convert";
         Email: codeunit Email;
         MailingList: list of [Text[100]];
         MailAddress: text[100];
         MailSubject: text;
+        MemberPicture: Text;
+        ResultImage: Text;
+        InStream: InStream;
         MailBody: TextBuilder;
     begin
         JCAEvent.reset();
@@ -39,13 +45,36 @@ codeunit 50104 "JCA Mail Management"
         if MailingList.Count() = 0 then
             exit;
 
+        MemberPicture := '';
+        JCAMember.Reset();
+        JCAMember.get(JCAEventParticipant."Member License ID");
+        if JCAMember.Picture.Count() <> 0 then begin
+            TenantMedia.reset();
+            TenantMedia.get(JCAMember.Picture.Item(1));
+            TenantMedia.CalcFields(Content);
+            TenantMedia.Content.CreateInStream(InStream);
+            MemberPicture := Base64Convert.ToBase64(InStream);
+        end;
+
+        ResultImage := '';
+        JCAResultImage.Reset();
+        JCAResultImage.setrange(Result, JCAEventParticipant.Result);
+        JCAResultImage.findfirst();
+        if JCAResultImage."Result Image".Count() <> 0 then begin
+            TenantMedia.reset();
+            TenantMedia.get(JCAResultImage."Result Image".item(1));
+            TenantMedia.CalcFields(Content);
+            TenantMedia.Content.CreateInStream(InStream);
+            ResultImage := Base64Convert.ToBase64(InStream);
+        end;
+
         foreach MailAddress in MailingList do begin
             CheckForMailSystemTest(MailAddress);
             clear(MailManagement);
             if MailManagement.CheckValidEmailAddress(MailAddress) then begin
-                CreateEventResultMailContent(JCAEventParticipant, JCAEvent, MailSubject, MailBody);
+                CreateEventResultMailContent(JCAEventParticipant, JCAEvent, MailSubject, MailBody, MemberPicture, ResultImage);
                 clear(EmailMessage);
-                EmailMessage.Create(MailAddress, MailSubject, MailBody.ToText());
+                EmailMessage.Create(MailAddress, MailSubject, MailBody.ToText(), true);
                 clear(Email);
                 Email.Send(EmailMessage, enum::"Email Scenario"::Default);
             end;
@@ -332,22 +361,35 @@ codeunit 50104 "JCA Mail Management"
         MailBody.AppendLine('Judo Ardooie');
     end;
 
-    local procedure CreateEventResultMailContent(JCAEventParticipant: record "JCA Event Participant"; JCAEvent: record "JCA Event"; var MailSubject: Text; var MailBody: TextBuilder)
+    local procedure CreateEventResultMailContent(JCAEventParticipant: record "JCA Event Participant"; JCAEvent: record "JCA Event"; var MailSubject: Text; var MailBody: TextBuilder; MemberPicture: Text; ResultImage: Text)
     var
         ResultsLbl: label 'Results for %1 - %2: %3', Comment = '%1 = Event No., %2 = Event Description, %3 = Member Name';
     begin
         MailSubject := StrSubstNo(ResultsLbl, JCAEvent.Type, JCAEvent.Description, JCAEventParticipant."Member Full Name");
 
         Clear(MailBody);
-        MailBody.AppendLine('Beste Supporter,');
-        MailBody.AppendLine();
-        MailBody.AppendLine('Tijdens het ' + format(JCAEvent.Type) + ' - ' + JCAEvent.Description + ' behaalde ' + JCAEventParticipant."Member Full Name" + ' het volgende resulaat:');
-        MailBody.AppendLine();
-        MailBody.AppendLine(UpperCase(format(JCAEventParticipant.Result)));
-        MailBody.AppendLine();
-        MailBody.AppendLine('Met vriendelijke groeten,');
-        MailBody.AppendLine();
-        MailBody.AppendLine('Judo Ardooie');
+        // MailBody.AppendLine('Beste Supporter,');
+        // MailBody.AppendLine();
+        // MailBody.AppendLine('Tijdens het ' + format(JCAEvent.Type) + ' - ' + JCAEvent.Description + ' behaalde ' + JCAEventParticipant."Member Full Name" + ' het volgende resulaat:');
+        // MailBody.AppendLine();
+        // MailBody.AppendLine(UpperCase(format(JCAEventParticipant.Result)));
+        // MailBody.AppendLine();
+        // MailBody.AppendLine('Met vriendelijke groeten,');
+        // MailBody.AppendLine();
+        // MailBody.AppendLine('Judo Ardooie');
+
+
+        MailBody.AppendLine('<html><head><style>card {box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;border-radius: 5px;}');
+        MailBody.AppendLine('img {border-radius: 5px 5px 0 0;}</style></head>');
+        MailBody.AppendLine('<div class="card"><img id="base64image" src="data:image/jpeg;base64,');
+        MailBody.AppendLine(MemberPicture);
+        MailBody.AppendLine('" style="width:50%"></img><div class="container"><h4><b>');
+        MailBody.AppendLine(JCAEventParticipant."Member Full Name");
+        MailBody.AppendLine('</b></h4><p>');
+        MailBody.AppendLine(format(JCAEventParticipant.Result));
+        MailBody.AppendLine('</p><img id="base64image" src="data:image/jpeg;base64,');
+        MailBody.AppendLine(ResultImage);
+        MailBody.AppendLine('"</img></div></div></html>');
     end;
 
     local procedure CollectEventAttachments(JCAEvent: record "JCA Event"; var JCAEventDocument: record "JCA Event Document")

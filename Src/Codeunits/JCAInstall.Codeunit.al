@@ -5,6 +5,7 @@ codeunit 50106 "JCA Install"
     trigger OnInstallAppPerCompany()
     begin
         InstallMemberships();
+        ManageResultImages();
     end;
 
     local procedure InstallMemberships()
@@ -29,5 +30,24 @@ codeunit 50106 "JCA Install"
                     JCAMembershipPeriod.insert(true);
                 end;
             until JCAMember.Next() = 0;
+    end;
+
+    local procedure ManageResultImages()
+    var
+        JCAResultImage: record "JCA Result Image";
+        JCAEventResult: Enum "JCA Event Result";
+        CurrJCAEventResult: Enum "JCA Event Result";
+        ResultIndex: Integer;
+    begin
+        foreach ResultIndex in JCAEventResult.Ordinals() do begin
+            CurrJCAEventResult := enum::"JCA Event Result".FromInteger(ResultIndex);
+            JCAResultImage.Reset();
+            if not JCAResultImage.get(CurrJCAEventResult) then begin
+                JCAResultImage.Reset();
+                JCAResultImage.init();
+                JCAResultImage.validate(Result, CurrJCAEventResult);
+                JCAResultImage.insert(true);
+            end;
+        end;
     end;
 }

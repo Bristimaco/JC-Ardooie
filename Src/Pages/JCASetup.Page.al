@@ -129,6 +129,14 @@ page 50100 "JCA Setup"
                 RunObject = page "JCA Weight Groups";
                 Image = ItemGroup;
             }
+            action(ResultImages)
+            {
+                Caption = 'Result Images';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                RunObject = page "JCA Result Images";
+                Image = Picture;
+            }
             action(ActionLogs)
             {
                 Caption = 'Logs';
