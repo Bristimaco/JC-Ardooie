@@ -3,7 +3,7 @@ page 50107 "JCA Training Groups"
     Caption = 'Training Groups';
     PageType = List;
     UsageCategory = Administration;
-    DelayedInsert = true;
+    ApplicationArea = all;
     SourceTable = "JCA Training Group";
 
     layout
