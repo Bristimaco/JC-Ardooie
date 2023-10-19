@@ -216,6 +216,8 @@ table 50101 "JCA Member"
     var
         JCATrainingGroupMember: record "JCA Training Group Member";
         JCAMemberAgeGroup: record "JCA Member Age Group";
+        JCAVoucher: Record "JCA Voucher";
+        JCAMembershipPeriod: Record "JCA Membership Period";
     begin
         JCATrainingGroupMember.Reset();
         JCATrainingGroupMember.setrange("Member License ID", "License ID");
@@ -224,6 +226,16 @@ table 50101 "JCA Member"
         JCAMemberAgeGroup.Reset();
         JCAMemberAgeGroup.setrange("Member License ID", "License ID");
         JCAMemberAgeGroup.deleteall(true);
+
+        JCAVoucher.Reset();
+        JCAVoucher.Setrange("Issued To License ID", rec."License ID");
+        JCAVoucher.setrange(Used, false);
+        JCAVoucher.deleteall(true);
+
+        JCAMembershipPeriod.Reset();
+        JCAMembershipPeriod.setrange("Member License ID", rec."License ID");
+        JCAMembershipPeriod.setrange("Membership Payed", false);
+        JCAMembershipPeriod.DeleteAll(true);
     end;
 
     procedure RemoveFromTrainingGroups()
