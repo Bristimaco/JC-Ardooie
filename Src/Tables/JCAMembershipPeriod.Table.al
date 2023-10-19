@@ -82,5 +82,7 @@ table 50122 "JCA Membership Period"
     {
         key(PK; "Member License ID", "Membership Code", "Membership Starting Date", "Membership Ending Date")
         { }
+        key(StartingDate; "Membership Starting Date")
+        { }
     }
 }

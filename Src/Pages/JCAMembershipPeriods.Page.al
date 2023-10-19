@@ -5,6 +5,7 @@ page 50135 "JCA Membership Periods"
     DelayedInsert = true;
     UsageCategory = None;
     PageType = List;
+    SourceTableView = sorting("Membership Starting Date") order(ascending);
 
     layout
     {
