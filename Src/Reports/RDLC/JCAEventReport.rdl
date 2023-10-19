@@ -11,61 +11,6 @@
       <rd:DataSourceID>414e9b3e-9437-4e92-8e72-86a49895c279</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="No_">
-          <DataField>No_</DataField>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-        </Field>
-        <Field Name="Type">
-          <DataField>Type</DataField>
-        </Field>
-        <Field Name="Country_Code">
-          <DataField>Country_Code</DataField>
-        </Field>
-        <Field Name="Date">
-          <DataField>Date</DataField>
-        </Field>
-        <Field Name="Supervisor_License_ID">
-          <DataField>Supervisor_License_ID</DataField>
-        </Field>
-        <Field Name="Supervisor_Full_Name">
-          <DataField>Supervisor_Full_Name</DataField>
-        </Field>
-        <Field Name="Gender">
-          <DataField>Gender</DataField>
-        </Field>
-        <Field Name="Age_Group_Description">
-          <DataField>Age_Group_Description</DataField>
-        </Field>
-        <Field Name="Weigh_In_Start_Time">
-          <DataField>Weigh_In_Start_Time</DataField>
-        </Field>
-        <Field Name="Member_License_ID">
-          <DataField>Member_License_ID</DataField>
-        </Field>
-        <Field Name="Member_Full_Name">
-          <DataField>Member_Full_Name</DataField>
-        </Field>
-        <Field Name="Result">
-          <DataField>Result</DataField>
-        </Field>
-        <Field Name="Supervisor_Comment">
-          <DataField>Supervisor_Comment</DataField>
-        </Field>
-        <Field Name="No_Show">
-          <DataField>No_Show</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -979,12 +924,6 @@
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -1024,4 +963,59 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="No_">
+          <DataField>No_</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="Type">
+          <DataField>Type</DataField>
+        </Field>
+        <Field Name="Country_Code">
+          <DataField>Country_Code</DataField>
+        </Field>
+        <Field Name="Date">
+          <DataField>Date</DataField>
+        </Field>
+        <Field Name="Supervisor_License_ID">
+          <DataField>Supervisor_License_ID</DataField>
+        </Field>
+        <Field Name="Supervisor_Full_Name">
+          <DataField>Supervisor_Full_Name</DataField>
+        </Field>
+        <Field Name="Gender">
+          <DataField>Gender</DataField>
+        </Field>
+        <Field Name="Age_Group_Description">
+          <DataField>Age_Group_Description</DataField>
+        </Field>
+        <Field Name="Weigh_In_Start_Time">
+          <DataField>Weigh_In_Start_Time</DataField>
+        </Field>
+        <Field Name="Member_License_ID">
+          <DataField>Member_License_ID</DataField>
+        </Field>
+        <Field Name="Member_Full_Name">
+          <DataField>Member_Full_Name</DataField>
+        </Field>
+        <Field Name="Result">
+          <DataField>Result</DataField>
+        </Field>
+        <Field Name="Supervisor_Comment">
+          <DataField>Supervisor_Comment</DataField>
+        </Field>
+        <Field Name="No_Show">
+          <DataField>No_Show</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

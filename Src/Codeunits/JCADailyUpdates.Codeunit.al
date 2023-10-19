@@ -3,6 +3,7 @@ codeunit 50100 "JCA Daily Updates"
     trigger OnRun()
     begin
         UpdateAgeGroupsOnMembers();
+        UpdateTrainingGroups();
     end;
 
     procedure UpdateAgeGroupsOnMembers()
@@ -14,7 +15,21 @@ codeunit 50100 "JCA Daily Updates"
         if JCAMember.FindSet() then
             repeat
                 JCAMember.UpdateAgeGroups(today(), true, tempJCAMemberAgeGroup);
-                JCAMember.modify(true);
+            until JCAMember.Next() = 0;
+    end;
+
+    procedure UpdateTrainingGroups()
+    var
+        JCAMember: record "JCA Member";
+    begin
+        JCAMember.Reset();
+        if JCAMember.findset() then
+            repeat
+                JCAMember.SetFilter("Membersh. Start Date Filter", '<=%1', Today());
+                JCAMember.SetFilter("Membersh. End Date Filter", '>=%1', Today());
+                JCAMember.CalcFields("Active Membership");
+                if JCAMember."Active Membership" = '' then
+                    JCAMember.RemoveFromTrainingGroups();
             until JCAMember.Next() = 0;
     end;
 }

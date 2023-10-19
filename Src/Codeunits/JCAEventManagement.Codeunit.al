@@ -7,9 +7,8 @@ codeunit 50102 "JCA Event Management"
         JCAEvent.Reset();
         JCAEvent."No." := '';
         JCAEvent.insert(true);
-        if OpenEventCard then begin
+        if OpenEventCard then
             JCAEvent.OpenCard();
-        end;
     end;
 
     procedure FetchEventParticipants(var JCAEvent: Record "JCA Event")

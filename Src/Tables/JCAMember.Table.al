@@ -44,7 +44,7 @@ table 50101 "JCA Member"
 
             trigger OnValidate()
             begin
-                UpdateAgeGroups(today(), true, tempJCAMemberAgeGroup);
+                UpdateAgeGroups(today(), true, gtempJCAMemberAgeGroup);
             end;
         }
         field(6; "Member Since"; Date)
@@ -73,7 +73,7 @@ table 50101 "JCA Member"
 
             trigger OnValidate()
             begin
-                UpdateAgeGroups(Today(), true, tempJCAMemberAgeGroup);
+                UpdateAgeGroups(Today(), true, gtempJCAMemberAgeGroup);
             end;
         }
         field(11; Age; Integer)
@@ -89,7 +89,7 @@ table 50101 "JCA Member"
 
             trigger OnValidate()
             begin
-                UpdateAgeGroups(Today(), true, tempJCAMemberAgeGroup);
+                UpdateAgeGroups(Today(), true, gtempJCAMemberAgeGroup);
             end;
         }
         field(15; "E-Mail"; text[100])
@@ -189,7 +189,7 @@ table 50101 "JCA Member"
         JCAMemberAgeGroup.deleteall(true);
     end;
 
-    local procedure RemoveFromTrainingGroups()
+    procedure RemoveFromTrainingGroups()
     var
         JCATrainingGroupMember: record "JCA Training Group Member";
     begin
@@ -248,5 +248,5 @@ table 50101 "JCA Member"
     end;
 
     var
-        tempJCAMemberAgeGroup: record "JCA Member Age Group" temporary;
+        gtempJCAMemberAgeGroup: record "JCA Member Age Group" temporary;
 }
