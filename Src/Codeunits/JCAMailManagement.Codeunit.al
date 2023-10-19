@@ -70,8 +70,8 @@ codeunit 50104 "JCA Mail Management"
         MailSent: Boolean;
         HasError: Boolean;
         LogDescription: text;
-        InvitationMailSentLbl: Label 'An invitation for Event %1 - %2 has been sent to %3 - %4';
-        InvitationMailFailedLbl: Label 'Failed to send an invitation for Event %1 - %2 to %3 - %4';
+        InvitationMailSentLbl: Label 'An invitation for Event %1 - %2 has been sent to %3 - %4', comment = '%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name';
+        InvitationMailFailedLbl: Label 'Failed to send an invitation for Event %1 - %2 to %3 - %4', comment = '%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name';
     begin
         HasError := false;
         MailSent := false;
@@ -118,7 +118,7 @@ codeunit 50104 "JCA Mail Management"
             LogDescription := StrSubstNo(InvitationMailSentLbl, JCAEvent."No.", JCAEvent.Description, JCAMember."License ID", JCAMember."Full Name")
         else
             LogDescription := StrSubstNo(InvitationMailFailedLbl, JCAEvent."No.", JCAEvent.Description, JCAMember."License ID", JCAMember."Full Name");
-        JCAActionLogManagement.LogApplicatonAction(enum::"JCA Application Action"::"Event Invitation Mail", LogDescription, JCAMember, JCAEvent);
+        JCAActionLogManagement.LogApplicatonAction(enum::"JCA Application Action"::"Event Invitation Mail", copystr(LogDescription, 1, 250), JCAMember, JCAEvent);
 
         exit(MailSent);
     end;
@@ -126,7 +126,6 @@ codeunit 50104 "JCA Mail Management"
     procedure SendRegistrationConfirmationMail(MemberLicenseID: code[20]; JCAEvent: record "JCA Event"): Boolean
     var
         JCAMember: Record "JCA Member";
-        JCAEventDocument: record "JCA Event Document";
         MailManagement: codeunit "Mail Management";
         EmailMessage: codeunit "Email Message";
         JCAActionLogManagement: codeunit "JCA Action Log Management";
@@ -139,8 +138,8 @@ codeunit 50104 "JCA Mail Management"
         MailSent: Boolean;
         HasError: Boolean;
         LogDescription: text;
-        RegistrationConfirmationMailSentLbl: Label 'A Registration Confirmation for Event %1 - %2 has been sent to %3 - %4';
-        RegistrationConfirmationMailFailedLbl: Label 'Failed to send a Registration Confirmation for Event %1 - %2 to %3 - %4';
+        RegistrationConfirmationMailSentLbl: Label 'A Registration Confirmation for Event %1 - %2 has been sent to %3 - %4', comment = '%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name';
+        RegistrationConfirmationMailFailedLbl: Label 'Failed to send a Registration Confirmation for Event %1 - %2 to %3 - %4', comment = '%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name';
     begin
         HasError := false;
         MailSent := false;
@@ -161,7 +160,7 @@ codeunit 50104 "JCA Mail Management"
             if not HasError then begin
                 CollectCCMAilAddresses(JCAMember, SendToCCList);
 
-                CreateEventRegistrationConfirmationMailContent(JCAMember, JCAEvent, MailSubject, MailBody, JCAEventDocument);
+                CreateEventRegistrationConfirmationMailContent(JCAMember, JCAEvent, MailSubject, MailBody);
 
                 clear(EmailMessage);
                 EmailMessage.Create(SendToMail, MailSubject, MailBody.ToText());
@@ -178,7 +177,7 @@ codeunit 50104 "JCA Mail Management"
             LogDescription := StrSubstNo(RegistrationConfirmationMailSentLbl, JCAEvent."No.", JCAEvent.Description, JCAMember."License ID", JCAMember."Full Name")
         else
             LogDescription := StrSubstNo(RegistrationConfirmationMailFailedLbl, JCAEvent."No.", JCAEvent.Description, JCAMember."License ID", JCAMember."Full Name");
-        JCAActionLogManagement.LogApplicatonAction(enum::"JCA Application Action"::"Event Registration Confirmation Mail", LogDescription, JCAMember, JCAEvent);
+        JCAActionLogManagement.LogApplicatonAction(enum::"JCA Application Action"::"Event Registration Confirmation Mail", copystr(LogDescription, 1, 250), JCAMember, JCAEvent);
 
         exit(MailSent);
     end;
@@ -186,7 +185,6 @@ codeunit 50104 "JCA Mail Management"
     procedure SendUnRegistrationConfirmationMail(MemberLicenseID: code[20]; JCAEvent: record "JCA Event"): Boolean
     var
         JCAMember: Record "JCA Member";
-        JCAEventDocument: record "JCA Event Document";
         MailManagement: codeunit "Mail Management";
         EmailMessage: codeunit "Email Message";
         JCAActionLogManagement: codeunit "JCA Action Log Management";
@@ -199,8 +197,8 @@ codeunit 50104 "JCA Mail Management"
         MailSent: Boolean;
         HasError: Boolean;
         LogDescription: text;
-        UnRegistrationConfirmationMailSentLbl: Label 'An Unregistration Confirmation for Event %1 - %2 has been sent to %3 - %4';
-        UnRegistrationConfirmationMailFailedLbl: Label 'Failed to send an Unregistration Confirmation for Event %1 - %2 to %3 - %4';
+        UnRegistrationConfirmationMailSentLbl: Label 'An Unregistration Confirmation for Event %1 - %2 has been sent to %3 - %4', comment = '%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name';
+        UnRegistrationConfirmationMailFailedLbl: Label 'Failed to send an Unregistration Confirmation for Event %1 - %2 to %3 - %4', comment = '%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name';
     begin
         HasError := false;
         MailSent := false;
@@ -221,7 +219,7 @@ codeunit 50104 "JCA Mail Management"
             if not HasError then begin
                 CollectCCMAilAddresses(JCAMember, SendToCCList);
 
-                CreateEventUnRegistrationConfirmationMailContent(JCAMember, JCAEvent, MailSubject, MailBody, JCAEventDocument);
+                CreateEventUnRegistrationConfirmationMailContent(JCAMember, JCAEvent, MailSubject, MailBody);
 
                 clear(EmailMessage);
                 EmailMessage.Create(SendToMail, MailSubject, MailBody.ToText());
@@ -238,7 +236,7 @@ codeunit 50104 "JCA Mail Management"
             LogDescription := StrSubstNo(UnRegistrationConfirmationMailSentLbl, JCAEvent."No.", JCAEvent.Description, JCAMember."License ID", JCAMember."Full Name")
         else
             LogDescription := StrSubstNo(UnRegistrationConfirmationMailFailedLbl, JCAEvent."No.", JCAEvent.Description, JCAMember."License ID", JCAMember."Full Name");
-        JCAActionLogManagement.LogApplicatonAction(enum::"JCA Application Action"::"Event Unregistration Confirmation Mail", LogDescription, JCAMember, JCAEvent);
+        JCAActionLogManagement.LogApplicatonAction(enum::"JCA Application Action"::"Event Unregistration Confirmation Mail", copystr(LogDescription, 1, 250), JCAMember, JCAEvent);
 
         exit(MailSent);
     end;
@@ -279,7 +277,7 @@ codeunit 50104 "JCA Mail Management"
 
     local procedure CreateEventInvitationMailContent(JCAMember: record "JCA Member"; JCAEvent: record "JCA Event"; var MailSubject: Text; var MailBody: TextBuilder; var JCAEventDocument: record "JCA Event Document")
     var
-        InvitationSubjectLbl: label 'Invitation for %1 - %2';
+        InvitationSubjectLbl: label 'Invitation for %1 - %2', Comment = '%1 = Event No., %2 = Event Description';
     begin
         MailSubject := StrSubstNo(InvitationSubjectLbl, JCAEvent.Type, JCAEvent.Description);
 
@@ -299,9 +297,9 @@ codeunit 50104 "JCA Mail Management"
         CollectEventAttachments(JCAEvent, JCAEventDocument);
     end;
 
-    local procedure CreateEventRegistrationConfirmationMailContent(JCAMember: record "JCA Member"; JCAEvent: record "JCA Event"; var MailSubject: Text; var MailBody: TextBuilder; var JCAEventDocument: record "JCA Event Document")
+    local procedure CreateEventRegistrationConfirmationMailContent(JCAMember: record "JCA Member"; JCAEvent: record "JCA Event"; var MailSubject: Text; var MailBody: TextBuilder)
     var
-        RegistrationConfirmationSubjectLbl: label 'Registration Confirmation for %1 - %2';
+        RegistrationConfirmationSubjectLbl: label 'Registration Confirmation for %1 - %2', Comment = '%1 = Event No., %2 = Event Description';
     begin
         MailSubject := StrSubstNo(RegistrationConfirmationSubjectLbl, JCAEvent.Type, JCAEvent.Description);
 
@@ -318,9 +316,9 @@ codeunit 50104 "JCA Mail Management"
         MailBody.AppendLine('Judo Ardooie');
     end;
 
-    local procedure CreateEventUnregistrationConfirmationMailContent(JCAMember: record "JCA Member"; JCAEvent: record "JCA Event"; var MailSubject: Text; var MailBody: TextBuilder; var JCAEventDocument: record "JCA Event Document")
+    local procedure CreateEventUnregistrationConfirmationMailContent(JCAMember: record "JCA Member"; JCAEvent: record "JCA Event"; var MailSubject: Text; var MailBody: TextBuilder)
     var
-        UnregistrationConfirmationLbl: label 'Unregistration Confirmation for %1 - %2';
+        UnregistrationConfirmationLbl: label 'Unregistration Confirmation for %1 - %2', Comment = '%1 = Event No., %2 = Event Description';
     begin
         MailSubject := StrSubstNo(UnregistrationConfirmationLbl, JCAEvent.Type, JCAEvent.Description);
 
@@ -336,7 +334,7 @@ codeunit 50104 "JCA Mail Management"
 
     local procedure CreateEventResultMailContent(JCAEventParticipant: record "JCA Event Participant"; JCAEvent: record "JCA Event"; var MailSubject: Text; var MailBody: TextBuilder)
     var
-        ResultsLbl: label 'Results for %1 - %2: %3';
+        ResultsLbl: label 'Results for %1 - %2: %3', Comment = '%1 = Event No., %2 = Event Description, %3 = Member Name';
     begin
         MailSubject := StrSubstNo(ResultsLbl, JCAEvent.Type, JCAEvent.Description, JCAEventParticipant."Member Full Name");
 
