@@ -48,6 +48,11 @@ page 50119 "JCA Event Participants"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field("Weight Group Code"; Rec."Weight Group Code")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
                 field(Registered; Rec.Registered)
                 {
                     ApplicationArea = all;

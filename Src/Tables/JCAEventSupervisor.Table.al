@@ -89,7 +89,7 @@ table 50113 "JCA Event Supervisor"
     keys
     {
         key(PK; "Event No.", "Member License ID")
-        { }        
+        { }
     }
 
     procedure SendInvitationMail()
@@ -112,11 +112,11 @@ table 50113 "JCA Event Supervisor"
     var
         JCAEvent: record "JCA Event";
         JCAMailManagement: codeunit "JCA Mail Management";
-    begin
+    begin        
         JCAEvent.Reset();
         JCAEvent.get(rec."Event No.");
         clear(JCAMailManagement);
-        if JCAMailManagement.SendRegistrationConfirmationMail(rec."Member License ID", JCAEvent) then begin
+        if JCAMailManagement.SendRegistrationConfirmationMail(rec, JCAEvent) then begin
             rec.validate("Registration Confirmed", true);
             rec.Modify(true);
         end;
@@ -130,7 +130,7 @@ table 50113 "JCA Event Supervisor"
         JCAEvent.Reset();
         JCAEvent.get(rec."Event No.");
         clear(JCAMailManagement);
-        if JCAMailManagement.SendUnRegistrationConfirmationMail(rec."Member License ID", JCAEvent) then begin
+        if JCAMailManagement.SendUnRegistrationConfirmationMail(rec, JCAEvent) then begin
             rec.validate("Registration Confirmed", false);
             rec.Modify(true);
         end;

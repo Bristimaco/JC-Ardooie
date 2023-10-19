@@ -152,7 +152,17 @@ codeunit 50104 "JCA Mail Management"
         exit(MailSent);
     end;
 
-    procedure SendRegistrationConfirmationMail(MemberLicenseID: code[20]; JCAEvent: record "JCA Event"): Boolean
+    procedure SendRegistrationConfirmationMail(JCAEventParticipant: record "JCA Event Participant"; JCAEvent: record "JCA Event"): Boolean
+    begin
+        exit(doSendRegistrationConfirmationMail(JCAEventParticipant."Member License ID", JCAEventParticipant."Weight Group Code", JCAEvent));
+    end;
+
+    procedure SendRegistrationConfirmationMail(JCAEventSupervisor: record "JCA Event Supervisor"; JCAEvent: record "JCA Event"): Boolean
+    begin
+        exit(doSendRegistrationConfirmationMail(JCAEventSupervisor."Member License ID", '', JCAEvent));
+    end;
+
+    procedure doSendRegistrationConfirmationMail(MemberLicenseID: code[20]; WeightGroupCode: code[20]; JCAEvent: record "JCA Event"): Boolean;
     var
         JCAMember: Record "JCA Member";
         MailManagement: codeunit "Mail Management";
@@ -189,7 +199,7 @@ codeunit 50104 "JCA Mail Management"
             if not HasError then begin
                 CollectCCMAilAddresses(JCAMember, SendToCCList);
 
-                CreateEventRegistrationConfirmationMailContent(JCAMember, JCAEvent, MailSubject, MailBody);
+                CreateEventRegistrationConfirmationMailContent(MemberLicenseID, WeightGroupCode, JCAEvent, MailSubject, MailBody);
 
                 clear(EmailMessage);
                 EmailMessage.Create(SendToMail, MailSubject, MailBody.ToText());
@@ -211,7 +221,17 @@ codeunit 50104 "JCA Mail Management"
         exit(MailSent);
     end;
 
-    procedure SendUnRegistrationConfirmationMail(MemberLicenseID: code[20]; JCAEvent: record "JCA Event"): Boolean
+    procedure SendUnregistrationConfirmationMail(JCAEventParticipant: record "JCA Event Participant"; JCAEvent: record "JCA Event"): Boolean
+    begin
+        exit(doSendUnRegistrationConfirmationMail(JCAEventParticipant."Member License ID", JCAEventParticipant."Weight Group Code", JCAEvent));
+    end;
+
+    procedure SendUnregistrationConfirmationMail(JCAEventSupervisor: record "JCA Event Supervisor"; JCAEvent: record "JCA Event"): Boolean
+    begin
+        exit(doSendUnRegistrationConfirmationMail(JCAEventSupervisor."Member License ID", '', JCAEvent));
+    end;
+
+    procedure doSendUnRegistrationConfirmationMail(MemberLicenseID: code[20]; WeightGroupCode: Code[20]; JCAEvent: record "JCA Event"): Boolean
     var
         JCAMember: Record "JCA Member";
         MailManagement: codeunit "Mail Management";
@@ -248,7 +268,7 @@ codeunit 50104 "JCA Mail Management"
             if not HasError then begin
                 CollectCCMAilAddresses(JCAMember, SendToCCList);
 
-                CreateEventUnRegistrationConfirmationMailContent(JCAMember, JCAEvent, MailSubject, MailBody);
+                CreateEventUnRegistrationConfirmationMailContent(MemberLicenseID, WeightGroupCode, JCAEvent, MailSubject, MailBody);
 
                 clear(EmailMessage);
                 EmailMessage.Create(SendToMail, MailSubject, MailBody.ToText());
@@ -326,16 +346,23 @@ codeunit 50104 "JCA Mail Management"
         CollectEventAttachments(JCAEvent, JCAEventDocument);
     end;
 
-    local procedure CreateEventRegistrationConfirmationMailContent(JCAMember: record "JCA Member"; JCAEvent: record "JCA Event"; var MailSubject: Text; var MailBody: TextBuilder)
+    local procedure CreateEventRegistrationConfirmationMailContent(LicenseID: code[20]; WeightGroupCode: code[20]; JCAEvent: record "JCA Event"; var MailSubject: Text; var MailBody: TextBuilder)
     var
+        JCAMember: Record "JCA Member";
         RegistrationConfirmationSubjectLbl: label 'Registration Confirmation for %1 - %2', Comment = '%1 = Event No., %2 = Event Description';
     begin
         MailSubject := StrSubstNo(RegistrationConfirmationSubjectLbl, JCAEvent.Type, JCAEvent.Description);
 
+        JCAMember.Reset();
+        JCAMember.get(LicenseID);
+
         Clear(MailBody);
         MailBody.AppendLine('Beste ' + JCAMember."First Name" + ',');
         MailBody.AppendLine();
-        MailBody.AppendLine('Hierbij bevestiging dat u bent ingeschreven voor het volgende evenement: ' + format(JCAEvent.Type) + ' - ' + JCAEvent.Description);
+        if WeightGroupCode <> '' then
+            MailBody.AppendLine('Hierbij bevestiging dat u bent ingeschreven voor het volgende evenement: ' + format(JCAEvent.Type) + ' - ' + JCAEvent.Description + ' Categorie: ' + WeightGroupCode)
+        else
+            MailBody.AppendLine('Hierbij bevestiging dat u bent ingeschreven voor het volgende evenement: ' + format(JCAEvent.Type) + ' - ' + JCAEvent.Description);
         MailBody.AppendLine('Dit gaat door op ' + format(JCAEvent.Date));
         MailBody.AppendLine();
         MailBody.AppendLine('Indien u deze inschrijving wil annuleren, gelieve dit zo snel mogelijk te laten weten');
@@ -345,16 +372,23 @@ codeunit 50104 "JCA Mail Management"
         MailBody.AppendLine('Judo Ardooie');
     end;
 
-    local procedure CreateEventUnregistrationConfirmationMailContent(JCAMember: record "JCA Member"; JCAEvent: record "JCA Event"; var MailSubject: Text; var MailBody: TextBuilder)
+    local procedure CreateEventUnregistrationConfirmationMailContent(LicenseID: Code[20]; WeightGroupCode: Code[20]; JCAEvent: record "JCA Event"; var MailSubject: Text; var MailBody: TextBuilder)
     var
+        JCAMember: record "JCA Member";
         UnregistrationConfirmationLbl: label 'Unregistration Confirmation for %1 - %2', Comment = '%1 = Event No., %2 = Event Description';
     begin
         MailSubject := StrSubstNo(UnregistrationConfirmationLbl, JCAEvent.Type, JCAEvent.Description);
 
+        JCAMember.Reset();
+        JCAMember.get(LicenseID);
+
         Clear(MailBody);
         MailBody.AppendLine('Beste ' + JCAMember."First Name" + ',');
         MailBody.AppendLine();
-        MailBody.AppendLine('Hierbij bevestiging dat u niet langer bent ingeschreven voor het volgende evenement: ' + format(JCAEvent.Type) + ' - ' + JCAEvent.Description);
+        if WeightGroupCode <> '' then
+            MailBody.AppendLine('Hierbij bevestiging dat u niet langer bent ingeschreven voor het volgende evenement: ' + format(JCAEvent.Type) + ' Categorie: ' + JCAEvent.Description + ' - ' + WeightGroupCode)
+        else
+            MailBody.AppendLine('Hierbij bevestiging dat u niet langer bent ingeschreven voor het volgende evenement: ' + format(JCAEvent.Type) + ' - ' + JCAEvent.Description);
         MailBody.AppendLine();
         MailBody.AppendLine('Met vriendelijke groeten,');
         MailBody.AppendLine();

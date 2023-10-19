@@ -149,6 +149,12 @@ table 50112 "JCA Event Participant"
             Caption = 'Membership Filter';
             FieldClass = FlowFilter;
         }
+        field(19; "Weight Group Code"; Code[20])
+        {
+            Caption = 'Weight Group Code';
+            DataClassification = SystemMetadata;
+            TableRelation = "JCA Weight Group".Code where(Gender = field(Gender), "Age Group" = field("Age Group Code"));
+        }
     }
 
     keys
@@ -178,10 +184,11 @@ table 50112 "JCA Event Participant"
         JCAEvent: record "JCA Event";
         JCAMailManagement: codeunit "JCA Mail Management";
     begin
+        TestField("Weight Group Code");
         JCAEvent.Reset();
         JCAEvent.get(rec."Event No.");
         clear(JCAMailManagement);
-        if JCAMailManagement.SendRegistrationConfirmationMail(rec."Member License ID", JCAEvent) then begin
+        if JCAMailManagement.SendRegistrationConfirmationMail(rec, JCAEvent) then begin
             rec.validate("Registration Confirmed", true);
             rec.Modify(true);
         end;
@@ -192,10 +199,11 @@ table 50112 "JCA Event Participant"
         JCAEvent: record "JCA Event";
         JCAMailManagement: codeunit "JCA Mail Management";
     begin
+        TestField("Weight Group Code");
         JCAEvent.Reset();
         JCAEvent.get(rec."Event No.");
         clear(JCAMailManagement);
-        if JCAMailManagement.SendUnRegistrationConfirmationMail(rec."Member License ID", JCAEvent) then begin
+        if JCAMailManagement.SendUnRegistrationConfirmationMail(rec, JCAEvent) then begin
             rec.validate("Registration Confirmed", false);
             rec.Modify(true);
         end;

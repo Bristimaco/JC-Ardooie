@@ -603,6 +603,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Participant - Field Supervisor Comment - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3511736373 - Field 2262185206 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Weight Group Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Participant - Field Weight Group Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1642976352 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Supervisor</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1438,6 +1443,26 @@
           <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method CreateEventUnregistrationConfirmationMailContent - NamedType UnregistrationConfirmationLbl</note>
         </trans-unit>
+        <trans-unit id="Codeunit 122294278 - Method 3683904708 - NamedType 2468462947" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A Registration Confirmation for Event %1 - %2 has been sent to %3 - %4</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method doSendRegistrationConfirmationMail - NamedType RegistrationConfirmationMailSentLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 122294278 - Method 3683904708 - NamedType 1313436962" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to send a Registration Confirmation for Event %1 - %2 to %3 - %4</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method doSendRegistrationConfirmationMail - NamedType RegistrationConfirmationMailFailedLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 122294278 - Method 518774589 - NamedType 3098798950" size-unit="char" translate="yes" xml:space="preserve">
+          <source>An Unregistration Confirmation for Event %1 - %2 has been sent to %3 - %4</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method doSendUnRegistrationConfirmationMail - NamedType UnRegistrationConfirmationMailSentLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 122294278 - Method 518774589 - NamedType 480681023" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to send an Unregistration Confirmation for Event %1 - %2 to %3 - %4</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method doSendUnRegistrationConfirmationMail - NamedType UnRegistrationConfirmationMailFailedLbl</note>
+        </trans-unit>
         <trans-unit id="Codeunit 122294278 - Method 3818887580 - NamedType 3369615330" size-unit="char" translate="yes" xml:space="preserve">
           <source>An invitation for Event %1 - %2 has been sent to %3 - %4</source>
           <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
@@ -1447,26 +1472,6 @@
           <source>Failed to send an invitation for Event %1 - %2 to %3 - %4</source>
           <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method SendEventInvitationMail - NamedType InvitationMailFailedLbl</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 122294278 - Method 4023370869 - NamedType 2468462947" size-unit="char" translate="yes" xml:space="preserve">
-          <source>A Registration Confirmation for Event %1 - %2 has been sent to %3 - %4</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method SendRegistrationConfirmationMail - NamedType RegistrationConfirmationMailSentLbl</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 122294278 - Method 4023370869 - NamedType 1313436962" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Failed to send a Registration Confirmation for Event %1 - %2 to %3 - %4</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method SendRegistrationConfirmationMail - NamedType RegistrationConfirmationMailFailedLbl</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 122294278 - Method 1903300204 - NamedType 3098798950" size-unit="char" translate="yes" xml:space="preserve">
-          <source>An Unregistration Confirmation for Event %1 - %2 has been sent to %3 - %4</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method SendUnRegistrationConfirmationMail - NamedType UnRegistrationConfirmationMailSentLbl</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 122294278 - Method 1903300204 - NamedType 480681023" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Failed to send an Unregistration Confirmation for Event %1 - %2 to %3 - %4</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method SendUnRegistrationConfirmationMail - NamedType UnRegistrationConfirmationMailFailedLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 3789116197 - Method 944787481 - NamedType 3952755926" size-unit="char" translate="yes" xml:space="preserve">
           <source>No participants to Invoice.</source>
