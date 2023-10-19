@@ -13,12 +13,12 @@ page 50126 "JCA Today Cues"
             {
                 ShowCaption = false;
 
-                field("Events Today"; Rec."Events Today")
+                field("Training Sessions Today"; Rec."Training Sessions Today")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
-                field("Training Sessions Today"; Rec."Training Sessions Today")
+                field("Events Today"; Rec."Events Today")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
