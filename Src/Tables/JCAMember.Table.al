@@ -172,6 +172,20 @@ table 50101 "JCA Member"
             CalcFormula = exist("JCA Membership Period" where("Membership Payed" = const(false), "Member License ID" = field("License ID")));
             Editable = false;
         }
+        field(29; "Unused Vouchers"; Integer)
+        {
+            Caption = 'Unused Vouchers';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Voucher" where("Issued To License ID" = field("License ID"), Used = const(false)));
+            Editable = false;
+        }
+        field(30; "Used Vouchers"; Integer)
+        {
+            Caption = 'Used Vouchers';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Voucher" where("Issued To License ID" = field("License ID"), Used = const(true)));
+            Editable = false;
+        }
     }
 
     keys
@@ -276,6 +290,14 @@ table 50101 "JCA Member"
     begin
         Clear(JCAMemberManagement);
         JCAMemberManagement.CreateMembershipRenewal(Rec);
+    end;
+
+    procedure IssueVoucher(VoucherType: Code[20])
+    var
+        JCAMemberManagement: codeunit "JCA Member Management";
+    begin
+        clear(JCAMemberManagement);
+        JCAMemberManagement.IssueVoucherToMember(Rec, VoucherType);
     end;
 
     var

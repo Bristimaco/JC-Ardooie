@@ -131,6 +131,16 @@ page 50102 "JCA Member Card"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field("Unused Vouchers"; Rec."Unused Vouchers")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("Used Vouchers"; Rec."Used Vouchers")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
             }
             part(AgeGroups; "JCA Member Age Groups")
             {
@@ -183,6 +193,23 @@ page 50102 "JCA Member Card"
                 Ellipsis = true;
                 RunObject = page "JCA Membership Periods";
                 RunPageLink = "Member License ID" = field("License ID");
+            }
+            action(CreateMembershipRenewal)
+            {
+                Caption = 'Create Renewal';
+                ApplicationArea = all;
+                Image = SendApprovalRequest;
+                ToolTip = ' ', Locked = true;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                Ellipsis = true;
+
+                trigger OnAction()
+                begin
+                    Rec.CreateMembershipRenewal();
+                end;
             }
         }
     }

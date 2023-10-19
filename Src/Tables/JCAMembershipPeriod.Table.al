@@ -65,6 +65,21 @@ table 50122 "JCA Membership Period"
             Caption = 'Membership Payed';
             DataClassification = SystemMetadata;
 
+            trigger OnValidate()
+            var
+                JCAMember: Record "JCA Member";
+                JCAMemberShip: record "JCA Membership";
+            begin
+                if "Membership Payed" then begin
+                    JCAMemberShip.Reset();
+                    JCAMemberShip.get("Membership Code");
+                    if JCAMemberShip."Voucher Code" <> '' then begin
+                        JCAMember.Reset();
+                        JCAMember.get("Member License ID");
+                        JCAMember.IssueVoucher(JCAMemberShip."Voucher Code");
+                    end;
+                end;
+            end;
         }
         field(8; "Membership Starting Date"; Date)
         {

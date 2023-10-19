@@ -256,6 +256,20 @@ table 50102 "JCA Cue"
             CalcFormula = count("JCA Membership Period" where("Membership Payed" = const(false)));
             Editable = false;
         }
+        field(39; "Unused Vouchers"; Integer)
+        {
+            Caption = 'Unused Vouchers';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Voucher" where(Used = const(false)));
+            Editable = false;
+        }
+        field(40; "Used Vouchers"; Integer)
+        {
+            Caption = 'Used Vouchers';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Voucher" where(Used = const(true)));
+            Editable = false;
+        }
     }
 
     keys

@@ -423,6 +423,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Training Sessions Today - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1630571357 - Field 2185054073 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unused Vouchers</source>
+          <target>Ongebruikte Waardebonnen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Unused Vouchers - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1630571357 - Field 2893412152 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Used Vouchers</source>
+          <target>Gebruikte Waardebonnen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Used Vouchers - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3860414336 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event</source>
           <target>Evenement</target>
@@ -1077,6 +1089,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Member - Field Silver Medals - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3645402444 - Field 2185054073 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unused Vouchers</source>
+          <target>Ongebruikte Waardebonnen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Member - Field Unused Vouchers - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3645402444 - Field 2893412152 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Used Vouchers</source>
+          <target>Gebruikte Waardebonnen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Member - Field Used Vouchers - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 81067200 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Member Age Group</source>
           <target>Lid Leeftijdsgroep</target>
@@ -1586,6 +1610,84 @@
           <target>Training Groep Omschrijving</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Training Session - Field Training Group Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3187885748 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Voucher</source>
+          <target>Waardebon</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Voucher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3187885748 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <target>Code</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Voucher - Field Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3187885748 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target>Omschrijving</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Voucher - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3187885748 - Field 1898588168 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issued On</source>
+          <target>Uitgegeven Op</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Voucher - Field Issued On - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3187885748 - Field 795573436 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issued to License ID</source>
+          <target>Uitgegeven aan Licentie ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Voucher - Field Issued To License ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3187885748 - Field 965557907 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issued To Name</source>
+          <target>Uitgegeven aan</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Voucher - Field Issued To Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3187885748 - Field 1351594800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. Series</source>
+          <target>Nr.-reeks</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Voucher - Field No. Series - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3187885748 - Field 1878130204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Type</source>
+          <target>Soort</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Voucher - Field Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3187885748 - Field 3220827225 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Used</source>
+          <target>Gebruikt</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Voucher - Field Used - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3187885748 - Field 3079482458 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Used On</source>
+          <target>Gebruikt Op</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Voucher - Field Used On - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3187885748 - Field 3079482458 - Method 2126772001 - NamedType 2508979799" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This voucher is no longer valid!</source>
+          <target>Deze waardebon in niet meer geldig!</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Voucher - Field Used On - Method OnValidate - NamedType VoucherIsNoLongerValidErr</note>
+        </trans-unit>
+        <trans-unit id="Table 3187885748 - Field 2604361992 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Valid Until</source>
+          <target>Geldig Tot</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Voucher - Field Valid Until - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3187885748 - Field 1131619133 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Value</source>
+          <target>Waarde</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Voucher - Field Value - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2525662180 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Voucher Type</source>
@@ -2235,6 +2337,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Card - Control MemberInformation - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3316282616 - Action 3593599180 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Renewal</source>
+          <target>Lidmaatschap Vernieuwen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Card - Action CreateMembershipRenewal - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3316282616 - Action 1949809947 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Memberships</source>
           <target>Lidmaatschappen</target>
@@ -2264,6 +2372,18 @@
           <target>Leden</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Cues - Control MembersCues - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3218187252 - Control 3473590792 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Renewals</source>
+          <target>Vernieuwingen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Cues - Control MembershipRenewal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3218187252 - Control 3461054021 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vouchers</source>
+          <target>Waardebonnen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Cues - Control Vouchers - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 234838847 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Member Factbox</source>
@@ -2654,6 +2774,12 @@
           <target>Waardebon Types</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Voucher Types - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1889428277 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vouchers</source>
+          <target>Waardebonnen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Vouchers - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1598018048 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Weight Groups</source>

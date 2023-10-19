@@ -23,7 +23,27 @@ page 50104 "JCA Member Cues"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+            }
+            cuegroup(MembershipRenewal)
+            {
+                Caption = 'Renewals';
+
                 field("Open Membership Payment Req."; Rec."Open Membership Payment Req.")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+            }
+            cuegroup(Vouchers)
+            {
+                Caption = 'Vouchers';
+
+                field("Unused Vouchers"; Rec."Unused Vouchers")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("Used Vouchers"; Rec."Used Vouchers")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;

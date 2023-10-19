@@ -9,6 +9,7 @@ table 50115 "JCA Member Contact"
             Caption = 'Member License ID';
             DataClassification = SystemMetadata;
             TableRelation = "JCA Member"."License ID";
+            ValidateTableRelation = false;
 
             trigger OnValidate()
             begin
@@ -30,7 +31,7 @@ table 50115 "JCA Member Contact"
             Caption = 'Member Full Name';
             FieldClass = FlowField;
             CalcFormula = lookup("JCA Member"."Full Name" where("License ID" = field("Member License ID")));
-            Editable = false;        
+            Editable = false;
         }
         field(4; "Contact Full Name"; Text[150])
         {

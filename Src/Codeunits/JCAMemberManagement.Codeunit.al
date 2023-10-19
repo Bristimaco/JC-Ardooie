@@ -116,6 +116,7 @@ codeunit 50103 "JCA Member Management"
     procedure CreateMembershipRenewal(var JCAMember: record "JCA Member")
     var
         JCAMembershipPeriod: record "JCA Membership Period";
+        JCAMemberShip: record "JCA Membership";
         JCASetup: Record "JCA Setup";
         RenewalDate: Date;
         newRequestStartDate: Date;
@@ -145,14 +146,35 @@ codeunit 50103 "JCA Member Management"
         end;
 
         if RequestNewMembership then begin
+            JCAMemberShip.Reset();
+            JCAMemberShip.get(JCAMember."Requested Membership Code");
+
             JCAMembershipPeriod.Reset();
             JCAMembershipPeriod.init();
             JCAMembershipPeriod.validate("Member License ID", JCAMember."License ID");
-            JCAMembershipPeriod.validate("Membership Code", JCAMember."Requested Membership Code");
+            JCAMembershipPeriod.validate("Membership Code", JCAMemberShip.Code);
             JCAMembershipPeriod.validate("Payment Requested On", CurrentDateTime);
             JCAMembershipPeriod.Validate("Membership Starting Date", newRequestStartDate);
             JCAMembershipPeriod.CalculateEndDate();
             JCAMembershipPeriod.insert(true);
         end;
+    end;
+
+    procedure IssueVoucherToMember(JCAMember: record "JCA Member"; VoucherType: Code[20])
+    var
+        JCAVoucherType: Record "JCA Voucher Type";
+        JCAVoucher: Record "JCA Voucher";
+    begin
+        JCAVoucherType.Reset();
+        JCAVoucherType.get(VoucherType);
+        JCAVoucherType.testfield("Voucher Nos.");
+
+        JCAVoucher.Reset();
+        JCAVoucher.init();
+        JCAVoucher.validate(type, JCAVoucherType.Code);
+        JCAVoucher.insert(true);
+        JCAVoucher.Validate("Issued To License ID", JCAMember."License ID");
+        JCAVoucher.validate("Valid Until", CalcDate(JCAVoucherType."Validation Period", JCAVoucher."Issued On"));
+        JCAVoucher.modify(true);
     end;
 }
