@@ -38,6 +38,8 @@ page 50104 "JCA Member Cues"
             Rec.init();
             Rec.insert();
         end;
-        Rec.SetFilter("Date Filter", '=%1&<%2', 0D, Today());
+        rec.setfilter("Membership Filter", '<>%1', '');
+        rec.SetFilter("Membersh. Start Date Filter", '<=%1', Today());
+        rec.SetFilter("Membersh. End Date Filter", '>=%1', Today());
     end;
 }

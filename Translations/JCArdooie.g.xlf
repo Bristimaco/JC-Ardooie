@@ -233,6 +233,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Inactive Members - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1630571357 - Field 2742451874 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Membership End Date Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Membersh. End Date Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1630571357 - Field 785619619 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Membership Start Date Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Membersh. Start Date Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1630571357 - Field 1296101166 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Membership Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Membership Filter - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1630571357 - Field 3732203626 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>New</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -718,11 +733,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Member - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 3645402444 - Field 311899024 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Active Member</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Member - Field Active Member - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 3645402444 - Field 3492385730 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Active Membership</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1127,6 +1137,21 @@
           <source>Member License ID</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Training Group Member - Field Member License ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4009934105 - Field 2742451874 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Membership End Date Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Training Group Member - Field Membersh. End Date Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4009934105 - Field 785619619 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Membership Start Date Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Training Group Member - Field Membersh. Start Date Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4009934105 - Field 1296101166 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Membership Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Training Group Member - Field Membership Filter - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4009934105 - Field 146296366 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Training Group Code</source>

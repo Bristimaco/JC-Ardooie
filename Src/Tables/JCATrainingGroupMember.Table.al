@@ -19,7 +19,7 @@ table 50107 "JCA Training Group Member"
         {
             Caption = 'Member License ID';
             DataClassification = SystemMetadata;
-            TableRelation = "JCA Member"."License ID" where("Active Member" = const(true), "Member Type" = filter(Judoka | Both));
+            TableRelation = "JCA Member"."License ID" where("Active Membership" = field("Membership Filter"), "Membersh. Start Date Filter" = field("Membersh. Start Date Filter"), "Membersh. End Date Filter" = field("Membersh. End Date Filter"), "Member Type" = filter(Judoka | Both));
             ValidateTableRelation = false;
 
             trigger OnValidate()
@@ -40,6 +40,21 @@ table 50107 "JCA Training Group Member"
             FieldClass = FlowField;
             CalcFormula = lookup("JCA Member"."Full Name" where("License ID" = field("Member License ID")));
             Editable = false;
+        }
+        field(5; "Membersh. Start Date Filter"; Date)
+        {
+            Caption = 'Membership Start Date Filter';
+            FieldClass = FlowFilter;
+        }
+        field(6; "Membersh. End Date Filter"; Date)
+        {
+            Caption = 'Membership End Date Filter';
+            FieldClass = FlowFilter;
+        }
+        field(7; "Membership Filter"; Code[20])
+        {
+            Caption = 'Membership Filter';
+            FieldClass = FlowFilter;
         }
     }
 

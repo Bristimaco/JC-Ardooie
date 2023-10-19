@@ -118,13 +118,6 @@ page 50102 "JCA Member Card"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
-                field("Active Member"; Rec."Active Member")
-                {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
-                    DrillDown = false;
-                    Lookup = false;
-                }
                 field("Active Membership"; Rec."Active Membership")
                 {
                     ApplicationArea = all;

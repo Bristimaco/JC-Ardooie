@@ -21,6 +21,7 @@ codeunit 50101 "JCA Training Management"
     procedure FetchTrainingSessionParticipants(var JCATrainingSession: record "JCA Training Session")
     var
         JCATrainingGroupMember: record "JCA Training Group Member";
+        JCAMember: Record "JCA Member";
         JCAGuestMember: record "JCA Member";
         JCATrSessionParticipant: record "JCA Tr. Session Participant";
         JCAClub: record "JCA Club";
@@ -36,18 +37,21 @@ codeunit 50101 "JCA Training Management"
         JCATrainingGroupMember.setrange("Training Group Code", JCATrainingSession."Training Group Code");
         if JCATrainingGroupMember.findset() then
             repeat
-                JCATrSessionParticipant.reset();
-                JCATrSessionParticipant.setrange("Training Session No.", JCATrainingSession."No.");
-                JCATrSessionParticipant.SetRange("Member License ID", JCATrainingGroupMember."Member License ID");
-                if JCATrSessionParticipant.IsEmpty() then begin
-                    JCATrSessionParticipant.Reset();
-                    JCATrSessionParticipant.init();
-                    JCATrSessionParticipant.Validate("Participant Type", JCATrSessionParticipant."Participant Type"::Judoka);
-                    JCATrSessionParticipant.validate("Club Member", true);
-                    JCATrSessionParticipant.validate("Training Session No.", JCATrainingSession."No.");
-                    JCATrSessionParticipant.validate("Member License ID", JCATrainingGroupMember."Member License ID");
-                    JCATrSessionParticipant.validate("Club No.", JCAClub."No.");
-                    JCATrSessionParticipant.insert(true);
+                JCAMember.get(JCATrainingGroupMember."Member License ID");
+                if JCAMember.HasActiveMembership(JCATrainingSession.Date) then begin
+                    JCATrSessionParticipant.reset();
+                    JCATrSessionParticipant.setrange("Training Session No.", JCATrainingSession."No.");
+                    JCATrSessionParticipant.SetRange("Member License ID", JCATrainingGroupMember."Member License ID");
+                    if JCATrSessionParticipant.IsEmpty() then begin
+                        JCATrSessionParticipant.Reset();
+                        JCATrSessionParticipant.init();
+                        JCATrSessionParticipant.Validate("Participant Type", JCATrSessionParticipant."Participant Type"::Judoka);
+                        JCATrSessionParticipant.validate("Club Member", true);
+                        JCATrSessionParticipant.validate("Training Session No.", JCATrainingSession."No.");
+                        JCATrSessionParticipant.validate("Member License ID", JCATrainingGroupMember."Member License ID");
+                        JCATrSessionParticipant.validate("Club No.", JCAClub."No.");
+                        JCATrSessionParticipant.insert(true);
+                    end;
                 end;
             until JCATrainingGroupMember.Next() = 0;
     end;
@@ -73,18 +77,20 @@ codeunit 50101 "JCA Training Management"
             JCAMembers.SetSelectionFilter(JCAMember);
             if JCAMember.findset() then
                 repeat
-                    JCATrSessionParticipant.reset();
-                    JCATrSessionParticipant.setrange("Training Session No.", JCATrainingSession."No.");
-                    JCATrSessionParticipant.SetRange("Member License ID", JCAMember."License ID");
-                    if JCATrSessionParticipant.IsEmpty() then begin
-                        JCATrSessionParticipant.Reset();
-                        JCATrSessionParticipant.init();
-                        JCATrSessionParticipant.Validate("Participant Type", JCATrSessionParticipant."Participant Type"::Trainer);
-                        JCATrSessionParticipant.validate("Club Member", true);
-                        JCATrSessionParticipant.validate("Training Session No.", JCATrainingSession."No.");
-                        JCATrSessionParticipant.validate("Member License ID", JCAMember."License ID");
-                        JCATrSessionParticipant.validate("Club No.", JCAClub."No.");
-                        JCATrSessionParticipant.insert(true);
+                    if JCAMember.HasActiveMembership(JCATrainingSession.Date) then begin
+                        JCATrSessionParticipant.reset();
+                        JCATrSessionParticipant.setrange("Training Session No.", JCATrainingSession."No.");
+                        JCATrSessionParticipant.SetRange("Member License ID", JCAMember."License ID");
+                        if JCATrSessionParticipant.IsEmpty() then begin
+                            JCATrSessionParticipant.Reset();
+                            JCATrSessionParticipant.init();
+                            JCATrSessionParticipant.Validate("Participant Type", JCATrSessionParticipant."Participant Type"::Trainer);
+                            JCATrSessionParticipant.validate("Club Member", true);
+                            JCATrSessionParticipant.validate("Training Session No.", JCATrainingSession."No.");
+                            JCATrSessionParticipant.validate("Member License ID", JCAMember."License ID");
+                            JCATrSessionParticipant.validate("Club No.", JCAClub."No.");
+                            JCATrSessionParticipant.insert(true);
+                        end;
                     end;
                 until JCAMember.Next() = 0;
         end;

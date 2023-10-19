@@ -50,30 +50,15 @@ table 50101 "JCA Member"
         field(6; "Member Since"; Date)
         {
             Caption = 'Member Since';
-            DataClassification = SystemMetadata;
-
-            trigger OnValidate()
-            begin
-                CalcFields("Active Member");
-            end;
+            FieldClass = FlowField;
+            CalcFormula = min("JCA Membership Period"."Membership starting Date" where("Member License ID" = field("License ID"), "Membership Payed" = const(true)));
+            Editable = false;
         }
         field(7; "Member Until"; Date)
         {
             Caption = 'Member Until';
-            DataClassification = SystemMetadata;
-
-            trigger OnValidate()
-            begin
-                CalcFields("Active Member");
-                if not "Active Member" then
-                    RemoveFromTrainingGroups();
-            end;
-        }
-        field(8; "Active Member"; Boolean)
-        {
-            Caption = 'Active Member';
             FieldClass = FlowField;
-            CalcFormula = exist("JCA Member" where("Member Until" = field("Date Filter")));
+            CalcFormula = lookup("JCA Membership Period"."Membership Ending Date" where("Member License ID" = field("License ID"), "Membership Payed" = const(true), "Membership Starting Date" = field("Membersh. Start Date Filter"), "Membership Ending Date" = field("Membersh. End Date Filter")));
             Editable = false;
         }
         field(9; "Date Filter"; Date)
@@ -246,6 +231,20 @@ table 50101 "JCA Member"
         clear(JCAEvents);
         JCAEvents.SetTableView(JCAEvent);
         JCAEvents.run();
+    end;
+
+    procedure HasActiveMembership(CheckOnDate: date): Boolean
+    var
+        JCAMember: record "JCA Member";
+    begin
+        if CheckOnDate = 0D then
+            CheckOnDate := today();
+        JCAMember.reset();
+        JCAMember.get(Rec."License ID");
+        JCAMember.SetFilter("Membersh. Start Date Filter", '<=%1', CheckOnDate);
+        JCAMember.SetFilter("Membersh. End Date Filter", '>=%1', CheckOnDate);
+        JCAMember.CalcFields("Active Membership");
+        exit(JCAMember."Active Membership" <> '');
     end;
 
     var

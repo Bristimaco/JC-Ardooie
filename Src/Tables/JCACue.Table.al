@@ -18,14 +18,14 @@ table 50102 "JCA Cue"
         {
             Caption = 'Active Members';
             FieldClass = FlowField;
-            CalcFormula = count("JCA Member" where("Active Member" = const(true), "Date Filter" = field("Date Filter")));
+            CalcFormula = count("JCA Member" where("Active Membership" = field("Membership Filter"), "Membersh. Start Date Filter" = field("Membersh. Start Date Filter"), "Membersh. End Date Filter" = field("Membersh. End Date Filter")));
             Editable = false;
         }
         field(4; "Inactive Members"; Integer)
         {
             Caption = 'Inactive Members';
             FieldClass = FlowField;
-            CalcFormula = count("JCA Member" where("Active Member" = const(false), "Date Filter" = field("Date Filter")));
+            CalcFormula = count("JCA Member" where("Active Membership" = const(''), "Membersh. Start Date Filter" = field("Membersh. Start Date Filter"), "Membersh. End Date Filter" = field("Membersh. End Date Filter")));
             Editable = false;
         }
         field(5; "Open Training Sessions"; Integer)
@@ -233,6 +233,21 @@ table 50102 "JCA Cue"
             FieldClass = FlowField;
             CalcFormula = count("JCA Training Session" where(Status = const(Closed), Invoiced = const(true)));
             Editable = false;
+        }
+        field(35; "Membership Filter"; Code[20])
+        {
+            Caption = 'Membership Filter';
+            FieldClass = FlowFilter;
+        }
+        field(36; "Membersh. Start Date Filter"; Date)
+        {
+            Caption = 'Membership Start Date Filter';
+            FieldClass = FlowFilter;
+        }
+        field(37; "Membersh. End Date Filter"; Date)
+        {
+            Caption = 'Membership End Date Filter';
+            FieldClass = FlowFilter;
         }
     }
 

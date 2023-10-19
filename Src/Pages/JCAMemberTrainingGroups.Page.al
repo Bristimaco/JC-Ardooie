@@ -25,4 +25,11 @@ page 50109 "JCA Member Training Groups"
             }
         }
     }
+
+    trigger OnOpenPage()
+    begin
+        rec.setfilter("Membership Filter", '<>%1', '');
+        rec.SetFilter("Membersh. Start Date Filter", '<=%1', Today());
+        rec.SetFilter("Membersh. End Date Filter", '>=%1', Today());
+    end;
 }

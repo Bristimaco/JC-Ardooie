@@ -15,6 +15,7 @@ codeunit 50102 "JCA Event Management"
     procedure FetchEventParticipants(var JCAEvent: Record "JCA Event")
     var
         JCAEventAgeGroup: Record "JCA Event Age Group";
+        JCAMember: record "JCA Member";
         tempJCAMemberAgeGroup: record "JCA Member Age Group" temporary;
         JCAAgeGroup: record "JCA Age Group";
         JCAEventParticipant: record "JCA Event Participant";
@@ -30,16 +31,19 @@ codeunit 50102 "JCA Event Management"
                 if JCAAgeGroup.findfirst() then
                     if JCAAgeGroup.GetAgeGroupMembers(tempJCAMemberAgeGroup, JCAEvent.Date) then
                         repeat
-                            JCAEventParticipant.Reset();
-                            JCAEventParticipant.setrange("Event No.", JCAEvent."No.");
-                            JCAEventParticipant.setrange("Member License ID", tempJCAMemberAgeGroup."Member License ID");
-                            if JCAEventParticipant.IsEmpty() then begin
+                            JCAMember.get(tempJCAMemberAgeGroup."Member License ID");
+                            if JCAMember.HasActiveMembership(JCAEvent.Date) then begin
                                 JCAEventParticipant.Reset();
-                                JCAEventParticipant.init();
-                                JCAEventParticipant.Validate("Event No.", JCAEvent."No.");
-                                JCAEventParticipant.validate("Member License ID", tempJCAMemberAgeGroup."Member License ID");
-                                JCAEventParticipant.Validate("Age Group Code", tempJCAMemberAgeGroup."Age Group Code");
-                                JCAEventParticipant.insert(true);
+                                JCAEventParticipant.setrange("Event No.", JCAEvent."No.");
+                                JCAEventParticipant.setrange("Member License ID", tempJCAMemberAgeGroup."Member License ID");
+                                if JCAEventParticipant.IsEmpty() then begin
+                                    JCAEventParticipant.Reset();
+                                    JCAEventParticipant.init();
+                                    JCAEventParticipant.Validate("Event No.", JCAEvent."No.");
+                                    JCAEventParticipant.validate("Member License ID", tempJCAMemberAgeGroup."Member License ID");
+                                    JCAEventParticipant.Validate("Age Group Code", tempJCAMemberAgeGroup."Age Group Code");
+                                    JCAEventParticipant.insert(true);
+                                end;
                             end;
                         until tempJCAMemberAgeGroup.Next() = 0;
             until JCAEventAgeGroup.Next() = 0;
