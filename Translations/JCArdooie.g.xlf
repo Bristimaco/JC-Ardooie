@@ -1608,20 +1608,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Cues - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3161384424 - Control 3803135910 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Tournaments</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Cues - Control Tournaments - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3161384424 - Control 1093516030 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Chiai</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Cues - Control Chiai - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3161384424 - Control 1846605473 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Page 3161384424 - Control 838436741 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Stages</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Cues - Control Stages - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Cues - Control StagesCuegroup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3161384424 - Control 3510575298 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tournaments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Cues - Control TournamentsCuegroup - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2779163300 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Documents</source>
@@ -1837,6 +1832,16 @@
           <source>Members</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Cues - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3218187252 - Control 528968636 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contacts</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Cues - Control ContactCues - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3218187252 - Control 3969579421 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Members</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Cues - Control MembersCues - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 234838847 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Member Factbox</source>

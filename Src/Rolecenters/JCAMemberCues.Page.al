@@ -11,7 +11,7 @@ page 50104 "JCA Member Cues"
         {
             cuegroup(MembersCues)
             {
-                ShowCaption = false;
+                Caption = 'Members';
 
                 field(ActiveMembers; Rec."Active Members")
                 {
@@ -23,12 +23,17 @@ page 50104 "JCA Member Cues"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
-                field(Contacts; Rec.Contacts)
+                field("Open Membership Payment Req."; Rec."Open Membership Payment Req.")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
-                field("Open Membership Payment Req."; Rec."Open Membership Payment Req.")
+            }
+            cuegroup(ContactCues)
+            {
+                Caption = 'Contacts';
+
+                field(Contacts; Rec.Contacts)
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;

@@ -1929,23 +1929,17 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Cues - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3161384424 - Control 3803135910 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Tournaments</source>
-          <target>Tornooien</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Cues - Control Tournaments - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3161384424 - Control 1093516030 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Chiai</source>
-          <target>Chiai</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Cues - Control Chiai - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3161384424 - Control 1846605473 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Page 3161384424 - Control 838436741 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Stages</source>
           <target>Stages</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Cues - Control Stages - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Cues - Control StagesCuegroup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3161384424 - Control 3510575298 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tournaments</source>
+          <target>Tornooien</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Cues - Control TournamentsCuegroup - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2779163300 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Documents</source>
@@ -2205,6 +2199,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Cues - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3218187252 - Control 528968636 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contacts</source>
+          <target>Contactpersonen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Cues - Control ContactCues - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3218187252 - Control 3969579421 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Members</source>
+          <target>Leden</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Cues - Control MembersCues - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 234838847 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Member Factbox</source>
           <target>Lid Factbox</target>
@@ -2311,7 +2317,6 @@
           <source>Create Membership Requests</source>
           <target>Lidmaatschap Aanvragen aanmaken</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Memberships - Action CreateMembershipRequests - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 60502701 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -2372,7 +2377,6 @@
           <source>Memberships</source>
           <target>Lidmaatschappen</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup - Control MembershipSettings - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3008872625 - Control 2295453870 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -2836,13 +2840,6 @@
           <target>Open</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Training Session Status - EnumValue Open - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 3806793414 - ReportColumn 3192175264 - ReportColumn 3763938026 - ReportColumn 4133990171 - ReportColumn 2981235050 - NamedType 3040577680" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Event Report</source>
-          <target>Evemenent Verslag</target>          
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report JCA Event Report - ReportColumn Date - ReportColumn Supervisor_License_ID - ReportColumn Weigh_In_Start_Time - ReportColumn Member_License_ID - NamedType ReportTitleLbl</note>
         </trans-unit>
       </group>
     </body>
