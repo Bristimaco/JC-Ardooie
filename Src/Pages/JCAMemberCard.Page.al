@@ -4,7 +4,6 @@ page 50102 "JCA Member Card"
     UsageCategory = None;
     SourceTable = "JCA Member";
     PageType = Card;
-    DelayedInsert = true;
     DataCaptionExpression = Rec."License ID" + ' - ' + rec."Full Name";
 
     layout

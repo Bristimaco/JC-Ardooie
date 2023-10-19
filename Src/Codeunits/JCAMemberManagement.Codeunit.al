@@ -26,7 +26,8 @@ codeunit 50103 "JCA Member Management"
                     if CurrentAge <> 0 then begin
                         if SaveData then begin
                             JCAMember.validate(Age, CurrentAge);
-                            JCAMember.Modify(true);
+                            if not JCAMember.Modify(true) then
+                                JCAMember.insert(true);
                         end;
                         if JCAAgeGroup.Findset() then
                             repeat
