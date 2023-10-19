@@ -70,7 +70,7 @@ page 50119 "JCA Event Participants"
                     ToolTip = ' ', Locked = true;
                     Editable = false;
                 }
-                field("Supervisor Comment";Rec."Supervisor Comment")
+                field("Supervisor Comment"; Rec."Supervisor Comment")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
@@ -121,4 +121,11 @@ page 50119 "JCA Event Participants"
             }
         }
     }
+
+    trigger OnOpenPage()
+    begin
+        rec.setfilter("Membership Filter", '<>%1', '');
+        rec.SetFilter("Membersh. Start Date Filter", '<=%1', Today());
+        rec.SetFilter("Membersh. End Date Filter", '>=%1', Today());
+    end;
 }

@@ -14,7 +14,7 @@ table 50113 "JCA Event Supervisor"
         {
             Caption = 'Member License ID';
             DataClassification = SystemMetadata;
-            TableRelation = "JCA Member"."License ID" where("Member Type" = filter(Both | Trainer));
+            TableRelation = "JCA Member"."License ID" where("Active Membership" = field("Membership Filter"), "Membersh. Start Date Filter" = field("Membersh. Start Date Filter"), "Membersh. End Date Filter" = field("Membersh. End Date Filter"), "Member Type" = filter(Trainer | Both));
 
             trigger OnValidate()
             begin
@@ -68,6 +68,21 @@ table 50113 "JCA Event Supervisor"
             Caption = 'Registration Confirmed';
             DataClassification = SystemMetadata;
             Editable = false;
+        }
+        field(10; "Membersh. Start Date Filter"; Date)
+        {
+            Caption = 'Membership Start Date Filter';
+            FieldClass = FlowFilter;
+        }
+        field(11; "Membersh. End Date Filter"; Date)
+        {
+            Caption = 'Membership End Date Filter';
+            FieldClass = FlowFilter;
+        }
+        field(12; "Membership Filter"; Code[20])
+        {
+            Caption = 'Membership Filter';
+            FieldClass = FlowFilter;
         }
     }
 

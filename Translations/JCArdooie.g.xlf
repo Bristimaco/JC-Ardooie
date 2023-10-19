@@ -553,6 +553,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Participant - Field Member License ID - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3511736373 - Field 2742451874 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Membership End Date Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Participant - Field Membersh. End Date Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3511736373 - Field 785619619 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Membership Start Date Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Participant - Field Membersh. Start Date Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3511736373 - Field 1296101166 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Membership Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Participant - Field Membership Filter - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3511736373 - Field 3864010881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>No-Show</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -617,6 +632,21 @@
           <source>Member License ID</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Supervisor - Field Member License ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1642976352 - Field 2742451874 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Membership End Date Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Supervisor - Field Membersh. End Date Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1642976352 - Field 785619619 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Membership Start Date Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Supervisor - Field Membersh. Start Date Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1642976352 - Field 1296101166 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Membership Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Supervisor - Field Membership Filter - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1642976352 - Field 856236780 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Registered</source>

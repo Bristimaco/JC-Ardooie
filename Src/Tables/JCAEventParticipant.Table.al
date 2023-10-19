@@ -15,25 +15,24 @@ table 50112 "JCA Event Participant"
                 JCAEvent: record "JCA Event";
             begin
                 JCAEvent.Reset();
-                if JCAEvent.get("Event No.") then begin
+                if JCAEvent.get("Event No.") then
                     validate("Country Code", JCAEvent."Country Code");
-                end;
             end;
         }
         field(2; "Member License ID"; Code[20])
         {
             Caption = 'Member License ID';
             DataClassification = SystemMetadata;
-            TableRelation = "JCA Member"."License ID";
+            //TableRelation = "JCA Member"."License ID";
+            TableRelation = "JCA Member"."License ID" where("Active Membership" = field("Membership Filter"), "Membersh. Start Date Filter" = field("Membersh. Start Date Filter"), "Membersh. End Date Filter" = field("Membersh. End Date Filter"), "Member Type" = filter(Judoka | Both));
 
             trigger OnValidate()
             var
                 JCAMember: record "JCA Member";
             begin
                 JCAMember.Reset();
-                if JCAMember.Get("Member License ID") then begin
+                if JCAMember.Get("Member License ID") then
                     Validate(Gender, JCAMember.Gender);
-                end;
                 calcfields("Member Full Name");
             end;
         }
@@ -134,6 +133,21 @@ table 50112 "JCA Event Participant"
         {
             Caption = 'Supervisor Comment';
             DataClassification = SystemMetadata;
+        }
+        field(16; "Membersh. Start Date Filter"; Date)
+        {
+            Caption = 'Membership Start Date Filter';
+            FieldClass = FlowFilter;
+        }
+        field(17; "Membersh. End Date Filter"; Date)
+        {
+            Caption = 'Membership End Date Filter';
+            FieldClass = FlowFilter;
+        }
+        field(18; "Membership Filter"; Code[20])
+        {
+            Caption = 'Membership Filter';
+            FieldClass = FlowFilter;
         }
     }
 

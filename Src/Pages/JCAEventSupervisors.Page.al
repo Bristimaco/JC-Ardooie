@@ -89,4 +89,11 @@ page 50120 "JCA Event Supervisors"
             }
         }
     }
+
+    trigger OnOpenPage()
+    begin
+        rec.setfilter("Membership Filter", '<>%1', '');
+        rec.SetFilter("Membersh. Start Date Filter", '<=%1', Today());
+        rec.SetFilter("Membersh. End Date Filter", '>=%1', Today());
+    end;
 }
