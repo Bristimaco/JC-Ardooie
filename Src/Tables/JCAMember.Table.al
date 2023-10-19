@@ -158,6 +158,22 @@ table 50101 "JCA Member"
             CalcFormula = count("JCA Event Participant" where("Member License ID" = field("License ID"), Result = const(Bronze)));
             Editable = false;
         }
+        field(24; "Active Membership"; Code[20])
+        {
+            Caption = 'Active Membership';
+            FieldClass = FlowField;
+            CalcFormula = lookup("JCA Membership Period"."Membership Code" where("Member License ID" = field("License ID"), "Membership Payed" = const(true), "Membership Starting Date" = field("Membersh. Start Date Filter"), "Membership Ending Date" = field("Membersh. End Date Filter")));
+        }
+        field(25; "Membersh. Start Date Filter"; Date)
+        {
+            Caption = 'Membership Start Date Filter';
+            FieldClass = FlowFilter;
+        }
+        field(26; "Membersh. End Date Filter"; Date)
+        {
+            Caption = 'Membership End Date Filter';
+            FieldClass = FlowFilter;
+        }
     }
 
     keys

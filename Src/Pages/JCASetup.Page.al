@@ -77,6 +77,69 @@ page 50100 "JCA Setup"
         }
     }
 
+    actions
+    {
+        area(Processing)
+        {
+            action(Countries)
+            {
+                Caption = 'Countries';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                RunObject = page "Countries/Regions";
+                Image = CountryRegion;
+            }
+            action(Memberships)
+            {
+                Caption = 'Memberships';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                RunObject = page "JCA Memberships";
+                Image = Price;
+            }
+            action(Clubs)
+            {
+                Caption = 'Clubs';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                RunObject = page "JCA Clubs";
+                Image = ItemGroup;
+            }
+            action(TrainingGroups)
+            {
+                Caption = 'Training Groups';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                RunObject = page "JCA Training Groups";
+                Image = VoucherGroup;
+            }
+            action(AgeGroups)
+            {
+                Caption = 'Age Groups';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                RunObject = page "JCA Age Groups";
+                Image = Aging;
+            }
+            action(WeightGroups)
+            {
+                Caption = 'Weight Groups';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                RunObject = page "JCA Weight Groups";
+                Image = ItemGroup;
+            }
+            action(ActionLogs)
+            {
+                Caption = 'Logs';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                RunObject = page "JCA Action Logs";
+                Image = Log;
+            }
+        }
+    }
+
     trigger OnOpenPage()
     begin
         if Rec.IsEmpty() then begin

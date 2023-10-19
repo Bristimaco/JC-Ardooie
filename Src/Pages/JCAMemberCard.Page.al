@@ -125,6 +125,11 @@ page 50102 "JCA Member Card"
                     DrillDown = false;
                     Lookup = false;
                 }
+                field("Active Membership"; Rec."Active Membership")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
                 field("Member Type"; Rec."Member Type")
                 {
                     ApplicationArea = all;
@@ -160,9 +165,32 @@ page 50102 "JCA Member Card"
         }
     }
 
+    actions
+    {
+        area(Processing)
+        {
+            action(Memberships)
+            {
+                Caption = 'Memberships';
+                ApplicationArea = all;
+                Image = PeriodEntries;
+                ToolTip = ' ', Locked = true;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                Ellipsis = true;
+                RunObject = page "JCA Membership Periods";
+                RunPageLink = "Member License ID" = field("License ID");
+            }
+        }
+    }
+
     trigger OnOpenPage()
     begin
         Rec.SetFilter("Date Filter", '=%1&<%2', 0D, Today());
+        rec.SetFilter("Membersh. Start Date Filter", '<=%1', Today());
+        rec.SetFilter("Membersh. End Date Filter", '>=%1', Today());
     end;
 
     trigger OnAfterGetCurrRecord()

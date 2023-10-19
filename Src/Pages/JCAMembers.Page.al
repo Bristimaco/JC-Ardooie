@@ -23,6 +23,11 @@ page 50101 "JCA Members"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field("Active Membership"; Rec."Active Membership")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
                 field("E-Mail"; Rec."E-Mail")
                 {
                     ApplicationArea = all;
@@ -58,8 +63,31 @@ page 50101 "JCA Members"
         }
     }
 
+    actions
+    {
+        area(Processing)
+        {
+            action(Memberships)
+            {
+                Caption = 'Memberships';
+                Image = PeriodEntries;
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                Ellipsis = true;
+                RunObject = page "JCA Membership Periods";
+                RunPageLink = "Member License ID" = field("License ID");
+            }
+        }
+    }
+
     trigger OnOpenPage()
     begin
         Rec.SetFilter("Date Filter", '=%1&<%2', 0D, Today());
+        rec.SetFilter("Membersh. Start Date Filter", '<=%1', Today());
+        rec.SetFilter("Membersh. End Date Filter", '>=%1', Today());
     end;
 }

@@ -42,14 +42,7 @@ page 50103 "JCA Admin Rolecenter"
                 RunObject = page "JCA Setup";
                 Image = Setup;
             }
-            action(Countries)
-            {
-                Caption = 'Countries';
-                ApplicationArea = all;
-                ToolTip = ' ', Locked = true;
-                RunObject = page "Countries/Regions";
-                Image = CountryRegion;
-            }
+            
             action(sponsors)
             {
                 Caption = 'Sponsors';
@@ -59,14 +52,7 @@ page 50103 "JCA Admin Rolecenter"
                 RunPageView = where("JCA Sponsor" = const(true));
                 Image = Vendor;
             }
-            action(Clubs)
-            {
-                Caption = 'Clubs';
-                ApplicationArea = all;
-                ToolTip = ' ', Locked = true;
-                RunObject = page "JCA Clubs";
-                Image = Group;
-            }
+            
             action(OurMembers)
             {
                 Caption = 'Members';
@@ -81,30 +67,6 @@ page 50103 "JCA Admin Rolecenter"
                 ApplicationArea = all;
                 ToolTip = ' ', Locked = true;
                 RunObject = page "JCA Guest Members";
-                Image = Group;
-            }
-            action(TrainingGroups)
-            {
-                Caption = 'Training Groups';
-                ApplicationArea = all;
-                ToolTip = ' ', Locked = true;
-                RunObject = page "JCA Training Groups";
-                Image = Group;
-            }
-            action(AgeGroups)
-            {
-                Caption = 'Age Groups';
-                ApplicationArea = all;
-                ToolTip = ' ', Locked = true;
-                RunObject = page "JCA Age Groups";
-                Image = Group;
-            }
-            action(WeightGroups)
-            {
-                Caption = 'Weight Groups';
-                ApplicationArea = all;
-                ToolTip = ' ', Locked = true;
-                RunObject = page "JCA Weight Groups";
                 Image = Group;
             }
             action(TrainingSessionList)
@@ -123,14 +85,7 @@ page 50103 "JCA Admin Rolecenter"
                 RunObject = page "JCA Events";
                 Image = History;
             }
-            action(ActionLogs)
-            {
-                Caption = 'Logs';
-                ApplicationArea = all;
-                ToolTip = ' ', Locked = true;
-                RunObject = page "JCA Action Logs";
-                Image = Log;
-            }
+            
         }
     }
 }
