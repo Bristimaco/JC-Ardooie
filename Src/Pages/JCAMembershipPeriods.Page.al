@@ -13,6 +13,16 @@ page 50135 "JCA Membership Periods"
         {
             repeater(MembershipPeriods)
             {
+                field("Member License ID"; Rec."Member License ID")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("Member Full Name"; Rec."Member Full Name")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
                 field("Membership Code"; Rec."Membership Code")
                 {
                     ApplicationArea = all;

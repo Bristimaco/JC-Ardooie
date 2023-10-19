@@ -59,6 +59,23 @@ page 50100 "JCA Setup"
                 }
             }
 
+            group(MembershipSettings)
+            {
+                Caption = 'Memberships';
+
+                field("Default Membership Code"; Rec."Default Membership Code")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("Membership Renewal Period"; Rec."Membership Renewal Period")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+
+            }
+
             group(MailSystem)
             {
                 Caption = 'Mail System';

@@ -36,10 +36,10 @@ table 50122 "JCA Membership Period"
             begin
                 CalcFields("Membership Description");
                 JCAMembership.Reset();
-                if JCAMembership.get("Membership Code") then
-                    Validate("Membership Fee", JCAMembership."Membership Fee")
-                else
-                    validate("Membership Fee", 0);
+                JCAMembership.get("Membership Code");
+                JCAMembership.testfield("Membership Fee");
+                JCAMembership.testfield("Membership Period");
+                Validate("Membership Fee", JCAMembership."Membership Fee");
             end;
         }
         field(4; "Membership Description"; text[100])
@@ -85,4 +85,16 @@ table 50122 "JCA Membership Period"
         key(StartingDate; "Membership Starting Date")
         { }
     }
+
+    procedure CalculateEndDate()
+    var
+        JCAMembership: record "JCA Membership";
+    begin
+        TestField("Membership Code");
+        TestField("Membership Starting Date");
+        JCAMembership.Reset();
+        JCAMembership.get("Membership Code");
+        JCAMembership.testfield("Membership Period");
+        Rec.validate("Membership Ending Date", CalcDate(JCAMembership."Membership Period", Rec."Membership Starting Date"));
+    end;
 }

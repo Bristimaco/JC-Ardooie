@@ -44,7 +44,7 @@ table 50101 "JCA Member"
 
             trigger OnValidate()
             begin
-                UpdateAgeGroups(today(), true, gtempJCAMemberAgeGroup);
+                UpdateAgeGroups(today(), true, tempgJCAMemberAgeGroup);
             end;
         }
         field(6; "Member Since"; Date)
@@ -73,7 +73,7 @@ table 50101 "JCA Member"
 
             trigger OnValidate()
             begin
-                UpdateAgeGroups(Today(), true, gtempJCAMemberAgeGroup);
+                UpdateAgeGroups(Today(), true, tempgJCAMemberAgeGroup);
             end;
         }
         field(11; Age; Integer)
@@ -89,7 +89,7 @@ table 50101 "JCA Member"
 
             trigger OnValidate()
             begin
-                UpdateAgeGroups(Today(), true, gtempJCAMemberAgeGroup);
+                UpdateAgeGroups(Today(), true, tempgJCAMemberAgeGroup);
             end;
         }
         field(15; "E-Mail"; text[100])
@@ -159,6 +159,19 @@ table 50101 "JCA Member"
             Caption = 'Membership End Date Filter';
             FieldClass = FlowFilter;
         }
+        field(27; "Requested Membership Code"; Code[20])
+        {
+            Caption = 'Requested Membership Code';
+            DataClassification = SystemMetadata;
+            TableRelation = "JCA Membership".Code;
+        }
+        field(28; "Open Membership Payment Req."; Boolean)
+        {
+            Caption = 'Open Membership Payment Requests';
+            FieldClass = FlowField;
+            CalcFormula = exist("JCA Membership Period" where("Membership Payed" = const(false), "Member License ID" = field("License ID")));
+            Editable = false;
+        }
     }
 
     keys
@@ -174,6 +187,16 @@ table 50101 "JCA Member"
         fieldgroup(DropDown; "License ID", "Full Name")
         { }
     }
+
+    trigger OnInsert()
+    var
+        JCASetup: Record "JCA Setup";
+    begin
+        JCASetup.Reset();
+        JCASetup.get();
+        JCASetup.TestField("Default Membership Code");
+        validate("Requested Membership Code", JCASetup."Default Membership Code");
+    end;
 
     trigger OnDelete()
     var
@@ -247,6 +270,14 @@ table 50101 "JCA Member"
         exit(JCAMember."Active Membership" <> '');
     end;
 
+    procedure CreateMembershipRenewal()
     var
-        gtempJCAMemberAgeGroup: record "JCA Member Age Group" temporary;
+        JCAMemberManagement: codeunit "JCA Member Management";
+    begin
+        Clear(JCAMemberManagement);
+        JCAMemberManagement.CreateMembershipRenewal(Rec);
+    end;
+
+    var
+        tempgJCAMemberAgeGroup: record "JCA Member Age Group" temporary;
 }

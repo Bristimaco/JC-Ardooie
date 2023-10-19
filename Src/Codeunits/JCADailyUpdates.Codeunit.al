@@ -4,6 +4,7 @@ codeunit 50100 "JCA Daily Updates"
     begin
         UpdateAgeGroupsOnMembers();
         UpdateTrainingGroups();
+        CreateMembershipRenewals();
     end;
 
     procedure UpdateAgeGroupsOnMembers()
@@ -31,5 +32,13 @@ codeunit 50100 "JCA Daily Updates"
                 if JCAMember."Active Membership" = '' then
                     JCAMember.RemoveFromTrainingGroups();
             until JCAMember.Next() = 0;
+    end;
+
+    procedure CreateMembershipRenewals()
+    var
+        JCAMemberManagement: codeunit "JCA Member Management";
+    begin
+        clear(JCAMemberManagement);
+        JCAMemberManagement.CreateMembershipRenewals();
     end;
 }

@@ -263,6 +263,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field New Tournaments - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1630571357 - Field 3564862720 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open Membership Payment Requests</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Open Membership Payment Req. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1630571357 - Field 2663364995 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open Training Sessions</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -858,6 +863,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Member - Field Membersh. Start Date Filter - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3645402444 - Field 3564862720 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open Membership Payment Requests</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Member - Field Open Membership Payment Req. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3645402444 - Field 3986423421 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Phone No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -867,6 +877,11 @@
           <source>Picture</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Member - Field Picture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3645402444 - Field 3269515545 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Requested Membership Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Member - Field Requested Membership Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3645402444 - Field 3877114753 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Send Result Mails</source>
@@ -968,6 +983,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Membership - Field Membership Fee - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1804571038 - Field 339200737 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Membership Period</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Membership - Field Membership Period - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2183981361 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Membership Period</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1048,10 +1068,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field Contact Nos. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3008872625 - Field 1800229800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Default Membership Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field Default Membership Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3008872625 - Field 1887763340 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Nos.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field Event Nos. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3008872625 - Field 3147487115 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Membership Renewal Period</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field Membership Renewal Period - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3008872625 - Field 637745824 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Participant Unit Price</source>
@@ -1893,6 +1923,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Memberships - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3041219019 - Action 1774999336 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Membership Requests</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Memberships - Action CreateMembershipRequests - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 60502701 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Result Image Factbox</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1937,6 +1972,11 @@
           <source>Mail System</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup - Control MailSystem - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3008872625 - Control 554619753 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Memberships</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup - Control MembershipSettings - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3008872625 - Control 2295453870 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Number Series</source>

@@ -28,6 +28,11 @@ page 50104 "JCA Member Cues"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field("Open Membership Payment Req."; Rec."Open Membership Payment Req.")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
             }
         }
     }

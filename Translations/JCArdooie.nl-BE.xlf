@@ -315,6 +315,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field New Tournaments - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1630571357 - Field 3564862720 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open Membership Payment Requests</source>
+          <target>Open Lidmaatschap Betalingsverzoeken</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Open Membership Payment Req. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1630571357 - Field 2663364995 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open Training Sessions</source>
           <target>Open Trainingen</target>
@@ -1029,6 +1035,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Member - Field Membersh. Start Date Filter - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3645402444 - Field 3564862720 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open Membership Payment Requests</source>
+          <target>Open Lidmaatschap Betalingsverzoeken</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Member - Field Open Membership Payment Req. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3645402444 - Field 3986423421 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Phone No.</source>
           <target>Telefoonnr.</target>
@@ -1040,6 +1052,12 @@
           <target>Afbeelding</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Member - Field Picture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3645402444 - Field 3269515545 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Requested Membership Code</source>
+          <target>Gevraagde Lidmaatschap Code</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Member - Field Requested Membership Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3645402444 - Field 3877114753 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Send Result Mails</source>
@@ -1161,6 +1179,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Membership - Field Membership Fee - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1804571038 - Field 339200737 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Membership Period</source>
+          <target>Lidmaatschap Periode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Membership - Field Membership Period - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2183981361 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Membership Period</source>
           <target>Lidmaatschap Periode</target>
@@ -1257,11 +1281,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field Contact Nos. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3008872625 - Field 1800229800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Default Membership Code</source>
+          <target>Standaard Lidmaatschap Code</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field Default Membership Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3008872625 - Field 1887763340 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Nos.</source>
           <target>Evenement Nrs.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field Event Nos. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3008872625 - Field 3147487115 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Membership Renewal Period</source>
+          <target>Lidmaatschap Vernieuwingsperiode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field Membership Renewal Period - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3008872625 - Field 637745824 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Participant Unit Price</source>
@@ -2271,6 +2307,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Memberships - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3041219019 - Action 1774999336 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Membership Requests</source>
+          <target>Lidmaatschap Aanvragen aanmaken</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Memberships - Action CreateMembershipRequests - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 60502701 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Result Image Factbox</source>
           <target>Resultaat Afbeelding Factbox</target>
@@ -2324,6 +2367,13 @@
           <target>Mail Systeem</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup - Control MailSystem - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3008872625 - Control 554619753 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Memberships</source>
+          <target>Lidmaatschappen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup - Control MembershipSettings - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3008872625 - Control 2295453870 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Number Series</source>
@@ -2786,6 +2836,13 @@
           <target>Open</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Training Session Status - EnumValue Open - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3806793414 - ReportColumn 3192175264 - ReportColumn 3763938026 - ReportColumn 4133990171 - ReportColumn 2981235050 - NamedType 3040577680" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Event Report</source>
+          <target>Evemenent Verslag</target>          
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report JCA Event Report - ReportColumn Date - ReportColumn Supervisor_License_ID - ReportColumn Weigh_In_Start_Time - ReportColumn Member_License_ID - NamedType ReportTitleLbl</note>
         </trans-unit>
       </group>
     </body>

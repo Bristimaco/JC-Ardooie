@@ -19,6 +19,12 @@ table 50121 "JCA Membership"
         field(3; "Membership Fee"; Decimal)
         {
             Caption = 'Membership Fee';
+            DataClassification = SystemMetadata;
+        }
+        field(4; "Membership Period"; DateFormula)
+        {
+            Caption = 'Membership Period';
+            DataClassification = SystemMetadata;
         }
     }
 

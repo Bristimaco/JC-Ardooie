@@ -65,6 +65,17 @@ table 50100 "JCA Setup"
             Caption = 'Trainer Unit Price';
             DataClassification = SystemMetadata;
         }
+        field(11; "Default Membership Code"; Code[20])
+        {
+            Caption = 'Default Membership Code';
+            DataClassification = SystemMetadata;
+            TableRelation = "JCA Membership".Code;
+        }
+        field(12; "Membership Renewal Period"; DateFormula)
+        {
+            Caption = 'Membership Renewal Period';
+            DataClassification = SystemMetadata;
+        }
     }
 
     keys

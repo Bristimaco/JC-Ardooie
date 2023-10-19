@@ -97,13 +97,6 @@ page 50102 "JCA Member Card"
                 }
             }
 
-            part(AgeGroups; "JCA Member Age Groups")
-            {
-                Caption = 'Age Groups';
-                ApplicationArea = all;
-                SubPageLink = "Member License ID" = field("License ID");
-            }
-
             group(Membership)
             {
                 Caption = 'Membership';
@@ -114,6 +107,16 @@ page 50102 "JCA Member Card"
                     ToolTip = ' ', Locked = true;
                 }
                 field("Member Until"; Rec."Member Until")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("Requested Membership Code"; Rec."Requested Membership Code")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("Open Membership Payment Req."; Rec."Open Membership Payment Req.")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
@@ -129,7 +132,12 @@ page 50102 "JCA Member Card"
                     ToolTip = ' ', Locked = true;
                 }
             }
-
+            part(AgeGroups; "JCA Member Age Groups")
+            {
+                Caption = 'Age Groups';
+                ApplicationArea = all;
+                SubPageLink = "Member License ID" = field("License ID");
+            }
             part(TrainingGroups; "JCA Member Training Groups")
             {
                 Caption = 'Training Groups';

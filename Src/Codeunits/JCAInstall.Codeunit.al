@@ -11,18 +11,27 @@ codeunit 50106 "JCA Install"
     local procedure InstallMemberships()
     var
         JCAMember: record "JCA Member";
+        JCASetup: Record "JCA Setup";
         JCAMembershipPeriod: Record "JCA Membership Period";
     begin
+        JCASetup.Reset();
+        JCASetup.Get();
+
         JCAMember.Reset();
         if JCAMember.findset() then
             repeat
+                if JCAMember."Requested Membership Code" = '' then begin
+                    JCAMember."Requested Membership Code" := JCASetup."Default Membership Code";
+                    JCAMember.modify();
+                end;
+
                 JCAMembershipPeriod.Reset();
                 JCAMembershipPeriod.setrange("Member License ID", JCAMember."License ID");
                 if JCAMembershipPeriod.IsEmpty() then begin
                     JCAMembershipPeriod.Reset();
                     JCAMembershipPeriod.init();
                     JCAMembershipPeriod.validate("Member License ID", JCAMember."License ID");
-                    JCAMembershipPeriod.validate("Membership Code", 'ALGEMEEN');
+                    JCAMembershipPeriod.validate("Membership Code", JCASetup."Default Membership Code");
                     JCAMembershipPeriod.validate("Payment Requested On", CurrentDateTime());
                     JCAMembershipPeriod.Validate("Membership Payed", true);
                     JCAMembershipPeriod.validate("Membership Starting Date", DMY2Date(1, 1, 2023));

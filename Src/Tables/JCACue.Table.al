@@ -249,6 +249,13 @@ table 50102 "JCA Cue"
             Caption = 'Membership End Date Filter';
             FieldClass = FlowFilter;
         }
+        field(38; "Open Membership Payment Req."; Integer)
+        {
+            Caption = 'Open Membership Payment Requests';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Membership Period" where("Membership Payed" = const(false)));
+            Editable = false;
+        }
     }
 
     keys

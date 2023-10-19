@@ -101,4 +101,58 @@ codeunit 50103 "JCA Member Management"
         JCAAgeGroup.setfilter("Minimum Age", '<=%1', CurrentAge);
         exit(JCAAgeGroup.Findset());
     end;
+
+    procedure CreateMembershipRenewals()
+    var
+        JCAMember: record "JCA Member";
+    begin
+        JCAMember.Reset();
+        if JCAMember.findset() then
+            repeat
+                JCAMember.CreateMembershipRenewal();
+            until JCAMember.Next() = 0;
+    end;
+
+    procedure CreateMembershipRenewal(var JCAMember: record "JCA Member")
+    var
+        JCAMembershipPeriod: record "JCA Membership Period";
+        JCASetup: Record "JCA Setup";
+        RenewalDate: Date;
+        newRequestStartDate: Date;
+        RequestNewMembership: Boolean;
+    begin
+        JCASetup.Reset();
+        JCASetup.get();
+        JCASetup.testfield("Membership Renewal Period");
+        RenewalDate := CalcDate(JCASetup."Membership Renewal Period", today());
+
+        JCAMember.SetFilter("Membersh. Start Date Filter", '<=%1', Today());
+        JCAMember.SetFilter("Membersh. End Date Filter", '>=%1', Today());
+        JCAMember.calcfields("Active Membership");
+        if JCAMember."Active Membership" <> '' then begin
+            JCAMembershipPeriod.Reset();
+            JCAMembershipPeriod.setrange("Member License ID", JCAMember."License ID");
+            JCAMembershipPeriod.Setfilter("Membership Starting Date", '<=%1', today());
+            JCAMembershipPeriod.Setfilter("Membership Ending Date", '>=%1', today());
+            JCAMembershipPeriod.setrange("Membership Payed", true);
+            JCAMembershipPeriod.setrange("Membership Code", JCAMember."Active Membership");
+            JCAMembershipPeriod.findfirst();
+            newRequestStartDate := calcdate('<1D>', JCAMembershipPeriod."Membership Ending Date");
+            RequestNewMembership := JCAMembershipPeriod."Membership Ending Date" < RenewalDate;
+        end else begin
+            RequestNewMembership := true;
+            newRequestStartDate := today();
+        end;
+
+        if RequestNewMembership then begin
+            JCAMembershipPeriod.Reset();
+            JCAMembershipPeriod.init();
+            JCAMembershipPeriod.validate("Member License ID", JCAMember."License ID");
+            JCAMembershipPeriod.validate("Membership Code", JCAMember."Requested Membership Code");
+            JCAMembershipPeriod.validate("Payment Requested On", CurrentDateTime);
+            JCAMembershipPeriod.Validate("Membership Starting Date", newRequestStartDate);
+            JCAMembershipPeriod.CalculateEndDate();
+            JCAMembershipPeriod.insert(true);
+        end;
+    end;
 }
