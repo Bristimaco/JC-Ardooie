@@ -114,6 +114,14 @@ page 50100 "JCA Setup"
                 RunObject = page "JCA Memberships";
                 Image = Price;
             }
+            action(VoucherTypes)
+            {
+                Caption = 'Voucher Types';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                RunObject = page "JCA Voucher Types";
+                Image = Check;
+            }
             action(Clubs)
             {
                 Caption = 'Clubs';

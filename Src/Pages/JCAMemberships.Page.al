@@ -33,6 +33,16 @@ page 50134 "JCA Memberships"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field("Voucher Code"; Rec."Voucher Code")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("Voucher Description"; Rec."Voucher Description")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
             }
         }
     }
