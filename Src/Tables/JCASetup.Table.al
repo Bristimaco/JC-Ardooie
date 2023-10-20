@@ -76,10 +76,15 @@ table 50100 "JCA Setup"
             Caption = 'Membership Renewal Period';
             DataClassification = SystemMetadata;
         }
-        field(13;"Invitation Reminder Period";DateFormula)
+        field(13; "Invitation Reminder Period"; DateFormula)
         {
-            Caption= 'Invitation Reminder Period';
-            DataClassification =SystemMetadata;
+            Caption = 'Invitation Reminder Period';
+            DataClassification = SystemMetadata;
+        }
+        field(14; "Result Card Logo"; MediaSet)
+        {
+            Caption = 'Result Card Logo';
+            DataClassification = SystemMetadata;
         }
     }
 

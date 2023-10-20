@@ -97,6 +97,16 @@ page 50100 "JCA Setup"
                 }
             }
         }
+
+        area(FactBoxes)
+        {
+            part(Images; "JCA Setup Factbox")
+            {
+                ApplicationArea= all;
+                Caption = 'Images';
+                SubPageLink = Code = field(Code);
+            }
+        }
     }
 
     actions

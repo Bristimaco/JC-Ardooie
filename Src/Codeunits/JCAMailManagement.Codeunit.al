@@ -5,6 +5,7 @@ codeunit 50104 "JCA Mail Management"
         JCAEvent: record "JCA Event";
         JCAMember: record "JCA Member";
         JCAContact: record "JCA Contact";
+        JCASetup: record "JCA Setup";
         TenantMedia: record "Tenant Media";
         JCAResultImage: Record "JCA Result Image";
         MailManagement: codeunit "Mail Management";
@@ -16,6 +17,7 @@ codeunit 50104 "JCA Mail Management"
         MailSubject: text;
         MemberPicture: Text;
         ResultImage: Text;
+        ResultCardLogo: Text;
         InStream: InStream;
         MailBody: TextBuilder;
     begin
@@ -68,11 +70,22 @@ codeunit 50104 "JCA Mail Management"
             ResultImage := Base64Convert.ToBase64(InStream);
         end;
 
+        ResultCardLogo := '';
+        JCASetup.reset();
+        JCASetup.get();
+        if JCASetup."Result Card Logo".Count() <> 0 then begin
+            TenantMedia.reset();
+            TenantMedia.get(JCASetup."Result Card Logo".item(1));
+            TenantMedia.CalcFields(Content);
+            TenantMedia.Content.CreateInStream(InStream);
+            ResultCardLogo := Base64Convert.ToBase64(InStream);
+        end;
+
         foreach MailAddress in MailingList do begin
             CheckForMailSystemTest(MailAddress);
             clear(MailManagement);
             if MailManagement.CheckValidEmailAddress(MailAddress) then begin
-                CreateEventResultMailContent(JCAEventParticipant, JCAEvent, MailSubject, MailBody, MemberPicture, ResultImage);
+                CreateEventResultMailContent(JCAEventParticipant, JCAEvent, MailSubject, MailBody, MemberPicture, ResultImage, ResultCardLogo);
                 clear(EmailMessage);
                 EmailMessage.Create(MailAddress, MailSubject, MailBody.ToText(), true);
                 clear(Email);
@@ -515,60 +528,39 @@ codeunit 50104 "JCA Mail Management"
         MailBody.AppendLine('Judo Ardooie');
     end;
 
-    local procedure CreateEventResultMailContent(JCAEventParticipant: record "JCA Event Participant"; JCAEvent: record "JCA Event"; var MailSubject: Text; var MailBody: TextBuilder; MemberPicture: Text; ResultImage: Text)
+    local procedure CreateEventResultMailContent(JCAEventParticipant: record "JCA Event Participant"; JCAEvent: record "JCA Event"; var MailSubject: Text; var MailBody: TextBuilder; MemberPicture: Text; ResultImage: Text; ResultCardLogo: text)
     var
         ResultsLbl: label 'Results for %1 - %2: %3', Comment = '%1 = Event No., %2 = Event Description, %3 = Member Name';
     begin
         MailSubject := StrSubstNo(ResultsLbl, JCAEvent.Type, JCAEvent.Description, JCAEventParticipant."Member Full Name");
 
         Clear(MailBody);
-        // MailBody.AppendLine('Beste Supporter,');
-        // MailBody.AppendLine();
-        // MailBody.AppendLine('Tijdens het ' + format(JCAEvent.Type) + ' - ' + JCAEvent.Description + ' behaalde ' + JCAEventParticipant."Member Full Name" + ' het volgende resulaat:');
-        // MailBody.AppendLine();
-        // MailBody.AppendLine(UpperCase(format(JCAEventParticipant.Result)));
-        // MailBody.AppendLine();
-        // MailBody.AppendLine('Met vriendelijke groeten,');
-        // MailBody.AppendLine();
-        // MailBody.AppendLine('Judo Ardooie');
-
-
-        MailBody.AppendLine('<html><head><style>card {box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;border-radius: 5px;}');
-        MailBody.AppendLine('img {border-radius: 5px 5px 0 0;}</style></head>');
-        MailBody.AppendLine('<div class="card"><img id="base64image" src="data:image/jpeg;base64,');
-        MailBody.AppendLine(MemberPicture);
-        MailBody.AppendLine('" style="width:50%"></img><div class="container"><h4><b>');
+        MailBody.AppendLine('<html><head><style>');
+        MailBody.AppendLine('html{overflow-x: hidden;}');
+        MailBody.AppendLine('body{font-family: "Lato", sans-serif;margin: 0;background-color:white;}');
+        MailBody.AppendLine('a{text-decoration: none;}');
+        MailBody.AppendLine('.card{z-index: 1;position: relative;width: 400px;height:550px;margin: 0 auto;margin-top:100px;background-color: White;-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);-moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);-webkit-transition: all 0.7s ease-in-out;-moz-transition: all 0.7s ease-in-out;-o-transition: all 0.7s ease-in-out;-ms-transition:all 0.7s ease-in-out;}');
+        MailBody.AppendLine('.banner{z-index: 2;position: relative;margin-top: -154px;width:100%;height:150px;background-image: url("data:image/jpeg;base64,' + ResultCardLogo + '");');
+        MailBody.AppendLine('background-color: white;background-size: 100% 100%;background-repeat: no-repeat;border-bottom: solid 1px lightgrey;  -webkit-transition: all 0.7s ease-in-out;-moz-transition:all 0.7s ease-in-out;-o-transition:all 0.7s ease-in-out;-ms-transition:all 0.7s ease-in-out;}');
+        MailBody.AppendLine('.photo{z-index: 3;position: relative;border-radius: 50%;height: 150px;width: 150px;background-color: white;margin: 0 auto;');
+        MailBody.AppendLine('background-image: url("data:image/jpeg;base64,' + MemberPicture + '");');
+        MailBody.AppendLine('background-size: cover;background-position: 50% 50%;top:100px;-webkit-box-shadow: inset 0px 0px 5px 1px rgba(0,0,0,0.3);-moz-box-shadow: inset 0px 0px 5px 1px rgba(0,0,0,0.3);box-shadow: inset 0px 0px 5px 1px rgba(0,0,0,0.3);-webkit-transition: top 0.7s ease-in-out, background 0.15s ease;-moz-transition:    top 0.7s ease-in-out, background 0.15s ease;-o-transition:top 0.7s ease-in-out, background 0.15s ease;-ms-transition:top 0.7s ease-in-out, background 0.15s ease;}');
+        MailBody.AppendLine('.card ul{list-style: none;text-align: center;padding-left: 0;margin-top:120px;margin-bottom:30px;font-size: 20px;-webkit-transition: all 0.7s ease-in-out;-moz-transition:    all 0.7s ease-in-out;-o-transition:      all 0.7s ease-in-out;-ms-transition:     all 0.7s ease-in-out;}');
+        MailBody.AppendLine('.result{z-index: 3;position: relative;border-radius: 50%;height: 150px;width: 150px;background-color: white;margin: 0 auto;');
+        MailBody.AppendLine('background-image: url("data:image/jpeg;base64,' + ResultImage + '");');
+        MailBody.AppendLine('background-size: cover;background-position: 50% 50%;top:0px;}');
+        MailBody.AppendLine('</style></head>');
+        MailBody.AppendLine('<body><div class="card"><div class="photo"></div><div class="banner"></div><ul><li><b>');
         MailBody.AppendLine(JCAEventParticipant."Member Full Name");
-        MailBody.AppendLine('</b></h4><p>');
-        MailBody.AppendLine(format(JCAEventParticipant.Result));
-        MailBody.AppendLine('</p><img id="base64image" src="data:image/jpeg;base64,');
-        MailBody.AppendLine(ResultImage);
-        MailBody.AppendLine('"</img></div></div></html>');
+        MailBody.AppendLine('</b></li><br></br><li>');
+        MailBody.AppendLine(UpperCase(format(JCAEventParticipant.Result)));
+        MailBody.AppendLine('</li></ul><div class="result"></div></div></body></html>');
 
-
-        // MailBody.AppendLine('<html><head><style>');
-        // MailBody.AppendLine('html{overflow-x: hidden;}');
-        // MailBody.AppendLine('body{font-family: "Lato", sans-serif;margin: 0;background-color: white;}');
-        // MailBody.AppendLine('.card{z-index: 1;position: relative;width: 300px;height:400px;margin: 0 auto;margin-top:100px;background-color: black;-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);-moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);-webkit-transition: all 0.7s ease-in-out;-moz-transition:    all 0.7s ease-in-out;-o-transition:      all 0.7s ease-in-out;-ms-transition:     all 0.7s ease-in-out;}');
-        // MailBody.AppendLine('.banner{z-index: 2;position: relative;margin-top: -154px;width:100%;height:150px;');
-        // MailBody.AppendLine('background-image: url("http://www.judoclubardooie.be/wp-content/uploads/2022/12/logo-JCA.png");');
-        // MailBody.AppendLine('background-size: contain;background-repeat: no-repeat;border-bottom: solid 1px lightgrey;-webkit-transition: all 0.7s ease-in-out;-moz-transition:    all 0.7s ease-in-out;-o-transition:      all 0.7s ease-in-out;-ms-transition:     all 0.7s ease-in-out;}');
-        // MailBody.AppendLine('.photo{z-index: 3;position: relative;border-radius: 50%;height: 150px;width: 150px;background-color: white;margin: 0 auto;');
-        // //MailBody.AppendLine('background-image: url("https://filmshotfreezer.files.wordpress.com/2011/07/untitled-1.jpg");');
-        // MailBody.AppendLine('background-image: url("data:image/jpeg;base64,');
-        // MailBody.AppendLine(MemberPicture);
-        // MailBody.AppendLine('");');
-        // MailBody.AppendLine('background-size: cover;background-position: 50% 50%;top:75px;-webkit-box-shadow: inset 0px 0px 5px 1px rgba(0,0,0,0.3);-moz-box-shadow: inset 0px 0px 5px 1px rgba(0,0,0,0.3);box-shadow: inset 0px 0px 5px 1px rgba(0,0,0,0.3);-webkit-transition: top 0.7s ease-in-out, background 0.15s ease;-moz-transition:    top 0.7s ease-in-out, background 0.15s ease;-o-transition:      top 0.7s ease-in-out, background 0.15s ease;-ms-transition:     top 0.7s ease-in-out, background 0.15s ease;}');
-        // MailBody.AppendLine('.card ul{list-style: none;text-align: center;padding-left: 0;margin-top:87px;margin-bottom:30px;font-size: 20px;-webkit-transition: all 0.7s ease-in-out;-moz-transition:    all 0.7s ease-in-out;-o-transition:      all 0.7s ease-in-out;-ms-transition:     all 0.7s ease-in-out;}');
-        // MailBody.AppendLine('.card ul.active{opacity:0;visibility: hidden;}');
-        // MailBody.AppendLine('.card i{font-size: 25px;display: inline-block;margin-top:10px;margin-left: 40px;margin-right: 150px;width: 300px;;text-align: left;color: #C7D0E1;}');
-        // MailBody.AppendLine('</style></head');
-        // MailBody.AppendLine('<body><div class="card"><div class="photo"></div><div class="banner"></div><ul><li><b>');
-        // MailBody.AppendLine(JCAEventParticipant."Member Full Name");
-        // MailBody.AppendLine('</b></li><li>');
-        // MailBody.AppendLine(format(JCAEventParticipant.Result));
-        // MailBody.AppendLine('</li></ul></div></body>');
-
+        // MailBodytext := MailBody.ToText();
+        // TempBlob.CreateOutStream(OutStream);
+        // OutStream.WriteText(MailBodytext);
+        // TempBlob.CreateInStream(InStream);        
+        // DownloadFromStream(InStream, 'Save?', '', '', FileName);
     end;
 
     local procedure CollectEventAttachments(JCAEvent: record "JCA Event"; var JCAEventDocument: record "JCA Event Document")

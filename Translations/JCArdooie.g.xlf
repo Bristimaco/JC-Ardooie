@@ -1153,6 +1153,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field Participant Unit Price - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3008872625 - Field 516160442 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Result Card Logo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field Result Card Logo - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3008872625 - Field 951077956 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Send Test Mails</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1559,7 +1564,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method CreateEventRegistrationConfirmationMailContent - NamedType RegistrationConfirmationSubjectLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 122294278 - Method 2658703842 - NamedType 327091729" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Invitation for %1 - %2</source>
+          <source>Invitation Reminder for %1 - %2</source>
           <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method CreateEventReminderMailContent - NamedType InvitationSubjectLbl</note>
         </trans-unit>
@@ -2183,6 +2188,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup - Control NoSeries - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3008872625 - Control 3815988200 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Images</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup - Control Images - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3008872625 - Action 3516545467 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Logs</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2227,6 +2237,31 @@
           <source>Weight Groups</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup - Action WeightGroups - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2444619438 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Setup Factbox</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup Factbox - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2444619438 - NamedType 2865259996" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Are you sure you want to delete the picture?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup Factbox - NamedType DeleteImageQst</note>
+        </trans-unit>
+        <trans-unit id="Page 2444619438 - Action 3119204463 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete the record.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup Factbox - Action DeletePicture - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2444619438 - Action 3119204463 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup Factbox - Action DeletePicture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2444619438 - Action 3400438121 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Upload</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup Factbox - Action UploadPicture - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2423871649 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Today</source>
