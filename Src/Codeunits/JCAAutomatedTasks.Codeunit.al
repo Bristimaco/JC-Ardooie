@@ -47,8 +47,8 @@ codeunit 50100 "JCA Automated Tasks"
     var
         JCAEvent: Record "JCA Event";
         JCASetup: Record "JCA Setup";
-        LastReminderDate: Date;
         EmptyDateFormula: DateFormula;
+        LastReminderDate: Date;
     begin
         JCASetup.Reset();
         JCASetup.get();

@@ -108,11 +108,9 @@ table 50110 "JCA Event"
                         PostCodes.GetRecord(PostCode);
                         City := PostCode.City;
                     end;
-                end else begin
+                end else
                     if PostCode.findfirst() then
                         City := PostCode.City;
-                end;
-
             end;
         }
         field(15; City; Text[100])
@@ -241,10 +239,10 @@ table 50110 "JCA Event"
 
     local procedure CheckParticipantsAndSupervisorStatus()
     var
-        JCAEvenManagement: Codeunit "JCA Event Management";
+        JCAEventManagement: Codeunit "JCA Event Management";
     begin
-        Clear(JCAEvenManagement);
-        JCAEvenManagement.CheckParticipantsAndSupervistors(Rec);
+        Clear(JCAEventManagement);
+        JCAEventManagement.CheckParticipantsAndSupervistors(Rec);
     end;
 
     procedure GetParticipants(var JCAEventParticipant: record "JCA Event Participant"): Boolean
