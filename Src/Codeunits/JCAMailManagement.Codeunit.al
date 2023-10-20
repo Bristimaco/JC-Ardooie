@@ -35,26 +35,25 @@ codeunit 50104 "JCA Mail Management"
                 UseTemplate := true;
         end;
 
+        JCAMember.Reset();
+        JCAMember.setrange("Send Result Mails", true);
+        if JCAMember.Findset() then
+            repeat
+                if not MailingList.Contains(JCAMember."E-Mail") then
+                    MailingList.Add(JCAMember."E-Mail");
+            until JCAMember.Next() = 0;
+        JCAContact.reset();
+        JCAContact.setrange("Send Result Mails", true);
+        if JCAContact.findset() then
+            repeat
+                if not MailingList.Contains(JCAContact."E-Mail") then
+                    MailingList.Add(JCAContact."E-Mail");
+            until JCAContact.Next() = 0;
+
+        if MailingList.Count() = 0 then
+            exit;
+
         if not UseTemplate then begin
-            JCAMember.Reset();
-            JCAMember.setrange("Send Result Mails", true);
-            if JCAMember.Findset() then
-                repeat
-                    if not MailingList.Contains(JCAMember."E-Mail") then
-                        MailingList.Add(JCAMember."E-Mail");
-                until JCAMember.Next() = 0;
-
-            JCAContact.reset();
-            JCAContact.setrange("Send Result Mails", true);
-            if JCAContact.findset() then
-                repeat
-                    if not MailingList.Contains(JCAContact."E-Mail") then
-                        MailingList.Add(JCAContact."E-Mail");
-                until JCAContact.Next() = 0;
-
-            if MailingList.Count() = 0 then
-                exit;
-
             JCAMember.Reset();
             JCAMember.get(JCAEventParticipant."Member License ID");
             MemberPicture := JCAMember.GetPicture();
@@ -579,7 +578,7 @@ codeunit 50104 "JCA Mail Management"
             MailBody.AppendLine('</b></li><br></br><li>');
             MailBody.AppendLine(UpperCase(format(JCAEventParticipant.Result)));
             MailBody.AppendLine('</li></ul><div class="result"></div></div></body></html>');
-        end;        
+        end;
     end;
 
     local procedure CollectEventAttachments(JCAEvent: record "JCA Event"; var JCAEventDocument: record "JCA Event Document")
