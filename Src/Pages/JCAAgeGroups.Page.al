@@ -62,7 +62,7 @@ page 50106 "JCA Age Groups"
 
                 trigger OnAction()
                 var
-                    JCADailyUpdates: Codeunit "JCA Daily Updates";
+                    JCADailyUpdates: Codeunit "JCA Automated Tasks";
                 begin
                     Clear(JCADailyUpdates);
                     JCADailyUpdates.UpdateAgeGroupsOnMembers();

@@ -81,6 +81,56 @@ table 50110 "JCA Event"
             DataClassification = SystemMetadata;
             InitValue = true;
         }
+        field(13; Address; Text[100])
+        {
+            Caption = 'Address';
+            DataClassification = SystemMetadata;
+        }
+        field(14; "Post Code"; Code[20])
+        {
+            Caption = 'Post Code';
+            DataClassification = SystemMetadata;
+            TableRelation = "Post Code".Code where("Country/Region Code" = field("Country Code"));
+
+            trigger OnValidate()
+            var
+                PostCode: record "Post Code";
+                PostCodes: page "Post Codes";
+            begin
+                PostCode.Reset();
+                PostCode.setrange(Code, "Post Code");
+                PostCode.setrange("Country/Region Code", "Country Code");
+                if PostCode.count() > 1 then begin
+                    Clear(PostCodes);
+                    PostCodes.SetTableView(PostCode);
+                    PostCodes.LookupMode := true;
+                    if PostCodes.RunModal() = Action::LookupOK then begin
+                        PostCodes.GetRecord(PostCode);
+                        City := PostCode.City;
+                    end;
+                end else begin
+                    if PostCode.findfirst() then
+                        City := PostCode.City;
+                end;
+
+            end;
+        }
+        field(15; City; Text[100])
+        {
+            Caption = 'City';
+            DataClassification = SystemMetadata;
+            TableRelation = "Post Code".City where(Code = field("Post Code"), "Country/Region Code" = field("Country Code"));
+        }
+        field(16; "Send Invitation Reminders"; Boolean)
+        {
+            Caption = 'Send Invitaton Reminders';
+            DataClassification = SystemMetadata;
+        }
+        field(17; "Last Reminder Mail Sent On"; Date)
+        {
+            Caption = 'Last Reminder Mail Sent On';
+            DataClassification = SystemMetadata;
+        }
     }
 
     keys
@@ -174,6 +224,19 @@ table 50110 "JCA Event"
         JCAEventManagement.SendEventInvitations(Rec);
         Rec.validate(Status, status::"Invitations Sent");
         Rec.modify(true);
+    end;
+
+    procedure SendInvitationReminders()
+    var
+        JCAEventManagement: Codeunit "JCA Event Management";
+    begin
+        if not Rec."Send Invitation Reminders" then
+            exit;
+
+        Clear(JCAEventManagement);
+        JCAEventManagement.SendEventInvitationReminders(Rec);
+        rec.Validate("Last Reminder Mail Sent On", Today());
+        rec.Modify(true);
     end;
 
     local procedure CheckParticipantsAndSupervisorStatus()

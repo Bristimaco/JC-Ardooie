@@ -447,11 +447,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event - Method OpenSupervisorSheet - NamedType SetToInProgressQst</note>
         </trans-unit>
+        <trans-unit id="Table 3860414336 - Field 3168444338 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Address</source>
+          <target>Adres</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event - Field Address - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3860414336 - Field 809954577 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Age Groups</source>
           <target>Leeftijdsgroepen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event - Field Age Groups - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3860414336 - Field 714791889 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>City</source>
+          <target>Plaats</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event - Field City - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3860414336 - Field 2542713143 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Country Code</source>
@@ -477,11 +489,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event - Field Invited Participants - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3860414336 - Field 1021215612 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Reminder Mail Sent On</source>
+          <target>Laatste herinnering Mail Op</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event - Field Last Reminder Mail Sent On - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3860414336 - Field 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ID</source>
           <target>ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event - Field No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3860414336 - Field 3660300303 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Code</source>
+          <target>Postcode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event - Field Post Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3860414336 - Field 3719257816 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Potential Participants</source>
@@ -500,6 +524,12 @@
           <target>Deadline Inschrijvingen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event - Field Registration Deadline - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3860414336 - Field 2632333956 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send Invitaton Reminders</source>
+          <target>Stuur uitnodiging Herinneringen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event - Field Send Invitation Reminders - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3860414336 - Field 3877114753 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Send Result Mails</source>
@@ -2054,6 +2084,12 @@
           <target>Algemeen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Card - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2830652692 - Control 360380358 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Address</source>
+          <target>Adres</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Card - Control EventAddress - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2830652692 - Control 4237402031 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Progress</source>

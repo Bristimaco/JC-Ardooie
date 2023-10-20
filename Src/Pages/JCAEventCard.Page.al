@@ -24,11 +24,32 @@ page 50117 "JCA Event Card"
                     ApplicationArea = all;
                     ToolTip = ' ', locked = true;
                 }
-                field("Country Code"; Rec."Country Code")
+                group(EventAddress)
                 {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
+                    Caption = 'Address';
+
+                    field(Address; Rec.Address)
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                    field("Country Code"; Rec."Country Code")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                    field("Post Code"; Rec."Post Code")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                    field(City; Rec.City)
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
                 }
+
                 field(Date; Rec.Date)
                 {
                     ApplicationArea = all;
@@ -43,6 +64,11 @@ page 50117 "JCA Event Card"
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', locked = true;
+                }
+                field("Send Invitation Reminders"; Rec."Send Invitation Reminders")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
                 }
                 field(Status; Rec.Status)
                 {

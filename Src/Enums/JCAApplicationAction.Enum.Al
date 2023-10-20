@@ -12,4 +12,8 @@ enum 50106 "JCA Application Action"
     {
         Caption = 'Event Unregistration Confirmation';
     }
+    value(3; "Event Reminder Mail")
+    {
+        Caption = 'Event Reminder Mail';
+    }
 }

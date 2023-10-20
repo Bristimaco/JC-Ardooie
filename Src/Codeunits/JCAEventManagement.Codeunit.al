@@ -57,12 +57,38 @@ codeunit 50102 "JCA Event Management"
         Message(AllInvitationsHaveBeenSentMsg);
     end;
 
+    procedure SendEventInvitationReminders(JCAEvent: record "JCA Event")
+    begin
+        CheckEventContent(JCAEvent);
+        RemindEventSupervisors(JCAEvent);
+        RemindPotentialParticipants(JCAEvent);
+    end;
+
+    local procedure CheckEventContent(JCAEvent: Record "JCA Event")
+    var
+        JCAEventSupervisor: record "JCA Event Supervisor";
+        JCAEventParticipant: record "JCA Event Participant";
+        NoSupervisorsInEventErr: label 'There are no supervisors in the Event';
+        NoParticipantsInEventErr: label 'There are no participants in the Event';
+    begin
+        JCAEventSupervisor.Reset();
+        JCAEventSupervisor.setrange("Event No.", JCAEvent."No.");
+        if JCAEventSupervisor.isempty() then
+            error(NoSupervisorsInEventErr);
+
+        JCAEventParticipant.Reset();
+        JCAEventParticipant.setrange("Event No.", JCAEvent."No.");
+        if JCAEventParticipant.IsEmpty() then
+            error(NoParticipantsInEventErr);
+    end;
+
     local procedure InviteEventSupervisors(JCAEvent: record "JCA Event")
     var
         JCAEventSupervisor: record "JCA Event Supervisor";
     begin
         JCAEventSupervisor.Reset();
         JCAEventSupervisor.setrange("Event No.", JCAEvent."No.");
+        JCAEventSupervisor.setrange(Invited, false);
         if JCAEventSupervisor.findset() then
             repeat
                 if SendEventInvitationMail(JCAEventSupervisor."Member License ID", JCAEvent) then begin
@@ -78,9 +104,44 @@ codeunit 50102 "JCA Event Management"
     begin
         JCAEventParticipant.Reset();
         JCAEventParticipant.setrange("Event No.", JCAEvent."No.");
+        JCAEventParticipant.setrange(Invited, false);
         if JCAEventParticipant.findset() then
             repeat
                 if SendEventInvitationMail(JCAEventParticipant."Member License ID", JCAEvent) then begin
+                    JCAEventParticipant.validate(Invited, true);
+                    JCAEventParticipant.modify();
+                end;
+            until JCAEventParticipant.Next() = 0;
+    end;
+
+    local procedure RemindEventSupervisors(JCAEvent: record "JCA Event")
+    var
+        JCAEventSupervisor: record "JCA Event Supervisor";
+    begin
+        JCAEventSupervisor.Reset();
+        JCAEventSupervisor.setrange("Event No.", JCAEvent."No.");
+        JCAEventSupervisor.setrange("Applied for Registration", false);
+        JCAEventSupervisor.setrange(Invited, true);
+        if JCAEventSupervisor.findset() then
+            repeat
+                if SendEventReminderMail(JCAEventSupervisor."Member License ID", JCAEvent) then begin
+                    JCAEventSupervisor.validate(Invited, true);
+                    JCAEventSupervisor.Modify(true);
+                end;
+            until JCAEventSupervisor.Next() = 0;
+    end;
+
+    local procedure RemindPotentialParticipants(JCAEvent: record "JCA Event")
+    var
+        JCAEventParticipant: record "JCA Event Participant";
+    begin
+        JCAEventParticipant.Reset();
+        JCAEventParticipant.setrange("Event No.", JCAEvent."No.");
+        JCAEventParticipant.setrange("Applied for Registration", false);
+        JCAEventParticipant.setrange(Invited, true);
+        if JCAEventParticipant.findset() then
+            repeat
+                if SendEventReminderMail(JCAEventParticipant."Member License ID", JCAEvent) then begin
                     JCAEventParticipant.validate(Invited, true);
                     JCAEventParticipant.modify();
                 end;
@@ -93,6 +154,14 @@ codeunit 50102 "JCA Event Management"
     begin
         Clear(JCAMailManagement);
         exit(JCAMailManagement.SendEventInvitationMail(MemberLicenseID, JCAEvent));
+    end;
+
+    local procedure SendEventReminderMail(MemberLicenseID: code[20]; JCAEvent: record "JCA Event"): Boolean
+    var
+        JCAMailManagement: Codeunit "JCA Mail Management";
+    begin
+        Clear(JCAMailManagement);
+        exit(JCAMailManagement.SendEventReminderMail(MemberLicenseID, JCAEvent));
     end;
 
     procedure CheckParticipantsAndSupervistors(var JCAEvent: record "JCA Event")
