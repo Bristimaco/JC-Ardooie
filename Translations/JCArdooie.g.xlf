@@ -403,6 +403,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event - Field Description - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3860414336 - Field 4120303565 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fee Payed to Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event - Field Fee Payed To Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3860414336 - Field 3727784717 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fee Payed To No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event - Field Fee Payed To No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3860414336 - Field 206376280 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fee Payment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event - Field Fee Payment - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3860414336 - Field 2211053003 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invited Participants</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -437,6 +452,11 @@
           <source>Registration Deadline</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event - Field Registration Deadline - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3860414336 - Field 3031442297 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registration Fee</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event - Field Registration Fee - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3860414336 - Field 2632333956 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Send Invitaton Reminders</source>
@@ -1803,6 +1823,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Card - Control EventAddress - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2830652692 - Control 3136822934 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Financials</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Card - Control Financials - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2830652692 - Control 4237402031 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Progress</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2668,6 +2693,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Event Type - EnumValue Tournament - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 1253495848 - EnumValue 852947086 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payed by Club</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Fee Payment - EnumValue Payed by Club - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1253495848 - EnumValue 2964974007 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payed by Participant</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Fee Payment - EnumValue Payed by Participant - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 3627184078 - EnumValue 3457628887 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Registration</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2722,11 +2757,6 @@
           <source>Open</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Training Session Status - EnumValue Open - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 3806793414 - ReportColumn 3192175264 - ReportColumn 3763938026 - ReportColumn 4133990171 - ReportColumn 2981235050 - NamedType 3040577680" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Event Report</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report JCA Event Report - ReportColumn Date - ReportColumn Supervisor_License_ID - ReportColumn Weigh_In_Start_Time - ReportColumn Member_License_ID - NamedType ReportTitleLbl</note>
         </trans-unit>
       </group>
     </body>

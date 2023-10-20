@@ -76,6 +76,32 @@ page 50117 "JCA Event Card"
                     ToolTip = ' ', locked = true;
                 }
 
+                group(Financials)
+                {
+                    Caption = 'Financials';
+
+                    field("Fee Payment"; Rec."Fee Payment")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                    field("Fee Payed To"; Rec."Fee Payed To No.")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                    field("Fee Payed To Name"; Rec."Fee Payed To Name")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                    field("Registration Fee"; Rec."Registration Fee")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                }
+
                 group(Progress)
                 {
                     Caption = 'Progress';

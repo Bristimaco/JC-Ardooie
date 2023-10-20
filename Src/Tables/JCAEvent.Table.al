@@ -129,6 +129,34 @@ table 50110 "JCA Event"
             Caption = 'Last Reminder Mail Sent On';
             DataClassification = SystemMetadata;
         }
+        field(18; "Fee Payment"; enum "JCA Fee Payment")
+        {
+            Caption = 'Fee Payment';
+            DataClassification = SystemMetadata;
+        }
+        field(19; "Fee Payed To No."; Code[20])
+        {
+            Caption = 'Fee Payed To No.';
+            DataClassification = SystemMetadata;
+            TableRelation = Vendor."No.";
+
+            trigger OnValidate()
+            begin
+                CalcFields("Fee Payed To Name");
+            end;
+        }
+        field(20; "Fee Payed To Name"; Text[100])
+        {
+            Caption = 'Fee Payed to Name';
+            FieldClass = FlowField;
+            CalcFormula = lookup(vendor.Name where("No." = field("Fee Payed To No.")));
+            Editable = false;
+        }
+        field(21; "Registration Fee"; Decimal)
+        {
+            Caption = 'Registration Fee';
+            DataClassification = SystemMetadata;
+        }
     }
 
     keys
