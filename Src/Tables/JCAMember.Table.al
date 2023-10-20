@@ -312,6 +312,24 @@ table 50101 "JCA Member"
         JCAMemberManagement.IssueVoucherToMember(Rec, VoucherType);
     end;
 
+    procedure GetPicture(): Text
+    var
+        TenantMedia: record "Tenant Media";
+        Base64Convert: codeunit "Base64 Convert";
+        InStream: InStream;
+        MemberPicture: Text;
+    begin
+        MemberPicture := '';
+        if Rec.Picture.Count() <> 0 then begin
+            TenantMedia.reset();
+            TenantMedia.get(Rec.Picture.Item(1));
+            TenantMedia.CalcFields(Content);
+            TenantMedia.Content.CreateInStream(InStream);
+            MemberPicture := Base64Convert.ToBase64(InStream);
+        end;
+        exit(MemberPicture);
+    end;
+
     var
         tempgJCAMemberAgeGroup: record "JCA Member Age Group" temporary;
 }

@@ -44,8 +44,11 @@ page 50141 "JCA Mail Message Templates"
                 Ellipsis = true;
                 ApplicationArea = all;
                 ToolTip = ' ', Locked = true;
-                RunObject = page "JCA Mail Message Templ. Card";
-                RunPageLink = "Mail Message Type" = field("Mail Message Type");
+
+                trigger OnAction()
+                begin
+                    Rec.OpenTemplateEditor();
+                end;
             }
         }
     }

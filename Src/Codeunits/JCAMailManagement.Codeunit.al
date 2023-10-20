@@ -6,11 +6,9 @@ codeunit 50104 "JCA Mail Management"
         JCAMember: record "JCA Member";
         JCAContact: record "JCA Contact";
         JCASetup: record "JCA Setup";
-        TenantMedia: record "Tenant Media";
         JCAResultImage: Record "JCA Result Image";
         MailManagement: codeunit "Mail Management";
         EmailMessage: codeunit "Email Message";
-        Base64Convert: Codeunit "Base64 Convert";
         Email: codeunit Email;
         MailingList: list of [Text[100]];
         MailAddress: text[100];
@@ -18,7 +16,6 @@ codeunit 50104 "JCA Mail Management"
         MemberPicture: Text;
         ResultImage: Text;
         ResultCardLogo: Text;
-        InStream: InStream;
         MailBody: TextBuilder;
     begin
         JCAEvent.reset();
@@ -47,39 +44,18 @@ codeunit 50104 "JCA Mail Management"
         if MailingList.Count() = 0 then
             exit;
 
-        MemberPicture := '';
         JCAMember.Reset();
         JCAMember.get(JCAEventParticipant."Member License ID");
-        if JCAMember.Picture.Count() <> 0 then begin
-            TenantMedia.reset();
-            TenantMedia.get(JCAMember.Picture.Item(1));
-            TenantMedia.CalcFields(Content);
-            TenantMedia.Content.CreateInStream(InStream);
-            MemberPicture := Base64Convert.ToBase64(InStream);
-        end;
+        MemberPicture := JCAMember.GetPicture();
 
-        ResultImage := '';
         JCAResultImage.Reset();
         JCAResultImage.setrange(Result, JCAEventParticipant.Result);
         JCAResultImage.findfirst();
-        if JCAResultImage."Result Image".Count() <> 0 then begin
-            TenantMedia.reset();
-            TenantMedia.get(JCAResultImage."Result Image".item(1));
-            TenantMedia.CalcFields(Content);
-            TenantMedia.Content.CreateInStream(InStream);
-            ResultImage := Base64Convert.ToBase64(InStream);
-        end;
+        ResultImage := JCAResultImage.GetImage();
 
-        ResultCardLogo := '';
         JCASetup.reset();
         JCASetup.get();
-        if JCASetup."Result Card Logo".Count() <> 0 then begin
-            TenantMedia.reset();
-            TenantMedia.get(JCASetup."Result Card Logo".item(1));
-            TenantMedia.CalcFields(Content);
-            TenantMedia.Content.CreateInStream(InStream);
-            ResultCardLogo := Base64Convert.ToBase64(InStream);
-        end;
+        ResultCardLogo := JCASetup.GetResultCardLogo();
 
         foreach MailAddress in MailingList do begin
             CheckForMailSystemTest(MailAddress);

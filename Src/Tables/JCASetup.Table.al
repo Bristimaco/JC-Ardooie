@@ -105,4 +105,22 @@ table 50100 "JCA Setup"
         key(PK; Code)
         { }
     }
+
+    procedure GetResultCardLogo(): Text
+    var
+        TenantMedia: record "Tenant Media";
+        Base64Convert: Codeunit "Base64 Convert";
+        Instream: InStream;
+        ResultCardLogo: Text;
+    begin
+        ResultCardLogo := '';
+        if Rec."Result Card Logo".Count() <> 0 then begin
+            TenantMedia.reset();
+            TenantMedia.get(Rec."Result Card Logo".item(1));
+            TenantMedia.CalcFields(Content);
+            TenantMedia.Content.CreateInStream(InStream);
+            ResultCardLogo := Base64Convert.ToBase64(InStream);
+        end;
+        exit(ResultCardLogo);
+    end;
 }
