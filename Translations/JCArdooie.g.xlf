@@ -1158,6 +1158,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field Result Card Logo - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3008872625 - Field 1208624740 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send Result Mails in Background</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field Send Result Mails in Backgr. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3008872625 - Field 951077956 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Send Test Mails</source>
           <note from="Developer" annotates="general" priority="2"></note>

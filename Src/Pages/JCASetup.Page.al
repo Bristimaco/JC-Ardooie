@@ -90,6 +90,11 @@ page 50100 "JCA Setup"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field("Send Result Mails in Backgr."; Rec."Send Result Mails in Backgr.")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
                 field("Invitation Reminder Period"; Rec."Invitation Reminder Period")
                 {
                     ApplicationArea = all;
@@ -102,7 +107,7 @@ page 50100 "JCA Setup"
         {
             part(Images; "JCA Setup Factbox")
             {
-                ApplicationArea= all;
+                ApplicationArea = all;
                 Caption = 'Images';
                 SubPageLink = Code = field(Code);
             }

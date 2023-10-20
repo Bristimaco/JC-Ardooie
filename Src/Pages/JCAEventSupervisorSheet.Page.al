@@ -15,6 +15,7 @@ page 50127 "JCA Event Supervisor Sheet"
             {
                 Caption = 'Age Group Filter';
                 ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
 
                 trigger OnAssistEdit()
                 var
@@ -51,6 +52,7 @@ page 50127 "JCA Event Supervisor Sheet"
             {
                 ApplicationArea = all;
                 Caption = 'Gender';
+                ToolTip = ' ', Locked = true;
                 Editable = false;
             }
             repeater(EventParticipants)
@@ -76,9 +78,23 @@ page 50127 "JCA Event Supervisor Sheet"
                     ToolTip = ' ', Locked = true;
 
                     trigger OnValidate()
+                    var
+                        JCASetup: Record "JCA Setup";
+                        TaskParams: Dictionary of [text, Text];
+                        TaskID: Integer;
                     begin
-                        if xRec.Result <> rec.Result then
-                            Rec.SendEventResultMail();
+                        if xRec.Result <> rec.Result then begin
+                            JCASetup.reset();
+                            JCASetup.get();
+                            if JCASetup."Send Result Mails in Backgr." then begin
+                                clear(TaskParams);
+                                TaskParams.Add(Rec.FieldName("Event No."), Rec."Event No.");
+                                TaskParams.Add(Rec.FieldName("Member License ID"), Rec."Member License ID");
+                                TaskParams.Add(Rec.FieldName(Result), format(Rec.Result));
+                                CurrPage.EnqueueBackgroundTask(TaskID, codeunit::"JCA Send Result Mails", TaskParams);
+                            end else
+                                Rec.SendEventResultMail();
+                        end;
                     end;
                 }
                 field("Supervisor Comment"; Rec."Supervisor Comment")

@@ -86,6 +86,11 @@ table 50100 "JCA Setup"
             Caption = 'Result Card Logo';
             DataClassification = SystemMetadata;
         }
+        field(15; "Send Result Mails in Backgr."; Boolean)
+        {
+            Caption = 'Send Result Mails in Background';
+            DataClassification = SystemMetadata;
+        }
     }
 
     keys
