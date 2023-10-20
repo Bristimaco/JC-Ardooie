@@ -30,6 +30,7 @@ page 50142 "JCA Event Result Mail Editor"
                         trigger OnValidate()
                         begin
                             UpdateExampleData();
+                            UpdateExample();
                         end;
                     }
                     field("Event Result"; Rec."Event Result")
@@ -40,6 +41,7 @@ page 50142 "JCA Event Result Mail Editor"
                         trigger OnValidate()
                         begin
                             UpdateExampleData();
+                            UpdateExample();
                         end;
                     }
                 }
@@ -56,9 +58,7 @@ page 50142 "JCA Event Result Mail Editor"
 
                     begin
                         IsEditorReady := IsReady;
-
-                        // if IsEditorReady then
-                        //     FillAddIns();
+                        FillEditor();
                     end;
 
                     trigger ContentText(Contents: Text; IsText: Boolean)
@@ -81,22 +81,13 @@ page 50142 "JCA Event Result Mail Editor"
                     ApplicationArea = All;
 
                     trigger ControlAddInReady(IsReady: Boolean)
-
                     begin
                         IsExampleReady := IsReady;
+                        UpdateExample();
                     end;
                 }
             }
         }
-
-        // area(FactBoxes)
-        // {
-        //     part(MailTemplateExample; "JCA Mail Mess. Templ. Example")
-        //     {
-        //         ApplicationArea = all;
-        //         SubPageLink = "Mail Message Type" = field("Mail Message Type");
-        //     }
-        // }
     }
 
     actions
@@ -118,6 +109,7 @@ page 50142 "JCA Event Result Mail Editor"
                 begin
                     rec.ReadTemplateData(TemplateData);
                     FillEditor();
+                    UpdateExample();
                 end;
             }
             action(RefreshExample)
@@ -130,6 +122,7 @@ page 50142 "JCA Event Result Mail Editor"
                 PromotedOnly = true;
                 ApplicationArea = all;
                 ToolTip = ' ', Locked = true;
+                Visible = false;
 
                 trigger OnAction()
                 begin
@@ -139,7 +132,7 @@ page 50142 "JCA Event Result Mail Editor"
         }
     }
 
-    trigger OnAfterGetRecord()
+    trigger OnAfterGetCurrRecord()
     begin
         UpdateExampleData();
     end;
@@ -150,7 +143,7 @@ page 50142 "JCA Event Result Mail Editor"
     begin
         if not IsEditorReady then
             exit;
-
+        rec.ReadTemplateData(TemplateData);
         CurrPage.Editor.InitContent(true, true);
         CurrPage.Editor.SetContent(TypeHelper.HtmlEncode(TemplateData));
         CurrPage.Editor.SetContentType(true, true);
