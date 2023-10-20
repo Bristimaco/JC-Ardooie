@@ -828,6 +828,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Mail Message Template - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2297758446 - Field 2544561501 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Event No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Mail Message Template - Field Event No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2297758446 - Field 1362294623 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Result</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1882,6 +1887,31 @@
           <source>Upload File</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Documents - Action UploadFile - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3730409229 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Event Invitation Mail Editor</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Inv. Mail Editor - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3730409229 - Control 3704672220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Example Data</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Inv. Mail Editor - Control ExampleData - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3730409229 - Control 1962944699 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Editor</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Inv. Mail Editor - Control TemplateEditor - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3730409229 - Action 2647891866 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Load</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Inv. Mail Editor - Action Load - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3730409229 - Action 312197815 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Refresh Example</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Inv. Mail Editor - Action RefreshExample - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1338218060 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Participants</source>
