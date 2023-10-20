@@ -1365,6 +1365,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field Event Nos. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3008872625 - Field 1323299750 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invitation Reminder Period</source>
+          <target>Uitnodiging Herinnering Periode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field Invitation Reminder Period - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3008872625 - Field 3147487115 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Membership Renewal Period</source>
           <target>Lidmaatschap Vernieuwingsperiode</target>
@@ -1809,6 +1815,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Event Management - Method CheckAllInvitationsSent - NamedType ProceedWithUninvitedSupervisorsQst</note>
         </trans-unit>
+        <trans-unit id="Codeunit 839670745 - Method 1194482325 - NamedType 3822941128" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There are no supervisors in the Event</source>
+          <target>Er zijn geen begeleiders in het Evenement</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Event Management - Method CheckEventContent - NamedType NoSupervisorsInEventErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 839670745 - Method 1194482325 - NamedType 3933035277" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There are no participants in the Event</source>
+          <target>Er zijn geen deelnemers in het Evenement</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Event Management - Method CheckEventContent - NamedType NoParticipantsInEventErr</note>
+        </trans-unit>
         <trans-unit id="Codeunit 839670745 - Method 4190621622 - NamedType 3133060864" size-unit="char" translate="yes" xml:space="preserve">
           <source>There are participants in the event that have not applied for registration, do you want to continue?</source>
           <target>Er zijn deelnemers in dit Evenement die nog geen aanvraag tot inschrijving hebben gedaan, wilt u doorgaan?</target>
@@ -1850,6 +1868,12 @@
           <target>Bevestiging Inschrijving voor %1 - %2</target>
           <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method CreateEventRegistrationConfirmationMailContent - NamedType RegistrationConfirmationSubjectLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 122294278 - Method 2658703842 - NamedType 327091729" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invitation for %1 - %2</source>
+          <target>Uitnodiging voor %1 - %2</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method CreateEventReminderMailContent - NamedType InvitationSubjectLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 122294278 - Method 2772705083 - NamedType 2953683660" size-unit="char" translate="yes" xml:space="preserve">
           <source>Results for %1 - %2: %3</source>
@@ -2864,6 +2888,12 @@
           <target>Evenement Inschrijving Bevestiging</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Application Action - EnumValue Event Registration Confirmation Mail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2648201168 - EnumValue 3511688973 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Event Reminder Mail</source>
+          <target>Evenement Herinnering Mail</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Application Action - EnumValue Event Reminder Mail - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2648201168 - EnumValue 3747132748 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Unregistration Confirmation</source>
