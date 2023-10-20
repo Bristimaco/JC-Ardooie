@@ -1908,25 +1908,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Result Mail Editor - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 965938119 - Control 1015418339 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Editor</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Result Mail Editor - Control Editor - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 965938119 - Control 3704672220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Example Data</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Result Mail Editor - Control ExampleData - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 965938119 - Control 1962944699 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Editor</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Result Mail Editor - Control TemplateEditor - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 965938119 - Action 2647891866 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Load</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Result Mail Editor - Action Load - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 965938119 - Action 3865570867 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Save</source>
+        <trans-unit id="Page 965938119 - Action 312197815 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Refresh Example</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Result Mail Editor - Action Save - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Result Mail Editor - Action RefreshExample - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4077158621 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Supervisor Sheet</source>

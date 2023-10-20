@@ -21,9 +21,27 @@ page 50143 "JCA Mail Mess. Templ. Example"
                     trigger ControlAddInReady(callbackUrl: Text)
                     begin
                         IsReady := true;
+                        CurrPage.MailTemlateData.SetContent(ExampleData);
                     end;
                 }
-                field(Delimiter; '')
+            }
+
+            group(PageSizer)
+            {
+                ShowCaption = false;
+                Visible = ShowPageSizer;
+
+                field("Mail Message Type"; Rec."Mail Message Type")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("Mail Template Data"; Rec."Mail Template Data")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field(TemplateHasValue; Rec."Mail Template Data".HasValue)
                 {
                     ShowCaption = false;
                     ApplicationArea = all;
@@ -33,17 +51,29 @@ page 50143 "JCA Mail Mess. Templ. Example"
         }
     }
 
+    trigger OnOpenPage()
+    begin
+        ShowPageSizer := true;
+    end;
+
+    trigger OnAfterGetCurrRecord()
+    begin
+        ShowPageSizer := false;
+    end;
+
     procedure FillAddIn(ExampleContent: Text)
     var
         TypeHelper: codeunit "Type Helper";
-        HTMLContent: Text;
     begin
+        ExampleData := TypeHelper.HtmlDecode(ExampleContent);
         if IsReady then begin
-            HTMLContent := TypeHelper.HtmlDecode(ExampleContent);
-            CurrPage.MailTemlateData.SetContent(ExampleContent);
+            CurrPage.MailTemlateData.SetContent(ExampleData);
+            CurrPage.update();
         end;
     end;
 
     var
         IsReady: Boolean;
+        ShowPageSizer: Boolean;
+        ExampleData: Text;
 }

@@ -44,53 +44,59 @@ page 50142 "JCA Event Result Mail Editor"
                     }
                 }
             }
-            group(Editor)
+            group(TemplateEditor)
             {
                 Caption = 'Editor';
 
-                usercontrol(TinyMCEEditor; TinyMCEEditor)
+                usercontrol(Editor; TinyMCEEditor)
                 {
                     ApplicationArea = All;
 
                     trigger ControlAddInReady(IsReady: Boolean)
 
                     begin
-                        IsControlAddInReady := IsReady;
-                        if (not IsControlAddInReady) then
-                            exit;
+                        IsEditorReady := IsReady;
 
-                        CurrPage.TinyMCEEditor.InitContent(true, true);
-                        rec.ReadTemplateData(TemplateData);
-                        CurrPage.TinyMCEEditor.SetContent(TemplateData);
+                        // if IsEditorReady then
+                        //     FillAddIns();
                     end;
-
-                    trigger DocumentReady(IsReady: Boolean)
-                    begin
-                        IsDocumentReady := IsReady;
-                    end;
-
 
                     trigger ContentText(Contents: Text; IsText: Boolean)
                     var
                         TypeHelper: codeunit "Type Helper";
                     begin
-                        Message(Contents);
                         TemplateData := TypeHelper.HtmlDecode(Contents);
                         Rec.WriteTemplateData(TemplateData);
                         UpdateExample();
+                    end;
+
+                    trigger ContentHasSaved()
+                    begin
+                        CurrPage.Editor.GetContent();
+                    end;
+                }
+
+                usercontrol(Example; TinyMCEEditor)
+                {
+                    ApplicationArea = All;
+
+                    trigger ControlAddInReady(IsReady: Boolean)
+
+                    begin
+                        IsExampleReady := IsReady;
                     end;
                 }
             }
         }
 
-        area(FactBoxes)
-        {
-            part(MailTemplateExample; "JCA Mail Mess. Templ. Example")
-            {
-                ApplicationArea = all;
-                SubPageLink = "Mail Message Type" = field("Mail Message Type");
-            }
-        }
+        // area(FactBoxes)
+        // {
+        //     part(MailTemplateExample; "JCA Mail Mess. Templ. Example")
+        //     {
+        //         ApplicationArea = all;
+        //         SubPageLink = "Mail Message Type" = field("Mail Message Type");
+        //     }
+        // }
     }
 
     actions
@@ -110,13 +116,14 @@ page 50142 "JCA Event Result Mail Editor"
 
                 trigger OnAction()
                 begin
-                    FillAddIns();
+                    rec.ReadTemplateData(TemplateData);
+                    FillEditor();
                 end;
             }
-            action(Save)
+            action(RefreshExample)
             {
-                Caption = 'Save';
-                Image = Save;
+                Caption = 'Refresh Example';
+                Image = Refresh;
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
@@ -126,7 +133,7 @@ page 50142 "JCA Event Result Mail Editor"
 
                 trigger OnAction()
                 begin
-                    CurrPage.TinyMCEEditor.GetContent()
+                    UpdateExample();
                 end;
             }
         }
@@ -134,31 +141,41 @@ page 50142 "JCA Event Result Mail Editor"
 
     trigger OnAfterGetRecord()
     begin
-        FillAddIns();
+        UpdateExampleData();
     end;
 
-    local procedure FillAddIns()
+    local procedure FillEditor()
     var
         TypeHelper: codeunit "Type Helper";
     begin
-        rec.ReadTemplateData(TemplateData);
-        CurrPage.TinyMCEEditor.SetContent(TypeHelper.HtmlEncode(TemplateData));
-        CurrPage.TinyMCEEditor.SetContentType(true, true);
-        UpdateExampleData();
+        if not IsEditorReady then
+            exit;
+
+        CurrPage.Editor.InitContent(true, true);
+        CurrPage.Editor.SetContent(TypeHelper.HtmlEncode(TemplateData));
+        CurrPage.Editor.SetContentType(true, true);
     end;
 
     local procedure UpdateExample()
     var
+        TypeHelper: codeunit "Type Helper";
         ExampleHTML: Text;
     begin
-        ExampleHTML := StrSubstNo(TemplateData, ResultCardLogo, MemberPicture, ResultImage, MemberName, ResultText);
-        CurrPage.MailTemplateExample.Page.FillAddIn(ExampleHTML);
+        if not IsExampleReady then
+            exit;
+        ExampleHTML := TemplateData;
+        ExampleHTML := TypeHelper.HtmlDecode(ExampleHTML);
+        ExampleHTML := StrSubstNo(ExampleHTML, ResultCardLogo, MemberPicture, ResultImage, MemberName, ResultText);
+        //CurrPage.MailTemplateExample.Page.FillAddIn(ExampleHTML);
+        CurrPage.Example.InitContent(false, true);
+        CurrPage.Example.SetContent(ExampleHTML);
+        CurrPage.Example.SetContentType(false, true);
     end;
 
     trigger OnQueryClosePage(CloseAction: Action): Boolean
     begin
-        if IsControlAddInReady AND IsDocumentReady then
-            CurrPage.TinyMCEEditor.SetDispose();
+        if IsEditorReady then
+            CurrPage.Editor.SetDispose();
     end;
 
     local procedure UpdateExampleData()
@@ -185,14 +202,13 @@ page 50142 "JCA Event Result Mail Editor"
             ResultImage := JCAResultImage.GetImage();
             ResultText := UpperCase(format(JCAResultImage.Result));
         end;
-        UpdateExample();
     end;
 
 
 
     var
-        IsDocumentReady: Boolean;
-        IsControlAddInReady: Boolean;
+        IsEditorReady: Boolean;
+        IsExampleReady: Boolean;
         TemplateData: Text;
         ResultCardLogo: Text;
         MemberPicture: Text;
