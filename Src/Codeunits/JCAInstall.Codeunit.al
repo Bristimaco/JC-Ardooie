@@ -6,6 +6,7 @@ codeunit 50106 "JCA Install"
     begin
         InstallMemberships();
         ManageResultImages();
+        ManageMailMessageTemplates();
     end;
 
     local procedure InstallMemberships()
@@ -56,6 +57,25 @@ codeunit 50106 "JCA Install"
                 JCAResultImage.init();
                 JCAResultImage.validate(Result, CurrJCAEventResult);
                 JCAResultImage.insert(true);
+            end;
+        end;
+    end;
+
+    local procedure ManageMailMessageTemplates()
+    var
+        JCAMailMessageTemplate: record "JCA Mail Message Template";
+        JCAMailMessageType: Enum "JCA Mail Message Type";
+        CurrJCAMailMessageType: Enum "JCA Mail Message Type";
+        ResultIndex: Integer;
+    begin
+        foreach ResultIndex in JCAMailMessageType.Ordinals() do begin
+            CurrJCAMailMessageType := enum::"JCA Mail Message Type".FromInteger(ResultIndex);
+            JCAMailMessageTemplate.Reset();
+            if not JCAMailMessageTemplate.get(CurrJCAMailMessageType) then begin
+                JCAMailMessageTemplate.Reset();
+                JCAMailMessageTemplate.init();
+                JCAMailMessageTemplate.validate("Mail Message Type", CurrJCAMailMessageType);
+                JCAMailMessageTemplate.insert(true);
             end;
         end;
     end;

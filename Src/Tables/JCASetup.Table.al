@@ -91,6 +91,13 @@ table 50100 "JCA Setup"
             Caption = 'Send Result Mails in Background';
             DataClassification = SystemMetadata;
         }
+        field(16; "Mail Message Templates"; Integer)
+        {
+            Caption = 'Mail Message Templates';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Mail Message Template");
+            Editable = false;
+        }
     }
 
     keys

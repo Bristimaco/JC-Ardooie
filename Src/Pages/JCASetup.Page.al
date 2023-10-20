@@ -100,6 +100,11 @@ page 50100 "JCA Setup"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field("Mail Message Templates"; Rec."Mail Message Templates")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
             }
         }
 
