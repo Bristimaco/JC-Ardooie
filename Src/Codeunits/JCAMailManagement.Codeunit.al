@@ -524,8 +524,7 @@ codeunit 50104 "JCA Mail Management"
         end;
 
         Clear(MailBody);
-        if UseTemplate then begin
-            Message('Using Template');
+        if UseTemplate then begin            
             EMailTemplate := StrSubstNo(EMailTemplate, ResultCardLogo, MemberPicture, ResultImage, JCAEventParticipant."Member Full Name", UpperCase(format(JCAEventParticipant.Result)));
             MailBody.AppendLine(EMailTemplate);
         end else begin
