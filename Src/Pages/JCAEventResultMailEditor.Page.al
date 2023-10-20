@@ -152,16 +152,14 @@ page 50142 "JCA Event Result Mail Editor"
     local procedure UpdateExample()
     var
         TypeHelper: codeunit "Type Helper";
-        ExampleHTML: Text;
+        ExampleHtml: text;
     begin
         if not IsExampleReady then
             exit;
-        ExampleHTML := TemplateData;
-        ExampleHTML := TypeHelper.HtmlDecode(ExampleHTML);
-        ExampleHTML := StrSubstNo(ExampleHTML, ResultCardLogo, MemberPicture, ResultImage, MemberName, ResultText);
-        //CurrPage.MailTemplateExample.Page.FillAddIn(ExampleHTML);
+        UpdateExampleData();
+        ExampleHtml := TypeHelper.HtmlDecode(EmailContent);
         CurrPage.Example.InitContent(false, true);
-        CurrPage.Example.SetContent(ExampleHTML);
+        CurrPage.Example.SetContent(EmailContent);
         CurrPage.Example.SetContentType(false, true);
     end;
 
@@ -172,40 +170,13 @@ page 50142 "JCA Event Result Mail Editor"
     end;
 
     local procedure UpdateExampleData()
-    var
-        JCAMember: record "JCA Member";
-        JCASetup: Record "JCA Setup";
-        JCAResultImage: Record "JCA Result Image";
     begin
-        MemberPicture := '';
-        JCAMember.Reset();
-        if JCAMember.get(rec."Member License ID") then begin
-            MemberPicture := JCAMember.GetPicture();
-            MemberName := JCAMember."Full Name";
-        end;
-
-        ResultCardLogo := '';
-        JCASetup.Reset();
-        JCASetup.get();
-        ResultCardLogo := JCASetup.GetResultCardLogo();
-
-        ResultImage := '';
-        JCAResultImage.Reset();
-        if JCAResultImage.get(rec."Event Result") then begin
-            ResultImage := JCAResultImage.GetImage();
-            ResultText := UpperCase(format(JCAResultImage.Result));
-        end;
+        EmailContent := Rec.ReturnEventResultMailContent(rec."Member License ID", Rec."Event Result");
     end;
-
-
 
     var
         IsEditorReady: Boolean;
         IsExampleReady: Boolean;
         TemplateData: Text;
-        ResultCardLogo: Text;
-        MemberPicture: Text;
-        ResultImage: Text;
-        MemberName: Text;
-        ResultText: Text;
+        EmailContent: Text;
 }

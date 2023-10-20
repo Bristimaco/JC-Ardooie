@@ -152,13 +152,14 @@ page 50143 "JCA Event Inv. Mail Editor"
     local procedure UpdateExample()
     var
         TypeHelper: codeunit "Type Helper";
+        ExampleHtml: text;
     begin
         if not IsExampleReady then
             exit;
-
-        //CurrPage.MailTemplateExample.Page.FillAddIn(ExampleHTML);
+        UpdateExampleData();
+        ExampleHtml := TypeHelper.HtmlDecode(EmailContent);
         CurrPage.Example.InitContent(false, true);
-        CurrPage.Example.SetContent(EmailContent);
+        CurrPage.Example.SetContent(ExampleHtml);
         CurrPage.Example.SetContentType(false, true);
     end;
 
@@ -173,22 +174,9 @@ page 50143 "JCA Event Inv. Mail Editor"
         EmailContent := Rec.ReturnInvitationMailContent(rec."Member License ID", rec."Event No.");
     end;
 
-
-
-
-
     var
         IsEditorReady: Boolean;
         IsExampleReady: Boolean;
         TemplateData: Text;
         EmailContent: Text;
-        ResultCardLogo: Text;
-        MemberName: Text;
-        ResultText: Text;
-        EventDescription: Text;
-        EventAddress: Text;
-        EventPostCode: Text;
-        EventCity: Text;
-        EventDate: Text;
-        RegistrationDueDate: text;
 }
