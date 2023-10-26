@@ -71,8 +71,14 @@ table 50105 "JCA Training Session"
             TableRelation = Customer."No.";
 
             trigger OnValidate()
+            var
+                JCASetup: Record "JCA Setup";
             begin
                 CalcFields("Invoice To Customer Name");
+                JCASetup.Reset();
+                JCASetup.get();
+                validate("Invoice Method", JCASetup."Def. Training Invoice Method");
+                Validate("Invoice Fee", JCASetup."Def. Training Fixed Fee");
             end;
         }
         Field(10; "Invoice To Customer Name"; Text[100])
@@ -97,6 +103,16 @@ table 50105 "JCA Training Session"
         field(13; Invoiced; Boolean)
         {
             Caption = 'Invoiced';
+            DataClassification = SystemMetadata;
+        }
+        field(14; "Invoice Method"; enum "JCA Training Invoice Method")
+        {
+            Caption = 'Invoice Method';
+            DataClassification = SystemMetadata;
+        }
+        field(15; "Invoice Fee"; Decimal)
+        {
+            Caption = 'Invoice Fee';
             DataClassification = SystemMetadata;
         }
     }

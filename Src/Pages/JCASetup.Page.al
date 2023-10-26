@@ -37,6 +37,11 @@ page 50100 "JCA Setup"
             {
                 Caption = 'Invoicing';
 
+                field("Def. Training Invoice Method"; Rec."Def. Training Invoice Method")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
                 field("Training G/L Account No."; Rec."Training G/L Account No.")
                 {
                     ApplicationArea = all;
@@ -53,6 +58,11 @@ page 50100 "JCA Setup"
                     ToolTip = ' ', locked = true;
                 }
                 field("Trainer Unit Price"; Rec."Trainer Unit Price")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("Def. Training Fixed Fee"; Rec."Def. Training Fixed Fee")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;

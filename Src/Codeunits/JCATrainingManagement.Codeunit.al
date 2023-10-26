@@ -207,6 +207,7 @@ codeunit 50101 "JCA Training Management"
         SalesHeader: Record "Sales Header";
         SalesLine: record "Sales Line";
         JCASetup: Record "JCA Setup";
+        SalesLineType: enum "Sales Line Type";
         LineNo: Integer;
         NoParticipantsToInvoiceErr: label 'No participants to Invoice.';
         NoTrainersToInvoiceErr: label 'No trainers to Invoice';
@@ -220,25 +221,39 @@ codeunit 50101 "JCA Training Management"
         ParticipantJCATrSessionParticipant.setrange("Training Session No.", JCATrainingSession."No.");
         ParticipantJCATrSessionParticipant.setrange(Participation, true);
         ParticipantJCATrSessionParticipant.setrange("Participant Type", ParticipantJCATrSessionParticipant."Participant Type"::Judoka);
-        if ParticipantJCATrSessionParticipant.IsEmpty() then
-            error(NoParticipantsToInvoiceErr);
+        if JCATrainingSession."Invoice Method" = JCATrainingSession."Invoice Method"::"Participant Based" then
+            if ParticipantJCATrSessionParticipant.IsEmpty() then
+                error(NoParticipantsToInvoiceErr);
 
         TrainerJCATrSessionParticipant.Reset();
         TrainerJCATrSessionParticipant.setrange("Training Session No.", JCATrainingSession."No.");
         TrainerJCATrSessionParticipant.setrange(Participation, true);
         TrainerJCATrSessionParticipant.setrange("Participant Type", TrainerJCATrSessionParticipant."Participant Type"::Trainer);
-        if TrainerJCATrSessionParticipant.IsEmpty() then
-            error(NoTrainersToInvoiceErr);
+        if JCATrainingSession."Invoice Method" = JCATrainingSession."Invoice Method"::"Participant Based" then
+            if TrainerJCATrSessionParticipant.IsEmpty() then
+                error(NoTrainersToInvoiceErr);
 
         JCASetup.Reset();
         JCASetup.Get();
         JCASetup.testfield("Training G/L Account No.");
-        JCASetup.TestField("Participant Unit Price");
+        case JCATrainingSession."Invoice Method" of
+            JCATrainingSession."Invoice Method"::"Participant Based":
+                begin
+                    JCASetup.TestField("Participant Unit Price");
+                    SalesLineType := SalesLineType::"G/L Account";
+                end;
+            JCATrainingSession."Invoice Method"::"Fixed Fee":
+                begin
+                    JCATrainingSession.testfield("Invoice Fee");
+                    SalesLineType := SalesLineType::" ";
+                end;
+        end;
 
         SalesHeader.Reset();
         SalesHeader.init();
         SalesHeader.validate("Document Type", SalesHeader."Document Type"::Invoice);
         if SalesHeader.insert(true) then begin
+
             JCATrainingSession.validate("Invoice No.", SalesHeader."No.");
             JCATrainingSession.validate(Invoiced, true);
             JCATrainingSession.modify(true);
@@ -253,22 +268,34 @@ codeunit 50101 "JCA Training Management"
             SalesLine.validate(Description, JCATrainingSession.ReturnTrainingInvoiceDescription());
             SalesLine.modify(true);
 
+            if JCATrainingSession."Invoice Method" = JCATrainingSession."Invoice Method"::"Fixed Fee" then begin
+                CreateNewInvoiceLine(SalesLine, SalesHeader, LineNo);
+                CreateNewInvoiceLine(SalesLine, SalesHeader, LineNo);
+                SalesLine.validate(Type, SalesLine.type::"G/L Account");
+                SalesLine.validate("No.", JCASetup."Training G/L Account No.");
+                SalesLine.validate(Quantity, 1);
+                salesline.validate("Unit Price", JCATrainingSession."Invoice Fee");
+                SalesLine.modify();
+            end;
+
             CreateNewInvoiceLine(SalesLine, SalesHeader, LineNo);
             CreateNewInvoiceLine(SalesLine, SalesHeader, LineNo);
             SalesLine.validate(Type, SalesLine.type::" ");
             SalesLine.validate(Description, TrainersLbl);
             SalesLine.modify();
 
-            TrainerJCATrSessionParticipant.findset();
-            repeat
-                CreateNewInvoiceLine(SalesLine, SalesHeader, LineNo);
-                SalesLine.Validate(Type, SalesLine.Type::"G/L Account");
-                SalesLine.validate("No.", JCASetup."Training G/L Account No.");
-                SalesLine.validate(Description, TrainerJCATrSessionParticipant.ReturnTrainingInvoiceDescription());
-                SalesLine.validate(Quantity, 1);
-                SalesLine.Validate("Unit Price", JCASetup."Trainer Unit Price");
-                SalesLine.modify();
-            until TrainerJCATrSessionParticipant.Next() = 0;
+            if TrainerJCATrSessionParticipant.findset() then
+                repeat
+                    CreateNewInvoiceLine(SalesLine, SalesHeader, LineNo);
+                    SalesLine.Validate(Type, SalesLineType);
+                    if SalesLineType <> SalesLineType::" " then begin
+                        SalesLine.validate("No.", JCASetup."Training G/L Account No.");
+                        SalesLine.validate(Quantity, 1);
+                        SalesLine.Validate("Unit Price", JCASetup."Trainer Unit Price");
+                    end;
+                    SalesLine.validate(Description, TrainerJCATrSessionParticipant.ReturnTrainingInvoiceDescription());
+                    SalesLine.modify();
+                until TrainerJCATrSessionParticipant.Next() = 0;
 
             CreateNewInvoiceLine(SalesLine, SalesHeader, LineNo);
             CreateNewInvoiceLine(SalesLine, SalesHeader, LineNo);
@@ -276,16 +303,18 @@ codeunit 50101 "JCA Training Management"
             SalesLine.validate(Description, ParticipantsLbl);
             SalesLine.modify();
 
-            ParticipantJCATrSessionParticipant.Findset();
-            repeat
-                CreateNewInvoiceLine(SalesLine, SalesHeader, LineNo);
-                SalesLine.Validate(Type, SalesLine.Type::"G/L Account");
-                SalesLine.validate("No.", JCASetup."Training G/L Account No.");
-                SalesLine.validate(Description, ParticipantJCATrSessionParticipant.ReturnTrainingInvoiceDescription());
-                SalesLine.validate(Quantity, 1);
-                SalesLine.Validate("Unit Price", JCASetup."Participant Unit Price");
-                SalesLine.modify();
-            until ParticipantJCATrSessionParticipant.Next() = 0;
+            if ParticipantJCATrSessionParticipant.Findset() then
+                repeat
+                    CreateNewInvoiceLine(SalesLine, SalesHeader, LineNo);
+                    SalesLine.Validate(Type, SalesLineType);
+                    if SalesLineType <> SalesLineType::" " then begin
+                        SalesLine.validate("No.", JCASetup."Training G/L Account No.");
+                        SalesLine.validate(Quantity, 1);
+                        SalesLine.Validate("Unit Price", JCASetup."Participant Unit Price");
+                    end;
+                    SalesLine.validate(Description, ParticipantJCATrSessionParticipant.ReturnTrainingInvoiceDescription());
+                    SalesLine.modify();
+                until ParticipantJCATrSessionParticipant.Next() = 0;
         end;
 
         if OpenInvoiceCard then

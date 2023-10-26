@@ -2,6 +2,7 @@ page 50113 "JCA Training Session Card"
 {
     Caption = 'Training Session Card';
     PageType = Card;
+    UsageCategory = None;
     SourceTable = "JCA Training Session";
     InsertAllowed = false;
     DeleteAllowed = true;
@@ -67,6 +68,16 @@ page 50113 "JCA Training Session Card"
                         ToolTip = ' ', Locked = true;
                     }
                     field("Invoice To Customer Name"; Rec."Invoice To Customer Name")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                    field("Invoice Method"; Rec."Invoice Method")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                    field("Invoice Fee"; Rec."Invoice Fee")
                     {
                         ApplicationArea = all;
                         ToolTip = ' ', Locked = true;

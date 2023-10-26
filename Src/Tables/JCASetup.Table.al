@@ -98,6 +98,16 @@ table 50100 "JCA Setup"
             CalcFormula = count("JCA Mail Message Template");
             Editable = false;
         }
+        field(17; "Def. Training Invoice Method"; enum "JCA Training Invoice Method")
+        {
+            Caption = 'Default Training Invoice Method';
+            DataClassification = SystemMetadata;
+        }
+        field(18; "Def. Training Fixed Fee"; Decimal)
+        {
+            Caption = 'Default Training Fixed Fee';
+            DataClassification = SystemMetadata;
+        }
     }
 
     keys
