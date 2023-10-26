@@ -116,6 +116,17 @@ page 50100 "JCA Setup"
                     ToolTip = ' ', Locked = true;
                 }
             }
+
+            group(HTMLGenerator)
+            {
+                Caption = 'HTML Generator';
+
+                field("HTML Gen. CSS Templates"; Rec."HTML Gen. CSS Templates")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+            }
         }
 
         area(FactBoxes)
@@ -204,7 +215,7 @@ page 50100 "JCA Setup"
                 ToolTip = ' ', Locked = true;
                 RunObject = page "JCA Action Logs";
                 Image = Log;
-            }
+            }            
         }
     }
 

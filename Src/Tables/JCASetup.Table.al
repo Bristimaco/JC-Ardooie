@@ -108,6 +108,13 @@ table 50100 "JCA Setup"
             Caption = 'Default Training Fixed Fee';
             DataClassification = SystemMetadata;
         }
+        field(19; "HTML Gen. CSS Templates"; Integer)
+        {
+            Caption = 'HTML Gen. CSS Templates';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA HTML Gen. CSS Template");
+            Editable = false;
+        }
     }
 
     keys

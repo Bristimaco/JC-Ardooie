@@ -1,7 +1,7 @@
-page 50142 "JCA Event Result Mail Editor"
+page 50145 "JCA HTML Gen. CSS Editor"
 {
-    Caption = 'Event Result Mail Editor';
-    SourceTable = "JCA Mail Message Template";
+    Caption = 'HTML Gen. CSS Template Editor';
+    SourceTable = "JCA HTML Gen. CSS Template";
     PageType = Card;
     InsertAllowed = false;
     DeleteAllowed = false;
@@ -13,7 +13,7 @@ page 50142 "JCA Event Result Mail Editor"
         {
             group(Template)
             {
-                Field("Mail Message Type"; Rec."Mail Message Type")
+                field("HTML Gen. CSS Type"; Rec."HTML Gen. CSS Type")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
@@ -23,27 +23,15 @@ page 50142 "JCA Event Result Mail Editor"
                 {
                     Caption = 'Example Data';
 
-                    field("Member License ID"; Rec."Member License ID")
+                    field("Start Date"; Rec."Start Date")
                     {
                         ApplicationArea = all;
                         ToolTip = ' ', Locked = true;
-
-                        trigger OnValidate()
-                        begin
-                            UpdateExampleData();
-                            UpdateExample();
-                        end;
                     }
-                    field("Event Result"; Rec."Event Result")
+                    field("End Date"; Rec."End Date")
                     {
                         ApplicationArea = all;
                         ToolTip = ' ', Locked = true;
-
-                        trigger OnValidate()
-                        begin
-                            UpdateExampleData();
-                            UpdateExample();
-                        end;
                     }
                 }
             }
@@ -68,23 +56,11 @@ page 50142 "JCA Event Result Mail Editor"
                     begin
                         TemplateData := TypeHelper.HtmlDecode(Contents);
                         Rec.WriteTemplateData(TemplateData);
-                        UpdateExample();
                     end;
 
                     trigger ContentHasSaved()
                     begin
                         CurrPage.Editor.GetContent();
-                    end;
-                }
-
-                usercontrol(Example; TinyMCEEditor)
-                {
-                    ApplicationArea = All;
-
-                    trigger ControlAddInReady(IsReady: Boolean)
-                    begin
-                        IsExampleReady := IsReady;
-                        UpdateExample();
                     end;
                 }
             }
@@ -110,33 +86,47 @@ page 50142 "JCA Event Result Mail Editor"
                 begin
                     rec.ReadTemplateData(TemplateData);
                     FillEditor();
-                    UpdateExample();
                 end;
             }
-            action(RefreshExample)
+
+            action(GenerateExample)
             {
-                Caption = 'Refresh Example';
-                Image = Refresh;
+                Caption = 'Generate Example';
+                ApplicationArea = all;
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
                 PromotedOnly = true;
-                ApplicationArea = all;
                 ToolTip = ' ', Locked = true;
-                Visible = false;
+                Image = Web;
 
                 trigger OnAction()
+                var
+                    JCAHTMLGenerator: codeunit "JCA HTML Generator";
+                    TempBlob: codeunit "Temp Blob";
+                    HTMLContent: Text;
+                    FileName: Text;
+                    InStream: InStream;
+                    OutStream: OutStream;
                 begin
-                    UpdateExample();
+                    Clear(JCAHTMLGenerator);
+                    case Rec."HTML Gen. CSS Type" of
+                        enum::"JCA HTML Gen. CSS Type"::Calendar:
+                            begin
+                                rec.TestField("Start Date");
+                                rec.TestField("End Date");
+                                HTMLContent := JCAHTMLGenerator.GenerateCalendarHTML(rec."Start Date", rec."End Date");
+                                FileName := format(Rec."HTML Gen. CSS Type") + '.html';
+                            end;
+                    end;
+                    TempBlob.CreateOutStream(OutStream);
+                    OutStream.WriteText(HTMLContent);
+                    TempBlob.CreateInStream(InStream);
+                    DownloadFromStream(InStream, '', '', '', FileName);
                 end;
             }
         }
     }
-
-    trigger OnAfterGetCurrRecord()
-    begin
-        UpdateExampleData();
-    end;
 
     local procedure FillEditor()
     var
@@ -150,34 +140,13 @@ page 50142 "JCA Event Result Mail Editor"
         CurrPage.Editor.SetContentType(true, true);
     end;
 
-    local procedure UpdateExample()
-    var
-        TypeHelper: codeunit "Type Helper";
-        ExampleHtml: text;
-    begin
-        if not IsExampleReady then
-            exit;
-        UpdateExampleData();
-        ExampleHtml := TypeHelper.HtmlDecode(EmailContent);
-        CurrPage.Example.InitContent(false, true);
-        CurrPage.Example.SetContent(EmailContent);
-        CurrPage.Example.SetContentType(false, true);
-    end;
-
     trigger OnQueryClosePage(CloseAction: Action): Boolean
     begin
         if IsEditorReady then
             CurrPage.Editor.SetDispose();
     end;
 
-    local procedure UpdateExampleData()
-    begin
-        EmailContent := Rec.ReturnEventResultMailContent(rec."Member License ID", Rec."Event Result");
-    end;
-
     var
         IsEditorReady: Boolean;
-        IsExampleReady: Boolean;
         TemplateData: Text;
-        EmailContent: Text;
 }

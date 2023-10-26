@@ -286,4 +286,37 @@ table 50110 "JCA Event"
         JCAEventSupervisor.setrange("Event No.", Rec."No.");
         exit(JCAEventSupervisor.findset());
     end;
+
+    procedure ReturnAgeGroupsText(): Text
+    var
+        JCAEventAgeGroup: record "JCA Event Age Group";
+        AgeGroups: list of [Text];
+        AgeGroup: text;
+        FirstAgeGroup: Boolean;
+        ReturnValue: Text;
+    begin
+        ReturnValue := '';
+        clear(AgeGroups);
+        JCAEventAgeGroup.Reset();
+        JCAEventAgeGroup.setrange("Event No.", rec."No.");
+        if JCAEventAgeGroup.findset() then
+            repeat
+                if not AgeGroups.Contains(JCAEventAgeGroup."Age Group Code") then
+                    AgeGroups.Add(JCAEventAgeGroup."Age Group Code");
+            until JCAEventAgeGroup.Next() = 0;
+        if AgeGroups.Count() > 0 then begin
+            ReturnValue := '(';
+            FirstAgeGroup := true;
+            foreach AgeGroup in agegroups do begin
+                if not FirstAgeGroup then
+                    ReturnValue += ',';
+                if AgeGroup <> '' then begin
+                    ReturnValue += AgeGroup;
+                    FirstAgeGroup := false;
+                end;
+            end;
+            ReturnValue := ReturnValue + ')';
+            exit(ReturnValue);
+        end;
+    end;
 }

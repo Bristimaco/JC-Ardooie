@@ -7,6 +7,7 @@ codeunit 50106 "JCA Install"
         InstallMemberships();
         ManageResultImages();
         ManageMailMessageTemplates();
+        ManageHTMLGeneratorCSSTypes();
     end;
 
     local procedure InstallMemberships()
@@ -76,6 +77,25 @@ codeunit 50106 "JCA Install"
                 JCAMailMessageTemplate.init();
                 JCAMailMessageTemplate.validate("Mail Message Type", CurrJCAMailMessageType);
                 JCAMailMessageTemplate.insert(true);
+            end;
+        end;
+    end;
+
+    local procedure ManageHTMLGeneratorCSSTypes()
+    var
+        JCAHTMLGenCSSTemplate: record "JCA HTML Gen. CSS Template";
+        JCAHTMLGenCSSType: Enum "JCA HTML Gen. CSS Type";
+        CurrHTMLGenCSSType: Enum "JCA HTML Gen. CSS Type";
+        ResultIndex: Integer;
+    begin
+        foreach ResultIndex in JCAHTMLGenCSSType.Ordinals() do begin
+            CurrHTMLGenCSSType := enum::"JCA HTML Gen. CSS Type".FromInteger(ResultIndex);
+            JCAHTMLGenCSSTemplate.Reset();
+            if not JCAHTMLGenCSSTemplate.get(CurrHTMLGenCSSType) then begin
+                JCAHTMLGenCSSTemplate.Reset();
+                JCAHTMLGenCSSTemplate.init();
+                JCAHTMLGenCSSTemplate.validate("HTML Gen. CSS Type", CurrHTMLGenCSSType);
+                JCAHTMLGenCSSTemplate.insert(true);
             end;
         end;
     end;

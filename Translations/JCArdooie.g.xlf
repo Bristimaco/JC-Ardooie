@@ -828,6 +828,31 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Guest Member Tr. Group - Field Training Group Description - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2936469216 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>HTML Generator CSS Template</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA HTML Gen. CSS Template - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2936469216 - Field 4012492629 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CSS Template Data</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA HTML Gen. CSS Template - Field CSS Template Data - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2936469216 - Field 2649176925 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>End Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA HTML Gen. CSS Template - Field End Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2936469216 - Field 2298833632 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>HTML Gen. CSS Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA HTML Gen. CSS Template - Field HTML Gen. CSS Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2936469216 - Field 474480784 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Start Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA HTML Gen. CSS Template - Field Start Date - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2297758446 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Mail Message Template</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1202,6 +1227,11 @@
           <source>Event Nos.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field Event Nos. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3008872625 - Field 2417620817 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>HTML Gen. CSS Templates</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field HTML Gen. CSS Templates - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3008872625 - Field 1323299750 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invitation Reminder Period</source>
@@ -2098,6 +2128,46 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Guest Members - Control TrainingGroups - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2688513639 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>HTML Gen. CSS Template Editor</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA HTML Gen. CSS Editor - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2688513639 - Control 3704672220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Example Data</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA HTML Gen. CSS Editor - Control ExampleData - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2688513639 - Control 1962944699 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Editor</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA HTML Gen. CSS Editor - Control TemplateEditor - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2688513639 - Action 716721117 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Generate Example</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA HTML Gen. CSS Editor - Action GenerateExample - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2688513639 - Action 2647891866 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Load</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA HTML Gen. CSS Editor - Action Load - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3028334049 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>HTML Gen. CSS Templates</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA HTML Gen. CSS Templates - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3028334049 - Control 3777526070 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Has Template</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA HTML Gen. CSS Templates - Control HasTemplate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3028334049 - Action 3328267552 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Edit Template</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA HTML Gen. CSS Templates - Action EditTemplate - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 485779963 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Mail Message Templates</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2327,6 +2397,11 @@
           <source>Setup</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3008872625 - Control 3138826114 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>HTML Generator</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup - Control HTMLGenerator - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3008872625 - Control 1450094168 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoicing</source>
@@ -2762,6 +2837,11 @@
           <source>Payed by Participant</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Fee Payment - EnumValue Payed by Participant - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 4055301008 - EnumValue 188785238 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calendar</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum JCA HTML Gen. CSS Type - EnumValue Calendar - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3627184078 - EnumValue 3457628887 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Registration</source>
