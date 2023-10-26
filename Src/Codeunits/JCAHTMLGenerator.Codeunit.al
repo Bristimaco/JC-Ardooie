@@ -1,5 +1,19 @@
 codeunit 50108 "JCA HTML Generator"
 {
+    procedure GenerateEventRsultHTML(JCAEvent: Record "JCA Event"): Text
+    var
+        HTMLContent: TextBuilder;
+    begin
+        CreateHTMLHeader(HTMLContent, enum::"JCA HTML Gen. CSS Type"::"Event Result");
+        CreateTable(HTMLContent, 'eventresultheader');
+        CreateRow(HTMLContent,'eventresult');
+        CreateDataValue(HTMLContent,JCAEvent.Description,'eventresulttitle');        
+        CloseRow(HTMLContent);
+        CloseTable(HTMLContent);
+        CreateHTMLFooter(HTMLContent);
+        exit(GetHTMLContent(HTMLContent));
+    end;
+
     procedure GenerateCalendarHTML(StartingDate: Date; EndingDate: date): Text
     var
         CalendarDayDate: Record Date;

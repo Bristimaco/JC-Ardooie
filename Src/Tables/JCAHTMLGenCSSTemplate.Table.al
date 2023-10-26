@@ -26,6 +26,12 @@ table 50127 "JCA HTML Gen. CSS Template"
             Caption = 'End Date';
             DataClassification = SystemMetadata;
         }
+        field(5; "Event No."; Code[20])
+        {
+            Caption = 'Event No.';
+            DataClassification = SystemMetadata;
+            TableRelation = "JCA Event"."No.";
+        }
     }
 
     keys
@@ -62,7 +68,7 @@ table 50127 "JCA HTML Gen. CSS Template"
         JCAHTMLGenCSSTemplate.findfirst();
 
         case "HTML Gen. CSS Type" of
-            "HTML Gen. CSS Type"::Calendar:
+            "HTML Gen. CSS Type"::Calendar, "HTML Gen. CSS Type"::"Event Result":
                 begin
                     clear(JCAHTMLGenCSSEditor);
                     JCAHTMLGenCSSEditor.SetTableView(JCAHTMLGenCSSTemplate);

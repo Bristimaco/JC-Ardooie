@@ -4,4 +4,8 @@ enum 50111 "JCA HTML Gen. CSS Type"
     {
         Caption = 'Calendar';
     }
+    value(1;"Event Result")
+    {
+        Caption ='Event Result';
+    }
 }

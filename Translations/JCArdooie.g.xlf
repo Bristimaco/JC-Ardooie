@@ -843,6 +843,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA HTML Gen. CSS Template - Field End Date - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2936469216 - Field 2544561501 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Event No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA HTML Gen. CSS Template - Field Event No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2936469216 - Field 2298833632 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>HTML Gen. CSS Type</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2842,6 +2847,11 @@
           <source>Calendar</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum JCA HTML Gen. CSS Type - EnumValue Calendar - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 4055301008 - EnumValue 1362294623 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Event Result</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum JCA HTML Gen. CSS Type - EnumValue Event Result - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3627184078 - EnumValue 3457628887 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Registration</source>

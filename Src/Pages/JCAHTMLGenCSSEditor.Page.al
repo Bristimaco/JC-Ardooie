@@ -33,6 +33,11 @@ page 50145 "JCA HTML Gen. CSS Editor"
                         ApplicationArea = all;
                         ToolTip = ' ', Locked = true;
                     }
+                    field("Event No."; Rec."Event No.")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
                 }
             }
             group(TemplateEditor)
@@ -102,6 +107,7 @@ page 50145 "JCA HTML Gen. CSS Editor"
 
                 trigger OnAction()
                 var
+                    JCAEvent: record "JCA Event";
                     JCAHTMLGenerator: codeunit "JCA HTML Generator";
                     TempBlob: codeunit "Temp Blob";
                     HTMLContent: Text;
@@ -117,6 +123,14 @@ page 50145 "JCA HTML Gen. CSS Editor"
                                 rec.TestField("End Date");
                                 HTMLContent := JCAHTMLGenerator.GenerateCalendarHTML(rec."Start Date", rec."End Date");
                                 FileName := format(Rec."HTML Gen. CSS Type") + '.html';
+                            end;
+                        enum::"JCA HTML Gen. CSS Type"::"Event Result":
+                            begin
+                                rec.TestField("Event No.");
+                                JCAEvent.Reset();
+                                JCAEvent.get(rec."Event No.");
+                                HTMLContent := JCAHTMLGenerator.GenerateEventRsultHTML(JCAEvent);
+                                FileName := format(rec."HTML Gen. CSS Type") + '.html';
                             end;
                     end;
                     TempBlob.CreateOutStream(OutStream);
