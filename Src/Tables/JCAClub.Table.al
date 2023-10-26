@@ -48,5 +48,7 @@ table 50118 "JCA Club"
     {
         key(PK; "No.")
         { }
+        key(Club; "Our Club")
+        { }
     }
 }

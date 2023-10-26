@@ -7,9 +7,8 @@ codeunit 50101 "JCA Training Management"
         JCATrainingSession.Reset();
         JCATrainingSession."No." := '';
         JCATrainingSession.insert(true);
-        if OpenTrainingSessionCard then begin
+        if OpenTrainingSessionCard then
             JCATrainingSession.OpenCard();
-        end;
     end;
 
     procedure CloseTrainingSession(var JCATrainingSession: record "JCA Training Session")
@@ -22,7 +21,6 @@ codeunit 50101 "JCA Training Management"
     var
         JCATrainingGroupMember: record "JCA Training Group Member";
         JCAMember: Record "JCA Member";
-        JCAGuestMember: record "JCA Member";
         JCATrSessionParticipant: record "JCA Tr. Session Participant";
         JCAClub: record "JCA Club";
     begin
@@ -59,9 +57,9 @@ codeunit 50101 "JCA Training Management"
     procedure FetchTrainingSupervisors(var JCATrainingSession: record "JCA Training Session")
     var
         JCAMember: record "JCA Member";
-        JCAMembers: page "JCA Members";
         JCATrSessionParticipant: record "JCA Tr. Session Participant";
         JCAClub: record "JCA Club";
+        JCAMembers: page "JCA Members";
     begin
         JCAMember.Reset();
         JCAMember.Setfilter("Member Type", '%1|%2', JCAMember."Member Type"::Both, JCAMember."Member Type"::Trainer);
@@ -101,7 +99,6 @@ codeunit 50101 "JCA Training Management"
         JCAGuestMemberTrGroup: record "JCA Guest Member Tr. Group";
         JCAGuestMember: record "JCA Guest Member";
         JCATrSessionParticipant: record "JCA Tr. Session Participant";
-        JCAClub: record "JCA Club";
     begin
         JCATrainingSession.TestField(Status, JCATrainingSession.Status::Open);
         JCATrainingSession.TestField("Training Group Code");
