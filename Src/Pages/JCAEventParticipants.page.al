@@ -69,6 +69,11 @@ page 50119 "JCA Event Participants"
                     ToolTip = ' ', Locked = true;
                     Editable = false;
                 }
+                field("Refund Payed"; Rec."Refund Payed")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
                 Field(Result; Rec.Result)
                 {
                     ApplicationArea = all;

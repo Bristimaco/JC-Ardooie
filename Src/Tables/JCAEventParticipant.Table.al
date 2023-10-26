@@ -155,6 +155,16 @@ table 50112 "JCA Event Participant"
             DataClassification = SystemMetadata;
             TableRelation = "JCA Weight Group".Code where(Gender = field(Gender), "Age Group" = field("Age Group Code"));
         }
+        field(20; "Refund Payed"; Boolean)
+        {
+            Caption = 'Refund Payed';
+            DataClassification = SystemMetadata;
+
+            trigger OnValidate()
+            begin
+                testfield("No-Show", true);
+            end;
+        }
     }
 
     keys

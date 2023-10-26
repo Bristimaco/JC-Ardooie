@@ -117,7 +117,7 @@ page 50116 "JCA Events"
                     rec.OpenSupervisorSheet();
                 end;
             }
-        }                
+        }
         area(Reporting)
         {
             action(EventReport)
@@ -143,7 +143,27 @@ page 50116 "JCA Events"
                     JCAEventReport.SetTableView(JCAEvent);
                     JCAEventReport.run();
                 end;
-            }            
+            }
+            action(EventRefunds)
+            {
+                Caption = 'Event Refunds';
+                Image = Print;
+                Promoted = true;
+                PromotedCategory = Report;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                Ellipsis = true;
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+
+                trigger OnAction()
+                var
+                    JCAEventRefunds: report "JCA Event Refunds";
+                begin
+                    clear(JCAEventRefunds);
+                    JCAEventRefunds.Run();
+                end;
+            }
         }
     }
 }

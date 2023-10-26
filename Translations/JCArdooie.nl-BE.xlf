@@ -759,6 +759,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Participant - Field No-Show - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3511736373 - Field 224136377 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Refund Payed</source>
+          <target>Terugbetaald</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Participant - Field Refund Payed - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3511736373 - Field 856236780 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Registered</source>
           <target>Geregistreerd</target>
@@ -2451,6 +2457,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Events - Action SupervisorSheet - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3568864833 - Action 3932128875 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Event Refunds</source>
+          <target>Evenement Terugbetalingen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Events - Action EventRefunds - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3568864833 - Action 823777790 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Report</source>
           <target>Evemenent Verslag</target>
@@ -3068,6 +3080,12 @@
           <target>Gewichtscategorieën</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Weight Groups - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 424914067 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Event Refunds</source>
+          <target>Evenement Terugbetalingen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report JCA Event Refunds - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3806793414 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Report</source>
