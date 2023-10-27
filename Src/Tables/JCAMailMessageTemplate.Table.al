@@ -61,28 +61,10 @@ table 50126 "JCA Mail Message Template"
 
     procedure OpenTemplateEditor()
     var
-        JCAMailMessageTemplate: record "JCA Mail Message Template";
-        JCAEventResultMailEditor: page "JCA Event Result Mail Editor";
-        JCAEvenInvMailEditor: page "JCA Event Inv. Mail Editor";
+        JCAEventMailing: Interface JCAEventMailing;
     begin
-        JCAMailMessageTemplate.Reset();
-        JCAMailMessageTemplate.setrange("Mail Message Type", rec."Mail Message Type");
-        JCAMailMessageTemplate.findfirst();
-
-        case "Mail Message Type" of
-            "Mail Message Type"::Invitation:
-                begin
-                    clear(JCAEvenInvMailEditor);
-                    JCAEvenInvMailEditor.SetTableView(JCAMailMessageTemplate);
-                    JCAEvenInvMailEditor.run();
-                end;
-            "Mail Message Type"::"Event Result":
-                begin
-                    clear(JCAEventResultMailEditor);
-                    JCAEventResultMailEditor.SetTableView(JCAMailMessageTemplate);
-                    JCAEventResultMailEditor.run();
-                end;
-        end;
+        JCAEventMailing := Rec."Mail Message Type";
+        JCAEventMailing.EditTemplate(Rec);
     end;
 
     procedure ReturnInvitationMailContent(LicenseID: code[20]; EventNo: code[20]): Text
