@@ -1,5 +1,5 @@
 interface JCAEventMailing
 {
-    procedure EditTemplate(JCAMailMessageTemplate: record "JCA Mail Message Template");
-    procedure SendMail();
+    procedure EditTemplate(var JCAMailMessageTemplate: record "JCA Mail Message Template");
+    procedure ReturnMailContent(var tempJCAMailMessageTemplate: record "JCA Mail Message Template" temporary): Text;
 }

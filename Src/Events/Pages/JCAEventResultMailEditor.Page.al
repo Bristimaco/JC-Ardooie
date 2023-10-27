@@ -171,8 +171,17 @@ page 50142 "JCA Event Result Mail Editor"
     end;
 
     local procedure UpdateExampleData()
+    var
+        tempJCAMailMessaegTemplate: record "JCA Mail Message Template" temporary;
+        JCAEventMailing: Interface JCAEventMailing;
     begin
-        EmailContent := Rec.ReturnEventResultMailContent(rec."Member License ID", Rec."Event Result");
+        JCAEventMailing := enum::"JCA Mail Message Type"::"Event Result";
+        tempJCAMailMessaegTemplate.reset();
+        tempJCAMailMessaegTemplate.init();
+        tempJCAMailMessaegTemplate."Mail Message Type" := enum::"JCA Mail Message Type"::"Event Result";
+        tempJCAMailMessaegTemplate."Member License ID" := rec."Member License ID";
+        tempJCAMailMessaegTemplate."Event result" := rec."Event Result";
+        EmailContent := JCAEventMailing.ReturnMailContent(tempJCAMailMessaegTemplate);
     end;
 
     var

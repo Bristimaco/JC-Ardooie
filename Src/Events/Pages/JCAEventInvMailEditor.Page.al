@@ -170,8 +170,17 @@ page 50143 "JCA Event Inv. Mail Editor"
     end;
 
     local procedure UpdateExampleData()
+    var
+        tempJCAMailMessaegTemplate: record "JCA Mail Message Template" temporary;
+        JCAEventMailing: Interface JCAEventMailing;
     begin
-        EmailContent := Rec.ReturnInvitationMailContent(rec."Member License ID", rec."Event No.");
+        JCAEventMailing := enum::"JCA Mail Message Type"::Invitation;
+        tempJCAMailMessaegTemplate.reset();
+        tempJCAMailMessaegTemplate.init();
+        tempJCAMailMessaegTemplate."Mail Message Type" := enum::"JCA Mail Message Type"::Invitation;
+        tempJCAMailMessaegTemplate."Member License ID" := rec."Member License ID";
+        tempJCAMailMessaegTemplate."Event No." := rec."Event No.";
+        EmailContent := JCAEventMailing.ReturnMailContent(tempJCAMailMessaegTemplate);
     end;
 
     var

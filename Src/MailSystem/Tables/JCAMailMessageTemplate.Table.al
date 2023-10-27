@@ -61,86 +61,13 @@ table 50126 "JCA Mail Message Template"
 
     procedure OpenTemplateEditor()
     var
+        JCAMailMessageTemplate: record "JCA Mail Message Template";
         JCAEventMailing: Interface JCAEventMailing;
     begin
-        JCAEventMailing := Rec."Mail Message Type";
-        JCAEventMailing.EditTemplate(Rec);
+        JCAMailMessageTemplate.reset();
+        JCAMailMessageTemplate.setrange("Mail Message Type", rec."Mail Message Type");
+        JCAMailMessageTemplate.findfirst();
+        JCAEventMailing := JCAMailMessageTemplate."Mail Message Type";
+        JCAEventMailing.EditTemplate(JCAMailMessageTemplate);
     end;
-
-    procedure ReturnInvitationMailContent(LicenseID: code[20]; EventNo: code[20]): Text
-    var
-        JCAMember: record "JCA Member";
-        JCASetup: Record "JCA Setup";
-        JCAEvent: Record "JCA Event";
-        MemberName: Text;
-        ResultCardLogo: Text;
-        EventDescription: Text;
-        EventAddress: Text;
-        EventPostCode: Text;
-        EventCity: Text;
-        EventDate: Text;
-        RegistrationDueDate: Text;
-        TemplateData: Text;
-        MailContent: Text;
-    begin
-        JCAMember.Reset();
-        if JCAMember.get(LicenseID) then
-            MemberName := JCAMember."First Name";
-
-        ResultCardLogo := '';
-        JCASetup.Reset();
-        JCASetup.get();
-        ResultCardLogo := JCASetup.GetResultCardLogo();
-
-        EventDescription := '';
-        EventAddress := '';
-        EventPostCode := '';
-        EventCity := '';
-
-        JCAEvent.reset();
-        if JCAEvent.Get(rec."Event No.") then begin
-            EventDescription := JCAEvent.Description;
-            EventAddress := JCAEvent.Address;
-            EventPostCode := JCAEvent."Post Code";
-            EventCity := JCAEvent.City;
-            EventDate := format(JCAEvent.Date);
-            RegistrationDueDate := format(JCAEvent."Registration Deadline");
-        end;
-        rec.ReadTemplateData(TemplateData);
-        MailContent := StrSubstNo(TemplateData, ResultCardLogo, MemberName, EventDate, EventDescription, RegistrationDueDate, EventAddress, EventPostCode, EventCity);
-        exit(MailContent);
-    end;
-
-    procedure ReturnEventResultMailContent(LicenseID: code[20]; JCAEventResult: enum "JCA Event Result"): Text
-    var
-        JCAMember: record "JCA Member";
-        JCASetup: Record "JCA Setup";
-        JCAResultImage: record "JCA Result Image";
-        MemberName: Text;
-        MemberPicture: Text;
-        ResultCardLogo: Text;
-        ResultImage: Text;
-        TemplateData: text;
-        MailContent: Text;
-    begin
-        ResultCardLogo := '';
-        JCASetup.Reset();
-        JCASetup.get();
-        ResultCardLogo := JCASetup.GetResultCardLogo();
-
-        JCAMember.Reset();
-        if JCAMember.get(LicenseID) then begin
-            MemberName := JCAMember."Full Name";
-            MemberPicture := JCAMember.GetPicture();
-        end;
-
-        JCAResultImage.reset();
-        if JCAResultImage.get(JCAEventResult) then
-            ResultImage := JCAResultImage.GetImage();
-
-        rec.ReadTemplateData(TemplateData);
-        MailContent := StrSubstNo(TemplateData, ResultCardLogo, MemberPicture, ResultImage, MemberName, UpperCase(format(JCAEventResult)));
-        exit(MailContent);
-    end;
-
 }

@@ -1,12 +1,12 @@
 codeunit 50111 "JCA Event Inv. Reminder Mail" implements JCAEventMailing
 {
-    procedure EditTemplate(JCAMailMessageTemplate: record "JCA Mail Message Template")
+    procedure EditTemplate(var JCAMailMessageTemplate: record "JCA Mail Message Template")
     begin
 
     end;
 
-    procedure SendMail();
-    begin
-
+    procedure ReturnMailContent(var tempJCAMailMessageTemplate: record "JCA Mail Message Template" temporary): Text
+    var
+    begin               
     end;
 }

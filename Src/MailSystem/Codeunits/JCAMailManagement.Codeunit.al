@@ -402,6 +402,8 @@ codeunit 50104 "JCA Mail Management"
     local procedure CreateEventInvitationMailContent(JCAMember: record "JCA Member"; JCAEvent: record "JCA Event"; var MailSubject: Text; var MailBody: TextBuilder; var JCAEventDocument: record "JCA Event Document"; UseTemplate: Boolean)
     var
         JCAMailMessageTemplate: record "JCA Mail Message Template";
+        tempJCAMailMessageTemplate: record "JCA Mail Message Template" temporary;
+        JCAEventMailing: Interface JCAEventMailing;
         EmailContent: Text;
         InvitationSubjectLbl: label 'Invitation for %1 - %2', Comment = '%1 = Event No., %2 = Event Description';
     begin
@@ -419,7 +421,13 @@ codeunit 50104 "JCA Mail Management"
         if UseTemplate then begin
             JCAMailMessageTemplate.reset();
             JCAMailMessageTemplate.get(enum::"JCA Mail Message Type"::Invitation);
-            EmailContent := JCAMailMessageTemplate.ReturnInvitationMailContent(JCAMember."License ID", JCAEvent."No.");
+            JCAEventMailing := JCAMailMessageTemplate."Mail Message Type";
+            tempJCAMailMessageTemplate.reset();
+            tempJCAMailMessageTemplate.init();
+            tempJCAMailMessageTemplate."Mail Message Type" := JCAMailMessageTemplate."Mail Message Type";
+            tempJCAMailMessageTemplate."Member License ID" := JCAMember."License ID";
+            tempJCAMailMessageTemplate."Event No." := JCAEvent."No.";
+            EmailContent := JCAEventMailing.ReturnMailContent(tempJCAMailMessageTemplate);
             MailBody.AppendLine(EmailContent);
         end else begin
             Clear(MailBody);
@@ -546,6 +554,8 @@ codeunit 50104 "JCA Mail Management"
     local procedure CreateEventResultMailContent(JCAEventParticipant: record "JCA Event Participant"; JCAEvent: record "JCA Event"; var MailSubject: Text; var MailBody: TextBuilder; MemberPicture: Text; ResultImage: Text; ResultCardLogo: text; UseTemplate: Boolean)
     var
         JCAMailMessageTemplate: record "JCA Mail Message Template";
+        tempJCAMailMessageTemplate: record "JCA Mail Message Template" temporary;
+        JCAEventMailing: Interface JCAEventMailing;
         EMailContent: Text;
         ResultsLbl: label 'Results for %1 - %2: %3', Comment = '%1 = Event No., %2 = Event Description, %3 = Member Name';
     begin
@@ -555,7 +565,11 @@ codeunit 50104 "JCA Mail Management"
         if UseTemplate then begin
             JCAMailMessageTemplate.reset();
             JCAMailMessageTemplate.get(enum::"JCA Mail Message Type"::"Event Result");
-            EMailContent := JCAMailMessageTemplate.ReturnEventResultMailContent(JCAEventParticipant."Member License ID", JCAEventParticipant.Result);
+            JCAEventMailing := JCAMailMessageTemplate."Mail Message Type";
+            tempJCAMailMessageTemplate."Mail Message Type" := JCAMailMessageTemplate."Mail Message Type";
+            tempJCAMailMessageTemplate."Member License ID" := JCAEventParticipant."Member License ID";
+            tempJCAMailMessageTemplate."Event Result" := JCAEventParticipant.Result;
+            EMailContent := JCAEventMailing.ReturnMailContent(tempJCAMailMessageTemplate);
             MailBody.AppendLine(EMailContent);
         end else begin
             MailBody.AppendLine('<html><head><style>');
