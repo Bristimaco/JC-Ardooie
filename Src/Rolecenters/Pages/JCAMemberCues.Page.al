@@ -24,6 +24,21 @@ page 50104 "JCA Member Cues"
                     ToolTip = ' ', Locked = true;
                 }
             }
+            cuegroup(Injuries)
+            {
+                Caption = 'Injuries';
+
+                field("Open Injuries"; Rec."Open Injuries")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("Closed Injuries"; Rec."Closed Injuries")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+            }
             cuegroup(MembershipRenewal)
             {
                 Caption = 'Renewals';

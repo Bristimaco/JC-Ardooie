@@ -59,6 +59,11 @@ page 50142 "JCA Event Result Mail Editor"
 
                     begin
                         IsEditorReady := IsReady;
+                        CurrPage.Editor.InitContent(true, true);
+                    end;
+
+                    trigger DocumentReady(IsReady: Boolean)
+                    begin
                         FillEditor();
                     end;
 
@@ -84,7 +89,13 @@ page 50142 "JCA Event Result Mail Editor"
                     trigger ControlAddInReady(IsReady: Boolean)
                     begin
                         IsExampleReady := IsReady;
+                        CurrPage.Example.InitContent(false, true);
                         UpdateExample();
+                    end;
+
+                    trigger DocumentReady(IsReady: Boolean)
+                    begin
+                        CurrPage.Example.SetContent(ExampleHTML);
                     end;
                 }
             }
@@ -95,24 +106,6 @@ page 50142 "JCA Event Result Mail Editor"
     {
         area(Processing)
         {
-            action(Load)
-            {
-                Caption = 'Load';
-                Image = Open;
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
-                PromotedOnly = true;
-                ApplicationArea = all;
-                ToolTip = ' ', Locked = true;
-
-                trigger OnAction()
-                begin
-                    rec.ReadTemplateData(TemplateData);
-                    FillEditor();
-                    UpdateExample();
-                end;
-            }
             action(RefreshExample)
             {
                 Caption = 'Refresh Example';
@@ -145,23 +138,18 @@ page 50142 "JCA Event Result Mail Editor"
         if not IsEditorReady then
             exit;
         rec.ReadTemplateData(TemplateData);
-        CurrPage.Editor.InitContent(true, true);
         CurrPage.Editor.SetContent(TypeHelper.HtmlEncode(TemplateData));
-        CurrPage.Editor.SetContentType(true, true);
     end;
 
     local procedure UpdateExample()
     var
         TypeHelper: codeunit "Type Helper";
-        ExampleHtml: text;
     begin
         if not IsExampleReady then
             exit;
         UpdateExampleData();
         ExampleHtml := TypeHelper.HtmlDecode(EmailContent);
-        CurrPage.Example.InitContent(false, true);
-        CurrPage.Example.SetContent(EmailContent);
-        CurrPage.Example.SetContentType(false, true);
+        CurrPage.Example.SetContent(ExampleHtml);
     end;
 
     trigger OnQueryClosePage(CloseAction: Action): Boolean
@@ -172,16 +160,16 @@ page 50142 "JCA Event Result Mail Editor"
 
     local procedure UpdateExampleData()
     var
-        tempJCAMailMessaegTemplate: record "JCA Mail Message Template" temporary;
+        tempJCAMailMessageTemplate: record "JCA Mail Message Template" temporary;
         JCAEventMailing: Interface JCAEventMailing;
     begin
         JCAEventMailing := enum::"JCA Mail Message Type"::"Event Result";
-        tempJCAMailMessaegTemplate.reset();
-        tempJCAMailMessaegTemplate.init();
-        tempJCAMailMessaegTemplate."Mail Message Type" := enum::"JCA Mail Message Type"::"Event Result";
-        tempJCAMailMessaegTemplate."Member License ID" := rec."Member License ID";
-        tempJCAMailMessaegTemplate."Event result" := rec."Event Result";
-        EmailContent := JCAEventMailing.ReturnMailContent(tempJCAMailMessaegTemplate);
+        tempJCAMailMessageTemplate.reset();
+        tempJCAMailMessageTemplate.init();
+        tempJCAMailMessageTemplate."Mail Message Type" := enum::"JCA Mail Message Type"::"Event Result";
+        tempJCAMailMessageTemplate."Member License ID" := rec."Member License ID";
+        tempJCAMailMessageTemplate."Event result" := rec."Event Result";
+        EmailContent := JCAEventMailing.ReturnMailContent(tempJCAMailMessageTemplate);
     end;
 
     var
@@ -189,4 +177,5 @@ page 50142 "JCA Event Result Mail Editor"
         IsExampleReady: Boolean;
         TemplateData: Text;
         EmailContent: Text;
+        ExampleHTML: Text;
 }

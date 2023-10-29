@@ -270,6 +270,20 @@ table 50102 "JCA Cue"
             CalcFormula = count("JCA Voucher" where(Used = const(true)));
             Editable = false;
         }
+        field(41; "Open Injuries"; Integer)
+        {
+            Caption = 'Open Injuries';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Injury" where(Status = const(Open)));
+            Editable = false;
+        }
+        field(42; "Closed Injuries"; Integer)
+        {
+            Caption = 'Closed Injuries';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Injury" where(Status = const(Closed)));
+            Editable = false;
+        }
     }
 
     keys

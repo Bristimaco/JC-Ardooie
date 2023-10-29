@@ -55,44 +55,60 @@ page 50102 "JCA Member Card"
                         ToolTip = ' ', Locked = true;
                     }
                 }
-            }
 
-            group(Characteristics)
-            {
-                Caption = 'Characteristics';
+                group(Characteristics)
+                {
+                    Caption = 'Characteristics';
 
-                field(Gender; Rec.Gender)
-                {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
-                }
-                field("Date of Birth"; Rec."Date of Birth")
-                {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
-                }
-                field(Age; Rec.Age)
-                {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
-                }
-                field(Belt; Rec.Belt)
-                {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
+                    field(Gender; Rec.Gender)
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                    field("Date of Birth"; Rec."Date of Birth")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                    field(Age; Rec.Age)
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                    field(Belt; Rec.Belt)
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
 
-                    trigger OnValidate()
-                    begin
-                        if Rec.Belt <> Rec.Belt::Black then
-                            Rec.Dan := 0;
-                        CalculateDanFieldVisibility();
-                    end;
+                        trigger OnValidate()
+                        begin
+                            if Rec.Belt <> Rec.Belt::Black then
+                                Rec.Dan := 0;
+                            CalculateDanFieldVisibility();
+                        end;
+                    }
+                    field(Dan; Rec.Dan)
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                        Editable = DanFieldVisible;
+                    }
                 }
-                field(Dan; Rec.Dan)
+
+                group(Injuries)
                 {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
-                    Editable = DanFieldVisible;
+                    Caption = 'Injuries';
+
+                    field("Current Injuries"; Rec."Current Injuries")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
+                    field("Past Injuries"; Rec."Past Injuries")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
                 }
             }
 
@@ -141,27 +157,28 @@ page 50102 "JCA Member Card"
                     ToolTip = ' ', Locked = true;
                 }
             }
+
             part(AgeGroups; "JCA Member Age Groups")
-            {
+                {
                 Caption = 'Age Groups';
                 ApplicationArea = all;
                 SubPageLink = "Member License ID" = field("License ID");
+                }
+                part(TrainingGroups; "JCA Member Training Groups")
+                {
+                    Caption = 'Training Groups';
+                    ApplicationArea = all;
+                    SubPageLink = "Member License ID" = field("License ID");
+                    UpdatePropagation = Both;
+                }
+                part(Contacts; "JCA Member Contacts")
+                {
+                    Caption = 'Contacts';
+                    ApplicationArea = all;
+                    SubPageLink = "Member License ID" = field("License ID");
+                    UpdatePropagation = Both;
+                }
             }
-            part(TrainingGroups; "JCA Member Training Groups")
-            {
-                Caption = 'Training Groups';
-                ApplicationArea = all;
-                SubPageLink = "Member License ID" = field("License ID");
-                UpdatePropagation = Both;
-            }
-            part(Contacts; "JCA Member Contacts")
-            {
-                Caption = 'Contacts';
-                ApplicationArea = all;
-                SubPageLink = "Member License ID" = field("License ID");
-                UpdatePropagation = Both;
-            }
-        }
 
         area(FactBoxes)
         {

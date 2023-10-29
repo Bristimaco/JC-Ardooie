@@ -115,6 +115,12 @@ table 50100 "JCA Setup"
             CalcFormula = count("JCA HTML Gen. CSS Template");
             Editable = false;
         }
+        field(20; "Injury Nos."; Code[20])
+        {
+            Caption = 'Injury Nos.';
+            DataClassification = SystemMetadata;
+            TableRelation = "No. Series".Code;
+        }
     }
 
     keys

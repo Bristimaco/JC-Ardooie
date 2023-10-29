@@ -123,6 +123,12 @@ table 50105 "JCA Training Session"
         { }
     }
 
+    fieldgroups
+    {
+        fieldgroup(DropDown; "No.", "Training Group Description", Date)
+        { }
+    }
+
     trigger OnInsert()
     var
         JCASetup: Record "JCA Setup";

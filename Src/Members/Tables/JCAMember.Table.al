@@ -186,6 +186,27 @@ table 50101 "JCA Member"
             CalcFormula = count("JCA Voucher" where("Issued To License ID" = field("License ID"), Used = const(true)));
             Editable = false;
         }
+        field(31; "Current Injuries"; Integer)
+        {
+            Caption = 'Current Injuries';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Injury" where(Status = const(Open), "Member License ID" = field("License ID")));
+            Editable = false;
+        }
+        field(32; "Past Injuries"; Integer)
+        {
+            Caption = 'Past Injuries';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Injury" where(Status = const(Closed), "Member License ID" = field("License ID")));
+            Editable = false;
+        }
+        field(33; Injured; Boolean)
+        {
+            Caption = 'Injured';
+            FieldClass = FlowField;
+            CalcFormula = exist("JCA Injury" where(status = const(Open), "Member License ID" = field("License ID")));
+            Editable = false;
+        }
     }
 
     keys

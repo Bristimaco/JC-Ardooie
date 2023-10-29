@@ -1,19 +1,19 @@
 {
   "id": "d9bbbace-3225-4070-86c3-15848689f97d",
-  "name": "JCArdooie",
+  "name": "Judo Manager",
   "publisher": "Bristimaco BV",
   "version": "2023.230.43.0",
-  "brief": "",
-  "description": "",
-  "privacyStatement": "",
-  "EULA": "",
-  "help": "",
-  "url": "",
+  "brief": "Provides functionality to run a judo club",
+  "description": "Events, Training Sessions, Member management, Injury Followup and mailing system",
+  "privacyStatement": "http://www.bristimaco.be",
+  "EULA": "http://www.bristimaco.be",
+  "help": "http://www.bristimaco.be",
+  "url": "http://www.bristimaco.be",
   "logo": "Resources/JCArdooie.jpg",
   "dependencies": [],
   "screenshots": [],
   "platform": "1.0.0.0",
-  "application": "22.0.0.0",
+  "application": "23.0.0.0",
   "idRanges": [
     {
       "from": 50100,
@@ -25,7 +25,7 @@
     "allowDownloadingSource": true,
     "includeSourceInSymbolFile": true
   },
-  "runtime": "12.0",
+  "runtime": "12.0",  
   "features": [
     "NoImplicitWith",
     "TranslationFile"

@@ -3,7 +3,7 @@ report 50101 "JCA Event Refunds"
     Caption = 'Event Refunds';
     ApplicationArea = all;
     DefaultLayout = RDLC;
-    RDLCLayout = 'Src/Reports/RDLC/JCAEventRefunds.rdl';
+    RDLCLayout = 'Src/Events/Reports/RDLC/JCAEventRefunds.rdl';
     UsageCategory = None;
 
     dataset
