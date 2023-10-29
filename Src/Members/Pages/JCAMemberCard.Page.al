@@ -99,6 +99,11 @@ page 50102 "JCA Member Card"
                 {
                     Caption = 'Injuries';
 
+                    field(Injured; Rec.Injured)
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
                     field("Current Injuries"; Rec."Current Injuries")
                     {
                         ApplicationArea = all;
@@ -159,26 +164,26 @@ page 50102 "JCA Member Card"
             }
 
             part(AgeGroups; "JCA Member Age Groups")
-                {
+            {
                 Caption = 'Age Groups';
                 ApplicationArea = all;
                 SubPageLink = "Member License ID" = field("License ID");
-                }
-                part(TrainingGroups; "JCA Member Training Groups")
-                {
-                    Caption = 'Training Groups';
-                    ApplicationArea = all;
-                    SubPageLink = "Member License ID" = field("License ID");
-                    UpdatePropagation = Both;
-                }
-                part(Contacts; "JCA Member Contacts")
-                {
-                    Caption = 'Contacts';
-                    ApplicationArea = all;
-                    SubPageLink = "Member License ID" = field("License ID");
-                    UpdatePropagation = Both;
-                }
             }
+            part(TrainingGroups; "JCA Member Training Groups")
+            {
+                Caption = 'Training Groups';
+                ApplicationArea = all;
+                SubPageLink = "Member License ID" = field("License ID");
+                UpdatePropagation = Both;
+            }
+            part(Contacts; "JCA Member Contacts")
+            {
+                Caption = 'Contacts';
+                ApplicationArea = all;
+                SubPageLink = "Member License ID" = field("License ID");
+                UpdatePropagation = Both;
+            }
+        }
 
         area(FactBoxes)
         {
