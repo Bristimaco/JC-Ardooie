@@ -9,4 +9,9 @@ codeunit 50113 "JCA Event Unregistration Mail" implements JCAEventMailing
     var
     begin
     end;
+
+    procedure SendMail(var tempJCAMailMessageTemplate: record "JCA Mail Message Template" temporary): Boolean
+    begin
+
+    end;
 }

@@ -24,7 +24,7 @@ table 50108 "JCA Tr. Session Participant"
             Caption = 'Club Member';
             DataClassification = SystemMetadata;
         }
-        field(3; "Member License ID"; Code[20])
+        field(3; "Member License ID"; Code[50])
         {
             Caption = 'Member License ID';
             DataClassification = SystemMetadata;

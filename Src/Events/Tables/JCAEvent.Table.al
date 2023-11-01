@@ -39,6 +39,7 @@ table 50110 "JCA Event"
             trigger OnValidate()
             begin
                 CheckParticipantsAndSupervisorStatus();
+                MailGroupedEventResults();
             end;
         }
         field(7; "Country Code"; Code[10])
@@ -247,7 +248,7 @@ table 50110 "JCA Event"
         JCAEventManagement: codeunit "JCA Event Management";
     begin
         clear(JCAEventManagement);
-        JCAEventManagement.SendEventInvitations(Rec);
+        JCAEventManagement.SendEventInvitations(Rec."No.");
         Rec.validate(Status, status::"Invitations Sent");
         Rec.modify(true);
     end;
@@ -260,7 +261,7 @@ table 50110 "JCA Event"
             exit;
 
         Clear(JCAEventManagement);
-        JCAEventManagement.SendEventInvitationReminders(Rec);
+        JCAEventManagement.SendEventInvitationReminders(Rec."No.");
         rec.Validate("Last Reminder Mail Sent On", Today());
         rec.Modify(true);
     end;
@@ -271,6 +272,14 @@ table 50110 "JCA Event"
     begin
         Clear(JCAEventManagement);
         JCAEventManagement.CheckParticipantsAndSupervistors(Rec);
+    end;
+
+    local procedure MailGroupedEventResults()
+    var
+        JCAEventManagement: codeunit "JCA Event Management";
+    begin
+        clear(JCAEventManagement);
+        JCAEventManagement.MailGroupedEventResults(Rec);
     end;
 
     procedure GetParticipants(var JCAEventParticipant: record "JCA Event Participant"): Boolean

@@ -207,6 +207,11 @@ table 50101 "JCA Member"
             CalcFormula = exist("JCA Injury" where(status = const(Open), "Member License ID" = field("License ID")));
             Editable = false;
         }
+        field(34; "Send Grouped Result Mails"; Boolean)
+        {
+            Caption = 'Send Grouped Result Mails';
+            DataClassification = SystemMetadata;
+        }
     }
 
     keys

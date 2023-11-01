@@ -15,7 +15,7 @@ table 50107 "JCA Training Group Member"
                 CalcFields("Training Group Description");
             end;
         }
-        field(2; "Member License ID"; Code[20])
+        field(2; "Member License ID"; Code[50])
         {
             Caption = 'Member License ID';
             DataClassification = SystemMetadata;

@@ -1098,6 +1098,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Member - Field Requested Membership Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3645402444 - Field 3244259291 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send Grouped Result Mails</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Member - Field Send Grouped Result Mails - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3645402444 - Field 3877114753 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Send Result Mails</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1713,6 +1718,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Weight Group - Field Max. Weight - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3993536024 - Method 2658703842 - NamedType 327091729" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invitation Reminder for %1 - %2</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Event Inv. Reminder Mail - Method CreateEventReminderMailContent - NamedType InvitationSubjectLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2507073152 - Method 3235044619 - NamedType 327091729" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invitation for %1 - %2</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Event Invitation Mail - Method CreateEventInvitationMailContent - NamedType InvitationSubjectLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2507073152 - Method 1682746479 - NamedType 3369615330" size-unit="char" translate="yes" xml:space="preserve">
+          <source>An invitation for Event %1 - %2 has been sent to %3 - %4</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Event Invitation Mail - Method SendMail - NamedType InvitationMailSentLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2507073152 - Method 1682746479 - NamedType 1808820227" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to send an invitation for Event %1 - %2 to %3 - %4</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Event Invitation Mail - Method SendMail - NamedType InvitationMailFailedLbl</note>
+        </trans-unit>
         <trans-unit id="Codeunit 839670745 - Method 4126145627 - NamedType 3933035277" size-unit="char" translate="yes" xml:space="preserve">
           <source>There are no participants in the Event</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1768,25 +1793,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Event Management - Method SendEventInvitations - NamedType AllInvitationsHaveBeenSentMsg</note>
         </trans-unit>
-        <trans-unit id="Codeunit 122294278 - Method 3235044619 - NamedType 327091729" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Invitation for %1 - %2</source>
+        <trans-unit id="Codeunit 3653676288 - Method 2772705083 - NamedType 2953683660" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Results for %1 - %2: %3</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = Member Name</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Event Result Mail - Method CreateEventResultMailContent - NamedType ResultsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 870814990 - Method 4092131113 - NamedType 2953683660" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Results for %1 %2</source>
           <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method CreateEventInvitationMailContent - NamedType InvitationSubjectLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Grouped Event Result Mail - Method CreateGroupedEventResultMailContent - NamedType ResultsLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 122294278 - Method 1286253434 - NamedType 3529353084" size-unit="char" translate="yes" xml:space="preserve">
           <source>Registration Confirmation for %1 - %2</source>
           <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method CreateEventRegistrationConfirmationMailContent - NamedType RegistrationConfirmationSubjectLbl</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 122294278 - Method 2658703842 - NamedType 327091729" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Invitation Reminder for %1 - %2</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method CreateEventReminderMailContent - NamedType InvitationSubjectLbl</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 122294278 - Method 2772705083 - NamedType 2953683660" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Results for %1 - %2: %3</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = Member Name</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method CreateEventResultMailContent - NamedType ResultsLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 122294278 - Method 347613895 - NamedType 1220805257" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unregistration Confirmation for %1 - %2</source>
@@ -1812,16 +1832,6 @@
           <source>Failed to send an Unregistration Confirmation for Event %1 - %2 to %3 - %4</source>
           <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method doSendUnRegistrationConfirmationMail - NamedType UnRegistrationConfirmationMailFailedLbl</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 122294278 - Method 3818887580 - NamedType 3369615330" size-unit="char" translate="yes" xml:space="preserve">
-          <source>An invitation for Event %1 - %2 has been sent to %3 - %4</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method SendEventInvitationMail - NamedType InvitationMailSentLbl</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 122294278 - Method 3818887580 - NamedType 1808820227" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Failed to send an invitation for Event %1 - %2 to %3 - %4</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method SendEventInvitationMail - NamedType InvitationMailFailedLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 3789116197 - Method 944787481 - NamedType 3952755926" size-unit="char" translate="yes" xml:space="preserve">
           <source>No participants to Invoice.</source>
@@ -2182,6 +2192,26 @@
           <source>Event Report</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Events - Action EventReport - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3425065112 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>grouped Event Result Mail Editor</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Gr. Ev. Res. Mail Editor - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3425065112 - Control 3704672220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Example Data</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Gr. Ev. Res. Mail Editor - Control ExampleData - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3425065112 - Control 1962944699 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Editor</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Gr. Ev. Res. Mail Editor - Control TemplateEditor - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3425065112 - Action 312197815 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Refresh Example</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Gr. Ev. Res. Mail Editor - Action RefreshExample - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3706241272 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Guest Member Card</source>
@@ -3047,6 +3077,11 @@
           <source>Event Unregistration</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Mail Message Type - EnumValue Event Unregistation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3627184078 - EnumValue 3738219277 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Grouped Event Result</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Mail Message Type - EnumValue Grouped Event Result - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3627184078 - EnumValue 3399939051 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invitation</source>

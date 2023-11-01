@@ -1,25 +1,23 @@
-codeunit 50109 "JCA Event Result Mail" implements JCAEventMailing
+codeunit 50114 "JCA Grouped Event Result Mail" implements JCAEventMailing
 {
     procedure EditTemplate(var JCAMailMessageTemplate: record "JCA Mail Message Template")
     var
-        JCAEventResultMailEditor: page "JCA Event Result Mail Editor";
+        JCAGrEvResMailEditor: page "JCA Gr. Ev. Res. Mail Editor";
     begin
-        clear(JCAEventResultMailEditor);
-        JCAEventResultMailEditor.SetTableView(JCAMailMessageTemplate);
-        JCAEventResultMailEditor.run();
+        clear(JCAGrEvResMailEditor);
+        JCAGrEvResMailEditor.SetTableView(JCAMailMessageTemplate);
+        JCAGrEvResMailEditor.run();
     end;
 
     procedure ReturnMailContent(var tempJCAMailMessageTemplate: record "JCA Mail Message Template" temporary): Text
     var
-        JCAMember: record "JCA Member";
+        JCAEvent: record "JCA Event";
+        JCAEventParticipant: record "JCA Event Participant";
         JCASetup: Record "JCA Setup";
-        JCAResultImage: record "JCA Result Image";
         JCAMailMessageTemplate: record "JCA Mail Message Template";
-        MemberName: Text;
-        MemberPicture: Text;
         ResultCardLogo: Text;
-        ResultImage: Text;
         TemplateData: text;
+        ResultsTable: TextBuilder;
         MailContent: Text;
     begin
         ResultCardLogo := '';
@@ -27,31 +25,37 @@ codeunit 50109 "JCA Event Result Mail" implements JCAEventMailing
         JCASetup.get();
         ResultCardLogo := JCASetup.GetResultCardLogo();
 
-        JCAMember.Reset();
-        if JCAMember.get(tempJCAMailMessageTemplate."Member License ID") then begin
-            MemberName := JCAMember."Full Name";
-            MemberPicture := JCAMember.GetPicture();
-        end;
+        JCAEvent.Reset();
+        JCAEvent.setrange("No.", tempJCAMailMessageTemplate."Event No.");
+        if not JCAEvent.findfirst() then
+            exit;
 
-        JCAResultImage.reset();
-        if JCAResultImage.get(tempJCAMailMessageTemplate."Event Result") then
-            ResultImage := JCAResultImage.GetImage();
+        clear(ResultsTable);
+        ResultsTable.AppendLine('<table>');
+        JCAEventParticipant.Reset();
+        JCAEventParticipant.setrange("Event No.", JCAEvent."No.");
+        JCAEventParticipant.setrange("No-Show", false);
+        if JCAEventParticipant.findset() then
+            repeat
+                AddResultTableRow(ResultsTable, JCAEventParticipant);
+            until JCAEventParticipant.Next() = 0;
+        ResultsTable.AppendLine('</table>');
 
         JCAMailMessageTemplate.Reset();
         JCAMailMessageTemplate.get(tempJCAMailMessageTemplate."Mail Message Type");
         JCAMailMessageTemplate.ReadTemplateData(TemplateData);
-        MailContent := StrSubstNo(TemplateData, ResultCardLogo, MemberPicture, ResultImage, MemberName, UpperCase(format(tempJCAMailMessageTemplate."Event Result")));
+        MailContent := StrSubstNo(TemplateData, ResultCardLogo, ResultsTable.ToText());
         exit(MailContent);
     end;
 
     procedure SendMail(var tempJCAMailMessageTemplate: record "JCA Mail Message Template" temporary): Boolean
     var
-        JCAEvent: record "JCA Event";
         JCAMember: record "JCA Member";
+        JCAEvent: Record "JCA Event";
         JCAContact: record "JCA Contact";
         JCAMailMessageTemplate: record "JCA Mail Message Template";
         MailManagement: codeunit "Mail Management";
-        JCAMailManagement: codeunit "JCA Mail Management";
+        JCAMailManagement: Codeunit "JCA Mail Management";
         EmailMessage: codeunit "Email Message";
         Email: codeunit Email;
         MailingList: list of [Text[100]];
@@ -59,20 +63,17 @@ codeunit 50109 "JCA Event Result Mail" implements JCAEventMailing
         MailSubject: text;
         MailBody: TextBuilder;
     begin
-        JCAEvent.reset();
-        JCAEvent.get(tempJCAMailMessageTemplate."Event No.");
-        if not JCAEvent."Send Result Mails" then
-            exit;
-
         clear(MailingList);
 
+        JCAEvent.Reset();
+        JCAEvent.get(tempJCAMailMessageTemplate."Event No.");
 
         JCAMailMessageTemplate.reset();
-        if JCAMailMessageTemplate.get(enum::"JCA Mail Message Type"::"Event Result") then
+        if JCAMailMessageTemplate.get(enum::"JCA Mail Message Type"::"Grouped Event Result") then
             JCAMailMessageTemplate.CalcFields("Mail Template Data");
 
         JCAMember.Reset();
-        JCAMember.setrange("Send Result Mails", true);
+        JCAMember.setrange("Send Grouped Result Mails", true);
         if JCAMember.Findset() then
             repeat
                 if not MailingList.Contains(JCAMember."E-Mail") then
@@ -89,7 +90,7 @@ codeunit 50109 "JCA Event Result Mail" implements JCAEventMailing
         if MailingList.Count() = 0 then
             exit;
 
-        CreateEventResultMailContent(tempJCAMailMessageTemplate, JCAEvent, MailSubject, MailBody);
+        CreateGroupedEventResultMailContent(JCAEvent, MailSubject, MailBody);
         foreach MailAddress in MailingList do begin
             JCAMailManagement.CheckForMailSystemTest(MailAddress);
             clear(MailManagement);
@@ -102,27 +103,47 @@ codeunit 50109 "JCA Event Result Mail" implements JCAEventMailing
         end;
     end;
 
-    local procedure CreateEventResultMailContent(var tempJCAMailMessageTemplate: record "JCA Mail Message Template" temporary; JCAEvent: record "JCA Event"; var MailSubject: Text; var MailBody: TextBuilder)
+    local procedure CreateGroupedEventResultMailContent(JCAEvent: record "JCA Event"; var MailSubject: Text; var MailBody: TextBuilder)
     var
         JCAMailMessageTemplate: record "JCA Mail Message Template";
-        JCAMember: Record "JCA Member";
+        tempJCAMailMessageTemplate: record "JCA Mail Message Template" temporary;
         JCAEventMailing: Interface JCAEventMailing;
         EMailContent: Text;
-        ResultsLbl: label 'Results for %1 - %2: %3', Comment = '%1 = Event No., %2 = Event Description, %3 = Member Name';
+        ResultsLbl: label 'Results for %1 %2', Comment = '%1 = Event No., %2 = Event Description';
     begin
-        JCAMember.Reset();
-        JCAMember.get(tempJCAMailMessageTemplate."Member License ID");
-
-        MailSubject := StrSubstNo(ResultsLbl, JCAEvent.Type, JCAEvent.Description, JCAMember."Full Name");
+        MailSubject := StrSubstNo(ResultsLbl, JCAEvent.Type, JCAEvent.Description);
 
         Clear(MailBody);
         JCAMailMessageTemplate.reset();
-        JCAMailMessageTemplate.get(enum::"JCA Mail Message Type"::"Event Result");
+        JCAMailMessageTemplate.get(enum::"JCA Mail Message Type"::"Grouped Event Result");
         JCAEventMailing := JCAMailMessageTemplate."Mail Message Type";
         tempJCAMailMessageTemplate."Mail Message Type" := JCAMailMessageTemplate."Mail Message Type";
-        tempJCAMailMessageTemplate."Member License ID" := JCAMember."License ID";
-        tempJCAMailMessageTemplate."Event Result" := tempJCAMailMessageTemplate."Event Result";
+        tempJCAMailMessageTemplate."Event No." := JCAEvent."No.";
         EMailContent := JCAEventMailing.ReturnMailContent(tempJCAMailMessageTemplate);
         MailBody.AppendLine(EMailContent);
+    end;
+
+
+    local procedure AddResultTableRow(var ResultsTable: TextBuilder; JCAEventParticipant: record "JCA Event Participant")
+    var
+        JCAMember: record "JCA Member";
+    begin
+        ResultsTable.AppendLine('<tr>');
+        JCAMember.Reset();
+        JCAMember.get(JCAEventParticipant."Member License ID");
+
+        ResultsTable.AppendLine('<td>');
+        ResultsTable.AppendLine(JCAMember."Full Name");
+        ResultsTable.AppendLine('</td>');
+
+        ResultsTable.AppendLine('<td>');
+        ResultsTable.AppendLine(JCAEventParticipant."Age Group Code");
+        ResultsTable.AppendLine('</td>');
+
+        ResultsTable.AppendLine('<td>');
+        ResultsTable.AppendLine(format(JCAEventParticipant.Result));
+        ResultsTable.AppendLine('</td>');
+
+        ResultsTable.AppendLine('</tr>');
     end;
 }

@@ -54,6 +54,11 @@ page 50102 "JCA Member Card"
                         ApplicationArea = all;
                         ToolTip = ' ', Locked = true;
                     }
+                    field("Send Grouped Result Mails"; Rec."Send Grouped Result Mails")
+                    {
+                        ApplicationArea = all;
+                        ToolTip = ' ', Locked = true;
+                    }
                 }
 
                 group(Characteristics)

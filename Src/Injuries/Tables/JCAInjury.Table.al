@@ -11,7 +11,7 @@ table 50128 "JCA Injury"
             Caption = 'No.';
             DataClassification = SystemMetadata;
         }
-        field(2; "Member License ID"; Code[20])
+        field(2; "Member License ID"; Code[50])
         {
             Caption = 'Member License ID';
             DataClassification = SystemMetadata;

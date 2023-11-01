@@ -40,7 +40,7 @@ table 50125 "JCA Voucher"
             DataClassification = SystemMetadata;
             Editable = false;
         }
-        field(5; "Issued To License ID"; Code[20])
+        field(5; "Issued To License ID"; Code[50])
         {
             Caption = 'Issued to License ID';
             DataClassification = SystemMetadata;

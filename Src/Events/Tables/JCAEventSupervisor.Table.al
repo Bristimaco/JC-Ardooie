@@ -10,7 +10,7 @@ table 50113 "JCA Event Supervisor"
             DataClassification = SystemMetadata;
             TableRelation = "JCA Event"."No.";
         }
-        field(2; "Member License ID"; Code[20])
+        field(2; "Member License ID"; Code[50])
         {
             Caption = 'Member License ID';
             DataClassification = SystemMetadata;
@@ -94,14 +94,18 @@ table 50113 "JCA Event Supervisor"
 
     procedure SendInvitationMail()
     var
-        JCAEvent: Record "JCA Event";
-        JCAMailManagement: codeunit "JCA Mail Management";
+        tempJCAMailMessageTemplate: record "JCA Mail Message Template" temporary;
+        JCAEventMailing: Interface JCAEventMailing;
         InvitationSentLbl: Label 'Invitation has been sent';
     begin
-        JCAEvent.Reset();
-        JCAEvent.Get(Rec."Event No.");
-        clear(JCAMailManagement);
-        if JCAMailManagement.SendEventInvitationMail(Rec."Member License ID", JCAEvent) then begin
+        tempJCAMailMessageTemplate.Reset();
+        tempJCAMailMessageTemplate.init();
+        tempJCAMailMessageTemplate."Mail Message Type" := enum::"JCA Mail Message Type"::Invitation;
+        tempJCAMailMessageTemplate."Event No." := rec."Event No.";
+        tempJCAMailMessageTemplate."Member License ID" := rec."Member License ID";
+
+        JCAEventMailing := Enum::"JCA Mail Message Type"::Invitation;
+        if JCAEventMailing.SendMail(tempJCAMailMessageTemplate) then begin
             Rec.Validate(Invited, true);
             rec.Modify(true);
             Message(InvitationSentLbl);
@@ -112,7 +116,7 @@ table 50113 "JCA Event Supervisor"
     var
         JCAEvent: record "JCA Event";
         JCAMailManagement: codeunit "JCA Mail Management";
-    begin        
+    begin
         JCAEvent.Reset();
         JCAEvent.get(rec."Event No.");
         clear(JCAMailManagement);

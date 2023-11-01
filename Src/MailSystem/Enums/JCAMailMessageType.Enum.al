@@ -25,4 +25,9 @@ enum 50108 "JCA Mail Message Type" implements JCAEventMailing
         Caption = 'Event Result';
         Implementation = JCAEventMailing = "JCA Event Result Mail";
     }
+    value(5; "Grouped Event Result")
+    {
+        Caption = 'Grouped Event Result';
+        Implementation = JCAEventMailing = "JCA Grouped Event Result Mail";
+    }
 }

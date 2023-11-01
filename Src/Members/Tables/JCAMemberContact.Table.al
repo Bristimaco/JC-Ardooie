@@ -4,7 +4,7 @@ table 50115 "JCA Member Contact"
 
     fields
     {
-        field(1; "Member License ID"; Code[20])
+        field(1; "Member License ID"; Code[50])
         {
             Caption = 'Member License ID';
             DataClassification = SystemMetadata;

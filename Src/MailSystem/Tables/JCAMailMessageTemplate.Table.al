@@ -16,7 +16,7 @@ table 50126 "JCA Mail Message Template"
             Caption = 'Mail Message Data';
             DataClassification = SystemMetadata;
         }
-        field(3; "Member License ID"; Code[20])
+        field(3; "Member License ID"; Code[50])
         {
             Caption = 'Member License ID';
             DataClassification = SystemMetadata;

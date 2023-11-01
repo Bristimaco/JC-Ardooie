@@ -4,7 +4,7 @@ table 50120 "JCA Guest Member Tr. Group"
 
     fields
     {
-        field(1; "Guest Member License ID"; Code[20])
+        field(1; "Guest Member License ID"; Code[50])
         {
             Caption = 'Member License ID';
             DataClassification = SystemMetadata;

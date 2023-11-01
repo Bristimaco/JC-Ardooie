@@ -9,4 +9,9 @@ codeunit 50112 "JCA Event Registration Mail" implements JCAEventMailing
     var
     begin
     end;
+
+    procedure SendMail(var tempJCAMailMessageTemplate: record "JCA Mail Message Template" temporary): Boolean
+    begin
+
+    end;
 }

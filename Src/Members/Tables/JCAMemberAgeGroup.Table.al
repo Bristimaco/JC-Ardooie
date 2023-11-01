@@ -4,7 +4,7 @@ Table 50109 "JCA Member Age Group"
 
     fields
     {
-        field(1; "Member License ID"; Code[20])
+        field(1; "Member License ID"; Code[50])
         {
             Caption = 'License ID';
             DataClassification = SystemMetadata;
