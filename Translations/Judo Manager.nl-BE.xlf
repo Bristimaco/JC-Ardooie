@@ -2277,6 +2277,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Admin Rolecenter - Action GuestMembers - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1832677796 - Action 1554554962 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Items</source>
+          <target>Artikelen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Admin Rolecenter - Action Items - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1832677796 - Action 653006261 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Members</source>
           <target>Leden</target>
@@ -3710,12 +3716,6 @@
           <target>Open</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Training Session Status - EnumValue Open - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 3806793414 - ReportColumn 3192175264 - ReportColumn 3763938026 - ReportColumn 4133990171 - ReportColumn 2981235050 - NamedType 3040577680" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Event Report</source>
-          <target>Evemenent Verslag</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report JCA Event Report - ReportColumn Date - ReportColumn Supervisor_License_ID - ReportColumn Weigh_In_Start_Time - ReportColumn Member_License_ID - NamedType ReportTitleLbl</note>
         </trans-unit>
       </group>
     </body>
