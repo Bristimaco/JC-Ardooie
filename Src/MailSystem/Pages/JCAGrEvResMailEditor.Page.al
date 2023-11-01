@@ -1,6 +1,6 @@
 page 50148 "JCA Gr. Ev. Res. Mail Editor"
 {
-    Caption = 'grouped Event Result Mail Editor';
+    Caption = 'Grouped Event Result Mail Editor';
     SourceTable = "JCA Mail Message Template";
     PageType = Card;
     InsertAllowed = false;
