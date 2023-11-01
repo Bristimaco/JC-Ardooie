@@ -42,7 +42,7 @@ page 50103 "JCA Admin Rolecenter"
                 RunObject = page "JCA Setup";
                 Image = Setup;
             }
-            
+
             action(sponsors)
             {
                 Caption = 'Sponsors';
@@ -52,7 +52,7 @@ page 50103 "JCA Admin Rolecenter"
                 RunPageView = where("JCA Sponsor" = const(true));
                 Image = Vendor;
             }
-            
+
             action(OurMembers)
             {
                 Caption = 'Members';
@@ -85,7 +85,14 @@ page 50103 "JCA Admin Rolecenter"
                 RunObject = page "JCA Events";
                 Image = History;
             }
-            
+            action(Items)
+            {
+                Caption = 'Items';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                RunObject = page "Item List";
+                Image = Item;
+            }
         }
     }
 }
