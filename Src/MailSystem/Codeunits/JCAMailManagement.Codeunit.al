@@ -1,5 +1,6 @@
 codeunit 50104 "JCA Mail Management"
 {
+    // TODO: Refactor mails
     procedure SendRegistrationConfirmationMail(JCAEventParticipant: record "JCA Event Participant"; JCAEvent: record "JCA Event"): Boolean
     begin
         exit(doSendRegistrationConfirmationMail(JCAEventParticipant."Member License ID", JCAEventParticipant."Weight Group Code", JCAEvent));
