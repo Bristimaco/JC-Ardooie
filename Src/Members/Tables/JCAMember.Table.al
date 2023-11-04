@@ -254,6 +254,7 @@ table 50101 "JCA Member"
         JCAMemberAgeGroup.deleteall(true);
 
         JCAVoucher.Reset();
+        JCAVoucher.setrange("Issued To Type", JCAVoucher."Issued To Type"::Member);
         JCAVoucher.Setrange("Issued To No.", rec."License ID");
         JCAVoucher.setrange(Used, false);
         JCAVoucher.deleteall(true);

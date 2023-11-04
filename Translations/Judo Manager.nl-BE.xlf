@@ -1683,6 +1683,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field Send Test Mails - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3008872625 - Field 3134158599 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sponsorship Renewal Period</source>
+          <target>Sponsoring Vernieuwingsperiode</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field Sponsorship Renewal Period - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3008872625 - Field 3856217643 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Test E-Mail Address</source>
           <target>Test E-Mail Adres</target>
@@ -3273,6 +3279,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup - Control NoSeries - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3008872625 - Control 4150584781 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sponsorship</source>
+          <target>Sponsoring</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup - Control SponsorshipSettings - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3008872625 - Control 3815988200 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Images</source>
           <target>Afbeeldingen</target>
@@ -3389,7 +3401,7 @@
         </trans-unit>
         <trans-unit id="Page 1455829379 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sponsor Formulas</source>
-          <target>Sponsor Fomrules</target>
+          <target>Sponsor Formules</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Sponsor Formulas - Property Caption</note>
         </trans-unit>

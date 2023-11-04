@@ -45,7 +45,7 @@ tableextension 50102 "JCA Customer" extends Customer
         {
             Caption = 'Requested Sponsorship Code';
             DataClassification = SystemMetadata;
-            TableRelation = "JCA Membership".Code;
+            TableRelation = "JCA Sponsor Formula".Code;
         }
         field(50108; "JCA Open SpShip Payment Req."; Boolean)
         {
@@ -69,6 +69,23 @@ tableextension 50102 "JCA Customer" extends Customer
             Editable = false;
         }
     }
+
+    trigger OnDelete()
+    var
+        JCAVoucher: Record "JCA Voucher";
+        JCASponsorshipPeriod: Record "JCA Sponsorship Period";
+    begin
+        JCAVoucher.Reset();
+        JCAVoucher.setrange("Issued To Type", JCAVoucher."Issued To Type"::Sponsor);
+        JCAVoucher.Setrange("Issued To No.", rec."No.");
+        JCAVoucher.setrange(Used, false);
+        JCAVoucher.deleteall(true);
+
+        JCASponsorshipPeriod.Reset();
+        JCASponsorshipPeriod.setrange("Sponsor No.", rec."No.");
+        JCASponsorshipPeriod.setrange("Sponsorship Payed", false);
+        JCASponsorshipPeriod.DeleteAll(true);
+    end;
 
     procedure CreateSponsorshipRenewal()
     var

@@ -88,7 +88,17 @@ page 50100 "JCA Setup"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+            }
 
+            group(SponsorshipSettings)
+            {
+                Caption = 'Sponsorship';
+
+                field("Sponsorship Renewal Period"; Rec."Sponsorship Renewal Period")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
             }
 
             group(MailSystem)

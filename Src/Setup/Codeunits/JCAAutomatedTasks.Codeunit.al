@@ -5,6 +5,7 @@ codeunit 50100 "JCA Automated Tasks"
         UpdateAgeGroupsOnMembers();
         UpdateTrainingGroups();
         CreateMembershipRenewals();
+        CreateSponsorshipRenewals();
         SendInvitationReminders();
     end;
 
@@ -41,6 +42,14 @@ codeunit 50100 "JCA Automated Tasks"
     begin
         clear(JCAMemberManagement);
         JCAMemberManagement.CreateMembershipRenewals();
+    end;
+
+    procedure CreateSponsorshipRenewals()
+    var
+        JCASponsorManagement: codeunit "JCA Sponsor Management";
+    begin
+        clear(JCASponsorManagement);
+        JCASponsorManagement.CreateSponsorshipRenewals();
     end;
 
     procedure SendInvitationReminders()

@@ -120,6 +120,11 @@ table 50100 "JCA Setup"
             Caption = 'Injury Nos.';
             DataClassification = SystemMetadata;
             TableRelation = "No. Series".Code;
+        }       
+        field(21; "Sponsorship Renewal Period"; DateFormula)
+        {
+            Caption = 'Sponsorship Renewal Period';
+            DataClassification = SystemMetadata;
         }
     }
 
