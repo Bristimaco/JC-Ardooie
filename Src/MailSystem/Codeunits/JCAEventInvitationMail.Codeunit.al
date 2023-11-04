@@ -65,7 +65,7 @@ codeunit 50110 "JCA Event Invitation Mail" implements JCAEventMailing
         MailManagement: codeunit "Mail Management";
         EmailMessage: codeunit "Email Message";
         JCAActionLogManagement: codeunit "JCA Action Log Management";
-        JCAMailManagement: codeunit "JCA Mail Management";
+        JCAMailManagement: codeunit "JCA Mail System Helper";
         Email: codeunit Email;
         InStream: InStream;
         SendToMail: text[100];

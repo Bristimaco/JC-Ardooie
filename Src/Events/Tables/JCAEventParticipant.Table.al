@@ -197,7 +197,7 @@ table 50112 "JCA Event Participant"
     procedure SendRegistrationConfirmationMail()
     var
         JCAEvent: record "JCA Event";
-        JCAMailManagement: codeunit "JCA Mail Management";
+        JCAMailManagement: codeunit "JCA Mail System Helper";
     begin
         TestField("Weight Group Code");
         JCAEvent.Reset();
@@ -212,7 +212,7 @@ table 50112 "JCA Event Participant"
     procedure SendUnRegistrationConfirmationMail()
     var
         JCAEvent: record "JCA Event";
-        JCAMailManagement: codeunit "JCA Mail Management";
+        JCAMailManagement: codeunit "JCA Mail System Helper";
     begin
         TestField("Weight Group Code");
         JCAEvent.Reset();

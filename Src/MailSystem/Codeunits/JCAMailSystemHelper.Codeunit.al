@@ -1,4 +1,4 @@
-codeunit 50104 "JCA Mail Management"
+codeunit 50104 "JCA Mail System Helper"
 {
     // TODO: Refactor mails
     procedure SendRegistrationConfirmationMail(JCAEventParticipant: record "JCA Event Participant"; JCAEvent: record "JCA Event"): Boolean
@@ -220,5 +220,5 @@ codeunit 50104 "JCA Mail Management"
         MailBody.AppendLine('Met vriendelijke groeten,');
         MailBody.AppendLine();
         MailBody.AppendLine('Judo Ardooie');
-    end;    
+    end;
 }

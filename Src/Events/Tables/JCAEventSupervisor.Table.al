@@ -115,7 +115,7 @@ table 50113 "JCA Event Supervisor"
     procedure SendRegistrationConfirmationMail()
     var
         JCAEvent: record "JCA Event";
-        JCAMailManagement: codeunit "JCA Mail Management";
+        JCAMailManagement: codeunit "JCA Mail System Helper";
     begin
         JCAEvent.Reset();
         JCAEvent.get(rec."Event No.");
@@ -129,7 +129,7 @@ table 50113 "JCA Event Supervisor"
     procedure SendUnRegistrationConfirmationMail()
     var
         JCAEvent: record "JCA Event";
-        JCAMailManagement: codeunit "JCA Mail Management";
+        JCAMailManagement: codeunit "JCA Mail System Helper";
     begin
         JCAEvent.Reset();
         JCAEvent.get(rec."Event No.");

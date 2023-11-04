@@ -21,6 +21,21 @@ pageextension 50101 "JCA Customer Card" extends "Customer Card"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field("JCA Active Sponsorship"; Rec."JCA Active Sponsorship")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("JCA Req. Sponsorship Code"; Rec."JCA Req. Sponsorship Code")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("JCA Open SpShip Payment Req."; Rec."JCA Open SpShip Payment Req.")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
             }
         }
         modify("Search Name")
@@ -357,4 +372,10 @@ pageextension 50101 "JCA Customer Card" extends "Customer Card"
             Visible = false;
         }
     }
+
+    trigger OnOpenPage()
+    begin
+        rec.SetFilter("JCA SpSh. Start Date Filter", '<=%1', Today());
+        rec.SetFilter("JCA SpSh. End Date Filter", '>=%1', Today());
+    end;
 }

@@ -204,4 +204,10 @@ pageextension 50102 "JCA Customer List" extends "Customer List"
             Visible = false;
         }
     }
+
+    trigger OnOpenPage()
+    begin
+        rec.SetFilter("JCA SpSh. Start Date Filter", '<=%1', Today());
+        rec.SetFilter("JCA SpSh. End Date Filter", '>=%1', Today());
+    end;
 }

@@ -49,21 +49,6 @@ page 50104 "JCA Member Cues"
                     ToolTip = ' ', Locked = true;
                 }
             }
-            cuegroup(Vouchers)
-            {
-                Caption = 'Vouchers';
-
-                field("Unused Vouchers"; Rec."Unused Vouchers")
-                {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
-                }
-                field("Used Vouchers"; Rec."Used Vouchers")
-                {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
-                }
-            }
             cuegroup(ContactCues)
             {
                 Caption = 'Contacts';

@@ -27,6 +27,16 @@ page 50103 "JCA Admin Rolecenter"
                 Caption = 'Members';
                 ApplicationArea = all;
             }
+            part(SponsorCues; "JCA Sponsor Cues")
+            {
+                Caption = 'Sonsors';
+                ApplicationArea = all;
+            }
+            part(VoucherCues; "JCA Voucher Cues")
+            {
+                Caption = 'Vouchers';
+                ApplicationArea = all;
+            }
         }
     }
 

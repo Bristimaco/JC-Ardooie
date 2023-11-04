@@ -51,7 +51,7 @@ codeunit 50109 "JCA Event Result Mail" implements JCAEventMailing
         JCAContact: record "JCA Contact";
         JCAMailMessageTemplate: record "JCA Mail Message Template";
         MailManagement: codeunit "Mail Management";
-        JCAMailManagement: codeunit "JCA Mail Management";
+        JCAMailManagement: codeunit "JCA Mail System Helper";
         EmailMessage: codeunit "Email Message";
         Email: codeunit Email;
         MailingList: list of [Text[100]];

@@ -176,14 +176,14 @@ table 50101 "JCA Member"
         {
             Caption = 'Unused Vouchers';
             FieldClass = FlowField;
-            CalcFormula = count("JCA Voucher" where("Issued To No." = field("License ID"), Used = const(false)));
+            CalcFormula = count("JCA Voucher" where("Issued To Type" = const(member), "Issued To No." = field("License ID"), Used = const(false)));
             Editable = false;
         }
         field(30; "Used Vouchers"; Integer)
         {
             Caption = 'Used Vouchers';
             FieldClass = FlowField;
-            CalcFormula = count("JCA Voucher" where("Issued To No." = field("License ID"), Used = const(true)));
+            CalcFormula = count("JCA Voucher" where("Issued To Type" = const(member), "Issued To No." = field("License ID"), Used = const(true)));
             Editable = false;
         }
         field(31; "Current Injuries"; Integer)

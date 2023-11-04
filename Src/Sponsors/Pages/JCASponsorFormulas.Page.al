@@ -28,6 +28,11 @@ page 50149 "JCA Sponsor Formulas"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field("Membership Period"; Rec."Sponsorship Period")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
                 field("Voucher Code"; Rec."Voucher Code")
                 {
                     ApplicationArea = all;

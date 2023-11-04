@@ -284,6 +284,42 @@ table 50102 "JCA Cue"
             CalcFormula = count("JCA Injury" where(Status = const(Closed)));
             Editable = false;
         }
+        field(43; "Sponsorship Filter"; Code[20])
+        {
+            Caption = 'Sponsorship Filter';
+            FieldClass = FlowFilter;
+        }
+        field(44; "Sponsorsh. Start Date Filter"; Date)
+        {
+            Caption = 'Sponsorship Start Date Filter';
+            FieldClass = FlowFilter;
+        }
+        field(45; "Sponsorsh. End Date Filter"; Date)
+        {
+            Caption = 'Sponsorship End Date Filter';
+            FieldClass = FlowFilter;
+        }
+        field(46; "Open Sponsorship Payment Req."; Integer)
+        {
+            Caption = 'Open Sponsorship Payment Requests';
+            FieldClass = FlowField;
+            CalcFormula = count("JCA Sponsorship Period" where("Sponsorship Payed" = const(false)));
+            Editable = false;
+        }
+        field(47; "Active Sponsors"; Integer)
+        {
+            Caption = 'Active Sponsors';
+            FieldClass = FlowField;
+            CalcFormula = count(customer where("JCA Sponsor" = const(true), "JCA Active Sponsorship" = field("Sponsorship Filter"), "JCA SpSh. Start Date Filter" = field("Sponsorsh. Start Date Filter"), "JCA SpSh. End Date Filter" = field("Sponsorsh. End Date Filter")));
+            Editable = false;
+        }
+        field(48; "Inactive Sponsors"; Integer)
+        {
+            Caption = 'Inactive Sponsors';
+            FieldClass = FlowField;
+            CalcFormula = count(Customer where("JCA Active Sponsorship" = const(''), "JCA SpSh. Start Date Filter" = field("SponsorSh. Start Date Filter"), "JCA SpSh. End Date Filter" = field("Sponsorsh. End Date Filter")));
+            Editable = false;
+        }        
     }
 
     keys

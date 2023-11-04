@@ -71,7 +71,7 @@ permissionset 50100 "Judo Manager"
         codeunit "JCA Event Unregistration Mail"=X,
         codeunit "JCA HTML Generator"=X,
         codeunit "JCA Install"=X,
-        codeunit "JCA Mail Management"=X,
+        codeunit "JCA Mail System Helper"=X,
         codeunit "JCA Member Management"=X,
         codeunit "JCA Send Result Mails"=X,
         codeunit "JCA Training Management"=X,
@@ -128,5 +128,9 @@ permissionset 50100 "Judo Manager"
         page "JCA Gr. Ev. Res. Mail Editor"=X,
         page "JCA Injuries"=X,
         page "JCA Injury Card"=X,
-        page "JCA Sponsor Formulas"=X;
+        page "JCA Sponsor Formulas"=X,
+        tabledata "JCA Sponsorship Period"=RIMD,
+        table "JCA Sponsorship Period"=X,
+        codeunit "JCA Sponsor Management"=X,
+        page "JCA Sponsorship Periods"=X;
 }

@@ -21,7 +21,12 @@ table 50129 "JCA Sponsor Formula"
             Caption = 'Unit Price';
             DataClassification = SystemMetadata;
         }
-        field(4; "Voucher Code"; Code[20])
+        field(4; "Sponsorship Period"; DateFormula)
+        {
+            Caption = 'Sponsorship Period';
+            DataClassification = SystemMetadata;
+        }
+        field(5; "Voucher Code"; Code[20])
         {
             caption = 'Voucher Code';
             DataClassification = SystemMetadata;
@@ -37,14 +42,14 @@ table 50129 "JCA Sponsor Formula"
                 CalcFields("Voucher Description");
             end;
         }
-        field(5; "Voucher Description"; Text[100])
+        field(6; "Voucher Description"; Text[100])
         {
             Caption = 'Voucher Description';
             FieldClass = FlowField;
             CalcFormula = lookup("JCA Voucher Type".Description where(Code = field("Voucher Code")));
             Editable = false;
         }
-        field(6; Sponsors; Integer)
+        field(7; Sponsors; Integer)
         {
             Caption = 'Sponsors';
             FieldClass = FlowField;

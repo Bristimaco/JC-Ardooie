@@ -15,7 +15,7 @@ codeunit 50111 "JCA Event Inv. Reminder Mail" implements JCAEventMailing
         JCAEventDocument: record "JCA Event Document";
         JCAEvent: Record "JCA Event";
         MailManagement: codeunit "Mail Management";
-        JCAMailManagement: codeunit "JCA Mail Management";
+        JCAMailManagement: codeunit "JCA Mail System Helper";
         EmailMessage: codeunit "Email Message";
         JCAActionLogManagement: codeunit "JCA Action Log Management";
         Email: codeunit Email;

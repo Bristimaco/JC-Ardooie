@@ -168,6 +168,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Active Members - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1630571357 - Field 2394480229 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Active Sponsors</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Active Sponsors - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1630571357 - Field 2576663527 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Archived</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -238,6 +243,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Inactive Members - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1630571357 - Field 3236172344 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inactive Sponsors</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Inactive Sponsors - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1630571357 - Field 2742451874 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Membership End Date Filter</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -278,10 +288,30 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Open Membership Payment Req. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1630571357 - Field 191564308 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open Sponsorship Payment Requests</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Open Sponsorship Payment Req. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1630571357 - Field 2663364995 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open Training Sessions</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Open Training Sessions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1630571357 - Field 2114568358 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sponsorship End Date Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Sponsorsh. End Date Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1630571357 - Field 3573149919 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sponsorship Start Date Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Sponsorsh. Start Date Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1630571357 - Field 603227882 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sponsorship Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Cue - Field Sponsorship Filter - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1630571357 - Field 1907402211 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Archived</source>
@@ -1418,6 +1448,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Sponsor Formula - Field Sponsors - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4079635606 - Field 3296012773 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sponsorship Period</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Sponsor Formula - Field Sponsorship Period - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4079635606 - Field 2937233469 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unit Price</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1432,6 +1467,56 @@
           <source>Voucher Description</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Sponsor Formula - Field Voucher Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 537799061 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sponsorshio Period</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Sponsorship Period - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 537799061 - Field 15347453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Requested On</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Sponsorship Period - Field Payment Requested On - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 537799061 - Field 2340869893 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sponsor Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Sponsorship Period - Field Sponsor Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 537799061 - Field 2249814837 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sponsor No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Sponsorship Period - Field Sponsor No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 537799061 - Field 3637441773 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sponsorship Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Sponsorship Period - Field Sponsorship Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 537799061 - Field 1853478812 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sponsorship Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Sponsorship Period - Field Sponsorship Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 537799061 - Field 4020327175 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sponsorship Ending Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Sponsorship Period - Field Sponsorship Ending Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 537799061 - Field 3709239764 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sponsorship Fee</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Sponsorship Period - Field Sponsorship Fee - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 537799061 - Field 473497721 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Membership Payed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Sponsorship Period - Field Sponsorship Payed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 537799061 - Field 1008937342 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sponsorship Starting Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Sponsorship Period - Field Sponsorship Starting Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2880623267 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Training Session Participant</source>
@@ -1843,35 +1928,35 @@
           <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Grouped Event Result Mail - Method CreateGroupedEventResultMailContent - NamedType ResultsLbl</note>
         </trans-unit>
-        <trans-unit id="Codeunit 122294278 - Method 1286253434 - NamedType 3529353084" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 3719145446 - Method 1286253434 - NamedType 3529353084" size-unit="char" translate="yes" xml:space="preserve">
           <source>Registration Confirmation for %1 - %2</source>
           <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method CreateEventRegistrationConfirmationMailContent - NamedType RegistrationConfirmationSubjectLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail System Helper - Method CreateEventRegistrationConfirmationMailContent - NamedType RegistrationConfirmationSubjectLbl</note>
         </trans-unit>
-        <trans-unit id="Codeunit 122294278 - Method 347613895 - NamedType 1220805257" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 3719145446 - Method 347613895 - NamedType 1220805257" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unregistration Confirmation for %1 - %2</source>
           <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method CreateEventUnregistrationConfirmationMailContent - NamedType UnregistrationConfirmationLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail System Helper - Method CreateEventUnregistrationConfirmationMailContent - NamedType UnregistrationConfirmationLbl</note>
         </trans-unit>
-        <trans-unit id="Codeunit 122294278 - Method 3683904708 - NamedType 2468462947" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 3719145446 - Method 3683904708 - NamedType 2468462947" size-unit="char" translate="yes" xml:space="preserve">
           <source>A Registration Confirmation for Event %1 - %2 has been sent to %3 - %4</source>
           <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method doSendRegistrationConfirmationMail - NamedType RegistrationConfirmationMailSentLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail System Helper - Method doSendRegistrationConfirmationMail - NamedType RegistrationConfirmationMailSentLbl</note>
         </trans-unit>
-        <trans-unit id="Codeunit 122294278 - Method 3683904708 - NamedType 1313436962" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 3719145446 - Method 3683904708 - NamedType 1313436962" size-unit="char" translate="yes" xml:space="preserve">
           <source>Failed to send a Registration Confirmation for Event %1 - %2 to %3 - %4</source>
           <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method doSendRegistrationConfirmationMail - NamedType RegistrationConfirmationMailFailedLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail System Helper - Method doSendRegistrationConfirmationMail - NamedType RegistrationConfirmationMailFailedLbl</note>
         </trans-unit>
-        <trans-unit id="Codeunit 122294278 - Method 518774589 - NamedType 3098798950" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 3719145446 - Method 518774589 - NamedType 3098798950" size-unit="char" translate="yes" xml:space="preserve">
           <source>An Unregistration Confirmation for Event %1 - %2 has been sent to %3 - %4</source>
           <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method doSendUnRegistrationConfirmationMail - NamedType UnRegistrationConfirmationMailSentLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail System Helper - Method doSendUnRegistrationConfirmationMail - NamedType UnRegistrationConfirmationMailSentLbl</note>
         </trans-unit>
-        <trans-unit id="Codeunit 122294278 - Method 518774589 - NamedType 480681023" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 3719145446 - Method 518774589 - NamedType 480681023" size-unit="char" translate="yes" xml:space="preserve">
           <source>Failed to send an Unregistration Confirmation for Event %1 - %2 to %3 - %4</source>
           <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = License ID, %4 = Member Name</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail Management - Method doSendUnRegistrationConfirmationMail - NamedType UnRegistrationConfirmationMailFailedLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Mail System Helper - Method doSendUnRegistrationConfirmationMail - NamedType UnRegistrationConfirmationMailFailedLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 3789116197 - Method 944787481 - NamedType 3952755926" size-unit="char" translate="yes" xml:space="preserve">
           <source>No participants to Invoice.</source>
@@ -1928,6 +2013,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Admin Rolecenter - Control Members - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1832677796 - Control 470844472 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sonsors</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Admin Rolecenter - Control SponsorCues - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1832677796 - Control 4155090369 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Today</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1937,6 +2027,11 @@
           <source>Training Sessions</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Admin Rolecenter - Control TrainingSessions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1832677796 - Control 3366651748 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vouchers</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Admin Rolecenter - Control VoucherCues - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1832677796 - Action 3783953786 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Events</source>
@@ -2483,11 +2578,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Cues - Control MembershipRenewal - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3218187252 - Control 3461054021 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Vouchers</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Member Cues - Control Vouchers - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 234838847 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Member Factbox</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2718,10 +2808,30 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup Factbox - Action UploadPicture - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1559761296 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sponsors</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Sponsor Cues - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1559761296 - Control 1856371161 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sponsors</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Sponsor Cues - Control SponsorsCues - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1559761296 - Control 3263924141 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Renewals</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Sponsor Cues - Control SponsorshipRenewals - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1455829379 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sponsor Formulas</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Sponsor Formulas - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 932204780 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sponsorship Periods</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Sponsorship Periods - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2423871649 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Today</source>
@@ -2853,6 +2963,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Training Sessions - Action OpenInvoice - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 269107836 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vouchers</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Voucher Cues - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 269107836 - Control 3461054021 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vouchers</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Voucher Cues - Control Vouchers - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 545569925 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Voucher Types</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2888,6 +3008,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension JCA Country/Region - Field JCA Age Group Switch Month - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2966221904 - Field 692156134 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>Active Sponsorship</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension JCA Customer - Field JCA Active Sponsorship - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2966221904 - Field 1199204561 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>Open Sponsorship Payment Requests</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension JCA Customer - Field JCA Open SpShip Payment Req. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2966221904 - Field 3477503381 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>Requested Sponsorship Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension JCA Customer - Field JCA Req. Sponsorship Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2966221904 - Field 3931502600 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
           <source>Sponsor</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2902,6 +3037,26 @@
           <source>Sponsor Formula</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension JCA Customer - Field JCA Sponsor Formula - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2966221904 - Field 1682709343 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>Sponsorship End Date Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension JCA Customer - Field JCA SpSh. End Date Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2966221904 - Field 3016919558 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>Sponsorship Start Date Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension JCA Customer - Field JCA SpSh. Start Date Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2966221904 - Field 2185054073 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>Unused Vouchers</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension JCA Customer - Field Unused Vouchers - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2966221904 - Field 2893412152 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>Used Vouchers</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension JCA Customer - Field Used Vouchers - Property Caption</note>
         </trans-unit>
         <trans-unit id="Profile 144900817 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>JCA Admin</source>
