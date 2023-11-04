@@ -1,10 +1,15 @@
-pageextension 50102 "JCA Customers" extends "Customer List"
+pageextension 50102 "JCA Customer List" extends "Customer List"
 {
     layout
     {
         addafter("No.")
         {
             field(Sponsor; Rec."JCA Sponsor")
+            {
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+            }
+            field("JCA Sponsor Formula"; Rec."JCA Sponsor Formula")
             {
                 ApplicationArea = all;
                 ToolTip = ' ', Locked = true;

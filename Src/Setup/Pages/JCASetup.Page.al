@@ -165,6 +165,14 @@ page 50100 "JCA Setup"
                 RunObject = page "JCA Memberships";
                 Image = Price;
             }
+            action(SponsorFormulas)
+            {
+                Caption = 'Sponsor Formulas';
+                ApplicationArea = all;
+                ToolTip = ' ', Locked = true;
+                RunObject = page "JCA Sponsor Formulas";
+                Image = Accounts;
+            }
             action(VoucherTypes)
             {
                 Caption = 'Voucher Types';

@@ -40,25 +40,46 @@ table 50125 "JCA Voucher"
             DataClassification = SystemMetadata;
             Editable = false;
         }
-        field(5; "Issued To License ID"; Code[50])
+        field(5; "Issued To Type"; enum "JCA Voucher Issued To Type")
         {
-            Caption = 'Issued to License ID';
+            Caption = 'Issued To Type';
             DataClassification = SystemMetadata;
-            TableRelation = "JCA Member"."License ID";
+        }
+        field(6; "Issued To No."; Code[50])
+        {
+            Caption = 'Issued to No.';
+            DataClassification = SystemMetadata;
+            TableRelation = if ("Issued To Type" = const(Member)) "JCA Member"."License ID" else
+            if ("Issued To Type" = const(Sponsor)) customer."No.";
 
             trigger OnValidate()
+            var
+                Customer: Record Customer;
+                JCAMember: record "JCA Member";
             begin
-                CalcFields("Issued To Name");
+                case "Issued To Type" of
+                    "Issued To Type"::Sponsor:
+                        begin
+                            customer.reset();
+                            if Customer.get("Issued To No.") then
+                                Validate("Issued To Name", customer.Name);
+                        end;
+                    "Issued To Type"::Member:
+                        begin
+                            JCAMember.reset();
+                            if JCAMember.get("Issued To No.") then
+                                Validate("Issued To Name", JCAMember."Full Name");
+                        end;
+                end;
             end;
         }
-        field(6; "Issued To Name"; Text[150])
+        field(7; "Issued To Name"; Text[150])
         {
             Caption = 'Issued To Name';
-            FieldClass = FlowField;
-            CalcFormula = lookup("JCA Member"."Full Name" where("License ID" = field("Issued To License ID")));
+            DataClassification = SystemMetadata;
             Editable = false;
         }
-        field(7; "Used"; Boolean)
+        field(8; "Used"; Boolean)
         {
             Caption = 'Used';
             DataClassification = SystemMetadata;
@@ -68,7 +89,7 @@ table 50125 "JCA Voucher"
                 validate("Used On", Today());
             end;
         }
-        field(8; "Used On"; Date)
+        field(9; "Used On"; Date)
         {
             Caption = 'Used On';
             DataClassification = SystemMetadata;
@@ -81,20 +102,20 @@ table 50125 "JCA Voucher"
                     error(VoucherIsNoLongerValidErr);
             end;
         }
-        field(9; "Description"; Text[100])
+        field(10; "Description"; Text[100])
         {
             Caption = 'Description';
             FieldClass = FlowField;
             CalcFormula = lookup("JCA Voucher Type".Description where(Code = field(Type)));
             Editable = false;
         }
-        field(10; Value; Decimal)
+        field(11; Value; Decimal)
         {
             Caption = 'Value';
             DataClassification = SystemMetadata;
             Editable = false;
         }
-        field(11; "Issued On"; Date)
+        field(12; "Issued On"; Date)
         {
             Caption = 'Issued On';
             DataClassification = SystemMetadata;

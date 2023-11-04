@@ -1,24 +1,19 @@
-page 50139 "JCA Vouchers"
+page 50149 "JCA Sponsor Formulas"
 {
-    Caption = 'Vouchers';
+    Caption = 'Sponsor Formulas';
     PageType = List;
+    SourceTable = "JCA Sponsor Formula";
     ApplicationArea = all;
-    UsageCategory = Lists;
-    SourceTable = "JCA Voucher";
+    UsageCategory = Administration;
     DelayedInsert = true;
 
     layout
     {
         area(Content)
         {
-            repeater(Vouchers)
+            repeater(SponsorFormulas)
             {
                 field(Code; Rec.Code)
-                {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
-                }
-                field(Type; Rec.Type)
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
@@ -28,32 +23,22 @@ page 50139 "JCA Vouchers"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
-                field(Value; Rec.Value)
+                field("Unit Price"; Rec."Unit Price")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
-                field("Issued To License ID"; Rec."Issued To License ID")
+                field("Voucher Code"; Rec."Voucher Code")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
-                field("Issued To Name"; Rec."Issued To Name")
+                field("Voucher Description"; Rec."Voucher Description")
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
-                field("Valid Until"; Rec."Valid Until")
-                {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
-                }
-                field(Used; Rec.Used)
-                {
-                    ApplicationArea = all;
-                    ToolTip = ' ', Locked = true;
-                }
-                field("Used On"; Rec."Used On")
+                field(Sponsors; Rec.Sponsors)
                 {
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;

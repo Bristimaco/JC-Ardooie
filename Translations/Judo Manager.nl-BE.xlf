@@ -1677,6 +1677,48 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Setup - Field Training Session Nos. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4079635606 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sponsor Formula</source>
+          <target>Sponsor Formule</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Sponsor Formula - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4079635606 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <target>Code</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Sponsor Formula - Field Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4079635606 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target>Omschrijving</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Sponsor Formula - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4079635606 - Field 4017892345 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sponsors</source>
+          <target>Sponsors</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Sponsor Formula - Field Sponsors - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4079635606 - Field 2937233469 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit Price</source>
+          <target>Eenheidsprijs</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Sponsor Formula - Field Unit Price - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4079635606 - Field 1432851583 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Voucher Code</source>
+          <target>Waardebon Code</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Sponsor Formula - Field Voucher Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4079635606 - Field 430485266 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Voucher Description</source>
+          <target>Waardebon Omschrijving</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Sponsor Formula - Field Voucher Description - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2880623267 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Training Session Participant</source>
           <target>Training Deelnemer</target>
@@ -1941,17 +1983,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Voucher - Field Issued On - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 3187885748 - Field 795573436 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Issued to License ID</source>
-          <target>Uitgegeven aan Licentie ID</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Voucher - Field Issued To License ID - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 3187885748 - Field 965557907 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Issued To Name</source>
           <target>Uitgegeven aan</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Voucher - Field Issued To Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3187885748 - Field 3195122291 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issued to No.</source>
+          <target>Uitgegeven Aan</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Voucher - Field Issued To No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3187885748 - Field 803909962 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issued To Type</source>
+          <target>Uitgegeven aan Type</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Voucher - Field Issued To Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3187885748 - Field 1351594800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>No. Series</source>
@@ -2632,7 +2680,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Events - Action EventReport - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3425065112 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>grouped Event Result Mail Editor</source>
+          <source>Grouped Event Result Mail Editor</source>
           <target>Gegroepeerde Evenement Resultaten Mail Editor</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Gr. Ev. Res. Mail Editor - Property Caption</note>
@@ -3159,6 +3207,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup - Action ResultImages - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3008872625 - Action 679937531 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sponsor Formulas</source>
+          <target>Sponsor Formules</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup - Action SponsorFormulas - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3008872625 - Action 1678643360 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Training Groups</source>
           <target>Training Groepen</target>
@@ -3206,6 +3260,12 @@
           <target>Inladen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Setup Factbox - Action UploadPicture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1455829379 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sponsor Formulas</source>
+          <target>Sponsor Fomrules</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Sponsor Formulas - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2423871649 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Today</source>
@@ -3410,6 +3470,18 @@
           <target>Sponsor</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension JCA Customer - Field JCA Sponsor - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2966221904 - Field 1435615235 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>Sponsor Formula Descriptoon</source>
+          <target>Sponsor Formule Omschrijving</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension JCA Customer - Field JCA Sponsor Form. Descr. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2966221904 - Field 4079635606 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>Sponsor Formula</source>
+          <target>Sponsor Formule</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension JCA Customer - Field JCA Sponsor Formula - Property Caption</note>
         </trans-unit>
         <trans-unit id="Profile 144900817 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>JCA Admin</source>
@@ -3758,6 +3830,18 @@
           <target>Open</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Training Session Status - EnumValue Open - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2972892050 - EnumValue 69905980 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Member</source>
+          <target>Lid</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Voucher Issued To Type - EnumValue Member - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2972892050 - EnumValue 1402800280 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sponsor</source>
+          <target>Sponsor</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Voucher Issued To Type - EnumValue Sponsor - Property Caption</note>
         </trans-unit>
       </group>
     </body>

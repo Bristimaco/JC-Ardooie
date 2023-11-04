@@ -160,22 +160,4 @@ codeunit 50103 "JCA Member Management"
             JCAMembershipPeriod.insert(true);
         end;
     end;
-
-    procedure IssueVoucherToMember(JCAMember: record "JCA Member"; VoucherType: Code[20])
-    var
-        JCAVoucherType: Record "JCA Voucher Type";
-        JCAVoucher: Record "JCA Voucher";
-    begin
-        JCAVoucherType.Reset();
-        JCAVoucherType.get(VoucherType);
-        JCAVoucherType.testfield("Voucher Nos.");
-
-        JCAVoucher.Reset();
-        JCAVoucher.init();
-        JCAVoucher.validate(type, JCAVoucherType.Code);
-        JCAVoucher.insert(true);
-        JCAVoucher.Validate("Issued To License ID", JCAMember."License ID");
-        JCAVoucher.validate("Valid Until", CalcDate(JCAVoucherType."Validation Period", JCAVoucher."Issued On"));
-        JCAVoucher.modify(true);
-    end;
 }

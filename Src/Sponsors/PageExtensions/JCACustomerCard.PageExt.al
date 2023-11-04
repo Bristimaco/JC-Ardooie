@@ -4,10 +4,23 @@ pageextension 50101 "JCA Customer Card" extends "Customer Card"
     {
         addafter("No.")
         {
-            field(Sponsor; Rec."JCA Sponsor")
+            group(Sponsoring)
             {
-                ApplicationArea = all;
-                ToolTip = ' ', Locked = true;
+                field(Sponsor; Rec."JCA Sponsor")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("JCA Sponsor Formula"; Rec."JCA Sponsor Formula")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
+                field("JCA Sponsor Form. Descr."; Rec."JCA Sponsor Form. Descr.")
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
             }
         }
         modify("Search Name")

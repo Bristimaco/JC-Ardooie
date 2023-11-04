@@ -1,6 +1,8 @@
 table 50124 "JCA Voucher Type"
 {
     Caption = 'Voucher Type';
+    DrillDownPageId = "JCA Voucher Types";
+    LookupPageId = "JCA Voucher Types";
 
     fields
     {

@@ -176,14 +176,14 @@ table 50101 "JCA Member"
         {
             Caption = 'Unused Vouchers';
             FieldClass = FlowField;
-            CalcFormula = count("JCA Voucher" where("Issued To License ID" = field("License ID"), Used = const(false)));
+            CalcFormula = count("JCA Voucher" where("Issued To No." = field("License ID"), Used = const(false)));
             Editable = false;
         }
         field(30; "Used Vouchers"; Integer)
         {
             Caption = 'Used Vouchers';
             FieldClass = FlowField;
-            CalcFormula = count("JCA Voucher" where("Issued To License ID" = field("License ID"), Used = const(true)));
+            CalcFormula = count("JCA Voucher" where("Issued To No." = field("License ID"), Used = const(true)));
             Editable = false;
         }
         field(31; "Current Injuries"; Integer)
@@ -254,7 +254,7 @@ table 50101 "JCA Member"
         JCAMemberAgeGroup.deleteall(true);
 
         JCAVoucher.Reset();
-        JCAVoucher.Setrange("Issued To License ID", rec."License ID");
+        JCAVoucher.Setrange("Issued To No.", rec."License ID");
         JCAVoucher.setrange(Used, false);
         JCAVoucher.deleteall(true);
 
@@ -332,10 +332,10 @@ table 50101 "JCA Member"
 
     procedure IssueVoucher(VoucherType: Code[20])
     var
-        JCAMemberManagement: codeunit "JCA Member Management";
+        JCAVoucherManagement: codeunit "JCA Voucher Management";
     begin
-        clear(JCAMemberManagement);
-        JCAMemberManagement.IssueVoucherToMember(Rec, VoucherType);
+        clear(JCAVoucherManagement);
+        JCAVoucherManagement.IssueVoucherToMember(Rec, VoucherType);
     end;
 
     procedure GetPicture(): Text
