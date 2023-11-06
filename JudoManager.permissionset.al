@@ -132,5 +132,16 @@ permissionset 50100 "Judo Manager"
         tabledata "JCA Sponsorship Period"=RIMD,
         table "JCA Sponsorship Period"=X,
         codeunit "JCA Sponsor Management"=X,
-        page "JCA Sponsorship Periods"=X;
+        page "JCA Sponsorship Periods"=X,
+        tabledata "JCA PDF Viewer Setup"=RIMD,
+        tabledata "PDF Viewer Buffer"=RIMD,
+        table "JCA PDF Viewer Setup"=X,
+        table "PDF Viewer Buffer"=X,
+        codeunit "JCA Get PDF Data"=X,
+        codeunit "JCA Open PDF Viewer"=X,
+        page "JCA PDF Viewer"=X,
+        page "JCA PDF Viewer Part"=X,
+        page "JCA PDF Viewer Setup"=X,
+        page "JCA Sponsor Cues"=X,
+        page "JCA Voucher Cues"=X;
 }
