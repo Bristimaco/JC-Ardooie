@@ -220,6 +220,6 @@ page 50117 "JCA Event Card"
         JCAEventDocument.setrange("Event No.", Rec."No.");
         JCAEventDocument.setrange(folder, true);
         if JCAEventDocument.FindFirst() then 
-            CurrPage.EventFolderPDF.Page.LoadPdfFromBase64(JCAEventDocument.GetDataAsBase64());        
+            CurrPage.EventFolderPDF.Page.LoadPdfFromBase64(JCAEventDocument.GetDataAsBase64());
     end;
 }

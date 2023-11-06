@@ -82,16 +82,16 @@ table 50117 "JCA Event Document"
     procedure GetDataAsBase64(): Text
     var
         Base64Convert: codeunit "Base64 Convert";
+        TempBlob: codeunit "Temp Blob";
         InStream: InStream;
-        FolderAsBase64: Text;
+        ContentAsBase64: Text;
     begin
         CalcFields("Document Content");
         if not "Document Content".HasValue() then
             exit;
-
-        "Document Content".CreateInStream(InStream);
-        InStream.ReadText(FolderAsBase64);
-        clear(Base64Convert);
-        exit(Base64Convert.ToBase64(FolderAsBase64));
+        TempBlob.FromRecord(Rec, rec.FieldNo("Document Content"));
+        TempBlob.CreateInStream(InStream);
+        ContentAsBase64 := Base64Convert.ToBase64(InStream);
+        exit(ContentAsBase64);
     end;
 }
