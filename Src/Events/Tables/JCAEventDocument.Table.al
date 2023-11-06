@@ -36,6 +36,11 @@ table 50117 "JCA Event Document"
             DataClassification = SystemMetadata;
             Editable = false;
         }
+        field(7; Folder; Boolean)
+        {
+            Caption = 'Folder';
+            DataClassification = SystemMetadata;
+        }
     }
 
     keys
@@ -72,5 +77,21 @@ table 50117 "JCA Event Document"
         "Document Content".CreateInStream(InStream);
         tempFileName := "Event No." + '.' + Extension;
         DownloadFromStream(InStream, DownloadFileLbl, '', '', tempFileName);
+    end;
+
+    procedure GetDataAsBase64(): Text
+    var
+        Base64Convert: codeunit "Base64 Convert";
+        InStream: InStream;
+        FolderAsBase64: Text;
+    begin
+        CalcFields("Document Content");
+        if not "Document Content".HasValue() then
+            exit;
+
+        "Document Content".CreateInStream(InStream);
+        InStream.ReadText(FolderAsBase64);
+        clear(Base64Convert);
+        exit(Base64Convert.ToBase64(FolderAsBase64));
     end;
 }

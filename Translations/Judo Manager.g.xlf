@@ -598,6 +598,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Document - Field Extension - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 94326445 - Field 3782382602 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Folder</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA Event Document - Field Folder - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3511736373 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Event Participant</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1308,6 +1313,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Membership Period - Field Payment Requested On - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2980621105 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PDF Viewer Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA PDF Viewer Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2980621105 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA PDF Viewer Setup - Field Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2980621105 - Field 943646029 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PDF Viewer URL</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table JCA PDF Viewer Setup - Field PDF Viewer URL - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2778352562 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Result Image</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1848,6 +1868,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table JCA Weight Group - Field Max. Weight - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1194956828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PDF Viewer Buffer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PDF Viewer Buffer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1194956828 - Field 2727210569 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Field Id</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PDF Viewer Buffer - Field FieldId - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1194956828 - Field 108236020 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Id</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PDF Viewer Buffer - Field SourceId - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1194956828 - Field 3827143618 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PDF Viewer Buffer - Field SourceTableId - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3993536024 - Method 2658703842 - NamedType 327091729" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invitation Reminder for %1 - %2</source>
           <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description</note>
@@ -1927,6 +1967,16 @@
           <source>Results for %1 - %2: %3</source>
           <note from="Developer" annotates="general" priority="2">%1 = Event No., %2 = Event Description, %3 = Member Name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Event Result Mail - Method CreateEventResultMailContent - NamedType ResultsLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4261896040 - NamedType 935874174" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The source type, source id or field id is missing.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Get PDF Data - NamedType MissingFiltersErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4261896040 - NamedType 3350068532" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The data type %1 is not supported.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Data Type</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit JCA Get PDF Data - NamedType UnsupportedDataTypeErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 870814990 - Method 4092131113 - NamedType 2953683660" size-unit="char" translate="yes" xml:space="preserve">
           <source>Results for %1 %2</source>
@@ -2152,6 +2202,11 @@
           <source>Event Participants</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Card - Control Participants - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2830652692 - Control 2462440516 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PDF Viewer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA Event Card - Control EventFolderPDF - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2830652692 - Action 3699952196 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Fetch Participants</source>
@@ -2673,6 +2728,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page JCA Memberships - Action CreateMembershipRequests - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1762969420 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PDF Viewer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA PDF Viewer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3399399625 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PDF Viewer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA PDF Viewer Part - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2980621105 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PDF Viewer Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA PDF Viewer Setup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2980621105 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page JCA PDF Viewer Setup - Control General - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 60502701 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Result Image Factbox</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3012,6 +3087,16 @@
           <source>Event Report</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report JCA Event Report - NamedType ReportTitleLbl</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2223912663 - Action 3875176889 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 219593816">
+          <source>View</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension JCA Doc. Attachment Details - Action ViewPDF - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2223912663 - Action 2417178415 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 219593816">
+          <source>View in new window</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension JCA Doc. Attachment Details - Action ViewPDFPopup - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1816701897 - Field 3410071898 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4148176377">
           <source>Age Group Switch Month</source>
@@ -3367,6 +3452,11 @@
           <source>Sponsor</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum JCA Voucher Issued To Type - EnumValue Sponsor - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3806793414 - ReportColumn 3192175264 - ReportColumn 3763938026 - ReportColumn 4133990171 - ReportColumn 2981235050 - NamedType 3040577680" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Event Report</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report JCA Event Report - ReportColumn Date - ReportColumn Supervisor_License_ID - ReportColumn Weigh_In_Start_Time - ReportColumn Member_License_ID - NamedType ReportTitleLbl</note>
         </trans-unit>
       </group>
     </body>

@@ -152,12 +152,21 @@ page 50117 "JCA Event Card"
                 UpdatePropagation = Both;
             }
 
-            Part(Participants; "JCA Event Participants")
+            part(Participants; "JCA Event Participants")
             {
                 Caption = 'Event Participants';
                 SubPageLink = "Event No." = field("No.");
                 ApplicationArea = all;
                 UpdatePropagation = Both;
+            }
+        }
+
+        area(FactBoxes)
+        {
+            part(EventFolderPDF; "JCA PDF Viewer Part")
+            {
+                Caption = 'PDF Viewer';
+                ApplicationArea = all;
             }
         }
     }
@@ -202,4 +211,15 @@ page 50117 "JCA Event Card"
             }
         }
     }
+
+    trigger OnAfterGetRecord()
+    var
+        JCAEventDocument: record "JCA Event Document";        
+    begin
+        JCAEventDocument.Reset();
+        JCAEventDocument.setrange("Event No.", Rec."No.");
+        JCAEventDocument.setrange(folder, true);
+        if JCAEventDocument.FindFirst() then 
+            CurrPage.EventFolderPDF.Page.LoadPdfFromBase64(JCAEventDocument.GetDataAsBase64());        
+    end;
 }

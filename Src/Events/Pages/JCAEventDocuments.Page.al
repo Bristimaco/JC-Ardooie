@@ -35,6 +35,11 @@ page 50124 "JCA Event Documents"
                     ApplicationArea = all;
                     ToolTip = ' ', Locked = true;
                 }
+                field(Folder; Rec.Folder)
+                {
+                    ApplicationArea = all;
+                    ToolTip = ' ', Locked = true;
+                }
             }
         }
     }
