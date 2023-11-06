@@ -18,6 +18,7 @@ page 50129 "JCA Training Attendance"
                 Caption = 'License ID';
                 ApplicationArea = all;
                 ToolTip = ' ', Locked = true;
+                ExtendedDatatype = Barcode;
 
                 trigger OnValidate()
                 begin
