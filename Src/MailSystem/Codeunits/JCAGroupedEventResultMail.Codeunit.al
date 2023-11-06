@@ -1,4 +1,4 @@
-codeunit 50114 "JCA Grouped Event Result Mail" implements JCAEventMailing
+codeunit 50114 "JCA Grouped Event Result Mail" implements "JCA Event Mailing"
 {
     procedure EditTemplate(var JCAMailMessageTemplate: record "JCA Mail Message Template")
     var
@@ -107,7 +107,7 @@ codeunit 50114 "JCA Grouped Event Result Mail" implements JCAEventMailing
     var
         JCAMailMessageTemplate: record "JCA Mail Message Template";
         tempJCAMailMessageTemplate: record "JCA Mail Message Template" temporary;
-        JCAEventMailing: Interface JCAEventMailing;
+        JCAEventMailing: Interface "JCA Event Mailing";
         EMailContent: Text;
         ResultsLbl: label 'Results for %1 %2', Comment = '%1 = Event No., %2 = Event Description';
     begin

@@ -108,20 +108,24 @@ page 50145 "JCA HTML Gen. CSS Editor"
                 trigger OnAction()
                 var
                     JCAEvent: record "JCA Event";
-                    JCAHTMLGenerator: codeunit "JCA HTML Generator";
+                    DateFilters: record Date;
                     TempBlob: codeunit "Temp Blob";
+                    JCAHTMLGenerator: Interface "JCA HTML Generator";
                     HTMLContent: Text;
                     FileName: Text;
                     InStream: InStream;
                     OutStream: OutStream;
                 begin
-                    Clear(JCAHTMLGenerator);
+                    JCAHTMLGenerator := Rec."HTML Gen. CSS Type";
                     case Rec."HTML Gen. CSS Type" of
                         enum::"JCA HTML Gen. CSS Type"::Calendar:
                             begin
                                 rec.TestField("Start Date");
                                 rec.TestField("End Date");
-                                HTMLContent := JCAHTMLGenerator.GenerateCalendarHTML(rec."Start Date", rec."End Date");
+                                DateFilters.Reset();
+                                DateFilters.setrange("Period Type", DateFilters."Period Type"::Date);
+                                DateFilters.setrange("Period Start", rec."Start Date", rec."End Date");
+                                HTMLContent := JCAHTMLGenerator.GenerateHTML(DateFilters);
                                 FileName := format(Rec."HTML Gen. CSS Type") + '.html';
                             end;
                         enum::"JCA HTML Gen. CSS Type"::"Event Result":
@@ -129,7 +133,7 @@ page 50145 "JCA HTML Gen. CSS Editor"
                                 rec.TestField("Event No.");
                                 JCAEvent.Reset();
                                 JCAEvent.get(rec."Event No.");
-                                HTMLContent := JCAHTMLGenerator.GenerateEventRsultHTML(JCAEvent);
+                                HTMLContent := JCAHTMLGenerator.GenerateHTML(JCAEvent);
                                 FileName := format(rec."HTML Gen. CSS Type") + '.html';
                             end;
                     end;

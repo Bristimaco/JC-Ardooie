@@ -62,7 +62,7 @@ table 50126 "JCA Mail Message Template"
     procedure OpenTemplateEditor()
     var
         JCAMailMessageTemplate: record "JCA Mail Message Template";
-        JCAEventMailing: Interface JCAEventMailing;
+        JCAEventMailing: Interface "JCA Event Mailing";
     begin
         JCAMailMessageTemplate.reset();
         JCAMailMessageTemplate.setrange("Mail Message Type", rec."Mail Message Type");

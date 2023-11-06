@@ -176,7 +176,7 @@ table 50112 "JCA Event Participant"
     procedure SendInvitationMail()
     var
         tempJCAMailMessageTemplate: record "JCA Mail Message Template" temporary;
-        JCAEventMailing: Interface JCAEventMailing;
+        JCAEventMailing: Interface "JCA Event Mailing";
         InvitationSentLbl: Label 'Invitation has been sent';
     begin
         JCAEventMailing := enum::"JCA Mail Message Type"::Invitation;
@@ -240,7 +240,7 @@ table 50112 "JCA Event Participant"
     var
         JCAEvent: record "JCA Event";
         tempJCAMailMessageTemplate: record "JCA Mail Message Template" temporary;
-        JCAEventMailing: Interface JCAEventMailing;
+        JCAEventMailing: Interface "JCA Event Mailing";
     begin
         JCAEvent.Reset();
         JCAEvent.get(Rec."Event No.");

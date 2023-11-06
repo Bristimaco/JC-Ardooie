@@ -95,7 +95,7 @@ table 50113 "JCA Event Supervisor"
     procedure SendInvitationMail()
     var
         tempJCAMailMessageTemplate: record "JCA Mail Message Template" temporary;
-        JCAEventMailing: Interface JCAEventMailing;
+        JCAEventMailing: Interface "JCA Event Mailing";
         InvitationSentLbl: Label 'Invitation has been sent';
     begin
         tempJCAMailMessageTemplate.Reset();

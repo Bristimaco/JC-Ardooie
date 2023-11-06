@@ -144,7 +144,7 @@ page 50148 "JCA Gr. Ev. Res. Mail Editor"
     local procedure UpdateExampleData()
     var
         tempJCAMailMessageTemplate: record "JCA Mail Message Template" temporary;
-        JCAEventMailing: Interface JCAEventMailing;
+        JCAEventMailing: Interface "JCA Event Mailing";
     begin
         JCAEventMailing := enum::"JCA Mail Message Type"::"Grouped Event Result";
         tempJCAMailMessageTemplate.reset();

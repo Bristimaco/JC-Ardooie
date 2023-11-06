@@ -1,4 +1,4 @@
-codeunit 50113 "JCA Event Unregistration Mail" implements JCAEventMailing
+codeunit 50113 "JCA Event Unregistration Mail" implements "JCA Event Mailing"
 {
     procedure EditTemplate(var JCAMailMessageTemplate: record "JCA Mail Message Template")
     begin

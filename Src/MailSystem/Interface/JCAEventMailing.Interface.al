@@ -1,4 +1,4 @@
-interface JCAEventMailing
+interface "JCA Event Mailing"
 {
     procedure EditTemplate(var JCAMailMessageTemplate: record "JCA Mail Message Template");
     procedure ReturnMailContent(var tempJCAMailMessageTemplate: record "JCA Mail Message Template" temporary): Text;

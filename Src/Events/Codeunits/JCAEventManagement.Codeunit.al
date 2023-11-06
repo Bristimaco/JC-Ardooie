@@ -151,7 +151,7 @@ codeunit 50102 "JCA Event Management"
     local procedure SendEventInvitationMail(MemberLicenseID: code[50]; EventNo: code[20]): Boolean
     var
         tempJCAMailMessageTemplate: record "JCA Mail Message Template" temporary;
-        JCAEventMailing: Interface JCAEventMailing;
+        JCAEventMailing: Interface "JCA Event Mailing";
     begin
         tempJCAMailMessageTemplate.Reset();
         tempJCAMailMessageTemplate."Mail Message Type" := enum::"JCA Mail Message Type"::Invitation;
@@ -165,7 +165,7 @@ codeunit 50102 "JCA Event Management"
     local procedure SendEventReminderMail(MemberLicenseID: code[50]; EventNo: code[20]): Boolean
     var
         tempJCAMailMessageTemplate: record "JCA Mail Message Template" temporary;
-        JCAEventMailing: Interface JCAEventMailing;
+        JCAEventMailing: Interface "JCA Event Mailing";
     begin
         tempJCAMailMessageTemplate.Reset();
         tempJCAMailMessageTemplate."Mail Message Type" := enum::"JCA Mail Message Type"::"Invitation Reminder";
@@ -191,7 +191,7 @@ codeunit 50102 "JCA Event Management"
     procedure MailGroupedEventResults(var JCAEvent: record "JCA Event")
     var
         tempJCAMailMessageTemplate: record "JCA Mail Message Template" temporary;
-        JCAEventMailing: Interface JCAEventMailing;
+        JCAEventMailing: Interface "JCA Event Mailing";
     begin
         if JCAEvent.Status <> JCAEvent.Status::Archived then
             exit;

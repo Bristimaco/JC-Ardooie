@@ -1,4 +1,4 @@
-codeunit 50111 "JCA Event Inv. Reminder Mail" implements JCAEventMailing
+codeunit 50111 "JCA Event Inv. Reminder Mail" implements "JCA Event Mailing"
 {
     procedure EditTemplate(var JCAMailMessageTemplate: record "JCA Mail Message Template")
     begin

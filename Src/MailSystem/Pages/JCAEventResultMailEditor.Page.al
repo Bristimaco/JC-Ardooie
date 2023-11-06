@@ -161,7 +161,7 @@ page 50142 "JCA Event Result Mail Editor"
     local procedure UpdateExampleData()
     var
         tempJCAMailMessageTemplate: record "JCA Mail Message Template" temporary;
-        JCAEventMailing: Interface JCAEventMailing;
+        JCAEventMailing: Interface "JCA Event Mailing";
     begin
         JCAEventMailing := enum::"JCA Mail Message Type"::"Event Result";
         tempJCAMailMessageTemplate.reset();

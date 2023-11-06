@@ -105,7 +105,7 @@ page 50143 "JCA Event Inv. Mail Editor"
     actions
     {
         area(Processing)
-        {           
+        {
             action(RefreshExample)
             {
                 Caption = 'Refresh Example';
@@ -161,7 +161,7 @@ page 50143 "JCA Event Inv. Mail Editor"
     local procedure UpdateExampleData()
     var
         tempJCAMailMessageTemplate: record "JCA Mail Message Template" temporary;
-        JCAEventMailing: Interface JCAEventMailing;
+        JCAEventMailing: Interface "JCA Event Mailing";
     begin
         JCAEventMailing := enum::"JCA Mail Message Type"::Invitation;
         tempJCAMailMessageTemplate.reset();

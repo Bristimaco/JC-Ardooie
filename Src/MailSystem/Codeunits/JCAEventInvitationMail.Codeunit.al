@@ -1,4 +1,4 @@
-codeunit 50110 "JCA Event Invitation Mail" implements JCAEventMailing
+codeunit 50110 "JCA Event Invitation Mail" implements "JCA Event Mailing"
 {
     procedure EditTemplate(var JCAMailMessageTemplate: record "JCA Mail Message Template")
     var
@@ -146,7 +146,7 @@ codeunit 50110 "JCA Event Invitation Mail" implements JCAEventMailing
     var
         JCAMailMessageTemplate: record "JCA Mail Message Template";
         tempJCAMailMessageTemplate: record "JCA Mail Message Template" temporary;
-        JCAEventMailing: Interface JCAEventMailing;
+        JCAEventMailing: Interface "JCA Event Mailing";
         EmailContent: Text;
         InvitationSubjectLbl: label 'Invitation for %1 - %2', Comment = '%1 = Event No., %2 = Event Description';
     begin
